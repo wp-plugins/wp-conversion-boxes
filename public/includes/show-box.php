@@ -71,18 +71,24 @@
         
         if($wpcb_all_posts == $wpcb_all_pages && $wpcb_all_posts != 0){
             show_the_box($wpcb_all_posts);
+            $final_output = ob_get_contents();  // get buffer content
+            ob_end_clean();
         }else if($posttype == 'post' && $wpcb_all_posts != 0){
             show_the_box($wpcb_all_posts);
+            $final_output = ob_get_contents();  // get buffer content
+            ob_end_clean();
         }
         elseif($posttype == 'page' && $wpcb_all_pages != 0){
             show_the_box($wpcb_all_pages);
+            $final_output = ob_get_contents();  // get buffer content
+            ob_end_clean();
         }
         elseif($wpcb_default_box != 0){
             show_the_box($wpcb_default_box);
+            $final_output = ob_get_contents();  // get buffer content
+            ob_end_clean();
         }
         else {
-            echo '';
+            $final_output = '';
         }
         
-        $final_output = ob_get_contents();  // get buffer content
-        ob_end_clean();

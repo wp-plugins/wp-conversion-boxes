@@ -304,6 +304,8 @@ function validateFieldsOnDocumentReady(){
             
             $(document).on('click','#update-global-settings', function(){
 
+                $(this).attr('disabled','disabled').val('Updating... Please wait!');
+                
                 var wpcb_boxes_list_default = $('#wpcb_boxes_list_default').find(':selected').val();
                 var wpcb_boxes_list_posts = $('#wpcb_boxes_list_posts').find(':selected').val();
                 var wpcb_boxes_list_pages = $('#wpcb_boxes_list_pages').find(':selected').val();
@@ -317,10 +319,12 @@ function validateFieldsOnDocumentReady(){
 
                 $.post(ajaxurl, data, function(response) {
                     if(response > 0){
+                        $('#update-global-settings').removeAttr('disabled').val('Update');
                         $("<div class='updated'><p>Updated successfully.</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
                     }
                     else
                     {
+                        $('#update-global-settings').removeAttr('disabled').val('Update');
                         $("<div class='error'><p>There was an error updating the database. Please try again later.</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
                     }
 

@@ -95,8 +95,8 @@ Here’s how to install the plugin:
 = Using FTP =
 
 1. Download `wp-conversion-boxes.zip`
-2. Extract the `plugin-name` directory to your computer
-3. Upload the `plugin-name` directory to the `/wp-content/plugins/` directory
+2. Extract the `wp-conversion-boxes` directory to your computer
+3. Upload the `wp-conversion-boxes` directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
 
 
@@ -109,7 +109,7 @@ It’s in the process of making. Will be available by 25th this month.
 == Screenshots ==
 
 1. Add new conversion box.
-2. List of conversion boxes.
+2. List of all conversion boxes.
 3. Select a box type and then select a template from our collection of templates.
 4. Customize your selected template. Here you see only tip of iceberg, more customisation options when you scroll down. The box preview gets updated real time.
 5. Box settings page.
@@ -120,7 +120,7 @@ It’s in the process of making. Will be available by 25th this month.
 == Changelog ==
 
 = 1.0 =
-* Released on 10th August, 2014
+* Released on 9th August, 2014
 
 == Upgrade Notice ==
 

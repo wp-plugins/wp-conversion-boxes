@@ -55,7 +55,7 @@ class WPCB_Public {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
                 
                 add_action( 'wp_footer', array( $this, 'in_footer' ) );
-                add_filter( 'the_content', array( $this, 'show_box'));
+                //add_filter( 'the_content', array( $this, 'show_box'));
                 add_shortcode( 'wpcb' , array( $this, 'run_shortcode') );
 
 	}

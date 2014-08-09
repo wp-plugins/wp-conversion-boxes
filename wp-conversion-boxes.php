@@ -9,7 +9,7 @@
  * Plugin Name:       WP Conversion Boxes
  * Plugin URI:        http://wpconversionboxes.com
  * Description:       Boost your blog subscription rate while having the same amount of traffic!
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Ram Shengale
  * Author URI:        http://ramshengale.in
  * Text Domain:       wp-conversion-boxes

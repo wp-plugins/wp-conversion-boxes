@@ -123,13 +123,18 @@ If you are using WordPress 3.9+ you’ll not be able to use their colour picker,
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * Released on 9th August, 2014
+
+= 1.0.1 = 
+* Released on 10th August, 2014
+* Lots of minor bug fixes.
 
 == Upgrade Notice ==
 
-= 1.1 =
-* Minor bug fixes
+= 1.0.1 =
+* Lots of bug fixes
+* Must update to 1.0.1 from 1.0.0 for proper plugin functioning.
 
 == Updates ==
 

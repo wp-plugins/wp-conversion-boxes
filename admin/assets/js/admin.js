@@ -61,27 +61,6 @@ function validateFieldsOnDocumentReady(){
                 
                 ///////////////////////////////////////////////////////////////
                 
-                // Stats Page Related
-                
-                $( "#datefrom" ).datepicker({
-                    defaultDate: "+1w",
-                    changeMonth: true,
-                    numberOfMonths: 3,
-                    onClose: function( selectedDate ) {
-                      $( "#dateto" ).datepicker( "option", "minDate", selectedDate );
-                    }
-                });
-                $( "#dateto" ).datepicker({
-                    defaultDate: "+1w",
-                    changeMonth: true,
-                    numberOfMonths: 3,
-                    onClose: function( selectedDate ) {
-                      $( "#datefrom" ).datepicker( "option", "maxDate", selectedDate );
-                    }
-                });
-                
-                ///////////////////////////////////////////////////////////////
-                
                 // Load more sidebar
 
                 // The section added to the bottom of the "wpcb_more_less" div

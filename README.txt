@@ -24,11 +24,11 @@ There are a lot features that set WP Conversion Boxes apart from competition:
 
 *   Create multiple conversion boxes - This feature is specially very important if you are serious about conversion rate on your blog from your CTAs or email subscription boxes.
 
-    Most people use just one version of CTA or email subscription box under their posts/pages (or elsewhere). But this is what affects the conversion rate the most as the copy written in the box not always match the content written in the posts/pages.
+    Most people use just one version of CTA or email subscription box under their posts/pages (or elsewhere). But this is what affects the conversion rate the most as the copy written in the box not always match the content written in the respective posts/pages.
 
     But with WP Conversion Boxes you can create as may variation of the boxes you want, specific to content of the posts/page where you put it. You can also have different boxes for different categories for targeting people with specific interests with specific box copies.
 
-*   Track Your Conversions - Know how many people visited the page containing your conversion bode, the number of people who actually scrolled the page down and saw the box! and the number of people who actually clicked on your call to action or filled in their email address.
+*   Track Your Conversions - Know how many people visited the page containing your conversion box, the number of people who actually scrolled the page down and saw the box! and the number of people who actually clicked on your call to action or filled in their email address.
 
     Know specifically the boxes and posts/pages that are bringing you the most conversions and then use that data to optimise your call to action copy or use the same copy across your site or whatever you want to do with that useful data.
 

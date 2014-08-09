@@ -88,13 +88,13 @@ Here’s how to install the plugin:
 
 1. Navigate to the 'Add New' in the plugins dashboard
 2. Navigate to the 'Upload' area
-3. Select `wpcb.zip` from your computer
+3. Select `wp-conversion-boxes.zip` from your computer
 4. Click 'Install Now'
 5. Activate the plugin in the Plugin dashboard
 
 = Using FTP =
 
-1. Download `wpcb.zip`
+1. Download `wp-conversion-boxes.zip`
 2. Extract the `plugin-name` directory to your computer
 3. Upload the `plugin-name` directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard

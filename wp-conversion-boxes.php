@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name:       WP Conversion Boxes
  * Plugin URI:        http://wpconversionboxes.com
- * Description:       Boost your blog subscription rate while having the same amount of traffic!
+ * Description:       Same Traffic. More Conversions. Replace the CTAs, email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
  * Version:           1.0.1
  * Author:            Ram Shengale
  * Author URI:        http://ramshengale.in

@@ -36,7 +36,7 @@ class WPCB_Admin {
 		$this->wpcb_main_slug = $wpcb_public->get_wpcb_main_slug();
                 $this->wpcb_edit_slug = $wpcb_public->get_wpcb_edit_slug();
                 $this->wpcb_ab_tests_slug = $wpcb_public->get_wpcb_ab_tests_slug();
-                $this->wpcb_edit_ab_tests_slug = $wpcb_public->get_wpcb_edit_ab_test_slug();
+                $this->wpcb_edit_ab_test_slug = $wpcb_public->get_wpcb_edit_ab_test_slug();
                 $this->wpcb_stats_slug = $wpcb_public->get_wpcb_stats_slug();
                 $this->wpcb_settings_slug = $wpcb_public->get_wpcb_settings_slug();
                 $this->template_directory_1 = $wpcb_public->get_template_directory(1);

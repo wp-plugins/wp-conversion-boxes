@@ -3,7 +3,7 @@ Contributors: ramshengale
 Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, email optin, email subscribers, email subscription form, click tracking, cpa, cta, email list, list building, split testing, wp conversion boxes
 Requires at least: 3.5.1
-Tested up to: 3.6
+Tested up to: 3.8.3
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -105,6 +105,10 @@ Here’s how to install the plugin:
 = When will the email subscriber functionality be added? =
 
 It’s in the process of making. Will be available by 25th this month.
+
+= I don’t see anything opposite to color option in Customizer =
+
+If you are using WordPress 3.9+ you’ll not be able to use their colour picker, the removed that feature, which they may add back later. It will work perfectly fine with versions prior to v3.9+.
 
 == Screenshots ==
 

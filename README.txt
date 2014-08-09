@@ -1,7 +1,7 @@
 === WP Conversion Boxes ===
 Contributors: ramshengale
 Donate link: http://wpconversionboxes.com/donate/
-Tags: call to action, Calls to Action, optin, a b test, a b testing, a/b test, a/b testing, click tracking, cpa, cta, email list, list building, split testing, wp conversion boxes
+Tags: call to action, Calls to Action, optin, email optin, email subscribers, email subscription form, click tracking, cpa, cta, email list, list building, split testing, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 3.6
 Stable tag: 1.0.0
@@ -11,6 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Same Traffic. More Conversions. Replace the CTAs, email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
 
 == Description ==
+
+= Same Traffic. More Conversions. =
 
 WP Conversion Boxes helps you to boost the conversion rate of the call-to-actions and email subscriber boxes that you already have on your blog. Replace the CTAs, option/email subscriber boxes with WP Conversion Boxes and increase your click through rates (for CTAs) and subscription rate (for email optins) with no change in traffic.
 

@@ -130,11 +130,17 @@ If you are using WordPress 3.9+ you’ll not be able to use their colour picker,
 * Released on 10th August, 2014
 * Lots of minor bug fixes.
 
+= 1.0.2 =
+* Global settings was not working, now working.
+
 == Upgrade Notice ==
 
 = 1.0.1 =
-* Lots of bug fixes
+* IMPORTANT UPDATE - Lots of bug fixes
 * Must update to 1.0.1 from 1.0.0 for proper plugin functioning.
+
+= 1.0.2 =
+* IMPORTANT UPDATE - Global settings was not working, now working.
 
 == Updates ==
 

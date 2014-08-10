@@ -1,0 +1,147 @@
+=== WP Conversion Boxes ===
+Contributors: ramshengale
+Donate link: http://wpconversionboxes.com/donate/
+Tags: call to action, Calls to Action, optin, email optin, email subscribers, email subscription form, click tracking, cpa, cta, email list, list building, split testing, wp conversion boxes
+Requires at least: 3.5.1
+Tested up to: 3.8.3
+Stable tag: 1.0.2
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Same Traffic. More Conversions. Replace the CTAs, email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
+
+== Description ==
+
+= Same Traffic. More Conversions. =
+
+WP Conversion Boxes helps you to boost the conversion rate of the call-to-actions and email subscriber boxes that you already have on your blog. Replace the CTAs, option/email subscriber boxes with WP Conversion Boxes and increase your click through rates (for CTAs) and subscription rate (for email optins) with no change in traffic.
+
+*WP Conversion Boxes helps you to easily create a call-to-action or a email subscriber bode that you can put below your posts/pages or almost anywhere on your blog using short codes.
+
+= What’s different in WP Conversion Boxes? =
+
+There are a lot features that set WP Conversion Boxes apart from competition:
+
+*   Create multiple conversion boxes - This feature is specially very important if you are serious about conversion rate on your blog from your CTAs or email subscription boxes.
+
+    Most people use just one version of CTA or email subscription box under their posts/pages (or elsewhere). But this is what affects the conversion rate the most as the copy written in the box not always match the content written in the respective posts/pages.
+
+    But with WP Conversion Boxes you can create as may variation of the boxes you want, specific to content of the posts/page where you put it. You can also have different boxes for different categories for targeting people with specific interests with specific box copies.
+
+*   Track Your Conversions - Know how many people visited the page containing your conversion box, the number of people who actually scrolled the page down and saw the box! and the number of people who actually clicked on your call to action or filled in their email address.
+
+    Know specifically the boxes and posts/pages that are bringing you the most conversions and then use that data to optimise your call to action copy or use the same copy across your site or whatever you want to do with that useful data.
+
+*   Advanced Template System - If you already have a designed conversion box on your blog, you don’t have to change it’s design to use WP Conversion Boxes! With our advanced templating system, you can easily create custom templates for WP Conversion Boxes. So now, you get to keep your initial design but with a more advance managing and conversion tracking system.
+
+    You may design the template on your own or you may get the template made for WP Conversion Boxes for just $49 by contacting us.
+
+    The plugin also includes advanced real-time template customiser which can be used to edit almost every aspect of your template without the need to ever touch the code!
+
+*   High Impact Box Settings - Grab the visitor’s attention with flashing conversion box. WP Conversion Boxes comes with an option to flash the box when user scrolls down and reaches the box. This flashing of the box grabs the visitor’s attention, increasing the chances of conversion.
+
+    The plugin also comes with an option to make the conversion box sticky. This causes the box to stick to the top of the window when the visitor scrolls past the box, again helping you to grab the attention of the visitors.
+
+*   Video Enabled Conversion Boxes - Create call to action and email subscription boxes with embedded video for more impact. Having a short video in your conversion boxes can help you boost your conversions many folds.
+
+= WP Conversion Boxes Features =
+
+* Create unlimited number of conversion boxes.
+* Create various types of conversion boxes:
+	* Call To Action Box (Heading, description, image and a CTA button)
+	* Video Call To Action Box (Heading, description, video and a CTA button)
+	* Email Optin Box (Heading, description, image and email optin form) (Feature coming soon)
+	* Video Optin Box (Heading, description, video and email optin form) (Feature coming soon)
+* Easy to manage dashboard for all your conversion boxes.
+* 10+ free box templates.
+* Templating system to add your own templates (or ask us to make one for you).
+* Real-time template customiser. Almost complete control over the design using customiser. No need to touch the code of template.
+* Option to make the box fade in/out (flash) to grab visitor’s attention.
+* Option to make the box sticky (stick to top of window when scrolled past).
+* Detailed box statistics for each conversion box:
+	* Unique Visitors
+	* Pageviews
+	* Box Views
+	* Conversion
+	* Conversion Rate (%)
+* Detailed stats showing the 10 top performing posts/pages with above given details.
+* Global settings to set default conversion boxes under all posts/pages.
+* Global settings to override the default conversion box and set different conversion box for posts and pages.
+* Shortcode for each conversion box. Place the conversion box anywhere on your blog using shortcode.
+	* To place the box in the content of post/page, use `[wpcb id=“#”]` 
+	* To add the box inside your theme, use `<?php echo do_shortcode('[wpcb id=“#”]'); ?>`
+
+You will usually find these features being sold in premium plugins. But with WP Conversion Boxes you get all of this for FREE!
+
+== Installation ==
+
+Here’s how to install the plugin:
+
+= Using The WordPress Dashboard =
+
+1. Navigate to the 'Add New' in the plugins dashboard
+2. Search for ‘WP Conversion Boxes’
+3. Click 'Install Now'
+4. Activate the plugin on the Plugin dashboard
+
+= Uploading in WordPress Dashboard =
+
+1. Navigate to the 'Add New' in the plugins dashboard
+2. Navigate to the 'Upload' area
+3. Select `wp-conversion-boxes.zip` from your computer
+4. Click 'Install Now'
+5. Activate the plugin in the Plugin dashboard
+
+= Using FTP =
+
+1. Download `wp-conversion-boxes.zip`
+2. Extract the `wp-conversion-boxes` directory to your computer
+3. Upload the `wp-conversion-boxes` directory to the `/wp-content/plugins/` directory
+4. Activate the plugin in the Plugin dashboard
+
+
+== Frequently Asked Questions ==
+
+= When will the email subscriber functionality be added? =
+
+It’s in the process of making. Will be available by 25th this month.
+
+= I don’t see anything opposite to color option in Customizer =
+
+If you are using WordPress 3.9+ you’ll not be able to use their colour picker, the removed that feature, which they may add back later. It will work perfectly fine with versions prior to v3.9+.
+
+== Screenshots ==
+
+1. Add new conversion box.
+2. List of all conversion boxes.
+3. Select a box type and then select a template from our collection of templates.
+4. Customize your selected template. Here you see only tip of iceberg, more customisation options when you scroll down. The box preview gets updated real time.
+5. Box settings page.
+6. Statistics of all the boxes.
+7. List of top performing posts and pages on detailed stats page.
+8. Global settings page.
+
+== Changelog ==
+
+= 1.0.0 =
+* Released on 9th August, 2014
+
+= 1.0.1 = 
+* Released on 10th August, 2014
+* Lots of minor bug fixes.
+
+= 1.0.2 =
+* Global settings was not working, now working.
+
+== Upgrade Notice ==
+
+= 1.0.1 =
+* IMPORTANT UPDATE - Lots of bug fixes
+* Must update to 1.0.1 from 1.0.0 for proper plugin functioning.
+
+= 1.0.2 =
+* IMPORTANT UPDATE - Global settings was not working, now working.
+
+== Updates ==
+
+* No updates yet.

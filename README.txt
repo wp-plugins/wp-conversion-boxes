@@ -16,7 +16,37 @@ Same Traffic. More Conversions. Replace the CTAs, email/optin subscriber boxes w
 
 WP Conversion Boxes helps you to boost the conversion rate of the call-to-actions and email subscriber boxes that you already have on your blog. Replace the CTAs, option/email subscriber boxes with WP Conversion Boxes and increase your click through rates (for CTAs) and subscription rate (for email optins) with no change in traffic.
 
-*WP Conversion Boxes helps you to easily create a call-to-action or a email subscriber bode that you can put below your posts/pages or almost anywhere on your blog using short codes.
+WP Conversion Boxes helps you to easily create a call-to-action or an email subscriber box that you can put below your posts/pages or almost anywhere on your blog using short codes.
+
+Here’s how it helps you boost your conversions:
+
+1. Install the plugin.
+
+	Note: You get the following 3 important stats (which you generally get with premium plugins) that we have to keep an eye on:
+	1. Number of box views. (unlike page views, it calculates how many times your box was actually seen, after scrolling down, etc)
+	2. Number of conversion. (if you are using a CTA, it’s the # of people who clicked on the button and if you using email optin box, it’s the # of times people actually filled the form.)
+	3. Conversion rate (%) (Number of Conversions / Number of box views %)
+
+
+2. Now, create a conversion box with your desired copy and put it on the posts/pages you want using shortcode. Or you can also go about this by creating multiple conversion boxes with different color/copy combination and putting on different posts/pages instead of one for all.
+
+3. Wait for a week for the stats to gather for the conversion box and then go to Statistics page to see which box has performed the best. These stats will help you figure out which copy of your box is working the best and which are not. Simply repace the boxes which are not working with the ones that are showing the best results. 
+
+	Conversion Tip: I have found that using different copies for posts of different categories on your blog works best. For example if you have a Facebook PPC category and a Google Adwords PPC category, using two different copies related to the topic of the post helps improving the conversions many folds.
+
+	NOTE - To further pump this up, I’ve included A/B Testing feature in the PRO version of this plugin. So if you are a more advanced user, using the PRO version will be more beneficial.
+
+4. This steps goes with the step #3. On the Statistics page you’ll also see an option for Detailed Stats under each box. Clicking it will take you to a page showing top 10 most performing pages/posts for that particular conversion box. Each showing all the stats given above for the listed posts/pages.
+
+	Now this is where it really starts getting exciting. On this detailed stats page, you’ll get two important datas: page with most conversions and box which brought the conversion. 
+
+	Conversion Tip: I have found that pages with most traffic are not always the ones bringing the most conversions.
+
+	With this data you’ll have a winner combination of a post/page and a conversion box! Keep on making the changes to the copy and monitoring how combinations are working out. Soon you’ll have a perfect post/page and conversion box combination bringing the most conversions out of that particular post/page.
+
+	Now move to the other posts and pages and repeat the process until the list exhausts and you have with you the best possible optimised combinations of posts/pages and conversion boxes!
+
+Conversion Tip: The above method will prove to be very tedious if you have a lot of posts on your blog. I’d suggest you to rather focus of posts of different categories to simplify things. For example if you have a Facebook PPC category and a Google Adwords PPC category with 6 posts each, make 3 different copies of conversion boxes for each category and put a conversion box under two posts of respective categories and monitor the stats. Soon you’ll know which conversion box is working for the posts of a particular category and you can then replace the non-working conversion boxes with the best working one. You can call this category level optimisation. If you want to pump the conversions even further you can do it at post/page level (as described in steps above). 
 
 = What’s different in WP Conversion Boxes? =
 

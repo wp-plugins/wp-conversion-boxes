@@ -21,12 +21,10 @@ WP Conversion Boxes helps you to easily create a call-to-action or an email subs
 Here’s how it helps you boost your conversions:
 
 1. Install the plugin.
-
-	Note: You get the following 3 important stats (which you generally get with premium plugins) that we have to keep an eye on:
-	1. Number of box views. (unlike page views, it calculates how many times your box was actually seen, after scrolling down, etc)
-	2. Number of conversion. (if you are using a CTA, it’s the # of people who clicked on the button and if you using email optin box, it’s the # of times people actually filled the form.)
+	Note: You get the following 3 important stats (which you generally get with premium plugins) that you have to keep an eye on:
+	1. Number of box views (unlike page views, it calculates how many times your box was actually seen, after scrolling down, etc)
+	2. Number of conversions (if you are using a CTA, it’s the # of people who clicked on the button and if you using email optin box, it’s the # of times people actually filled the form.)
 	3. Conversion rate (%) (Number of Conversions / Number of box views %)
-
 
 2. Now, create a conversion box with your desired copy and put it on the posts/pages you want using shortcode. Or you can also go about this by creating multiple conversion boxes with different color/copy combination and putting on different posts/pages instead of one for all.
 

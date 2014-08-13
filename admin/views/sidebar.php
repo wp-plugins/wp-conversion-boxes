@@ -3,6 +3,16 @@
 // Sidebar
 
 ?>
+
+<div class="postbox" style="display: block;">
+    <h3 style="cursor: pointer;"><span>Like the plugin?</span></h3>
+    <div class="inside">
+        Leave your rating on WordPress.org!
+        <a href="https://wordpress.org/support/view/plugin-reviews/wp-conversion-boxes?rate=5#postform" target="_blank"><img src="<?php echo plugins_url('assets/imgs/rating.png', dirname(__FILE__ )); ?>" /></a>
+        <br /><a href="https://wordpress.org/support/view/plugin-reviews/wp-conversion-boxes?rate=5#postform" target="_blank">Leave rating now</a>
+    </div>
+</div>
+
 <div class="postbox" style="display: block;">
     <h3 style="cursor: pointer;"><span>Upgrade to Pro</span></h3>
     <div class="inside">

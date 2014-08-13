@@ -107,6 +107,7 @@ class WPCB_Admin {
 		$wpcb_screen = get_current_screen();
 		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_stats_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
 			wp_enqueue_style( $this->wpcb_main_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), WPCB_Public::VERSION );
+            wp_enqueue_style( 'wp-color-picker');
                 }       
 
 	}
@@ -362,6 +363,7 @@ class WPCB_Admin {
         public function update_box_settings() {
                 global $wpdb;
                 
+                $box_name = $_POST['box_name'];
                 $box_settings = array(
                     'box_fade_in' => $_POST['box_fade_in'],
                     'box_fade_in_time' => $_POST['box_fade_in_time'],
@@ -372,7 +374,7 @@ class WPCB_Admin {
                 
                 $box_settings = serialize($box_settings);
 
-                $wpcb_if_done = $wpdb->update($this->wpcb_boxes_table, array('box_settings' => $box_settings), array('id' => $box_id), array('%s'), array('%d'));
+                $wpcb_if_done = $wpdb->update($this->wpcb_boxes_table, array('box_name' => $box_name, 'box_settings' => $box_settings), array('id' => $box_id), array('%s'), array('%d'));
                 
                 if($wpcb_if_done === FALSE)
                     echo 0;

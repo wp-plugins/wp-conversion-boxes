@@ -193,6 +193,10 @@ function validateFieldsOnDocumentReady(){
                 
                 $(this).attr('disabled','disabled').val('Updating... Please wait!');
                 
+                // Box name @since 1.0.3
+                
+                var box_name = jQuery('#box_name').val();
+                
                 // Box fade-in setting
 
                 if(jQuery('#box_fade_in').is(':checked')){
@@ -215,6 +219,7 @@ function validateFieldsOnDocumentReady(){
 
                 window.settingsData = {
                     action: 'update_box_settings',
+                    box_name: box_name,
                     box_fade_in: box_fade_in,
                     box_fade_in_time: box_fade_in_time,
                     box_make_sticky: box_make_sticky,

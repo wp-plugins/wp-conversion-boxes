@@ -2,7 +2,8 @@
 
 // Step 3
 
-    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_settings` from $wpcb_tbl_name WHERE id = $id",array('%s')));
+    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_name`,`box_settings` from $wpcb_tbl_name WHERE id = $id",array('%s')));
+    $box_name = $wpcb_the_row->box_name;
     $box_settings = unserialize($wpcb_the_row->box_settings);
     
     $box_fade_in  = ((isset($box_settings['box_fade_in']) && $box_settings['box_fade_in'] == 1) ? 'checked' : '');
@@ -15,6 +16,13 @@
         <div class="inside">
             <table class="form-table">
                 <tbody>
+                    <tr>
+                        <th scope="row"><label for="">Box Name</label></th>
+                        <td>
+                            <input type="text" name="box_name" id="box_name" value="<?= $box_name; ?>"/>
+                            <p class="wpcb_help_block">Change the name of this conversion box.</p>
+                        </td>
+                    </tr>
                     <tr>
                         <th scope="row"><label for="">Box Fade In/Out Effect</label></th>
                         <td>

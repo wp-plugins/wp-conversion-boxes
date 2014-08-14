@@ -136,10 +136,6 @@ Here’s how to install the plugin:
 
 It’s in the process of making. Will be available by 25th this month.
 
-= I don’t see anything opposite to color option in Customizer =
-
-If you are using WordPress 3.9+ you’ll not be able to use their colour picker, the removed that feature, which they may add back later. It will work perfectly fine with versions prior to v3.9+.
-
 == Screenshots ==
 
 1. Add new conversion box.

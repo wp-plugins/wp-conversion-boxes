@@ -193,7 +193,7 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 = 1.2.0 =
 * IMPORTANT UPDATE - Email Optin Boxes (beta) added!
 * Now integrate your email optin boxes with your favorite email marketing provider (GetResponse, Aweber and MailChimp)
-* Six new templates for Email Optin Boxes and Video Email Optin Boxes.
+* 7 new templates for Email Optin Boxes and Video Email Optin Boxes.
 * Some minor bug fixes.
 * Slight improvement in conversion tracking. Now conversions mean both optins and clicks for optin boxes and cta boxes.
 

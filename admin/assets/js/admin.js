@@ -306,36 +306,55 @@ function validateFieldsOnDocumentReady(){
             });
             
             // Update Global Settings Page
+                
+                // General Settings
             
-            $(document).on('click','#update-global-settings', function(){
+                $(document).on('click','#update-global-settings', function(){
 
-                $(this).attr('disabled','disabled').val('Updating... Please wait!');
-                
-                var wpcb_boxes_list_default = $('#wpcb_boxes_list_default').find(':selected').val();
-                var wpcb_boxes_list_posts = $('#wpcb_boxes_list_posts').find(':selected').val();
-                var wpcb_boxes_list_pages = $('#wpcb_boxes_list_pages').find(':selected').val();
-                
-                var data = {
-                    action: 'update_global_settings',
-                    wpcb_boxes_list_default: wpcb_boxes_list_default,
-                    wpcb_boxes_list_posts: wpcb_boxes_list_posts,
-                    wpcb_boxes_list_pages: wpcb_boxes_list_pages
-                };
+                    $(this).attr('disabled','disabled').val('Updating... Please wait!');
 
-                $.post(ajaxurl, data, function(response) {
-                    if(response > 0){
-                        $('#update-global-settings').removeAttr('disabled').val('Update');
-                        $("<div class='updated'><p>Updated successfully.</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
-                    }
-                    else
-                    {
-                        $('#update-global-settings').removeAttr('disabled').val('Update');
-                        $("<div class='error'><p>There was an error updating the database. Please try again later.</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
-                    }
+                    var wpcb_boxes_list_default = $('#wpcb_boxes_list_default').find(':selected').val();
+                    var wpcb_boxes_list_posts = $('#wpcb_boxes_list_posts').find(':selected').val();
+                    var wpcb_boxes_list_pages = $('#wpcb_boxes_list_pages').find(':selected').val();
+
+                    var data = {
+                        action: 'update_global_settings',
+                        wpcb_boxes_list_default: wpcb_boxes_list_default,
+                        wpcb_boxes_list_posts: wpcb_boxes_list_posts,
+                        wpcb_boxes_list_pages: wpcb_boxes_list_pages
+                    };
+
+                    $.post(ajaxurl, data, function(response) {
+                        if(response > 0){
+                            $('#update-global-settings').removeAttr('disabled').val('Update');
+                            $("<div class='updated'><p>Updated successfully.</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
+                        }
+                        else
+                        {
+                            $('#update-global-settings').removeAttr('disabled').val('Update');
+                            $("<div class='error'><p>There was an error updating the database. Please try again later.</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
+                        }
+
+                    });
+                });  
+                
+                // Mailer Integration
+                
+                $(document).on('click','.wpcb_mailer', function(){
+                    
+                    var mailerId = $(this).data('mailer-id');                    
+                    $('.wpcb_mailers_option').fadeIn(300).hide();
+                    $('#wpcb_mailer_'+mailerId).show();
 
                 });
-            });  
+                
+                $(document).on('click','.wpcb_mailer_cancel', function(){
+                    
+                    $('.wpcb_mailers_option').hide();                    
+                
+                });
 
+                
         });
 
 }(jQuery));

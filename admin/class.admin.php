@@ -642,33 +642,76 @@ class WPCB_Admin {
          * providers
          **************************************/
         
-        public function get_email_service_providers_list($selected_provider) {
-            $email_service_providers = array(
-                "iContact" => "listid,clientid,specialid,formid",
-                "Aweber" => "listname,redirect_url,meta_adtracking",
-                "ConstantContact" => "llr,m,p",
-                "CampaignMonitor" => "cm_account_name,cm_id",
-                "GetResponse" => "webform_id",
-                "MailChimp" => "action_url",
-                "InfusionSoft" => "account_subdomain,inf_form_xid,infusionsoft_version",
-                "Feedburner" => "uri",
-                "MadMimi" => "webform_id",
-                "MailPoet" => "list_id,redirect_url",
-                "Feedblitz" => "sub",
-                "Custom" => "action_url,email_field_name,name_field_name,hidden_filed1,hidden_filed1_value,hidden_filed2,hidden_filed2_value,hidden_filed3,hidden_filed3_value"
-            );
-            echo '<select id="email_service_provider" name="email_service_provider">';
-            foreach ($email_service_providers as $key => $value) {
-                if($selected_provider == $key){
-                    $selected = 'selected';
+        public function get_mailer_campaigns_list($selected_campaign) {
+            $getresponse = get_option('wpcb_getresponse_campaigns');
+            $mailchimp = get_option('wpcb_mailchimp_lists');
+            $aweber = get_option('wpcb_aweber_lists');
+            
+            $getresponse_campaigns = unserialize($getresponse);
+            $mailchimp_lists = unserialize($mailchimp);
+            $aweber_lists = unserialize($aweber);
+            
+            if($getresponse_campaigns != '' or $mailchimp_lists != '' or $aweber_lists != ''){
+
+                //GetResponse
+                
+                echo '<strong>Your GetResponse Campaigns</strong><ul>';
+                if($getresponse_campaigns != ''){
+                    foreach($getresponse_campaigns as $gr_id => $gr_name){
+                        if($gr_id == $selected_campaign){
+                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="1" value="'.$gr_id.'" checked>'.$gr_name.'</label></li>';
+                        }
+                        else{
+                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="1" value="'.$gr_id.'" >'.$gr_name.'</label></li>';
+                        }
+                    }                    
                 }
                 else{
-                    $selected = '';
+                    echo "No campaigns found";
                 }
-                echo '<option value="'.$key.'" data-esp-fields="'.$value.'" '.$selected.'>'.$key.'</option>';
+                echo "</ul>";
+                
+                //MailChimp
+                
+                echo '<strong>Your MailChimp Lists</strong><ul>';
+                if($mailchimp_lists != ''){
+                    foreach($mailchimp_lists as $mc_id => $mc_name){
+                        if($mc_id == $selected_campaign){
+                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="2" value="'.$mc_id.'" checked>'.$mc_name.'</label></li>';
+                        }
+                        else{
+                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="2" value="'.$mc_id.'" >'.$mc_name.'</label></li>';
+                        }
+                    }
+                }
+                else{
+                    echo "No lists found";
+                }
+                echo "</ul>";
+                
+                //Aweber
+                
+                echo '<strong>Your Aweber Lists</strong><ul>';
+                if($aweber_lists != ''){
+                    foreach($aweber_lists as $aweber_id => $aweber_name){
+                        if($aweber_id == $selected_campaign){
+                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="3" value="'.$aweber_id.'" checked>'.$aweber_name.'</label></li>';
+                        }
+                        else{
+                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="3" value="'.$aweber_id.'" >'.$aweber_name.'</label></li>';
+                        }
+                    }                    
+                }
+                else{
+                    echo "No lists found";
+                }
+                echo "</ul>";
+                
             }
-            echo '</select>';
-        }
+            else{
+                echo "<p>No campaigns/lists found. Please integrate your email service provider first to select a campaign/list for this conversion box. <a href='".admin_url( 'admin.php?page=' . $this->wpcb_settings_slug )."&step=2'>Click here to integrate now.</a></p>";
+            }
+    }
 
 
         /***************************************

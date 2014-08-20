@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, email optin, email subscribers, email subscription form, click tracking, cpa, cta, email list, list building, split testing, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 3.9.2
-Stable tag: 1.0.3
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -136,6 +136,10 @@ Here’s how to install the plugin:
 
 It’s in the process of making. Will be available by 25th this month.
 
+= How many conversion boxes can I have on one page? =
+
+Currently you can have only 1 conversion box on a page/post for it to work. You can add multiple conversion boxes on a single page/post in the Pro version of the plugin.
+
 == Screenshots ==
 
 1. Add new conversion box.
@@ -165,6 +169,14 @@ It’s in the process of making. Will be available by 25th this month.
 * Color picker was not showing up earlier on Customization page, it’s now fixed.
 * Added option to change box name under Box Settings page.
 
+= 1.2.0 =
+* Released on 20th August, 2014
+* Email Optin Boxes (beta) added!
+* Now integrate your email optin boxes with your favorite email marketing provider (GetResponse, Aweber and MailChimp).
+* Six new templates for Email Optin Boxes and Video Email Optin Boxes.
+* Some minor bug fixes.
+* Slight improvement in conversion tracking. Now conversions mean both optins and clicks for optin boxes and cta boxes.
+
 == Upgrade Notice ==
 
 = 1.0.1 =
@@ -177,6 +189,13 @@ It’s in the process of making. Will be available by 25th this month.
 = 1.0.3 =
 * IMPORTANT UPDATE - Color picker was not showing up earlier on Customization page, it’s now fixed.
 * Added option to change box name under Box Settings page.
+
+= 1.2.0 =
+* IMPORTANT UPDATE - Email Optin Boxes (beta) added!
+* Now integrate your email optin boxes with your favorite email marketing provider (GetResponse, Aweber and MailChimp)
+* Six new templates for Email Optin Boxes and Video Email Optin Boxes.
+* Some minor bug fixes.
+* Slight improvement in conversion tracking. Now conversions mean both optins and clicks for optin boxes and cta boxes.
 
 == Updates ==
 

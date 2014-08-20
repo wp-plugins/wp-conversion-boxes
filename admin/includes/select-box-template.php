@@ -11,11 +11,11 @@
     <p>Select the type of WP Conversion Box that you want to make:</p>    
     
     <div class='wpcb_box_type'>
-        <input type="radio" class="wpcb_box_type_radio" id="wpcb_box_1" name="wpcb_box_type" value="1" disabled="disabled">
-           <label for="wpcb_box_1" id="wpcb_box_1_label">Email Optin Box (Comming Soon)</label>
-        <input type="radio" class="wpcb_box_type_radio" id="wpcb_box_2" name="wpcb_box_type" value="2" disabled="disabled">
-           <label for="wpcb_box_2" id="wpcb_box_2_label">Video Email Optin Box (Comming Soon)</label>
-        <input type="radio" class="wpcb_box_type_radio" id="wpcb_box_3" name="wpcb_box_type" value="3" <?php if($box_type == '3' || $box_type == null) echo "checked";?>>
+        <input type="radio" class="wpcb_box_type_radio" id="wpcb_box_1" name="wpcb_box_type" value="1" <?php if($box_type == '1' || $box_type == null) echo "checked";?>>
+           <label for="wpcb_box_1" id="wpcb_box_1_label">Email Optin Box (Beta)</label>
+        <input type="radio" class="wpcb_box_type_radio" id="wpcb_box_2" name="wpcb_box_type" value="2" <?php if($box_type == '2') echo "checked"; ?>>
+           <label for="wpcb_box_2" id="wpcb_box_2_label">Video Email Optin Box (Beta)</label>
+        <input type="radio" class="wpcb_box_type_radio" id="wpcb_box_3" name="wpcb_box_type" value="3" <?php if($box_type == '3') echo "checked"; ?>>
            <label for="wpcb_box_3" id="wpcb_box_3_label">Call-to-action Box</label> 
         <input type="radio" class="wpcb_box_type_radio" id="wpcb_box_4" name="wpcb_box_type" value="4" <?php if($box_type == '4') echo "checked"; ?>>
            <label for="wpcb_box_4" id="wpcb_box_4_label">Video Call-to-action Box</label>    

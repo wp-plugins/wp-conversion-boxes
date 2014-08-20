@@ -40,6 +40,15 @@ function getValues(){
     templateFields['box_container_bg_color'] = jQuery('#box_container_bg_color').val();
     templateFields['box_container_border_color'] = jQuery('#box_container_border_color').val();
     
+    if(jQuery('#font_families_input').val()){
+        templateFields['input_text_size'] = jQuery('#input_text_size').val();
+        templateFields['input_text_color'] = jQuery('#input_text_color').val();
+        templateFields['input_font_family'] = jQuery('#font_families_input').val();
+        templateFields['input_width'] = jQuery('#input_width').val();
+        templateFields['input_name_placeholder'] = jQuery('#input_name_placeholder').val();
+        templateFields['input_email_placeholder'] = jQuery('#input_email_placeholder').val();
+    }
+    
     if(jQuery('#image_url').val()){
         templateFields['image_url'] = jQuery('#image_url').val();
         templateFields['image_width'] = jQuery('#image_width').val();
@@ -87,6 +96,15 @@ function applyChanges(){
     jQuery('.wpcb_box_button').css('color',templateFields['button_text_color']);
     jQuery('.wpcb_box_button_div').css('text-align',templateFields['button_align']);
     jQuery('.wpcb_box_button').css('border-radius',templateFields['button_border_radius']); 
+    
+    if(jQuery('#font_families_input').val()){
+        jQuery('.wpcb_input_fields').css('font-size',templateFields['input_text_size']);
+        jQuery('.wpcb_input_fields').css('color',templateFields['input_text_color']);
+        jQuery('.wpcb_input_fields').css('font-family',templateFields['input_font_family']);
+        jQuery('.wpcb_input_fields').css('width',templateFields['input_width']);
+        jQuery('#wpcb_name').attr('placeholder',templateFields['input_name_placeholder']);
+        jQuery('#wpcb_email').attr('placeholder',templateFields['input_email_placeholder']);
+    }
     
     if(jQuery('#image_url').val()){
             jQuery('.wpcb_box_media_container').css('width',templateFields['image_width']);
@@ -240,6 +258,25 @@ function changeColor(hex){
 
 }
 
+function wpcbValidateForm(){
+    if(jQuery('#font_families_input').val()){
+        var inputCampaignName = jQuery('.input_campaign_name:checked').val();
+        var mailerId = jQuery('.input_campaign_name:checked').data('mailer-id');
+        if(inputCampaignName == undefined){
+            alert('Please select a campaign/list first.');
+            return false;
+        }
+        else{
+            templateFields['input_campaign_name'] = inputCampaignName;
+            templateFields['input_mailer_id'] = mailerId;
+            return true;
+        }
+    }
+    else{
+        return true;
+    }
+}
+
 (function ( $ ) {
     "use strict";
 
@@ -288,7 +325,7 @@ function changeColor(hex){
                                             break;                                            
                     case 'video_align':     templateFields['video_align'] = jQuery('.video_align:checked').val();
                                             applyChanges();
-                                            break;                                                   
+                                            break;          
                 }
             });
              
@@ -307,6 +344,12 @@ function changeColor(hex){
             $('#content_color').wpColorPicker({
                 change: function(event,ui) {
                     templateFields['content_color'] = ui.color.toString();
+                    applyChanges();
+                }
+            });
+            $('#input_text_color').wpColorPicker({
+                change: function(event,ui) {
+                    templateFields['input_text_color'] = ui.color.toString();
                     applyChanges();
                 }
             });
@@ -365,29 +408,33 @@ function changeColor(hex){
             
             $(document).on('click','#update-box-customizations', function(){
                 
-                $(this).attr('disabled','disabled').val('Updating... Please wait!');
+                if(wpcbValidateForm()){
                 
-                var all_customizations = templateFields;
+                    $(this).attr('disabled','disabled').val('Updating... Please wait!');
+
+                    var all_customizations = templateFields;
+
+                    var data = {
+                        action: 'update_box_customizations',
+                        all_customizations: all_customizations,
+                        box_id: parseInt($(this).attr('box_id'))
+                    };
+
+                    $.post(ajaxurl, data, function(response) {
+
+                        if(response > 0){
+                            $('#update-box-customizations').removeAttr('disabled').val('Update');
+                            $("<div class='updated'><p>Updated successfully.</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
+                        }
+                        else
+                        {
+                            $('#update-box-customizations').removeAttr('disabled').val('Update');
+                            $("<div class='error'><p>There was an error updating the database. Please try again later or contact support if problem persists.</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
+                        }
+
+                    });
                 
-                var data = {
-                    action: 'update_box_customizations',
-                    all_customizations: all_customizations,
-                    box_id: parseInt($(this).attr('box_id'))
-                };
-
-                $.post(ajaxurl, data, function(response) {
-
-                    if(response > 0){
-                        $('#update-box-customizations').removeAttr('disabled').val('Update');
-                        $("<div class='updated'><p>Updated successfully.</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
-                    }
-                    else
-                    {
-                        $('#update-box-customizations').removeAttr('disabled').val('Update');
-                        $("<div class='error'><p>There was an error updating the database. Please try again later or contact support if problem persists.</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
-                    }
-
-                });
+                }
                 
             });
 

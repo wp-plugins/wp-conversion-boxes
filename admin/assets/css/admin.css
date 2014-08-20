@@ -257,11 +257,11 @@
 }
  
 #wpcb_box_1_label {
-    background-image: url('../imgs/Email-Optin-NA.png');
+    background-image: url('../imgs/Email-Optin.png');
 }
 
 #wpcb_box_2_label {
-    background-image: url('../imgs/Email-Optin-Video-NA.png');
+    background-image: url('../imgs/Email-Optin-Video.png');
 }
 
 #wpcb_box_3_label {
@@ -808,4 +808,18 @@ wpcb_button_flat:hover {
 
 .star-half-png:before {
   content: "\f123";
+}
+
+.wpcb_mailers_list{
+    margin: 0px 5px 0px 0px;
+}
+
+.wpcb_mailer_li{
+    margin-bottom: 10px;
+    border: 1px #dfdfdf solid;
+}
+
+.wpcb_mailers_option{
+    padding: 0px 10px 10px 10px;
+    display: none;
 }

@@ -153,22 +153,6 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
-= 1.0.0 =
-* Released on 9th August, 2014
-
-= 1.0.1 = 
-* Released on 10th August, 2014
-* Lots of minor bug fixes.
-
-= 1.0.2 =
-* Released on 11th August, 2014
-* Global settings was not working, now working.
-
-= 1.0.3 =
-* Released on 13th August, 2014
-* Color picker was not showing up earlier on Customization page, it’s now fixed.
-* Added option to change box name under Box Settings page.
-
 = 1.2.0 =
 * Released on 20th August, 2014
 * Email Optin Boxes (beta) added!
@@ -177,18 +161,23 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Some minor bug fixes.
 * Slight improvement in conversion tracking. Now conversions mean both optins and clicks for optin boxes and cta boxes.
 
-== Upgrade Notice ==
-
-= 1.0.1 =
-* IMPORTANT UPDATE - Lots of bug fixes
-* Must update to 1.0.1 from 1.0.0 for proper plugin functioning.
+= 1.0.3 =
+* Released on 13th August, 2014
+* Color picker was not showing up earlier on Customization page, it’s now fixed.
+* Added option to change box name under Box Settings page.
 
 = 1.0.2 =
-* IMPORTANT UPDATE - Global settings was not working, now working.
+* Released on 11th August, 2014
+* Global settings was not working, now working.
 
-= 1.0.3 =
-* IMPORTANT UPDATE - Color picker was not showing up earlier on Customization page, it’s now fixed.
-* Added option to change box name under Box Settings page.
+= 1.0.1 = 
+* Released on 10th August, 2014
+* Lots of minor bug fixes.
+
+= 1.0.0 =
+* Released on 9th August, 2014
+
+== Upgrade Notice ==
 
 = 1.2.0 =
 * IMPORTANT UPDATE - Email Optin Boxes (beta) added!
@@ -196,6 +185,17 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * 7 new templates for Email Optin Boxes and Video Email Optin Boxes.
 * Some minor bug fixes.
 * Slight improvement in conversion tracking. Now conversions mean both optins and clicks for optin boxes and cta boxes.
+
+= 1.0.3 =
+* IMPORTANT UPDATE - Color picker was not showing up earlier on Customization page, it’s now fixed.
+* Added option to change box name under Box Settings page.
+
+= 1.0.2 =
+* IMPORTANT UPDATE - Global settings was not working, now working.
+
+= 1.0.1 =
+* IMPORTANT UPDATE - Lots of bug fixes
+* Must update to 1.0.1 from 1.0.0 for proper plugin functioning.
 
 == Updates ==
 

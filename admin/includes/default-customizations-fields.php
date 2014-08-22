@@ -73,7 +73,7 @@ switch ($wpcb_default_fields['video_align']) {
                                     <label for="">Heading text</label>
                             </th>
                             <td>
-                                    <input type="text" name="heading_text" id="heading_text" value="<?= $wpcb_default_fields['heading_text'] ?>" class="wpcb_fullwidth" >
+                                    <input type="text" name="heading_text" id="heading_text" value="<?= esc_attr ( $wpcb_default_fields['heading_text'] ) ?>" class="wpcb_fullwidth" >
                             </td>
                     </tr>
                     <tr>
@@ -148,7 +148,7 @@ switch ($wpcb_default_fields['video_align']) {
                                     </label>
                             </th>
                             <td>
-                                    <textarea name="content_text" id="content_text"><?= $wpcb_default_fields['content_text'] ?></textarea>
+                                    <textarea name="content_text" id="content_text"><?= esc_attr ( $wpcb_default_fields['content_text'] ) ?></textarea>
                             </td>
                     </tr>
                     <tr>

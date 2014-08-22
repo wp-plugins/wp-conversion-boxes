@@ -283,11 +283,14 @@ class WPCB_Admin {
         /***************************************
          * Handle AJAX call to save the new box 
          * details to databse
+         * 
+         * Last Updated : v1.2.1
          ***************************************/      
         public function create_new_box() {
 
                 global $wpdb;
-                $wpdb->insert($this->wpcb_boxes_table, array('box_name' => $_POST['wpcb_box_name']), array('%s'));
+                $wpcb_box_name = strip_tags(stripslashes($_POST['wpcb_box_name']));
+                $wpdb->insert($this->wpcb_boxes_table, array('box_name' => $wpcb_box_name), array('%s'));
                 
                 if($wpdb->insert_id)
                     echo $wpdb->insert_id;

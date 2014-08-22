@@ -4,11 +4,11 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, email optin, email subscribers, email subscription form, click tracking, cpa, cta, email list, list building, split testing, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 3.9.2
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Same Traffic. More Conversions. Replace the CTAs, email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
+Same Traffic. More Conversions. Replace your CTAs and email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
 
 == Description ==
 
@@ -50,8 +50,8 @@ There are a lot features that set WP Conversion Boxes apart from competition:
 * Create various types of conversion boxes:
 	* Call To Action Box (Heading, description, image and a CTA button)
 	* Video Call To Action Box (Heading, description, video and a CTA button)
-	* Email Optin Box (Heading, description, image and email optin form) (Feature coming soon)
-	* Video Optin Box (Heading, description, video and email optin form) (Feature coming soon)
+	* Email Optin Box (Heading, description, image and email optin form)
+	* Video Optin Box (Heading, description, video and email optin form)
 * Easy to manage dashboard for all your conversion boxes.
 * 10+ free box templates.
 * Templating system to add your own templates (or ask us to make one for you).
@@ -153,6 +153,10 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 1.2.1 = 
+* Released on 22th August, 2014
+* Minor bug fixes.
+
 = 1.2.0 =
 * Released on 20th August, 2014
 * Email Optin Boxes (beta) added!
@@ -178,6 +182,9 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 1.2.1 = 
+* Minor bug fixes.
 
 = 1.2.0 =
 * IMPORTANT UPDATE - Email Optin Boxes (beta) added!

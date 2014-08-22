@@ -23,25 +23,32 @@ function wpcbReadCookie(name) {
 
 function sticky_relocate() {
     var window_top = jQuery(window).scrollTop();
-    var div_top = jQuery('.box_make_sticky_offset').offset().top;
+    var $boxMakeStickyOffset = jQuery('.box_make_sticky_offset');
+    if($boxMakeStickyOffset.length){
+        var div_top = $boxMakeStickyOffset.offset().top;
+    }
+    var $boxMakeSticky = jQuery('.box_make_sticky');
     if (window_top > div_top) {
-        jQuery('.box_make_sticky').addClass('wpcb_stick');
+        $boxMakeSticky.css('width',$boxMakeSticky.width());
+        $boxMakeSticky.addClass('wpcb_stick');
     } else {
-        jQuery('.box_make_sticky').removeClass('wpcb_stick');
+        $boxMakeSticky.removeClass('wpcb_stick');
     }
 }
 
 function wpcbUpdatedVisitType(newvisittype){
         
+        var $wpcbTracker = jQuery('.wpcb-tracker');
+        
         var data = {
             action: 'update_visit_type',
-            id: jQuery('.wpcb-tracker').data('id'),
+            id: $wpcbTracker.data('id'),
             newvisittype: newvisittype
         };
         
         jQuery.post(trackerDefaultData.ajaxurl, data, function(response) {
             if(response){
-                jQuery('.wpcb-tracker').data('visittype', newvisittype);
+                $wpcbTracker.data('visittype', newvisittype);
             }
         });
 

@@ -1,7 +1,7 @@
 === WP Conversion Boxes ===
 Contributors: ramshengale
 Donate link: http://wpconversionboxes.com/donate/
-Tags: call to action, Calls to Action, optin, opt-in, email optin, email subscribers, email subscription form, email marketing, cta, email list, list building, wp conversion boxes
+Tags: call to action, Calls to Action, optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 3.9.2
 Stable tag: 1.2.2

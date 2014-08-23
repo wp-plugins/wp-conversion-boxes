@@ -34,20 +34,18 @@
             }
             $wpcb_box_settings = unserialize($box_settings);
 
-            if($wpcb_box_settings != null){
-                if($wpcb_box_settings['box_fade_in'] == 1){
-                    $wpcb_default_fields['box_fade_in'] = true;
-                }else{
-                    $wpcb_default_fields['box_fade_in'] = false;
+            if($box_settings != null){
+            
+                $wpcb_box_settings = unserialize($box_settings);
+
+                if($wpcb_box_settings['box_fade_in'] == '1'){
+                    $wpcb_default_fields['box_fade_in'] = "wpcb_fade_in";
                 }
 
                 $wpcb_default_fields['box_fade_in_time'] = $wpcb_box_settings['box_fade_in_time'];
 
                 if($wpcb_box_settings['box_make_sticky'] == '1'){
-                    $wpcb_default_fields['box_make_sticky'] = true;
-                }
-                else{
-                    $wpcb_default_fields['box_make_sticky'] = false;
+                    $wpcb_default_fields['box_make_sticky'] = "box_make_sticky";
                 }
 
             }

@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, email optin, email subscribers, email subscription form, click tracking, cpa, cta, email list, list building, split testing, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 3.9.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,10 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 1.2.2 =
+* Released on 23th August, 2014
+* Fixed a bug in box settings that caused box flashing and stick to top to not work for boxes under posts/page.
+
 = 1.2.1 = 
 * Released on 22th August, 2014
 * Minor bug fixes.
@@ -182,6 +186,9 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+* Fixed a bug in box settings that caused box flashing and stick to top to not work for boxes under posts/page.
 
 = 1.2.1 = 
 * Minor bug fixes.

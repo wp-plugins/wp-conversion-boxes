@@ -1,7 +1,7 @@
 === WP Conversion Boxes ===
 Contributors: ramshengale
 Donate link: http://wpconversionboxes.com/donate/
-Tags: call to action, Calls to Action, optin, email optin, email subscribers, email subscription form, click tracking, cpa, cta, email list, list building, split testing, wp conversion boxes
+Tags: call to action, Calls to Action, optin, opt-in, email optin, email subscribers, email subscription form, email marketing, cta, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 3.9.2
 Stable tag: 1.2.2
@@ -87,7 +87,7 @@ Quick step-by-step guide on boosting your conversion rate using WP Conversion Bo
 
 	Conversion Tip: I have found that using different copies for posts of different categories on your blog works best. For example if you have a Facebook PPC category and a Google Adwords PPC category, using two different copies related to the topic of the post helps improving the conversions many folds.
 
-	NOTE - To further pump this up, I’ve included A/B Testing feature in the PRO version of this plugin. So if you are a more advanced user, using the PRO version will be more beneficial.
+	NOTE - To further pump this up, I’ve included A/B Testing feature in the [Pro](http://wpconversionboxes.com/) version of this plugin. So if you are a more advanced user, using the [WP Conversion Boxes Pro](http://wpconversionboxes.com/) version will be more beneficial.
 
 4. This steps goes with the step #3. On the Statistics page you’ll also see an option for Detailed Stats under each box. Clicking it will take you to a page showing top 10 most performing pages/posts for that particular conversion box. Each showing all the stats given above for the listed posts/pages.
 

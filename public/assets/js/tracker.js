@@ -21,15 +21,17 @@ function wpcbReadCookie(name) {
 	return null;
 }
 
+// Updated 1.2.2.1
+
 function sticky_relocate() {
     var window_top = jQuery(window).scrollTop();
     var $boxMakeStickyOffset = jQuery('.box_make_sticky_offset');
     if($boxMakeStickyOffset.length){
         var div_top = $boxMakeStickyOffset.offset().top;
     }
-    var $boxMakeSticky = jQuery('.box_make_sticky');
+    $boxMakeSticky = jQuery('.box_make_sticky');
     if (window_top > div_top) {
-        $boxMakeSticky.css('width',$boxMakeSticky.width());
+        $boxMakeSticky.css('width',window.boxwidth);
         $boxMakeSticky.addClass('wpcb_stick');
     } else {
         $boxMakeSticky.removeClass('wpcb_stick');
@@ -62,6 +64,7 @@ function wpcbUpdatedVisitType(newvisittype){
                 //$(document).ready(function(){
                     
                     window.boxLoadDone = '';
+                    window.boxwidth = jQuery('.box_make_sticky').width();
                     
                     // Check if the box isvisible directly
                     

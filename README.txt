@@ -153,6 +153,10 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 1.2.2.1 =
+* Released on 23th August, 2014
+* Minor update : Stick to top setting was shrinking the conversion box on scroll - bug fixed
+
 = 1.2.2 =
 * Released on 23th August, 2014
 * Fixed a bug in box settings that caused box flashing and stick to top to not work for boxes under posts/page.
@@ -186,6 +190,9 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 1.2.2.1 =
+* Minor update : Stick to top setting was shrinking the conversion box on scroll - bug fixed
 
 = 1.2.2 =
 * Fixed a bug in box settings that caused box flashing and stick to top to not work for boxes under posts/page.

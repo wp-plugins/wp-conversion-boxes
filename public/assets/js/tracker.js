@@ -64,7 +64,7 @@ function wpcbUpdatedVisitType(newvisittype){
                 //$(document).ready(function(){
                     
                     window.boxLoadDone = '';
-                    window.boxwidth = jQuery('.box_make_sticky').width();
+                    window.boxwidth = jQuery('.box_make_sticky').outerWidth();
                     
                     // Check if the box isvisible directly
                     

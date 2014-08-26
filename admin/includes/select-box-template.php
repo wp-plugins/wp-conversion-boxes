@@ -2,7 +2,7 @@
 
 // Step 1 - Select Box Template
 
-    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_type`,`box_template` from $wpcb_tbl_name WHERE id = $id",array('%s','%d')));
+    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_type`,`box_template` from $wpcb_tbl_name WHERE id = %d",array($id)));
     $box_type = $wpcb_the_row->box_type;
     $box_template = $wpcb_the_row->box_template;
 

@@ -155,7 +155,11 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 = 1.2.3 =
 * Released on 26th August, 2014
-* Minor Update : Added feature to easily duplicate your existing boxes.
+* Added feature to easily duplicate your existing boxes.
+* Made the plugin developer friendly : removed all notices in WP_Debug mode.
+* No link option in call-to-action fixed.
+* Data sanitization.
+* Option to stick the customization Box Preview to top for better real-time editing.
 
 = 1.2.2.1 =
 * Released on 23th August, 2014
@@ -196,7 +200,11 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 == Upgrade Notice ==
 
 = 1.2.3 =
-* Minor Update : Added feature to easily duplicate your existing boxes.
+* Added feature to easily duplicate your existing boxes.
+* Made the plugin developer friendly : removed all notices in WP_Debug mode.
+* No link option in call-to-action fixed.
+* Data sanitization.
+* Option to stick the customization Box Preview to top for better real-time editing.
 
 = 1.2.2.1 =
 * Minor update : Stick to top setting was shrinking the conversion box on scroll - bug fixed

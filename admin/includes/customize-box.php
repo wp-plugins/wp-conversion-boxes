@@ -1,11 +1,20 @@
 <?php
 
+$wpcb_public = WPCB_Public::get_instance();
+
 // Step 2
     
-    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_type`,`box_template`,`box_customizations`  from $wpcb_tbl_name WHERE id = $id",array('%s','%d')));
+    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_type`,`box_template`,`box_customizations`  from $wpcb_tbl_name WHERE id = %d",array($id)));
     $box_type = $wpcb_the_row->box_type;
     $box_template = $wpcb_the_row->box_template;
-    $box_customizations = unserialize($wpcb_the_row->box_customizations);
+    if($wpcb_the_row->box_customizations != 'defaults'){
+        $box_customizations = unserialize($wpcb_the_row->box_customizations);
+        $box_customizations['defaults'] = 'custom';
+        $box_customizations = $wpcb_public->sanitise_array($box_customizations);
+    }    
+    else{
+        $box_customizations['defaults'] = 'defaults';
+    }
     
     if($id and $box_type != null and $box_template != null){
         // Editing is on

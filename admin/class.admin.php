@@ -303,13 +303,12 @@ class WPCB_Admin {
         
         public function update_box_template() {
                 global $wpdb;
-
                 $wpcb_data = array(
                     'box_type' => $_POST['box_type'],
                     'box_template' => $_POST['box_template']
                 );
-
                 $wpcb_if_done = $wpdb->update($this->wpcb_boxes_table, $wpcb_data, array('id' => $_POST['box_id']), array('%d','%s'), array('%d'));
+                
                 if($wpcb_if_done === FALSE)
                     echo 0;
                 else
@@ -446,7 +445,7 @@ class WPCB_Admin {
                         <?php
                         foreach ($results as $result){
                             $id = $result->id;
-                            $name = $result->box_name;
+                            $name = stripcslashes($result->box_name);
                             $wpcb_list = ++$count % 2 == 0 ? "<tr class='alternate wpcb-list-item-".$id."'>": "<tr class='wpcb-list-item-".$id."'>";
                             $wpcb_list .= "<td>".$name."<div class='row-actions'>";
                             $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug .'&step=1&id=' . $id )."' >Change Template</a> | ";
@@ -521,7 +520,7 @@ class WPCB_Admin {
                 else{
                     $is_selected = "";
                 }
-                echo "<option value='".$box['id']."' ".$is_selected.">".$box['box_name']."</option>";
+                echo "<option value='".$box['id']."' ".$is_selected.">".stripcslashes($box['box_name'])."</option>";
             }
             echo "</select>";
         }
@@ -605,12 +604,9 @@ class WPCB_Admin {
         public function get_box_name($box_id){
             global $wpdb;
             $wpcb_tbl_name = $this->wpcb_boxes_table;
-            $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_name` from $wpcb_tbl_name WHERE id = $box_id",array('%s','%d')));
-            return $wpcb_the_row->box_name;
+            $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT box_name from $wpcb_tbl_name WHERE id = %d",array($box_id)));
+            return stripslashes($wpcb_the_row->box_name);
         }
-
-
-
 
         /***************************************
          * Include the selected template - If 
@@ -619,7 +615,7 @@ class WPCB_Admin {
          ***************************************/        
         
         public function include_the_template_and_settings($box_type, $box_template, $box_customizations, $box_id){
-            echo "<div class='postbox'><h3>Box Preview</h3><div class='inside minheight150'>";
+            echo "<div class='wpcb_stick_this_offset'></div><div class='postbox wpcb_stick_this'><h3>Box Preview<span style='float: right;'><label><input type='checkbox' class='wpcb_box_preview_stick' name='wpcb_box_preview_stick' />Stick preview to top</label></span></h3><div class='inside minheight150'>";
             
             $wpcb_default_fields = $box_customizations;
             

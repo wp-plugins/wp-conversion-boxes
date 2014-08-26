@@ -1,68 +1,81 @@
 <?php
-switch ($wpcb_default_fields['heading_align']) {
-    case 'left': $heading_align_left = 'checked';
-        break;
-    case 'center': $heading_align_center = 'checked';
-        break;
-    case 'right': $heading_align_right = 'checked';
-        break;
+if(isset($wpcb_default_fields['heading_align'])){
+    switch ($wpcb_default_fields['heading_align']) {
+        case 'left': $heading_align_left = 'checked';
+            break;
+        case 'center': $heading_align_center = 'checked';
+            break;
+        case 'right': $heading_align_right = 'checked';
+            break;
+    }   
 }
 
-switch ($wpcb_default_fields['content_align']) {
-    case 'left': $content_align_left = 'checked';
-        break;
-    case 'center': $content_align_center = 'checked';
-        break;
-    case 'right': $content_align_right = 'checked';
-        break;
+if(isset($wpcb_default_fields['content_align'])){
+    switch ($wpcb_default_fields['content_align']) {
+        case 'left': $content_align_left = 'checked';
+            break;
+        case 'center': $content_align_center = 'checked';
+            break;
+        case 'right': $content_align_right = 'checked';
+            break;
+    }
 }
 
-switch ($wpcb_default_fields['button_align']) {
-    case 'left': $button_align_left = 'checked';
-        break;
-    case 'center': $button_align_center = 'checked';
-        break;
-    case 'right': $button_align_right = 'checked';
-        break;
+if(isset($wpcb_default_fields['button_align'])){
+    switch ($wpcb_default_fields['button_align']) {
+        case 'left': $button_align_left = 'checked';
+            break;
+        case 'center': $button_align_center = 'checked';
+            break;
+        case 'right': $button_align_right = 'checked';
+            break;
+    }
+}
+if(isset($wpcb_default_fields['button_type'])){
+    switch ($wpcb_default_fields['button_type']) {
+        case 'wpcb_button_gradient': $button_type_gradient = 'checked';
+            break;
+        case 'wpcb_button_3d': $button_type_3d = 'checked';
+            break;
+        case 'wpcb_button_flat': $button_type_flat = 'checked';
+            break;
+    }
 }
 
-switch ($wpcb_default_fields['button_type']) {
-    case 'wpcb_button_gradient': $button_type_gradient = 'checked';
-        break;
-    case 'wpcb_button_3d': $button_type_3d = 'checked';
-        break;
-    case 'wpcb_button_flat': $button_type_flat = 'checked';
-        break;
+if(isset($wpcb_default_fields['image_align'])){
+    switch ($wpcb_default_fields['image_align']) {
+        case 'left': $image_align_left = 'checked';
+            break;
+        case 'center': $image_align_center = 'checked';
+            break;
+        case 'right': $image_align_right = 'checked';
+            break;
+    }
 }
 
-switch ($wpcb_default_fields['image_align']) {
-    case 'left': $image_align_left = 'checked';
-        break;
-    case 'center': $image_align_center = 'checked';
-        break;
-    case 'right': $image_align_right = 'checked';
-        break;
+if(isset($wpcb_default_fields['video_site'])){
+    switch ($wpcb_default_fields['video_site']) {
+        case 'youtube': $video_youtube = 'checked';
+            break;
+        case 'vimeo': $video_vimeo = 'checked';
+            break;
+    }
 }
 
-switch ($wpcb_default_fields['video_site']) {
-    case 'youtube': $video_youtube = 'checked';
-        break;
-    case 'vimeo': $video_vimeo = 'checked';
-        break;
-}
-
-switch ($wpcb_default_fields['video_align']) {
-    case 'left': $video_align_left = 'checked';
-        break;
-    case 'center': $video_align_center = 'checked';
-        break;
-    case 'right': $video_align_right = 'checked';
-        break;
+if(isset($wpcb_default_fields['video_align'])){
+    switch ($wpcb_default_fields['video_align']) {
+        case 'left': $video_align_left = 'checked';
+            break;
+        case 'center': $video_align_center = 'checked';
+            break;
+        case 'right': $video_align_right = 'checked';
+            break;
+    }
 }
 
 ?>
 
-<?php if($wpcb_default_fields['use_heading'] == true){ ?>
+<?php if(isset($wpcb_default_fields['use_heading']) && $wpcb_default_fields['use_heading'] == true){ ?>
 
     <h2>Heading Settings</h2>
 
@@ -73,7 +86,7 @@ switch ($wpcb_default_fields['video_align']) {
                                     <label for="">Heading text</label>
                             </th>
                             <td>
-                                    <input type="text" name="heading_text" id="heading_text" value="<?= esc_attr ( $wpcb_default_fields['heading_text'] ) ?>" class="wpcb_fullwidth" >
+                                    <input type="text" name="heading_text" id="heading_text" value="<?= $wpcb_default_fields['heading_text'] ?>" class="wpcb_fullwidth" >
                             </td>
                     </tr>
                     <tr>
@@ -126,9 +139,9 @@ switch ($wpcb_default_fields['video_align']) {
                                     </label>
                             </th>
                             <td>
-                                    <label><input type='radio' name="heading_align" id="heading_align_l" class="heading_align" value="left" <?= $heading_align_left ?>>Left</label>
-                                    <label><input type='radio' name="heading_align" id="heading_align_c" class="heading_align" value="center" <?= $heading_align_center ?>>Center</label>
-                                    <label><input type='radio' name="heading_align" id="heading_align_r" class="heading_align" value="right" <?= $heading_align_right ?>>Right</label>
+                                    <label><input type='radio' name="heading_align" id="heading_align_l" class="heading_align" value="left" <?= (isset($heading_align_left)) ? $heading_align_left : '' ?>>Left</label>
+                                    <label><input type='radio' name="heading_align" id="heading_align_c" class="heading_align" value="center" <?= (isset($heading_align_center)) ? $heading_align_center : '' ?>>Center</label>
+                                    <label><input type='radio' name="heading_align" id="heading_align_r" class="heading_align" value="right" <?= (isset($heading_align_right)) ? $heading_align_right : '' ?>>Right</label>
                             </td>
                     </tr>
             </tbody>
@@ -136,7 +149,7 @@ switch ($wpcb_default_fields['video_align']) {
 <hr />
 <?php } ?>    
     
-<?php if($wpcb_default_fields['use_content'] == true){ ?>
+<?php if(isset($wpcb_default_fields['use_content']) && $wpcb_default_fields['use_content'] == true){ ?>
     
     <h2>Content Settings</h2>
 
@@ -193,9 +206,9 @@ switch ($wpcb_default_fields['video_align']) {
                                     </label>
                             </th>
                             <td>
-                                    <label><input type='radio' name="content_align" id="content_align_l" class="content_align" value="left" <?= $content_align_left ?>>Left</label>
-                                    <label><input type='radio' name="content_align" id="content_align_c" class="content_align" value="center" <?= $content_align_center ?>>Center</label>
-                                    <label><input type='radio' name="content_align" id="content_align_r" class="content_align" value="right" <?= $content_align_right ?>>Right</label>
+                                    <label><input type='radio' name="content_align" id="content_align_l" class="content_align" value="left" <?= (isset($content_align_left)) ? $content_align_left : '' ?>>Left</label>
+                                    <label><input type='radio' name="content_align" id="content_align_c" class="content_align" value="center" <?= (isset($content_align_center)) ? $content_align_center : '' ?>>Center</label>
+                                    <label><input type='radio' name="content_align" id="content_align_r" class="content_align" value="right" <?= (isset($content_align_right)) ? $content_align_right : '' ?>>Right</label>
                             </td>
                     </tr>
             </tbody>
@@ -203,7 +216,7 @@ switch ($wpcb_default_fields['video_align']) {
 <hr />        
 <?php } ?>   
     
-<?php if($wpcb_default_fields['use_input'] == true){ ?>
+<?php if(isset($wpcb_default_fields['use_input']) && $wpcb_default_fields['use_input'] == true){ ?>
 
     <h2>Optin Form Settings</h2>    
     
@@ -284,9 +297,9 @@ switch ($wpcb_default_fields['video_align']) {
                                     </label>
                             </th>
                             <td>
-                                    <label><input type='radio' name="button_align" id="button_align_l" class="button_align" value="left" <?= $button_align_left ?>>Left</label>
-                                    <label><input type='radio' name="button_align" id="button_align_c" class="button_align" value="center" <?= $button_align_center ?>>Center</label>
-                                    <label><input type='radio' name="button_align" id="button_align_r" class="button_align" value="right" <?= $button_align_right ?>>Right</label>
+                                    <label><input type='radio' name="button_align" id="button_align_l" class="button_align" value="left" <?= (isset($button_align_left)) ? $button_align_left : '' ?>>Left</label>
+                                    <label><input type='radio' name="button_align" id="button_align_c" class="button_align" value="center" <?= (isset($button_align_center)) ? $button_align_center : '' ?>>Center</label>
+                                    <label><input type='radio' name="button_align" id="button_align_r" class="button_align" value="right" <?= (isset($button_align_right)) ? $button_align_right : '' ?>>Right</label>
 			</td>
                     </tr>                  
             </tbody>
@@ -309,7 +322,7 @@ switch ($wpcb_default_fields['video_align']) {
 				<input type="text" name="button_text" id="button_text" value="<?= $wpcb_default_fields['button_text'] ?>">
 			</td>
 		</tr>
-                <?php if($wpcb_default_fields['use_image'] != true) { ?>
+                <?php if(!isset($wpcb_default_fields['use_input']) || $wpcb_default_fields['use_input'] != true) { ?>
                     <tr>
                             <th scope="row"><label for="">
                                     Button link (http://)
@@ -371,9 +384,9 @@ switch ($wpcb_default_fields['video_align']) {
 				</label>
 			</th>
 			<td>
-				<label><input type='radio' name="button_type" id="button_type_1" class="button_type" value="wpcb_button_gradient" <?= $button_type_gradient ?>>Gradient</label>
-				<label><input type='radio' name="button_type" id="button_type_2" class="button_type" value="wpcb_button_3d" <?= $button_type_3d ?>>3D</label>
-				<label><input type='radio' name="button_type" id="button_type_3" class="button_type" value="wpcb_button_flat" <?= $button_type_flat ?>>Flat</label>
+				<label><input type='radio' name="button_type" id="button_type_1" class="button_type" value="wpcb_button_gradient" <?= (isset($button_type_gradient)) ? $button_type_gradient : '' ?>>Gradient</label>
+				<label><input type='radio' name="button_type" id="button_type_2" class="button_type" value="wpcb_button_3d" <?= (isset($button_type_3d)) ? $button_type_3d : '' ?>>3D</label>
+				<label><input type='radio' name="button_type" id="button_type_3" class="button_type" value="wpcb_button_flat" <?= (isset($button_type_flat)) ? $button_type_flat : '' ?>>Flat</label>
 			</td>
 		</tr>
 		<tr>
@@ -387,7 +400,7 @@ switch ($wpcb_default_fields['video_align']) {
 		</tr>
                 <?php 
                     // This part of code is tricky. Please don't try to understand it. 
-                    if($wpcb_default_fields['use_input'] != true){
+                    if(!isset($wpcb_default_fields['use_input']) || $wpcb_default_fields['use_input'] != true){
                 ?>
 		<tr>
 			<th scope="row"><label for="">
@@ -395,16 +408,16 @@ switch ($wpcb_default_fields['video_align']) {
 				</label>
 			</th>
 			<td>
-				<label><input type='radio' name="button_align" id="button_align_l" class="button_align" value="left" <?= $button_align_left ?>>Left</label>
-				<label><input type='radio' name="button_align" id="button_align_c" class="button_align" value="center" <?= $button_align_center ?>>Center</label>
-				<label><input type='radio' name="button_align" id="button_align_r" class="button_align" value="right" <?= $button_align_right ?>>Right</label>
+				<label><input type='radio' name="button_align" id="button_align_l" class="button_align" value="left" <?= (isset($button_align_left)) ? $button_align_left : '' ?>>Left</label>
+				<label><input type='radio' name="button_align" id="button_align_c" class="button_align" value="center" <?= (isset($button_align_center)) ? $button_align_center : ''  ?>>Center</label>
+				<label><input type='radio' name="button_align" id="button_align_r" class="button_align" value="right" <?= (isset($button_align_right)) ? $button_align_right : ''  ?>>Right</label>
 			</td>
 		</tr>
                 <?php } ?>
 	</tbody>
 </table>
 <hr />    
-<?php if($wpcb_default_fields['use_image'] == true){ ?>
+<?php if(isset($wpcb_default_fields['use_image']) && $wpcb_default_fields['use_image'] == true){ ?>
 
     <h2>Image Settings</h2>    
 
@@ -445,9 +458,9 @@ switch ($wpcb_default_fields['video_align']) {
                                     </label>
                             </th>
                             <td>
-                                    <label><input type='radio' name="image_align" id="image_align_l" class="image_align" value="left" <?= $image_align_left ?>>Left</label>
-                                    <label><input type='radio' name="image_align" id="image_align_c" class="image_align" value="center" <?= $image_align_center ?>>Center</label>
-                                    <label><input type='radio' name="image_align" id="image_align_r" class="image_align" value="right" <?= $image_align_right ?>>Right</label>
+                                    <label><input type='radio' name="image_align" id="image_align_l" class="image_align" value="left" <?= (isset($image_align_left)) ? $image_align_left : '' ?>>Left</label>
+                                    <label><input type='radio' name="image_align" id="image_align_c" class="image_align" value="center" <?= (isset($image_align_center)) ? $image_align_center : '' ?>>Center</label>
+                                    <label><input type='radio' name="image_align" id="image_align_r" class="image_align" value="right" <?= (isset($image_align_right)) ? $image_align_right : '' ?>>Right</label>
                             </td>
                     </tr>                    
             </tbody>
@@ -456,7 +469,7 @@ switch ($wpcb_default_fields['video_align']) {
 
 <?php } ?>
    
-<?php if($wpcb_default_fields['use_video'] == true){ ?>
+<?php if(isset($wpcb_default_fields['use_video']) && $wpcb_default_fields['use_video'] == true){ ?>
 
     <h2>Video Settings</h2>    
 
@@ -469,8 +482,8 @@ switch ($wpcb_default_fields['video_align']) {
                                 </label>
                             </th>
                             <td>
-                                <label><input type='radio' name="video_site" id="video_site_youtube" class="video_site" value="youtube" <?= $video_youtube ?>>Youtube</label>
-                                <label><input type='radio' name="video_site" id="video_site_vimeo" class="video_site" value="vimeo" <?= $video_vimeo ?>>Vimeo</label>
+                                <label><input type='radio' name="video_site" id="video_site_youtube" class="video_site" value="youtube" <?= (isset($video_youtube)) ? $video_youtube : '' ?>>Youtube</label>
+                                <label><input type='radio' name="video_site" id="video_site_vimeo" class="video_site" value="vimeo" <?= (isset($video_vimeo)) ? $video_vimeo : '' ?>>Vimeo</label>
                             </td>
                     </tr>                
                     <tr>
@@ -507,9 +520,9 @@ switch ($wpcb_default_fields['video_align']) {
                                     </label>
                             </th>
                             <td>
-                                    <label><input type='radio' name="video_align" id="video_align_l" class="video_align" value="left" <?= $video_align_left ?>>Left</label>
-                                    <label><input type='radio' name="video_align" id="video_align_c" class="video_align" value="center" <?= $video_align_center ?>>Center</label>
-                                    <label><input type='radio' name="video_align" id="video_align_r" class="video_align" value="right" <?= $video_align_right ?>>Right</label>
+                                    <label><input type='radio' name="video_align" id="video_align_l" class="video_align" value="left" <?= (isset($video_align_left)) ? $video_align_left : '' ?>>Left</label>
+                                    <label><input type='radio' name="video_align" id="video_align_c" class="video_align" value="center" <?= (isset($video_align_center)) ? $video_align_center : '' ?>>Center</label>
+                                    <label><input type='radio' name="video_align" id="video_align_r" class="video_align" value="right" <?= (isset($video_align_right)) ? $video_align_right : '' ?>>Right</label>
                             </td>
                     </tr>                    
             </tbody>

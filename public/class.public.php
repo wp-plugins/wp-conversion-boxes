@@ -308,6 +308,27 @@ class WPCB_Public {
         public function in_footer(){
             echo $_COOKIE["wpcb-useradded"];
         }
+        
+        /***************************************
+         * Sanitise array
+         ***************************************/
+        
+        function sanitise_array ($data = array()) {
+            if (!is_array($data) || !count($data)) {
+                    return array();
+            }
+
+            foreach ($data as $k => $v) {
+                    if (!is_array($v) && !is_object($v)) {
+                            $data[$k] = stripslashes(trim($v));
+                    }
+                    if (is_array($v)) {
+                            $data[$k] = purica_array($v);
+                    }
+            }
+
+            return $data;
+        }
 
 
 }

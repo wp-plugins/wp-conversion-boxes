@@ -1,8 +1,11 @@
 <?php
 
 // Sidebar
-if($_GET['step'] != 2 or $_GET['page'] != 'wp-conversion-boxes/edit'){
-?>
+if((isset($_GET['step']) && $_GET['step'] == 2) && (isset($_GET['step']) &&  $_GET['page'] == 'wp-conversion-boxes/edit')){
+
+}
+else{?>
+
 <div class="postbox" style="display: block;">
     <h3 style="cursor: pointer;"><span>Got 30 Seconds?</span></h3>
     <div class="inside">

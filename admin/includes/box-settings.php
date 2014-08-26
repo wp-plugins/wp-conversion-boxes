@@ -2,8 +2,8 @@
 
 // Step 3
 
-    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_name`,`box_settings` from $wpcb_tbl_name WHERE id = $id",array('%s')));
-    $box_name = $wpcb_the_row->box_name;
+    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_name`,`box_settings` from $wpcb_tbl_name WHERE id = %s",array($id)));
+    $box_name = stripslashes($wpcb_the_row->box_name);
     $box_settings = unserialize($wpcb_the_row->box_settings);
     
     $box_fade_in  = ((isset($box_settings['box_fade_in']) && $box_settings['box_fade_in'] == 1) ? 'checked' : '');

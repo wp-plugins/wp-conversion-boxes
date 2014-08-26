@@ -354,7 +354,6 @@ function validateFieldsOnDocumentReady(){
                 
                 });
 
-                
         });
 
 }(jQuery));

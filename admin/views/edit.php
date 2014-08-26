@@ -12,10 +12,6 @@ $wpcb = WPCB_Admin::get_instance();
 if(isset($_GET['id'])){
     global $wpdb;
     $id = $_GET['id'];
-    //$box_customizations = $wpcb_the_row->box_customizations;
-    //$box_settings = $wpcb_the_row->box_settings;
-    
-    
 }
 
 if(isset($_GET['step'])){
@@ -25,10 +21,10 @@ if(isset($_GET['step'])){
 ?>    
 <div class="wrap wpcb_main">
     
-    <h2><?php if($id != null) echo "Customize WP Conversion Box : <em>".$wpcb->get_box_name($id)."</em> <input type='text' value='[wpcb id=\"".$id."\"]' disabled />"; else echo "Add New WP Conversion Box"; ?></h2>
+    <h2><?php if(isset($id)) echo "Customize : <em>".$wpcb->get_box_name($id)."</em> <input type='text' value='[wpcb id=\"".$id."\"]' disabled />"; else echo "Add New WP Conversion Box"; ?></h2>
     
     <?php 
-    if($id){
+    if(isset($id)){
     ?>
     
         <h2 class="nav-tab-wrapper">
@@ -50,7 +46,7 @@ if(isset($_GET['step'])){
 
         <div id="post-body-content">
                 <?php 
-                    if(!$id){
+                    if(!isset($id)){
                         $wpcb->wpcb_edit_page_content(null,null); 
                     }  
                     else{

@@ -13,9 +13,9 @@
             global $wpdb;
 
             $wpcb_tbl_name = $wpcb_public->get_boxes_table_name();
-            $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT * from $wpcb_tbl_name WHERE id = $id", array('%s', '%d')));
+            $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT * from $wpcb_tbl_name WHERE id = %d", array($id)));
 
-            if ($wpcb_the_row > 0) {
+            if ($wpcb_the_row) {
                 $box_type = $wpcb_the_row->box_type;
                 $box_template = $wpcb_the_row->box_template;
                 $box_customizations = $wpcb_the_row->box_customizations;
@@ -28,13 +28,14 @@
             
             if($box_customizations != null AND $box_customizations != 'defaults'){
                 $wpcb_default_fields = unserialize($box_customizations);
+                $box_customizations = $wpcb_public->sanitise_array($box_customizations);
+                $wpcb_default_fields['defaults'] = 'custom';
             }
             else{
                 $wpcb_default_fields['defaults'] = 'defaults';
             }
-            $wpcb_box_settings = unserialize($box_settings);
-
-            if($box_settings != null){
+            
+            if(isset($box_settings)){
             
                 $wpcb_box_settings = unserialize($box_settings);
 

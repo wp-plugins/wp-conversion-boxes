@@ -379,6 +379,8 @@ function wpcbValidateForm(){
                 }
             });            
 
+            // Restore to default.
+
             $(document).on('click','#restore-to-default', function(){
                 
                 if(confirm('Are you sure you want to reset the customizations to default?\n\nAll design elements and content will be reset to defaults.')){
@@ -437,6 +439,30 @@ function wpcbValidateForm(){
                 }
                 
             });
+            
+            // Box Preview Stick to Top
+            
+            window.boxwidth = $('.wpcb_stick_this').width();
+            var $wpcbStickThis = $('.wpcb_stick_this');
+                $(window).scroll(function(){
+                    if($('.wpcb_box_preview_stick').is(':checked')){
+                        var window_top = $(window).scrollTop();
+                        var $wpcbStickThisOffset = $('.wpcb_stick_this_offset');
+                        if($wpcbStickThisOffset.length){
+                            var div_top = $wpcbStickThisOffset.offset().top;
+                        }
+                        if (window_top > div_top) {
+                            $wpcbStickThis.css('width',window.boxwidth);
+                            $wpcbStickThis.addClass('wpcb_stick');
+                        } else {
+                            $wpcbStickThis.removeClass('wpcb_stick');
+                        }
+                    }
+                    else{
+                        $wpcbStickThis.removeClass('wpcb_stick');
+                    }
+                });
+            
 
 
         });

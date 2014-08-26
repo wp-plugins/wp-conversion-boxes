@@ -5,6 +5,12 @@
 *************************************/
 
 $wpcb =  WPCB_Admin::get_instance();
+
+if(isset($_GET['duplicate'])){
+    $dupli_box_id = $_GET['duplicate'];
+    $wpcb->wpcb_duplicate_box($dupli_box_id);
+}
+
 ?>
 
 <div class="wrap">

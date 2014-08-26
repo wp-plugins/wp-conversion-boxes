@@ -452,6 +452,7 @@ class WPCB_Admin {
                             $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug .'&step=1&id=' . $id )."' >Change Template</a> | ";
                             $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug .'&step=2&id=' . $id )."' >Customize</a> | ";
                             $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug .'&step=3&id=' . $id )."' >Settings</a> | ";
+                            $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_main_slug .'&duplicate=' . $id )."' >Duplicate</a> | ";
                             $wpcb_list .= "<a class='wpcb_delete' style='color: #a00;' href='' wpcb_id='".$id."'>Delete</a>";
                             $wpcb_list .= "</div></td>";
                             $wpcb_list .= "<td><input type='text' value='[wpcb id=\"".$id."\"]' ></td>";
@@ -469,7 +470,37 @@ class WPCB_Admin {
         }
         
         /***************************************
-         * Show list of all boxes in DB
+         * Duplicate a box
+         * 
+         * @since 1.2.3
+         ***************************************/
+        
+        public function wpcb_duplicate_box($box_id){
+            global $wpdb;
+            $wpcb_tbl_name = $this->wpcb_boxes_table;
+            $box_data = $wpdb->get_row("SELECT * FROM $wpcb_tbl_name WHERE id = $box_id", "ARRAY_A");
+            
+            $wpdb->insert($this->wpcb_boxes_table, 
+                array(
+                    'box_name' => $box_data['box_name']." (Duplicate)", 
+                    'box_type' => $box_data['box_type'], 
+                    'box_template' => $box_data['box_template'],
+                    'box_customizations' => $box_data['box_customizations'],
+                    'box_settings' => $box_data['box_settings']
+                ), 
+                array(
+                    '%s',
+                    '%d',
+                    '%s',
+                    '%s',
+                    '%s'
+                )
+            );
+            
+        }
+        
+        /***************************************
+         * Show dropdown list of all boxes in DB
          ***************************************/
         
         public function wpcb_box_list($selected_box,$list_type,$list_id){

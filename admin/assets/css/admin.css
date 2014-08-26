@@ -823,3 +823,9 @@ wpcb_button_flat:hover {
     padding: 0px 10px 10px 10px;
     display: none;
 }
+
+.wpcb_stick{
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+}

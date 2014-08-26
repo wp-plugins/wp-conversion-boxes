@@ -29,7 +29,7 @@ function sticky_relocate() {
     if($boxMakeStickyOffset.length){
         var div_top = $boxMakeStickyOffset.offset().top;
     }
-    $boxMakeSticky = jQuery('.box_make_sticky');
+    var $boxMakeSticky = jQuery('.box_make_sticky');
     if (window_top > div_top) {
         $boxMakeSticky.css('width',window.boxwidth);
         $boxMakeSticky.addClass('wpcb_stick');

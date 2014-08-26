@@ -119,7 +119,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
             <?php $wpcb->wpcb_sidebar(); ?>
         </div>
         
-        <?php if($step == 1 || !isset($step)) : ?>
+        <?php if(!isset($step) || $step == 1) : ?>
 
         <div id="post-body-content">
             <div class='postbox'>
@@ -276,7 +276,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
-                                            <?= $showresponse_1; ?>
+                                            <?= (isset($showresponse_1)) ? $showresponse_1 : ''; ?>
 
                                                 <div id="wpcb_mailer_1" class="wpcb_mailers_option">
                                                     <p>GetResponse API Key:</p>
@@ -315,7 +315,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
-                                            <?= $showresponse_2; ?>
+                                            <?= (isset($showresponse_2)) ? $showresponse_1 : ''; ?>
                                             <div id="wpcb_mailer_2" class="wpcb_mailers_option">
                                                 <p>MailChimp API Key:</p>
                                                 <form method="post" action="">
@@ -351,7 +351,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
-                                            <?= $showresponse_3; ?>
+                                            <?= (isset($showresponse_3)) ? $showresponse_1 : ''; ?>
                                                 <div id="wpcb_mailer_3" class="wpcb_mailers_option">
                                                     <p>Aweber Authorization Code:</p>
                                                     <form method="post" action="">

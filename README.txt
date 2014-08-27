@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 3.9.2
-Stable tag: 1.2.3.1
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,13 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 1.2.4 =
+* Released on 28th August, 2014
+* Global settings for box placement fixed. Now supports all major themes.
+* Lots of bug fixes making the plugin more stable.
+* Changed the place of Optin Form settings to Box Settings page.
+* Order templates link added on Select Template page.
+
 = 1.2.3.1 =
 * Released on 27th August, 2014
 * Blank template preview on Box Customization page fixed.
@@ -202,6 +209,12 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 1.2.4 =
+* Global settings for box placement fixed. Now supports all major themes.
+* Lots of bug fixes making the plugin more stable.
+* Changed the place of Optin Form settings to Box Settings page.
+* Order templates link added on Select Template page.
 
 = 1.2.3.1 =
 * Blank template preview on Box Customization page fixed.

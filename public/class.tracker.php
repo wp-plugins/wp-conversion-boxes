@@ -120,7 +120,7 @@ class WPCB_Tracker {
                             echo 1;
                         }
                         catch (Exception $e){
-                            echo 0;
+                            echo $e;
                         }
                         break;
                 // MailChimp
@@ -203,7 +203,7 @@ class WPCB_Tracker {
                 
                 //get referring page
 
-                $referring = $_SERVER["HTTP_REFERER"];
+                $referring = (isset($_SERVER["HTTP_REFERER"])) ? $_SERVER["HTTP_REFERER"] : '';
                 
                 $visittype = 'visit';
                 

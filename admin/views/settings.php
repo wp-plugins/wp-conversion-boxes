@@ -109,8 +109,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
     
     <h2 class="nav-tab-wrapper">
         <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=1"; ?>" class="nav-tab <?php if($step == 1 || !isset($step)) echo "nav-tab-active"; ?>">General Settings</a>
-        <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=2"; ?>" class="nav-tab <?php if($step == 2) echo "nav-tab-active"; ?>">Email Service Integration (Beta)</a>
-        <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=3"; ?>" class="nav-tab <?php if($step == 3) echo "nav-tab-active"; ?>">Optin Form Settings</a>
+        <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=2"; ?>" class="nav-tab <?php if($step == 2) echo "nav-tab-active"; ?>">Email Service Integration</a>
     </h2>
     
     <div id="poststuff" class="metabox-holder has-right-sidebar">    
@@ -380,44 +379,6 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                 </div>
             </div>
         </div>
-        
-        <?php elseif($step == 3 || !isset($step)) : ?>
-        
-        <div id="post-body-content" class="opaque6">
-            <div class='postbox'>
-                <h3>Optin Form Settings<?= $upgrade_message; ?></h3>
-                <div class='inside'>
-                    <p>Following are the messages that the visitor sees after submitting the optin form.</p>
-                    <table class="form-table">
-                        <tbody>
-                            <tr>
-                                <th scope="row"><label for="">Processing Texts</label></th>
-                                <td>
-                                    <label>Processing Headline: <input type="text" value="Processing... Please Wait!" class="wpcb_fullwidth" disabled></label><br />
-                                    <label>When taking too long: <input type="text" value="It's taking longer than usual. Please hang on for a few moments..." class="wpcb_fullwidth" disabled></label>
-                                </td>    
-                            </tr>
-                            <tr>
-                                <th scope="row"><label for="">Success Texts</label></th>
-                                <td>
-                                    <label>Success Headline: <input type="text" value="Success!" class="wpcb_fullwidth" disabled></label><br />
-                                    <label>Success Description: <input type="text" value="Thanks for subscribing!" class="wpcb_fullwidth" disabled></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><label for="">Error Texts</label></th>
-                                <td>
-                                    <label>Error Headline: <input type="text" value="Error!" class="wpcb_fullwidth" disabled></label><br />
-                                    <label>Error Description: <input type="text" value="There was an error submitting your info." class="wpcb_fullwidth" disabled></label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        
-        <input type="submit" value="Update" class="button button-primary" disabled/>
         
         <?php endif; ?>
         

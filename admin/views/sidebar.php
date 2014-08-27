@@ -58,4 +58,3 @@ else{?>
         <a href="#" class="wpcb_adjust wpcb_load_more_stats">More...</a>
     </div>
 </div>
-

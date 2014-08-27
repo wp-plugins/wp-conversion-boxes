@@ -183,8 +183,8 @@ switch ($wpcb_default_fields['video_site']) {
     
 </style>
 
-<div class="<?= $wpcb_default_fields['box_make_sticky']; ?>_offset"></div>
-<div class="wpcb_template_main <?= $wpcb_default_fields['box_fade_in']." ".$wpcb_default_fields['box_make_sticky']; ?>" data-fadetime="<?= $wpcb_default_fields['box_fade_in_time']; ?>">
+<div class="<?= $wpcb_settings_data['box_make_sticky']; ?>_offset"></div>
+<div class="wpcb_template_main <?= $wpcb_settings_data['box_fade_in']." ".$wpcb_settings_data['box_make_sticky']; ?>" data-fadetime="<?= $wpcb_settings_data['box_fade_in_time']; ?>">
     <div class="wpcb_box_all_content_container">
         <div class="wpcb_box_media_container wpcb_box_media_<?= $wpcb_default_fields['video_align']; ?>">    
             <iframe class="wpcb_box_video" src="<?= $video_url; ?>" ></iframe>

@@ -2,9 +2,12 @@
 
 // Step 3
 
-    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_name`,`box_settings` from $wpcb_tbl_name WHERE id = %s",array($id)));
+    $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_name`,`box_type`,`box_settings` from $wpcb_tbl_name WHERE id = %s",array($id)));
     $box_name = stripslashes($wpcb_the_row->box_name);
+    $box_type = $wpcb_the_row->box_type;
     $box_settings = unserialize($wpcb_the_row->box_settings);
+    
+    $upgrade_message = $this->upgrade_to_pro();
     
     $box_fade_in  = ((isset($box_settings['box_fade_in']) && $box_settings['box_fade_in'] == 1) ? 'checked' : '');
     $box_fade_in_time = (isset($box_settings['box_fade_in_time']) ? $box_settings['box_fade_in_time'] : '');
@@ -42,7 +45,45 @@
             </table>            
         </div>
     </div>
+
     
+    <?php if(isset($box_type) && ($box_type == 1 || $box_type == 2)){ ?>
+        
+        <div id="postbox" class="opaque5">
+            <div class='postbox'>
+                <h3>Optin Form Settings<?= $upgrade_message; ?></h3>
+                <div class='inside'>
+                    <p>Following are the messages that the visitor sees after submitting the optin form.</p>
+                    <table class="form-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row"><label for="">Processing Texts</label></th>
+                                <td>
+                                    <label>Processing Headline: <input type="text" value="Processing... Please Wait!" class="wpcb_fullwidth" disabled></label><br />
+                                    <label>When taking too long: <input type="text" value="It's taking longer than usual. Please hang on for a few moments..." class="wpcb_fullwidth" disabled></label>
+                                </td>    
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="">Success Texts</label></th>
+                                <td>
+                                    <label>Success Headline: <input type="text" value="Success!" class="wpcb_fullwidth" disabled></label><br />
+                                    <label>Success Description: <input type="text" value="Thanks for subscribing!" class="wpcb_fullwidth" disabled></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="">Error Texts</label></th>
+                                <td>
+                                    <label>Error Headline: <input type="text" value="Error!" class="wpcb_fullwidth" disabled></label><br />
+                                    <label>Error Description: <input type="text" value="There was an error submitting your info." class="wpcb_fullwidth" disabled></label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+    <?php } ?>
     
     <div class="wpcb_nav_buttons_step_3">
         <input type="submit" box_id="<?php echo $id; ?>" value="Update" class="button button-primary" name="update-box-settings" id="update-box-settings"/>

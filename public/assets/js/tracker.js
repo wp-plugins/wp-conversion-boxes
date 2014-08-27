@@ -127,6 +127,7 @@ function wpcbUpdatedVisitType(newvisittype){
                                         tracker_id : wpcbTrakcerID
                                     };
                                     jQuery.post(trackerDefaultData.ajaxurl, data1, function(response) {
+                                        response = response.charAt(response.length - 1);
                                         if(response == 1){
                                             $('.wpcb_template_main').html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Success!</div><div class="wpcb-processing-body">Thanks for subscribing!</div></div>');
                                         }

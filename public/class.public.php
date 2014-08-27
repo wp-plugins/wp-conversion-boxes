@@ -290,6 +290,82 @@ class WPCB_Public {
 		wp_enqueue_script( $this->wpcb_main_slug . '-plugin-script', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
 	}
         
+        /***************************************
+         * 
+         */
+        
+        public function show_the_box($id){
+            
+            $wpcb_tracking = WPCB_Tracker::get_instance();            
+            
+            global $wpdb;
+
+            $wpcb_tbl_name = $this->get_boxes_table_name();
+            $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT * from $wpcb_tbl_name WHERE id = %d", array($id)));
+
+            if (isset($wpcb_the_row)) {
+                $box_type = $wpcb_the_row->box_type;
+                $box_template = $wpcb_the_row->box_template;
+                $box_customizations = $wpcb_the_row->box_customizations;
+                $box_settings = $wpcb_the_row->box_settings;
+            } else {
+
+            }
+            
+            $box_id = $id;
+            
+            if($box_customizations != null AND $box_customizations != 'defaults'){
+                $wpcb_default_fields = unserialize($box_customizations);
+                $wpcb_default_fields = $this->sanitise_array($wpcb_default_fields);
+                $wpcb_default_fields['defaults'] = 'custom';
+            }
+            else{
+                $wpcb_default_fields['defaults'] = 'defaults';
+            }
+            
+            if(isset($box_settings)){
+            
+                $wpcb_box_settings = unserialize($box_settings);
+
+                if($wpcb_box_settings['box_fade_in'] == '1'){
+                    $wpcb_settings_data['box_fade_in'] = "wpcb_fade_in";
+                }
+                else{
+                    $wpcb_settings_data['box_fade_in'] = "wpcb_nothing";
+                }
+
+                $wpcb_settings_data['box_fade_in_time'] = $wpcb_box_settings['box_fade_in_time'];
+
+                if($wpcb_box_settings['box_make_sticky'] == '1'){
+                    $wpcb_settings_data['box_make_sticky'] = "box_make_sticky";
+                }
+                else{
+                    $wpcb_settings_data['box_make_sticky'] = "wpcb_nothing";
+                }
+        
+            }
+            else{
+                $wpcb_settings_data['box_fade_in'] = "wpcb_nothing";
+                $wpcb_settings_data['box_fade_in_time'] = "0";
+                $wpcb_settings_data['box_make_sticky'] = "wpcb_nothing";
+            }
+            ob_start();
+            
+            switch($box_type){
+                case 1 :    include(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->get_template_directory(1).'/'.$box_template.'/template.php');
+                            break;
+                case 2 :    include(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->get_template_directory(2).'/'.$box_template.'/template.php');
+                            break;
+                case 3 :    include(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->get_template_directory(3).'/'.$box_template.'/template.php');
+                            break;
+                case 4 :    include(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->get_template_directory(4).'/'.$box_template.'/template.php');
+                            break;                                     
+            }
+            
+            $wpcb_tracking->log_new_visit($box_id);
+
+        }
+        
         /******************************
          * Main shortcode [wpcb]
          ******************************/
@@ -300,8 +376,11 @@ class WPCB_Public {
         }
 
         public function show_box($content){
-            include_once('includes/show-box.php');
-            return $content.$final_output;
+            include('includes/show-box.php');
+            if(isset($final_output))
+                return $content.$final_output;
+            else
+                return $content;
             $wpcb_tracking->log_new_visit($id);
         }
         

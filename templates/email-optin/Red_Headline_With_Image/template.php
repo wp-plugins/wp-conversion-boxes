@@ -175,8 +175,8 @@ $wpcb_default_fields['use_input'] = true;
     
 </style>
 
-<div class="<?= $wpcb_default_fields['box_make_sticky']; ?>_offset"></div>
-<div class="wpcb_template_main <?= $wpcb_default_fields['box_fade_in']." ".$wpcb_default_fields['box_make_sticky']; ?>" data-fadetime="<?= $wpcb_default_fields['box_fade_in_time']; ?>">
+<div class="<?= $wpcb_settings_data['box_make_sticky']; ?>_offset"></div>
+<div class="wpcb_template_main <?= $wpcb_settings_data['box_fade_in']." ".$wpcb_settings_data['box_make_sticky']; ?>" data-fadetime="<?= $wpcb_settings_data['box_fade_in_time']; ?>">
     <div class="wpcb_box_heading">
         <div class="wpcb_box_heading_text"><?= $wpcb_default_fields['heading_text']; ?></div>
     </div>

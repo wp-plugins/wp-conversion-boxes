@@ -158,7 +158,8 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Global settings for box placement fixed. Now supports all major themes.
 * Lots of bug fixes making the plugin more stable.
 * Changed the place of Optin Form settings to Box Settings page.
-* Order templates link added on Select Template page.
+* Order custom box templates link added at the end of Select Template page.
+* Modified all the templates for better settings.
 
 = 1.2.3.1 =
 * Released on 27th August, 2014
@@ -214,7 +215,8 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Global settings for box placement fixed. Now supports all major themes.
 * Lots of bug fixes making the plugin more stable.
 * Changed the place of Optin Form settings to Box Settings page.
-* Order templates link added on Select Template page.
+* Order custom box templates link added at the end of Select Template page.
+* Modified all the templates for better settings.
 
 = 1.2.3.1 =
 * Blank template preview on Box Customization page fixed.

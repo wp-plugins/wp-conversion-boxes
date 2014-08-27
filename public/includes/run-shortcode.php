@@ -25,9 +25,9 @@
         
         $box_id = $id;
         
-        if($box_customizations != null AND $box_customizations != 'defaults'){
+        if($box_customizations != null && $box_customizations != 'defaults'){
             $wpcb_default_fields = unserialize($box_customizations);
-            $box_customizations = $wpcb_public->sanitise_array($box_customizations);
+            $wpcb_default_fields = $wpcb_public->sanitise_array($wpcb_default_fields);
             $wpcb_default_fields['defaults'] = 'custom';
         }
         else{

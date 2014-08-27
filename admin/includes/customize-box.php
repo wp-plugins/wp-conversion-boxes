@@ -7,10 +7,10 @@ $wpcb_public = WPCB_Public::get_instance();
     $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_type`,`box_template`,`box_customizations`  from $wpcb_tbl_name WHERE id = %d",array($id)));
     $box_type = $wpcb_the_row->box_type;
     $box_template = $wpcb_the_row->box_template;
-    if($wpcb_the_row->box_customizations != 'defaults'){
+    if($wpcb_the_row->box_customizations != null && $wpcb_the_row->box_customizations != 'defaults'){
         $box_customizations = unserialize($wpcb_the_row->box_customizations);
-        $box_customizations['defaults'] = 'custom';
         $box_customizations = $wpcb_public->sanitise_array($box_customizations);
+        $box_customizations['defaults'] = 'custom';
     }    
     else{
         $box_customizations['defaults'] = 'defaults';

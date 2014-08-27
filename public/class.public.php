@@ -306,7 +306,7 @@ class WPCB_Public {
         }
         
         public function in_footer(){
-            echo $_COOKIE["wpcb-useradded"];
+            //echo $_COOKIE["wpcb-useradded"];
         }
         
         /***************************************

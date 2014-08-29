@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '1.0.3';
+	const VERSION = '1.2.4.1';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         const WPCB_WEBSITE_URL = 'http://wpconversionboxes.com';
         
@@ -399,7 +399,7 @@ class WPCB_Public {
 
             foreach ($data as $k => $v) {
                     if (!is_array($v) && !is_object($v)) {
-                            $data[$k] = stripslashes(trim($v));
+                            $data[$k] = esc_attr(stripslashes(trim($v)));
                     }
                     if (is_array($v)) {
                             $data[$k] = purica_array($v);

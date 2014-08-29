@@ -28,9 +28,9 @@ if(isset($_GET['step'])){
     ?>
     
         <h2 class="nav-tab-wrapper">
-            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=1&id=".$id; ?>" class="nav-tab <?php if((isset($step) && $step == 1) || !isset($step)) echo "nav-tab-active"; ?>">Select Box Template</a>
-            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=2&id=".$id; ?>" class="nav-tab <?php if(isset($step) && $step == 2) echo "nav-tab-active"; ?>">Customize Box</a>
-            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=3&id=".$id; ?>" class="nav-tab <?php if(isset($step) && $step == 3) echo "nav-tab-active"; ?>">Box Settings</a>
+            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=1&id=".$id; ?>" class="nav-tab <?php if((isset($step) && $step == 1) || !isset($step)) echo "nav-tab-active"; ?>">Step 1: Select Box Template</a>
+            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=2&id=".$id; ?>" class="nav-tab <?php if(isset($step) && $step == 2) echo "nav-tab-active"; ?>">Step 2: Customize Box</a>
+            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=3&id=".$id; ?>" class="nav-tab <?php if(isset($step) && $step == 3) echo "nav-tab-active"; ?>">Step 3: Box Settings</a>
         </h2>
     
     <?php    

@@ -157,8 +157,8 @@ $wpcb_tracking = WPCB_Tracker::get_instance();
             <?php
                 } //IF ends here
                 else{ 
-                    $box_id = $_GET['id'];
-                    $action = $_GET['allstats'];
+                    $box_id = (isset($_GET['id'])) ? $_GET['id'] : '';
+                    $action = (isset($_GET['allstats'])) ? $_GET['allstats'] : '';
                     $startdate = date('m/d/Y', strtotime('-30 days'));
                     $enddate = date("m/d/Y");
             ?>

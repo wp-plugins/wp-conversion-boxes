@@ -1,0 +1,168 @@
+@import url(http://fonts.googleapis.com/css?family=Poiret+One|Josefin+Sans|Lobster|Anton|Shadows+Into+Light|Gloria+Hallelujah|Roboto|Oswald|Raleway|Montserrat|Oxygen|Francois+One|Titillium+Web|Indie+Flower|Fjalla+One|Inconsolata|Pacifico|Audiowide|Dancing+Script|Coming+Soon);
+
+
+.wpcb_template_main{
+    border-width: 0px;
+    border-style: solid;
+    border-color: #fff;
+}
+
+
+.wpcb_button_gradient, .wpcb_button_gradient:link{
+
+    display:inline-block;
+    vertical-align:middle; 
+
+    //background-color: #0088cc !important;
+    //background-image: -moz-linear-gradient(top, #0088cc, #0071ac) !important;
+    //background-image: -ms-linear-gradient(top, #0088cc, #0071ac) !important;
+    //background-image: -webkit-gradient(linear, #0088cc, #0071ac) !important;
+    //background-image: -webkit-linear-gradient(top, #0088cc, #0071ac) !important;
+    //background-image: -o-linear-gradient(top, #0088cc, #0071ac) !important;
+    //background-image: linear-gradient(top, #0088cc, #0071ac) !important;
+    background-repeat: repeat-x;
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0088cc", endColorstr="#0071ac", GradientType=0);
+
+    border-color: #0071ac #0071ac #004a70;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    font-family: "Droid Sans","Open Sans",Arial;	
+
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.5;
+
+                    margin:0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+
+
+}
+
+.wpcb_button_gradient:hover {
+
+    opacity:0.9;
+    filter:Alpha(opacity=90);
+    cursor:pointer;
+    color: initial;
+
+}
+
+.wpcb_button_3d {
+
+  display:inline-block;
+  vertical-align:middle;
+  border: 0;
+  margin: 0;
+  line-height:1.5;
+  font-size: 15px;
+  text-decoration:none;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  //background: #0088cc !important;
+  border-bottom: 2px solid #005e8e;
+  cursor: pointer;
+  //-webkit-box-shadow: inset 0 -5px #005e8e !important;
+  //box-shadow: inset 0 -5px #005e8e !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+}			
+
+.wpcb_button_3d:active {
+
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: inherit;
+
+}
+			
+.wpcb_button_3d:hover {
+
+    opacity:0.9;
+    filter:Alpha(opacity=90);
+    cursor:pointer;
+    color: initial;
+
+}
+
+
+.wpcb_button_flat {
+
+  display:inline-block;
+  vertical-align:middle;
+  border: 0;
+  margin: 0;
+  line-height:1.5;
+  font-size: 15px;
+  text-decoration:none;
+  color: white;
+  text-align: center;
+  //background: #0088cc !important;
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+}	
+			
+.wpcb_button_flat:hover {
+
+    opacity:0.9;
+    filter:Alpha(opacity=90);
+    cursor:pointer;
+    color: initial;
+
+}
+
+.wpcb_stick{
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+}
+
+.wpcb-processing{
+    background-color: #FFF7E2;
+    color: #7C7C7C;
+    text-align: center;
+}
+
+.wpcb-processing-head{
+    line-height: 100px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.wpcb-processing-body{
+    font-size: 16px;
+    text-align: center;
+}
+
+.wpcb-loading{
+    margin: 0px auto;
+    padding-bottom: 20px;
+    width: 212px;
+    height: 14px;
+    background-image: url('../imgs/loading.gif');
+    background-repeat: no-repeat;
+}

@@ -3,7 +3,7 @@
 // Step 3
 
     $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_name`,`box_type`,`box_settings` from $wpcb_tbl_name WHERE id = %s",array($id)));
-    $box_name = stripslashes($wpcb_the_row->box_name);
+    $box_name = stripslashes(esc_attr($wpcb_the_row->box_name));
     $box_type = $wpcb_the_row->box_type;
     $box_settings = unserialize($wpcb_the_row->box_settings);
     

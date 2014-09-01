@@ -53,7 +53,7 @@ $wpcb_tracking = WPCB_Tracker::get_instance();
                                     <?php
                                     foreach ($results as $result){
                                         $id = $result->id;
-                                        $name = $result->box_name;
+                                        $name = stripcslashes($result->box_name);
                                         $pageviews = $wpcb_tracking->page_views($id);
                                         $uniquevisitors = $wpcb_tracking->unique_visitors($id);
                                         $uniqueboxviews = $wpcb_tracking->box_views($id);

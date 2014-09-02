@@ -62,13 +62,18 @@ function wpcbUpdatedVisitType(newvisittype){
 	$(function () {
                 
                 //$(document).ready(function(){
+                // Updated 1.2.5.1
                     
                     window.boxLoadDone = '';
                     window.boxwidth = jQuery('.box_make_sticky').outerWidth();
                     
                     // Check if the box isvisible directly
-                    
-                    if($('.wpcb_template_main').visible() && window.boxLoadDone != 'done'){
+                            
+                    var $wpcbTemplateMain = $('.wpcb_template_main');
+        
+                if($wpcbTemplateMain.length > 0){
+        
+                    if($wpcbTemplateMain.visible() && window.boxLoadDone != 'done'){
                         wpcbUpdatedVisitType('boxview');
                         var fadeTime = $('.wpcb_fade_in').data('fadetime');
                         $('.wpcb_fade_in').fadeOut(fadeTime * 500).fadeIn(fadeTime * 500);
@@ -79,7 +84,7 @@ function wpcbUpdatedVisitType(newvisittype){
                     
                     $(window).scroll(function(){
                         
-                        if($('.wpcb_template_main').visible() && window.boxLoadDone != 'done'){
+                        if($wpcbTemplateMain.visible() && window.boxLoadDone != 'done'){
                             wpcbUpdatedVisitType('boxview');
                             var fadeTime = $('.wpcb_fade_in').data('fadetime');
                             $('.wpcb_fade_in').fadeOut(fadeTime * 500).fadeIn(fadeTime * 500);
@@ -116,8 +121,8 @@ function wpcbUpdatedVisitType(newvisittype){
                                 $('#wpcb_email').attr('style','');
                                 var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                                 if(regex.test(wpcbEmail)){
-                                    var divHeight = $('.wpcb_template_main').height();
-                                    $('.wpcb_template_main').html('<script>setTimeout("jQuery(\'.wpcb-processing-body\').show()", 7000);</script><div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Processing... Please Wait!</div><div class="wpcb-loading"></div><div class="wpcb-processing-body" style="display: none;">It\'s taking longer than usual. Please hang on for a few moments...</div></div>');
+                                    var divHeight = $wpcbTemplateMain.height();
+                                    $wpcbTemplateMain.html('<script>setTimeout("jQuery(\'.wpcb-processing-body\').show()", 7000);</script><div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Processing... Please Wait!</div><div class="wpcb-loading"></div><div class="wpcb-processing-body" style="display: none;">It\'s taking longer than usual. Please hang on for a few moments...</div></div>');
                                     var data1 = {
                                         action: 'add_new_contact',
                                         name: wpcbName,
@@ -129,10 +134,10 @@ function wpcbUpdatedVisitType(newvisittype){
                                     jQuery.post(trackerDefaultData.ajaxurl, data1, function(response) {
                                         response = response.charAt(response.length - 1);
                                         if(response == 1){
-                                            $('.wpcb_template_main').html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Success!</div><div class="wpcb-processing-body">Thanks for subscribing!</div></div>');
+                                            $wpcbTemplateMain.html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Success!</div><div class="wpcb-processing-body">Thanks for subscribing!</div></div>');
                                         }
                                         else{
-                                            $('.wpcb_template_main').html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Error!</div><div class="wpcb-processing-body">There was an error submitting your info.</div></div>');
+                                            $wpcbTemplateMain.html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Error!</div><div class="wpcb-processing-body">There was an error submitting your info.</div></div>');
                                         }
                                     });                                    
                                 }
@@ -146,6 +151,7 @@ function wpcbUpdatedVisitType(newvisittype){
                         }
                         
                     });
+                }
                     
                 //});
                 

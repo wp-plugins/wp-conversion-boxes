@@ -54,7 +54,7 @@ if($wpcb_default_fields == '' or $wpcb_default_fields['defaults'] == 'defaults')
 
 $wpcb_default_fields['use_heading'] = true;
 $wpcb_default_fields['use_content'] = true;
-$wpcb_default_fields['use_image'] = false;
+$wpcb_default_fields['use_image'] = true;
 
 /* 
  * Code it in the premium version

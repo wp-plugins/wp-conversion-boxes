@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '1.2.4.1';
+	const VERSION = '2.0';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         const WPCB_WEBSITE_URL = 'http://wpconversionboxes.com';
         
@@ -361,8 +361,9 @@ class WPCB_Public {
                 case 4 :    include(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->get_template_directory(4).'/'.$box_template.'/template.php');
                             break;                                     
             }
-            
-            $wpcb_tracking->log_new_visit($box_id);
+            if (isset($wpcb_the_row)) {
+                $wpcb_tracking->log_new_visit($box_id);
+            }
 
         }
         
@@ -371,17 +372,43 @@ class WPCB_Public {
          ******************************/
 
         public function run_shortcode($atts) {
-            include_once('includes/run-shortcode.php');
+            extract(shortcode_atts(array(
+                'id' => 0
+            ), $atts));
+            $this->show_the_box($id);
             return ob_get_clean();
         }
 
         public function show_box($content){
-            include('includes/show-box.php');
-            if(isset($final_output))
-                return $content.$final_output;
-            else
-                return $content;
-            $wpcb_tracking->log_new_visit($id);
+            $posttype = get_post_type();
+        
+            $wpcb_default_box = get_option('wpcb_default_box');
+            $wpcb_all_posts = get_option('wpcb_all_posts');
+            $wpcb_all_pages = get_option('wpcb_all_pages');
+
+            if($wpcb_all_posts == $wpcb_all_pages && $wpcb_all_posts != 0){
+                $this->show_the_box($wpcb_all_posts);
+            }else if($posttype == 'post' && $wpcb_all_posts != 0){
+                $this->show_the_box($wpcb_all_posts);
+            }
+            else if($posttype == 'page' && $wpcb_all_pages != 0){
+                $this->show_the_box($wpcb_all_pages);
+            }
+            else if($wpcb_default_box != 0){
+                $this->show_the_box($wpcb_default_box);
+            }
+            else {
+                ob_start();
+            }
+
+            $final_output = ob_get_contents();  // get buffer content
+            ob_end_clean();
+            if(isset($final_output)){ 
+                return $content.$final_output; 
+            }
+            else{ 
+                return $content; 
+            }
         }
         
         public function in_footer(){

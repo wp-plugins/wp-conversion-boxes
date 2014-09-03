@@ -300,7 +300,7 @@ function validateFieldsOnDocumentReady(){
             });
             
             $(document).on('click','.wpcb_load_more_stats', function(){
-                if(confirm('Free version of WP Conversion Boxes shows only 10 top performing posts and pages.\n\n Do you want to upgrade to Pro to get this feature?')){
+                if(confirm('Free version of WP Conversion Boxes shows only 7 top performing posts and pages.\n\n Upgrade to Pro to view stats for all links.')){
                     window.open('http://wpconversionboxes.com', '_blank');
                 }
             });
@@ -353,6 +353,33 @@ function validateFieldsOnDocumentReady(){
                     $('.wpcb_mailers_option').hide();                    
                 
                 });
+            
+                // Dropdown Menu
+            
+                $(document).click(function(){
+                    if($(this).attr('id') !== 'wpcb-shortcode-select')
+                        $(".wpcb-boxes-menu").hide().removeClass('open');
+                });                
+                
+                $(document).on('click','.wpcb-boxes-menu-toggle', function(e){
+                    e.stopPropagation();
+                    $('.wpcb-boxes-menu').hide();
+                    if($(this).next().hasClass('open'))
+                        $(this).next().hide().removeClass('open');
+                    else{
+                        $('.wpcb-boxes-menu').removeClass('open');
+                        $(this).next().show().addClass('open');
+                    }
+                });
+                
+                // Oops no A/B test available
+                
+                $(document).on('click','.wpcb_no_ab_test', function(){
+                    if(confirm('A/B tests feature is not available in free version.\n\n Please upgrade to Pro to get this feature.')){
+                        window.open('http://wpconversionboxes.com', '_blank');
+                    }
+                });
+
 
         });
 

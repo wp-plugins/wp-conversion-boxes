@@ -217,6 +217,7 @@ class WPCB_Tracker {
                     echo '<div class="wpcb-tracker" data-id="'.$wpdb->insert_id.'" data-boxid="'.$box_id.'" data-visitedpage="'.$visitedpage.'" data-visittype="'.$visittype.'"></div>';
                 }
 
+
         }
 
         // Return lifetime page views of requested box
@@ -779,7 +780,7 @@ class WPCB_Tracker {
                         . "COUNT(*) AS pageviews, SUM(CASE WHEN visittype != 'visit' THEN 1 ELSE 0 END) AS boxviews, "
                         . "SUM(CASE WHEN visittype = 'click' or visittype = 'optin' THEN 1 ELSE 0 END) AS conversions "
                         . "FROM $wpcb_tbl_name WHERE visitdate!='' AND box_id = ' $box_id ' "
-                        . "GROUP BY visitedpage ORDER BY pageviews DESC LIMIT 0, 10 ");
+                        . "GROUP BY visitedpage ORDER BY pageviews DESC LIMIT 0, 7");
 
                 if ($wpdb->num_rows != 0) {
                     echo '<table class="wp-list-table widefat fixed posts wpcb_stats_table">

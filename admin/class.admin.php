@@ -16,9 +16,6 @@ class WPCB_Admin {
 	 ************************************/
 	protected $wpcb_main_screen_hook_suffix = null;
         protected $wpcb_edit_screen_hook_suffix = null;
-        protected $wpcb_ab_tests_screen_hook_suffix = null;
-        protected $wpcb_edit_ab_test_screen_hook_suffix = null;
-        protected $wpcb_stats_screen_hook_suffix = null;
         protected $wpcb_settings_screen_hook_suffix = null;
         
         /*************************************
@@ -35,15 +32,13 @@ class WPCB_Admin {
                 $this->wpcb_website_url = $wpcb_public::WPCB_WEBSITE_URL;
 		$this->wpcb_main_slug = $wpcb_public->get_wpcb_main_slug();
                 $this->wpcb_edit_slug = $wpcb_public->get_wpcb_edit_slug();
-                $this->wpcb_ab_tests_slug = $wpcb_public->get_wpcb_ab_tests_slug();
-                $this->wpcb_edit_ab_test_slug = $wpcb_public->get_wpcb_edit_ab_test_slug();
-                $this->wpcb_stats_slug = $wpcb_public->get_wpcb_stats_slug();
                 $this->wpcb_settings_slug = $wpcb_public->get_wpcb_settings_slug();
                 $this->template_directory_1 = $wpcb_public->get_template_directory(1);
                 $this->template_directory_2 = $wpcb_public->get_template_directory(2);
                 $this->template_directory_3 = $wpcb_public->get_template_directory(3);
                 $this->template_directory_4 = $wpcb_public->get_template_directory(4);
                 $this->wpcb_boxes_table = $wpcb_public->get_boxes_table_name();
+                $this->wpcb_tracking_table = $wpcb_public->get_tracking_table_name();
             
                 
                 /**************************************		
@@ -105,9 +100,10 @@ class WPCB_Admin {
 		}
 
 		$wpcb_screen = get_current_screen();
-		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_stats_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
+		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
 			wp_enqueue_style( $this->wpcb_main_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), WPCB_Public::VERSION );
-            wp_enqueue_style( 'wp-color-picker');
+                        wp_enqueue_style( 'wp-color-picker');
+                        wp_enqueue_style( $this->wpcb_main_slug .'-font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
                 }       
 
 	}
@@ -125,14 +121,14 @@ class WPCB_Admin {
 		}
 
 		$wpcb_screen = get_current_screen();
-		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_stats_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
+		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
                         wp_enqueue_script('wp-color-picker');
                         wp_enqueue_media();
                         wp_enqueue_script( $this->wpcb_main_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' , 'wp-color-picker'), WPCB_Public::VERSION );
                         wp_enqueue_script( $this->wpcb_main_slug . "-real-time-box-customizer-js",  plugins_url('assets/js/realtimeboxcustomizer.js',__FILE__));
                         wp_enqueue_script( $this->wpcb_main_slug . "-flot-js",  plugins_url('assets/js/jquery.flot.min.js',__FILE__));
                         wp_enqueue_script( $this->wpcb_main_slug . "-flot-selection-js",  plugins_url('assets/js/jquery.flot.selection.min.js',__FILE__));
-                        wp_enqueue_script( $this->wpcb_main_slug . "-flot-timer-js",  plugins_url('assets/js/jquery.flot.time.min.js',__FILE__));                        
+                        wp_enqueue_script( $this->wpcb_main_slug . "-flot-timer-js",  plugins_url('assets/js/jquery.flot.time.min.js',__FILE__));
 		}
 
 	}
@@ -168,30 +164,6 @@ class WPCB_Admin {
                         $this->wpcb_edit_slug,
                         array( $this, 'wpcb_display_edit_page' )
                 );
-                $this->wpcb_ab_tests_screen_hook_suffix = add_submenu_page(
-                        $this->wpcb_main_slug, 
-                        __( 'A/B Tests', $this->wpcb_main_slug ), 
-                        __( 'A/B Tests', $this->wpcb_main_slug ),
-                        'manage_options',
-                        $this->wpcb_ab_tests_slug,
-                        array( $this, 'wpcb_display_ab_tests_page' )
-                );
-                $this->wpcb_edit_ab_test_screen_hook_suffix = add_submenu_page(
-                        $this->wpcb_main_slug, 
-                        __( 'Add New A/B Test', $this->wpcb_main_slug ), 
-                        __( 'Add New A/B Test', $this->wpcb_main_slug ),
-                        'manage_options',
-                        $this->wpcb_edit_ab_test_slug,
-                        array( $this, 'wpcb_display_edit_ab_test_page' )
-                );
-                $this->wpcb_stats_screen_hook_suffix = add_submenu_page(
-                        $this->wpcb_main_slug, 
-                        __( 'Statistics', $this->wpcb_main_slug ), 
-                        __( 'Statistics', $this->wpcb_main_slug ),
-                        'manage_options',
-                        $this->wpcb_stats_slug,
-                        array( $this, 'wpcb_display_stats_page' )
-                );
                 $this->wpcb_settings_screen_hook_suffix = add_submenu_page(
                         $this->wpcb_main_slug, 
                         __( 'Global Settings', $this->wpcb_main_slug ), 
@@ -214,16 +186,6 @@ class WPCB_Admin {
         public function wpcb_display_edit_page() {
 		include_once( 'views/edit.php' );
 	}
-        public function wpcb_display_ab_tests_page(){
-                include_once( 'views/ab-tests.php' );
-        }
-        public function wpcb_display_edit_ab_test_page(){
-                include_once( 'views/edit-ab-test.php' );
-        }
-        public function wpcb_display_stats_page() {
-		include_once( 'views/statistics.php' );
-	}
-        
         public function wpcb_display_settings_page() {
 		include_once( 'views/settings.php' );
 	}
@@ -393,6 +355,7 @@ class WPCB_Admin {
                 global $wpdb;
                 $wpcb_id = $_POST['wpcb_id'];
                 if($wpdb->delete( $this->wpcb_boxes_table, array( 'id' => $wpcb_id ) )){
+                    $wpdb->delete( $this->wpcb_tracking_table, array( 'box_id' => $wpcb_id ) );
                     echo $wpcb_id;
                 }
                 else 
@@ -419,53 +382,7 @@ class WPCB_Admin {
          ***************************************/
         
         public function wpcb_show_boxes_list() {
-                global $wpdb;
-                $wpcb_tbl_name = $this->wpcb_boxes_table;
-                $results = $wpdb->get_results("SELECT id,box_name FROM $wpcb_tbl_name ORDER BY id DESC");
-                $result_count = count($results);
-                if($result_count != 0){
-                    $count = 1;
-                    ?>
-                    <table class="wp-list-table widefat fixed posts" style="clear: none;">
-                        <thead>
-                            <tr>
-                                <th>WP Conversion Boxes Name</th>
-                                <th>Shortcode</th>
-                            </tr>
-                        </thead>
-
-                        <tfoot>
-                            <tr>
-                                <th>WP Conversion Boxes Name</th>
-                                <th>Shortcode</th>
-                            </tr>
-                        </tfoot>
-
-                        <tbody id="the-list">
-                        <?php
-                        foreach ($results as $result){
-                            $id = $result->id;
-                            $name = stripcslashes($result->box_name);
-                            $wpcb_list = ++$count % 2 == 0 ? "<tr class='alternate wpcb-list-item-".$id."'>": "<tr class='wpcb-list-item-".$id."'>";
-                            $wpcb_list .= "<td>".$name."<div class='row-actions'>";
-                            $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug .'&step=1&id=' . $id )."' >Change Template</a> | ";
-                            $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug .'&step=2&id=' . $id )."' >Customize</a> | ";
-                            $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug .'&step=3&id=' . $id )."' >Settings</a> | ";
-                            $wpcb_list .= "<a href='".admin_url( 'admin.php?page=' . $this->wpcb_main_slug .'&duplicate=' . $id )."' >Duplicate</a> | ";
-                            $wpcb_list .= "<a class='wpcb_delete' style='color: #a00;' href='' wpcb_id='".$id."'>Delete</a>";
-                            $wpcb_list .= "</div></td>";
-                            $wpcb_list .= "<td><input type='text' value='[wpcb id=\"".$id."\"]' ></td>";
-                            $wpcb_list .= "</tr>";
-                            echo $wpcb_list;
-                        }
-                        ?>
-                        </tbody>
-                    </table>
-                    <?php
-                }
-                else{
-                    echo "No boxes found. Please <a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug)."'>click here</a> to create a new WP Conversion Box.";
-                }
+            include_once('includes/show-boxes-list.php');
         }
         
         /***************************************
@@ -495,6 +412,10 @@ class WPCB_Admin {
                     '%s'
                 )
             );
+            if($wpdb->insert_id)
+                return true;
+            else
+                return false;
             
         }
         

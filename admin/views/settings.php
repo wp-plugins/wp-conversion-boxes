@@ -122,96 +122,31 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
 
         <div id="post-body-content">
             <div class='postbox'>
-                <h3>Default Conversion Box</h3>
+                <h3>Sitewide Settings</h3>
                 <div class='inside'>
                     <table class="form-table">
                         <tbody>
                             <tr>
-                                <th scope="row"><label for=""> Select Conversion Box</label></th>
+                                <th scope="row"><label for=""> Default Conversion Box</label></th>
                                 <td>
                                     <?php $wpcb->wpcb_box_list(get_option('wpcb_default_box'),'default','wpcb_boxes_list_default'); ?>
                                     <p class="wpcb_help_block">Assign a default conversion box to all pages and posts. This box will be used when no other box has been set for any post/page.</p>
                                 </td>
                             </tr>
-                            <tr class="opaque5">
-                                <th scope="row"><label for="">A/B Test</label><?= $upgrade_message; ?></th>
+                            <tr>
+                                <th scope="row"><label for=""> Conversion Box for All Posts</label></th>
                                 <td>
-                                    <label><input type='checkbox' disabled> Enable</label>
-                                    <p class="wpcb_help_block">Use an A/B Test instead of a conversion box. Click Enable and select an A/B Test below.</p>
+                                    <?php $wpcb->wpcb_box_list(get_option('wpcb_all_posts'),'','wpcb_boxes_list_posts'); ?>
+                                    <p class="wpcb_help_block">Select a conversion box that'll be shown under all Blog Posts. This will override the default conversion box.</p>
                                 </td>
                             </tr>
-                            <tr class="opaque5">
-                                <th></th>
+                            <tr>
+                                <th scope="row"><label for=""> Conversion Box for All Pages</label></th>
                                 <td>
-                                    <select disabled><option>None</option></select>
-                                    <p class="wpcb_help_block">Select a default A/B Test for all pages and posts.</p>
+                                    <?php $wpcb->wpcb_box_list(get_option('wpcb_all_pages'),'','wpcb_boxes_list_pages'); ?>
+                                        <p class="wpcb_help_block">Select a conversion box that'll be shown under all Pages of your site. This will override the default conversion box.</p>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <div class='postbox'>
-                <h3>Conversion Box for All Posts</h3>
-                <div class='inside'>
-
-                        <table class="form-table">
-                            <tbody>
-                                <tr>
-                                    <th scope="row"><label for="">Select Conversion Box</label></th>
-                                    <td>
-                                        <?php $wpcb->wpcb_box_list(get_option('wpcb_all_posts'),'','wpcb_boxes_list_posts'); ?>
-                                        <p class="wpcb_help_block">Select a conversion box that'll be shown under all Blog Posts. This will override the default conversion box.</p>
-                                    </td>
-                                </tr>
-                                <tr class="opaque5">
-                                    <th scope="row"><label for="">A/B Test</label><?= $upgrade_message; ?></th>
-                                    <td>
-                                        <label><input type='checkbox' disabled> Enable</label>
-                                        <p class="wpcb_help_block">Use an A/B Test instead of a conversion box. Click Enable and select an A/B Test below.</p>
-                                    </td>
-                                </tr>
-                                <tr class="opaque5">
-                                    <th></th>
-                                    <td>
-                                        <select disabled><option>None</option></select>
-                                        <p class="wpcb_help_block">Select an A/B Test that'll be shown under all Blog Posts.</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-			</table>
-
-                </div>
-            </div>
-            
-            <div class='postbox'>
-                <h3>Conversion Box for All Pages</h3>
-                <div class='inside'>
-
-                        <table class="form-table">
-                            <tbody>
-                                <tr>
-                                    <th scope="row"><label for=""> Select Conversion Box</label></th>
-                                    <td>
-                                        <?php $wpcb->wpcb_box_list(get_option('wpcb_all_pages'),'','wpcb_boxes_list_pages'); ?>
-                                            <p class="wpcb_help_block">Select a conversion box that'll be shown under all Pages of your site. This will override the default conversion box.</p>
-                                    </td>
-                                </tr>
-                                <tr class="opaque5">
-                                    <th scope="row"><label for="">A/B Test</label><?= $upgrade_message; ?></th>
-                                    <td>
-                                        <label><input type='checkbox' disabled> Enable</label>
-                                        <p class="wpcb_help_block">Use an A/B Test instead of a conversion box. Click Enable and select an A/B Test below.</p>
-                                    </td>
-                                </tr class="opaque5">
-                                <tr>
-                                    <th></th>
-                                    <td>
-                                        <select disabled><option>None</option></select>
-                                        <p class="wpcb_help_block">Select an A/B Test that'll be shown under all all Pages of your site.</p>
-                                    </td>
-                                </tr>                                
                             </tbody>
 			</table>
 

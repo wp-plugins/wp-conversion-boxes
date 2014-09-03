@@ -47,6 +47,13 @@ else{?>
                     <li>Place conversion boxes in sidebar using widgets.</li>
                     <li>Place more than one conversion box on a single page.</li>
                 </ul>
+                <strong>Other Salient Features</strong>
+                <ul>
+                    <li>All major email service providers included.</li>
+                    <li>Full documentation to help you create your own templates.</li>
+                    <li>Template uploader to upload your custom templates.</li>
+                    <li>Option to add redirect link after successful email optin.</li>
+                </ul>
                 <strong>Support and Upgrades</strong>
                 <ul>
                     <li>Free life-time priority support.</li>

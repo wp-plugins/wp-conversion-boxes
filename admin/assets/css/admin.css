@@ -765,6 +765,7 @@ wpcb_button_flat:hover {
 
 .wpcb_mailers_list{
     margin: 0px 5px 0px 0px;
+    padding: 0px;
 }
 
 .wpcb_mailer_li{

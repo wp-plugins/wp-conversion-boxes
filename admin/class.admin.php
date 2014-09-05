@@ -453,20 +453,14 @@ class WPCB_Admin {
         
         public function wpcb_category_wise_box_list(){
 
-            $category_ids = get_all_category_ids();
-            foreach ($category_ids as $cat_id){
-                $categories_list[$cat_id] = get_cat_name($cat_id);
-            }
-            echo "<table class='widefat'><thead><tr><th>Category Name</th><th>Conversion Box</th><th>A/B Test</th><th>Select A/B Test</th><tr></thead><tbody>";
-            foreach ($category_ids as $cat_id){
-                $list_id = "wpcb_boxes_list_cat_".$cat_id;
+            $categories = get_terms('category','orderby=count&hide_empty=0');
+            echo "<table class='widefat'><thead><tr><th>Category Name</th><th>Conversion Box</th></thead><tbody>";
+            foreach ($categories as $cat){
+                //$list_id = "wpcb_boxes_list_cat_".$cat->id;
                 echo "<tr>";
-                echo "<th>".get_cat_name($cat_id)."</th>";
+                echo "<th>".$cat->name."</th>";
                 echo "<td><select disabled><option>Use Default</option></select>";
-                //$this->wpcb_box_list('','',$list_id);
-                echo "</td>";
-                echo "<td><label><input type='checkbox' disabled> Enable</label></td><td><select disabled><option>None</option></select></td>";
-                echo "</tr>";
+                echo "</td></tr>";
             }
             echo "</tbody></table>";
         }

@@ -29,7 +29,7 @@
                     <tr>
                         <th scope="row"><label for="">Box Fade In/Out Effect</label></th>
                         <td>
-                            <label for="box_fade_in"><input type="checkbox" name="box_fade_in" id="box_fade_in" <?= $box_fade_in; ?>/> Enable Fade-in Effect. </label>
+                            <label for="box_fade_in"><input type="checkbox" name="box_fade_in" id="box_fade_in" <?= $box_fade_in; ?>/> Enable Flash Effect. </label>
                             <label for="box_fade_in_time"> Fade In/Out duration: <input type="text" name="box_fade_in_time" id="box_fade_in_time" value="<?= $box_fade_in_time; ?>" /> seconds.</label>
                             <p class="wpcb_help_block">Give a cool fade in/out (flash) effect to the box so that it grabs user's attention.</p>
                         </td>

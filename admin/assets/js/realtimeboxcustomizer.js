@@ -259,10 +259,22 @@ function changeColor(hex){
 }
 
 function wpcbValidateForm(){
-    if(jQuery('#font_families_input').val()){
-        var inputCampaignName = jQuery('.input_campaign_name:checked').val();
-        var mailerId = jQuery('.input_campaign_name:checked').data('mailer-id');
-        if(inputCampaignName == undefined){
+    if(jQuery('#input_campaign_name').length > 0){
+        var inputCampaignObject = jQuery('#input_campaign_name').data('ddslick');
+        
+        var inputCampaignName = inputCampaignObject.selectedData.value;
+        var inputCampaignMailer = inputCampaignObject.selectedData.description;
+        
+        switch(inputCampaignMailer){
+            case 'GetResponse' :    var mailerId = 1;
+                                    break;
+            case 'MailChimp' :  var mailerId = 2;
+                                break;
+            case 'Aweber' : var mailerId = 3;
+                            break;                                
+        }
+        
+        if(inputCampaignName === undefined){
             alert('Please select a campaign/list first.');
             return false;
         }
@@ -273,7 +285,8 @@ function wpcbValidateForm(){
         }
     }
     else{
-        return true;
+        alert('Please select a campaign/list first.');
+        return false;
     }
 }
 
@@ -284,7 +297,10 @@ function wpcbValidateForm(){
 
         $(document).ready(function(){
             
-            
+            $('#input_campaign_name').ddslick({
+                width: 300,
+                selectText: "Select a campaing/list."
+            });
             
             templateFields['button_bg_color'] = jQuery('#button_bg_color').val();
             templateFields['button_bg_color'] = (templateFields['button_bg_color'] != null) ? templateFields['button_bg_color'] : '#fff';

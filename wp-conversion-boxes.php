@@ -9,7 +9,7 @@
  * Plugin Name:       WP Conversion Boxes
  * Plugin URI:        http://wpconversionboxes.com
  * Description:       Same Traffic. More Conversions. Replace your CTAs and email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
- * Version:           2.0
+ * Version:           2.1
  * Author:            Ram Shengale
  * Author URI:        http://ramshengale.in
  * Text Domain:       wp-conversion-boxes
@@ -21,6 +21,18 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+/**********************************************
+* Define most used URLS and Paths
+*
+* @since 2.1
+**********************************************/
+
+
+define('ADMIN_ASSETS_URL', plugins_url('admin/assets/', __FILE__ ));
+define('PUBLIC_ASSETS_URL', plugins_url('public/assets/', __FILE__ ));
+
+define('TEMPLATE_DIR_PATH', plugin_dir_path(__FILE__).'templates/');
+define('TEMPLATE_DIR_URL', plugins_url( 'templates/',__FILE__)); 
 
 /***********************************************
  * Load wpcb-public.php file.

@@ -101,7 +101,7 @@ class WPCB_Admin {
 
 		$wpcb_screen = get_current_screen();
 		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
-			wp_enqueue_style( $this->wpcb_main_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), WPCB_Public::VERSION );
+			wp_enqueue_style( $this->wpcb_main_slug .'-admin-styles', ADMIN_ASSETS_URL.'/css/admin.css', array(), WPCB_Public::VERSION );
                         wp_enqueue_style( 'wp-color-picker');
                         wp_enqueue_style( $this->wpcb_main_slug .'-font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
                 }       
@@ -124,11 +124,12 @@ class WPCB_Admin {
 		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
                         wp_enqueue_script('wp-color-picker');
                         wp_enqueue_media();
-                        wp_enqueue_script( $this->wpcb_main_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' , 'wp-color-picker'), WPCB_Public::VERSION );
-                        wp_enqueue_script( $this->wpcb_main_slug . "-real-time-box-customizer-js",  plugins_url('assets/js/realtimeboxcustomizer.js',__FILE__));
-                        wp_enqueue_script( $this->wpcb_main_slug . "-flot-js",  plugins_url('assets/js/jquery.flot.min.js',__FILE__));
-                        wp_enqueue_script( $this->wpcb_main_slug . "-flot-selection-js",  plugins_url('assets/js/jquery.flot.selection.min.js',__FILE__));
-                        wp_enqueue_script( $this->wpcb_main_slug . "-flot-timer-js",  plugins_url('assets/js/jquery.flot.time.min.js',__FILE__));
+                        wp_enqueue_script( $this->wpcb_main_slug . '-admin-script', ADMIN_ASSETS_URL.'/js/admin.js', array( 'jquery' , 'wp-color-picker'), WPCB_Public::VERSION );
+                        wp_enqueue_script( $this->wpcb_main_slug . "-real-time-box-customizer-js",  ADMIN_ASSETS_URL.'/js/realtimeboxcustomizer.js');
+                        wp_enqueue_script( $this->wpcb_main_slug . "-flot-js",  ADMIN_ASSETS_URL.'/js/jquery.flot.min.js');
+                        wp_enqueue_script( $this->wpcb_main_slug . "-flot-selection-js",  ADMIN_ASSETS_URL.'/js/jquery.flot.selection.min.js');
+                        wp_enqueue_script( $this->wpcb_main_slug . "-flot-timer-js",  ADMIN_ASSETS_URL.'/js/jquery.flot.time.min.js');
+                        wp_enqueue_script( $this->wpcb_main_slug . "-dd-slick",  ADMIN_ASSETS_URL.'js/jquery.ddslick.min.js');
 		}
 
 	}
@@ -145,7 +146,7 @@ class WPCB_Admin {
 			'manage_options',
 			$this->wpcb_main_slug,
 			array( $this, 'wpcb_display_main_page' ),
-                        //plugins_url('assets/imgs/icon.png', __FILE__ ),
+                        //ADMIN_ASSETS_URL.'/imgs/icon.png',
                         '',
                         85
 		);
@@ -471,17 +472,17 @@ class WPCB_Admin {
         
         public function wpcb_template_list($selected_template,$template_type){
                 switch($template_type){
-                    case 1 :    $wpcb_template_main_dir = plugin_dir_path(dirname(__FILE__)).'templates/'.$this->template_directory_1.'/';
-                                $wpcb_template_dir_url = plugins_url( 'templates/'.$this->template_directory_1, dirname(__FILE__ )).'/';
+                    case 1 :    $wpcb_template_main_dir = TEMPLATE_DIR_PATH.$this->template_directory_1.'/';
+                                $wpcb_template_dir_url = TEMPLATE_DIR_URL.$this->template_directory_1.'/';
                                                 break;
-                    case 2 :    $wpcb_template_main_dir = plugin_dir_path(dirname(__FILE__)).'templates/'.$this->template_directory_2.'/';
-                                $wpcb_template_dir_url = plugins_url( 'templates/'.$this->template_directory_2, dirname(__FILE__ )).'/';
+                    case 2 :    $wpcb_template_main_dir = TEMPLATE_DIR_PATH.$this->template_directory_2.'/';
+                                $wpcb_template_dir_url = TEMPLATE_DIR_URL.$this->template_directory_2.'/';
                                                 break;
-                    case 3 :    $wpcb_template_main_dir = plugin_dir_path(dirname(__FILE__)).'templates/'.$this->template_directory_3.'/';
-                                $wpcb_template_dir_url = plugins_url( 'templates/'.$this->template_directory_3, dirname(__FILE__ )).'/';
+                    case 3 :    $wpcb_template_main_dir = TEMPLATE_DIR_PATH.$this->template_directory_3.'/';
+                                $wpcb_template_dir_url = TEMPLATE_DIR_URL.$this->template_directory_3.'/';
                                                 break;
-                    case 4 :    $wpcb_template_main_dir = plugin_dir_path(dirname(__FILE__)).'templates/'.$this->template_directory_4.'/';
-                                $wpcb_template_dir_url = plugins_url( 'templates/'.$this->template_directory_4, dirname(__FILE__ )).'/';
+                    case 4 :    $wpcb_template_main_dir = TEMPLATE_DIR_PATH.$this->template_directory_4.'/';
+                                $wpcb_template_dir_url = TEMPLATE_DIR_URL.$this->template_directory_4.'/';
                                                 break;                                     
                 }
                 
@@ -533,15 +534,15 @@ class WPCB_Admin {
             echo "<div class='wpcb_stick_this_offset'></div><div class='postbox wpcb_stick_this'><h3>Box Preview<span style='float: right;'><label><input type='checkbox' class='wpcb_box_preview_stick' name='wpcb_box_preview_stick' />Stick preview to top</label></span></h3><div class='inside minheight150'>";
             
             $wpcb_default_fields = $box_customizations;
-            
+            $wpcb_upgrade_message = $this->upgrade_to_pro();
             switch($box_type){
-                    case 1 :    include_once(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->template_directory_1.'/'.$box_template.'/template.php');
+                    case 1 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_1.'/'.$box_template.'/template.php');
                                 break;
-                    case 2 :    include_once(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->template_directory_2.'/'.$box_template.'/template.php');
+                    case 2 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_2.'/'.$box_template.'/template.php');
                                 break;
-                    case 3 :    include_once(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->template_directory_3.'/'.$box_template.'/template.php');
+                    case 3 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_3.'/'.$box_template.'/template.php');
                                 break;
-                    case 4 :    include_once(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->template_directory_4.'/'.$box_template.'/template.php');
+                    case 4 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_4.'/'.$box_template.'/template.php');
                                 break;                                     
             }
             
@@ -600,57 +601,46 @@ class WPCB_Admin {
 
                 //GetResponse
                 
-                echo '<strong>Your GetResponse Campaigns</strong><ul>';
+                echo '<select id="input_campaign_name" name="input_campaign_name">';
+                
                 if($getresponse_campaigns != ''){
                     foreach($getresponse_campaigns as $gr_id => $gr_name){
                         if($gr_id == $selected_campaign){
-                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="1" value="'.$gr_id.'" checked>'.$gr_name.'</label></li>';
+                            echo '<option data-description="GetResponse" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/gr-sm.png" data-mailer-id="1" value="'.$gr_id.'" selected>'.$gr_name.'</option>';
                         }
                         else{
-                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="1" value="'.$gr_id.'" >'.$gr_name.'</label></li>';
+                            echo '<option data-description="GetResponse" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/gr-sm.png" data-mailer-id="1" value="'.$gr_id.'" >'.$gr_name.'</option>';
                         }
                     }                    
                 }
-                else{
-                    echo "No campaigns found";
-                }
-                echo "</ul>";
                 
                 //MailChimp
                 
-                echo '<strong>Your MailChimp Lists</strong><ul>';
                 if($mailchimp_lists != ''){
                     foreach($mailchimp_lists as $mc_id => $mc_name){
                         if($mc_id == $selected_campaign){
-                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="2" value="'.$mc_id.'" checked>'.$mc_name.'</label></li>';
+                            echo '<option data-description="MailChimp" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/mc-sm.png" data-mailer-id="2" value="'.$mc_id.'" selected>'.$mc_name.'</option>';
                         }
                         else{
-                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="2" value="'.$mc_id.'" >'.$mc_name.'</label></li>';
+                            echo '<option data-description="MailChimp" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/mc-sm.png" data-mailer-id="2" value="'.$mc_id.'" >'.$mc_name.'</option>';
                         }
                     }
                 }
-                else{
-                    echo "No lists found";
-                }
-                echo "</ul>";
-                
+
                 //Aweber
                 
-                echo '<strong>Your Aweber Lists</strong><ul>';
                 if($aweber_lists != ''){
                     foreach($aweber_lists as $aweber_id => $aweber_name){
                         if($aweber_id == $selected_campaign){
-                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="3" value="'.$aweber_id.'" checked>'.$aweber_name.'</label></li>';
+                            echo '<option data-description="Aweber" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/aweber-sm.png" data-mailer-id="3" value="'.$aweber_id.'" selected>'.$aweber_name.'</option>';
                         }
                         else{
-                            echo '<li><label><input type="radio" class="input_campaign_name" name="input_campaign_name" data-mailer-id="3" value="'.$aweber_id.'" >'.$aweber_name.'</label></li>';
+                            echo '<option data-description="Aweber" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/aweber-sm.png" data-mailer-id="3" value="'.$aweber_id.'" >'.$aweber_name.'</option>';
                         }
                     }                    
                 }
-                else{
-                    echo "No lists found";
-                }
-                echo "</ul>";
+                
+                echo "</select>";
                 
             }
             else{

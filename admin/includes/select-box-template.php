@@ -97,7 +97,8 @@
             </div>
         </div>
     </div>
-    <p><strong>Need a custom box template?</strong> Send me your custom box template design and I'll make a template out of it for just $49. <a target='_blank' href='http://wpconversionboxes.com/order-custom-template/'>Hire me now</a></p>
 <div class="wpcb_nav_buttons_step_1">
-    <input type="submit" box_id="<?php echo $id; ?>" value="Update" class="button button-primary" name="update-box-template" id="update-box-template"/>
+    <p><input type="submit" box_id="<?php echo $id; ?>" value="Update" class="button button-primary" name="update-box-template" id="update-box-template"/></p>
 </div>
+<p class="description"><b>NOTE: </b>If you come back later and change the selected template for this box, don't forget to Reset the box customizations by clicking the Reset button at the bottom of Customize Box page or else your design will look <del>screwed</del> broken.</p>
+<p class="description"><strong>NOTE 2: Need a custom box template?</strong> Send me your custom box template design and I'll make a template out of it for just $49. <a target='_blank' href='http://wpconversionboxes.com/order-custom-template/'>Hire me now</a></p>

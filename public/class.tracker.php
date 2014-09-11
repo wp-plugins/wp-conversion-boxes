@@ -25,9 +25,6 @@ class WPCB_Tracker {
                 add_action( 'wp_ajax_update_visit_type', array( $this, 'update_visit_type') );
                 add_action( 'wp_ajax_nopriv_update_visit_type', array( $this, 'update_visit_type') );
                 
-                add_action( 'wp_ajax_add_new_contact', array( $this, 'add_new_contact') );
-                add_action( 'wp_ajax_nopriv_add_new_contact', array( $this, 'add_new_contact') );
-                
                 add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
         }
@@ -50,13 +47,13 @@ class WPCB_Tracker {
 	 ***************************************/
 	public function enqueue_scripts() {
                 wp_enqueue_script('jquery-ui-datepicker');
-                wp_enqueue_script( 'tracker-js', plugins_url( 'assets/js/tracker.js', __FILE__ ));
+                wp_enqueue_script( 'tracker-js', PUBLIC_ASSETS_URL.'/js/tracker.js');
                 wp_localize_script( 'tracker-js', 'trackerDefaultData', array(
 		    'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		    'nonce' => wp_create_nonce( 'ajax-example-nonce' )
 		) );
-                wp_enqueue_script( 'jQuery-visible', plugins_url( 'assets/js/jquery.visible.min.js', __FILE__ ));
-	}   
+                wp_enqueue_script( 'jQuery-visible', PUBLIC_ASSETS_URL.'/js/jquery.visible.min.js');
+	}     
         
 	/***************************************
 	 * Flush stats of a particular box
@@ -95,76 +92,6 @@ class WPCB_Tracker {
                 die(); // this is required to return a proper result               
         }
         
-        /****************************************
-         * Add new contact to respective campaign
-         * or list
-         ***************************************/
-        
-        function add_new_contact(){
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $mailer_id = $_POST['mailer_id'];
-            $campaign_id = $_POST['campaign_id'];
-            $tracker_id = $_POST['tracker_id'];
-            
-            switch($mailer_id){
-                // GetResponse
-                case 1: $getresponse_api_key = get_option('wpcb_getresponse_api_key');
-                        include_once(plugin_dir_path(dirname(__FILE__)).'admin/mailers/getresponse-api.php');
-                        $getresponse = new jsonRPCClient('http://api2.getresponse.com');
-                        try{
-                            $result_contact = $getresponse->add_contact($getresponse_api_key, array ('campaign' => $campaign_id,'name' => $name,'email' => $email));
-                            global $wpdb;
-                            $wpcb_tbl_name = $this->wpcb_tracking_table;
-                            $wpdb->update($wpcb_tbl_name, array('visittype' => 'optin'), array('id' => $tracker_id), array('%s'), array('%d'));
-                            echo 1;
-                        }
-                        catch (Exception $e){
-                            echo $e;
-                        }
-                        break;
-                // MailChimp
-                case 2: $mailchimp_api_key = get_option('wpcb_mailchimp_api_key');
-                        include_once(plugin_dir_path(dirname(__FILE__)).'admin/mailers/mailchimp-api.php');
-                        $mailchimp = new MCAPI($mailchimp_api_key);
-                        $merge_vars = array('FNAME' => $name, 'LNAME' => '');
-                        $retval = $mailchimp->listSubscribe($campaign_id, $email, $merge_vars);
-                        if($mailchimp->errorCode){
-                            echo 0;
-                        }
-                        else {
-                            global $wpdb;
-                            $wpcb_tbl_name = $this->wpcb_tracking_table;
-                            $wpdb->update($wpcb_tbl_name, array('visittype' => 'optin'), array('id' => $tracker_id), array('%s'), array('%d'));
-                            echo 1;
-                        }
-                        break;
-                // Aweber
-                case 3: include_once(plugin_dir_path(dirname(__FILE__)).'admin/mailers/aweber_api/aweber_api.php');
-                        try {
-                            $aweber_api_key = get_option('wpcb_aweber_api_key');
-                            $aweber_data = unserialize($aweber_api_key);
-                            $aweber = new AWeberAPI($aweber_data[0], $aweber_data[1]);
-                            $account = $aweber->getAccount($aweber_data[2], $aweber_data[3]);
-                            $account_id = $account->id;
-                            $listURL = "/accounts/".$account_id."/lists/".$campaign_id;
-                            $list = $account->loadFromUrl($listURL);
-                            $params = array(
-                                'email' => $email,
-                                'name' => $name
-                            );
-                            $subscribers = $list->subscribers;
-                            $new_subscriber = $subscribers->create($params);
-                            echo 1;
-                        }
-                        catch (Exception $exc)
-                        {
-                            echo 0;
-                        }
-                        break;                    
-            }
-            die();
-        }
         
 	/***************************************
 	 * Log new visit to DB

@@ -110,6 +110,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
     <h2 class="nav-tab-wrapper">
         <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=1"; ?>" class="nav-tab <?php if($step == 1 || !isset($step)) echo "nav-tab-active"; ?>">General Settings</a>
         <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=2"; ?>" class="nav-tab <?php if($step == 2) echo "nav-tab-active"; ?>">Email Service Integration</a>
+        <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=3"; ?>" class="nav-tab <?php if($step == 3) echo "nav-tab-active"; ?>">Upload Custom Template</a>
     </h2>
     
     <div id="poststuff" class="metabox-holder has-right-sidebar">    
@@ -166,7 +167,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                 </tr>
                             </tbody>
 			</table>
-                        <div style="height: 150px; overflow: auto; border: 1px #ccc solid;">
+                        <div>
                             <?php $wpcb->wpcb_category_wise_box_list(); ?>
                         </div>
                 </div>
@@ -196,7 +197,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                         <li class="wpcb_mailer_li">
                                             <table>
                                                 <tr>
-                                                    <td width="200"><img src="<?php echo plugins_url('assets/imgs/getresponse-logo.png',  dirname(__FILE__)); ?>" /></td>
+                                                    <td width="200"><img src="<?php echo ADMIN_ASSETS_URL.'/imgs/getresponse-logo.png'; ?>" /></td>
                                                     <?php if(get_option('wpcb_getresponse_api_key') == '') : ?>
                                                         <td><button class="button-primary wpcb_mailer" data-mailer-id="1">Integrate</button></td>
                                                         <td><a class="button-primary" target="_blank" href="http://wpconversionboxes.com/email-services/getresponse/">Create Account For Free</a></td>
@@ -234,12 +235,11 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                         <li class="wpcb_mailer_li">
                                             <table>
                                                 <tr>
-                                                    <td  style="width: 200px;"><img src="<?php echo plugins_url('assets/imgs/mailchimp-logo.png',  dirname(__FILE__)); ?>" /></td>
+                                                    <td  style="width: 200px;"><img src="<?php echo ADMIN_ASSETS_URL.'/imgs/mailchimp-logo.png'; ?>" /></td>
                                                     <?php if(get_option('wpcb_mailchimp_api_key') == '') : ?>
                                                         <td><button class="button-primary wpcb_mailer" data-mailer-id="2">Integrate</button></td>
                                                         <td><a class="button-primary" target="_blank" href="http://wpconversionboxes.com/email-services/mailchimp/">Create Account For Free</a></td>
                                                     <?php else : ?>
-                                                        <td></td>
                                                         <td>
                                                             <form action="" method="post">
                                                                 <input type="submit" class="button-primary" name="disconnect" value="Disconnect">
@@ -249,7 +249,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
-                                            <?= (isset($showresponse_2)) ? $showresponse_1 : ''; ?>
+                                            <?= (isset($showresponse_2)) ? $showresponse_2 : ''; ?>
                                             <div id="wpcb_mailer_2" class="wpcb_mailers_option">
                                                 <p>MailChimp API Key:</p>
                                                 <form method="post" action="">
@@ -260,18 +260,16 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                         <input type="hidden" name="mailer" value="2">
                                                     </div>
                                                 </form>
-                                                <p class="wpcb_help_block">This API key is used to add email leads to your MailChimp lists. You can find your API key from <a target="_blank" href="https://app.getresponse.com/account.html#api">this page</a>. Go to the given link and just click on Create a Key to generate new API key.</p>
+                                                <p class="wpcb_help_block">This API key is used to add email leads to your MailChimp lists. You can find your API key from <a target="_blank" href="https://admin.mailchimp.com/account/api/">this page</a>. Go to the given link and just click on Create a Key to generate new API key.</p>
                                             </div>
                                         </li>
                                         
-                                        
                                         <!-- Aweber -->
-                                        
                                         
                                         <li class="wpcb_mailer_li">
                                             <table>
                                                 <tr>
-                                                    <td><img style="width: 200px;" src="<?php echo plugins_url('assets/imgs/aweber-logo.gif',  dirname(__FILE__)); ?>" /></td>
+                                                    <td><img style="width: 200px;" src="<?php echo ADMIN_ASSETS_URL.'/imgs/aweber-logo.gif'; ?>" /></td>
                                                     <?php if(get_option('wpcb_aweber_api_key') == '') : ?>
                                                         <td><button class="button-primary wpcb_mailer" data-mailer-id="3">Integrate</button></td>
                                                         <td><a class="button-primary" target="_blank" href="http://wpconversionboxes.com/email-services/aweber/">Create Account For $1</a></td>
@@ -285,7 +283,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
-                                            <?= (isset($showresponse_3)) ? $showresponse_1 : ''; ?>
+                                            <?= (isset($showresponse_3)) ? $showresponse_3 : ''; ?>
                                                 <div id="wpcb_mailer_3" class="wpcb_mailers_option">
                                                     <p>Aweber Authorization Code:</p>
                                                     <form method="post" action="">
@@ -313,6 +311,32 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                     </table>
                 </div>
             </div>
+        </div>
+        
+        <?php elseif($step == 3) : ?>
+        
+        <div id="post-body-content">
+                <div class='postbox opaque6'>
+                    <h3>Upload Custom Template<?= $upgrade_message ?></h3>
+                    <div class='inside'>
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for=""> Upload Custom Template</label></th>
+                                    <td>
+                                        <form action="" method="post" enctype="multipart/form-data">
+                                        <p><select disabled><option>Email Optin</option></select></p>
+                                        <p class="wpcb_help_block">Please select template type of the zip file.</p><br />
+                                        <p><label>Select zip file: <input type="file" name="wpcb_template_zip" id="wpcb_template_zip" disabled></label></p>
+                                        <p class="wpcb_help_block">Upload your custom .zip template file here. This .zip file will be extracted to the <code>/templates/</code> directory of the plugin. Your template will be available to use on Select Box Template page. To know how make custom box templates, <a target="_blank">click here</a></p><br />
+                                        <p><input type="submit" name="submit" value="Upload" class="button button-primary" disabled /></p>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
         
         <?php endif; ?>

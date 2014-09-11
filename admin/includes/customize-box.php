@@ -21,7 +21,7 @@ $wpcb_public = WPCB_Public::get_instance();
 ?>
 
     <?php 
-            // Will show two meta boxes : Template design and settings
+            // Will show two meta boxes : Template design and customizations
             $this->include_the_template_and_settings($box_type, $box_template, $box_customizations, $id); 
         
     ?>

@@ -860,3 +860,12 @@ wpcb_button_flat:hover {
 .wpcb_no_ab_test{
     cursor: pointer;
 }
+
+.dd-options{
+    height: 250px;
+    overflow: auto;
+}
+
+.dd-options li{
+    margin-bottom: 0px;
+}

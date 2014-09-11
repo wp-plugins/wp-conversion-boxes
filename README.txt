@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,13 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 2.1 =
+* Release on 10th September, 2014
+* Link to MailChimp API page fixed.
+* Optins were not being tracked in Aweber. Now fixed.
+* New look to drop down for selecting email campaigns/lists.
+* Other minor bug fixes.
+
 = 2.0 =
 * Released on 2nd September, 2014
 * MAJOR UPDATE
@@ -233,6 +240,12 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 2.1 =
+* Link to MailChimp API page fixed.
+* Optins were not being tracked in Aweber. Now fixed.
+* New look to drop down for selecting email campaigns/lists.
+* Other minor bug fixes.
 
 = 2.0 =
 * MAJOR UPDATE

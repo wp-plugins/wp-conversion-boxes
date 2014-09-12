@@ -588,7 +588,7 @@ class WPCB_Admin {
          * providers
          **************************************/
         
-        public function get_mailer_campaigns_list($selected_campaign) {
+        public function get_mailer_campaigns_list($mailer_id,$selected_campaign) {
             $getresponse = get_option('wpcb_getresponse_campaigns');
             $mailchimp = get_option('wpcb_mailchimp_lists');
             $aweber = get_option('wpcb_aweber_lists');
@@ -605,7 +605,7 @@ class WPCB_Admin {
                 
                 if($getresponse_campaigns != ''){
                     foreach($getresponse_campaigns as $gr_id => $gr_name){
-                        if($gr_id == $selected_campaign){
+                        if($gr_id == $selected_campaign && $mailer_id == 1){
                             echo '<option data-description="GetResponse" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/gr-sm.png" data-mailer-id="1" value="'.$gr_id.'" selected>'.$gr_name.'</option>';
                         }
                         else{
@@ -618,7 +618,7 @@ class WPCB_Admin {
                 
                 if($mailchimp_lists != ''){
                     foreach($mailchimp_lists as $mc_id => $mc_name){
-                        if($mc_id == $selected_campaign){
+                        if($mc_id == $selected_campaign && $mailer_id == 2){
                             echo '<option data-description="MailChimp" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/mc-sm.png" data-mailer-id="2" value="'.$mc_id.'" selected>'.$mc_name.'</option>';
                         }
                         else{
@@ -631,7 +631,7 @@ class WPCB_Admin {
                 
                 if($aweber_lists != ''){
                     foreach($aweber_lists as $aweber_id => $aweber_name){
-                        if($aweber_id == $selected_campaign){
+                        if($aweber_id == $selected_campaign && $mailer_id == 3){
                             echo '<option data-description="Aweber" data-imagesrc="'.ADMIN_ASSETS_URL.'imgs/aweber-sm.png" data-mailer-id="3" value="'.$aweber_id.'" selected>'.$aweber_name.'</option>';
                         }
                         else{

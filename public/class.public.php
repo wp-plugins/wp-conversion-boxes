@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.0.1';
+	const VERSION = '2.1.1';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         const WPCB_WEBSITE_URL = 'http://wpconversionboxes.com';
         

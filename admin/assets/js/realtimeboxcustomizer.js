@@ -284,6 +284,9 @@ function wpcbValidateForm(){
             return true;
         }
     }
+    else if(jQuery('#input_campaign_name').val() == undefined){
+        return true;
+    }
     else{
         alert('Please select a campaign/list first.');
         return false;

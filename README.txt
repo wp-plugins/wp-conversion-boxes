@@ -153,8 +153,13 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 2.1.1 =
+* Released on 12th September, 2014
+* VERY IMPORTANT BUG FIX - Update now if Call-to-Action Boxes are not getting saved and shows an alert.
+* Email Campaigns/Lists dropdown on Customize Box page was not reflecting proper selected campaign/list, now fixed.
+
 = 2.1 =
-* Release on 10th September, 2014
+* Released on 10th September, 2014
 * Link to MailChimp API page fixed.
 * Optins were not being tracked in Aweber. Now fixed.
 * New look to drop down for selecting email campaigns/lists.
@@ -240,6 +245,10 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 2.1.1 =
+* VERY IMPORTANT BUG FIX - Update now if Call-to-Action Boxes are not getting saved and shows an alert.
+* Email Campaigns/Lists dropdown on Customize Box page was not reflecting proper selected campaign/list, now fixed.
 
 = 2.1 =
 * Link to MailChimp API page fixed.

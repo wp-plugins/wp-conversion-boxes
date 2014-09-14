@@ -8,7 +8,7 @@ Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Same Traffic. More Conversions. Replace your CTAs and email optin boxes with WPCB and follow our conversion strategy to skyrocket your conversion rate.
+Same Traffic. More Conversions. Replace your CTAs and email optin boxes with WPCB & follow our conversion strategy to skyrocket your conversion rate.
 
 == Description ==
 
@@ -72,7 +72,8 @@ There are a lot features that set WP Conversion Boxes apart from competition:
 	* To place the box in the content of post/page, use `[wpcb id=“#”]` 
 	* To add the box inside your theme, use `<?php echo do_shortcode('[wpcb id=“#”]'); ?>`
 
-= WP Conversion Boxes Conversion Booster Strategies and Tips =
+= WP Conversion Boxes Conversion Booster Strategy and Tips =
+
 
 **Note:** You get the following 3 important stats (which you generally get with premium plugins) that you have to keep an eye on:
 

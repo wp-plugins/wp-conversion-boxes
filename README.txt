@@ -8,13 +8,13 @@ Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Same Traffic. More Conversions. Replace your CTAs and email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
+Same Traffic. More Conversions. Replace your CTAs and email optin boxes with WPCB and follow our conversion strategy to skyrocket your conversion rate.
 
 == Description ==
 
 = Same Traffic. More Conversions. =
 
-WP Conversion Boxes helps you to boost the conversion rate of the call-to-actions and email subscriber boxes that you already have on your blog. Replace the CTAs, option/email subscriber boxes with WP Conversion Boxes and increase your click through rates (for CTAs) and subscription rate (for email optins) with no change in traffic.
+WP Conversion Boxes helps you to boost the conversion rate of the call-to-actions and email subscriber boxes that you already have on your blog. Replace the CTAs, option/email subscriber boxes with WP Conversion Boxes and follow our proven conversion booster strategy to increase your click through rates (for CTAs) and subscription rates (for email optins) with no change in traffic.
 
 WP Conversion Boxes helps you to easily create a call-to-action or an email subscriber box that you can put below your posts/pages or almost anywhere on your blog using short codes.
 
@@ -53,6 +53,7 @@ There are a lot features that set WP Conversion Boxes apart from competition:
 	* Email Optin Box (Heading, description, image and email optin form)
 	* Video Optin Box (Heading, description, video and email optin form)
 * Easy to manage dashboard for all your conversion boxes.
+* Easily duplicate your boxes with one click.
 * 10+ free box templates.
 * Templating system to add your own templates (or ask us to make one for you).
 * Real-time template customiser. Almost complete control over the design using customiser. No need to touch the code of template.
@@ -71,37 +72,49 @@ There are a lot features that set WP Conversion Boxes apart from competition:
 	* To place the box in the content of post/page, use `[wpcb id=“#”]` 
 	* To add the box inside your theme, use `<?php echo do_shortcode('[wpcb id=“#”]'); ?>`
 
-= Here’s How It’ll Help You Boost Your CTA/Email Subscriber Conversions =
+= WP Conversion Boxes Conversion Booster Strategies and Tips =
 
-Quick step-by-step guide on boosting your conversion rate using WP Conversion Boxes:
+**Note:** You get the following 3 important stats (which you generally get with premium plugins) that you have to keep an eye on:
+
+* Number of box views (unlike page views, it calculates how many times your box was actually seen, after scrolling down, etc)
+* Number of conversions (if you are using a CTA, it’s the # of people who clicked on the button and if you are using email optin box, it’s the # of times people successfully filled the optin form.)
+* Conversion rate (%) (Its the Number of Conversions / Number of box views in %)
+
+*Quick step-by-step guide on boosting your conversion rate using WP Conversion Boxes:*
 
 1. Install the plugin.
-	Note: You get the following 3 important stats (which you generally get with premium plugins) that you have to keep an eye on:
-	1. Number of box views (unlike page views, it calculates how many times your box was actually seen, after scrolling down, etc)
-	2. Number of conversions (if you are using a CTA, it’s the # of people who clicked on the button and if you using email optin box, it’s the # of times people actually filled the form.)
-	3. Conversion rate (%) (Number of Conversions / Number of box views %)
 
-2. Now, create a conversion box with your desired copy and put it on the posts/pages you want using shortcode. Or you can also go about this by creating multiple conversion boxes with different color/copy combination and putting on different posts/pages instead of one for all.
+2. Now, create a conversion box with your desired copy (headline, content, image, button color etc) and save it. It’s always good to create multiple conversion boxes with different copy combinations according to the content of your site. 
 
-3. Wait for a week for the stats to gather for the conversion box and then go to Statistics page to see which box has performed the best. These stats will help you figure out which copy of your box is working the best and which are not. Simply repace the boxes which are not working with the ones that are showing the best results. 
+	I recommend creating different copies of boxes for posts of different categories on your blog. For example, if you have a Facebook PPC category and a Google Adwords PPC category on your blog, create two different boxes with copy related to the respective category topics. 
 
-	Conversion Tip: I have found that using different copies for posts of different categories on your blog works best. For example if you have a Facebook PPC category and a Google Adwords PPC category, using two different copies related to the topic of the post helps improving the conversions many folds.
+	Say for Facebook PPC category the box heading may say “Liked This Facebook PPC Strategy? Subscribe Today For More Facebook Stuff” and Google Adwords PPC category the box heading may say “Liked This Google Adwords PPC Strategy? Subscribe Today For More Google Adwords Stuff”
 
-	NOTE - To further pump this up, I’ve included A/B Testing feature in the [Pro](http://wpconversionboxes.com/) version of this plugin. So if you are a more advanced user, using the [WP Conversion Boxes Pro](http://wpconversionboxes.com/) version will be more beneficial.
+3. Now put these boxes under the posts of respective categories using shortcode. Or if you created just one version of the box you can set it globally under all posts and pages using the settings on Gloabal Settings page. After placing the boxes they will start showing up on the blog and the plugin will start tracking the conversions.
 
-4. This steps goes with the step #3. On the Statistics page you’ll also see an option for Detailed Stats under each box. Clicking it will take you to a page showing top 10 most performing pages/posts for that particular conversion box. Each showing all the stats given above for the listed posts/pages.
+	**NOTE** *:The free version of the plugin provides you with shortcodes to put the boxes on posts of different categories on your blog. It may get time consuming to put these conversion boxes individually under the posts if you haves 100s and 1000s of posts on your blog. For this reason I’ve included an option in the [Pro](http://wpconversionboxes.com/) version of the plugin using which you can globally set boxes for individual categories too.*
 
-	Now this is where it really starts getting exciting. On this detailed stats page, you’ll get two important datas: page with most conversions and box which brought the conversion. 
+4. Wait for about a week or so for the plugin to gather the conversion stats for the boxes under various categories. Then go back to the plugin’s main page and see the conversion stats of the boxes and see how well the boxes performed.
 
-	Conversion Tip: I have found that pages with most traffic are not always the ones bringing the most conversions.
+	These stats will help you figure out which boxes are converting the best and for which categories. Tweak the copy of the boxes which are not converting well and keep on improving their copy and tracking the results further until you find the best converting combination of box copy and category.
 
-	With this data you’ll have a winner combination of a post/page and a conversion box! Keep on making the changes to the copy and monitoring how combinations are working out. Soon you’ll have a perfect post/page and conversion box combination bringing the most conversions out of that particular post/page.
+	**NOTE** *:When you use just one version of conversion box throughout the blog, you loose out on the conversions that you can get just by creating various CTAs/Email Optin boxes according to the content of posts of different categories. When the copy of your conversion boxes is in sync with the content visitors read, they are more likely to convert! So, using this strategy you can boost your conversion rate while having the same traffic as before. **Same Traffic. More Conversions.***
 
-	Now move to the other posts and pages and repeat the process until the list exhausts and you have with you the best possible optimised combinations of posts/pages and conversion boxes!
+**PRO WP Conversion Boxes Tips**
 
-Conversion Tip: The above method will prove to be very tedious if you have a lot of posts on your blog. I’d suggest you to rather focus of posts of different categories to simplify things. For example if you have a Facebook PPC category and a Google Adwords PPC category with 6 posts each, make 3 different copies of conversion boxes for each category and put a conversion box under two posts of respective categories and monitor the stats. Soon you’ll know which conversion box is working for the posts of a particular category and you can then replace the non-working conversion boxes with the best working one. You can call this category level optimisation. If you want to pump the conversions even further you can do it at post/page level (as described in steps above). 
+1. Use different lists for gathering leads from boxes made for different categories. This will help you track which category leads bring more sales so that you can start focusing on creating more content for that particular category.
 
-You will usually find these features being sold in premium plugins. But with WP Conversion Boxes you get all of this for FREE!
+2. On the plugin’s main page you’ll also see an option for Detailed Stats under each box. Clicking it will take you to a page showing top 10 most performing pages/posts for that particular conversion box. Each showing all the stats for the listed posts/pages. Use this to see which pages are bringing you the best results.
+
+3. I’ve included A/B Testing feature in the [Pro](http://wpconversionboxes.com/) version of this plugin. So if you are a more advanced user, using the [WP Conversion Boxes Pro](http://wpconversionboxes.com/) version will be more will help you micro test and find better versions of box copies.
+
+4. I talked above about having different boxes for different categories. To further pump this up you can dig down deeper and create different boxes specific to individual best performing posts or most trafficked posts.
+
+	With this you’ll have winner combinations of a posts and a conversion boxes too! Can you imagine how far you can take this and really boost the conversion rate making the most out of each piece of content on your site?
+
+	Now move to the other posts and pages and repeat the process until you have with you the best possible optimised combinations of all the posts/pages and conversion boxes on your site. I call this **Extreme Conversion Optimization!**
+
+See, you will usually find all these features being sold in premium plugins. But with WP Conversion Boxes you get all of this for FREE!
 
 == Installation ==
 

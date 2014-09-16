@@ -8,7 +8,7 @@ Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Same Traffic. More Conversions. Replace your CTAs and email optin boxes with WPCB & follow our conversion strategy to skyrocket your conversion rate.
+Same Traffic. More Conversions. Replace your CTAs and Email Optin boxes with WPCB & follow our conversion strategy to skyrocket your conversions.
 
 == Description ==
 

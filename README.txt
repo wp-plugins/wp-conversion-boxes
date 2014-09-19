@@ -14,7 +14,7 @@ Same Traffic. More Conversions. Replace your CTAs and email optin boxes with WPC
 
 = Same Traffic. More Conversions. =
 
-WP Conversion Boxes helps you to boost the conversion rate of the call-to-actions and email subscriber boxes that you already have on your blog. Replace the CTAs, option/email subscriber boxes with WP Conversion Boxes and follow our proven conversion booster strategy to increase your click through rates (for CTAs) and subscription rates (for email optins) with no change in traffic.
+WP Conversion Boxes helps you to boost the conversion rate of the call-to-actions and email subscriber boxes that you already have on your blog. Replace the CTAs, optin/email subscriber boxes with WP Conversion Boxes and follow our proven conversion booster strategy to increase your click through rates (for CTAs) and subscription rates (for email optins) with no change in traffic.
 
 WP Conversion Boxes helps you to easily create a call-to-action or an email subscriber box that you can put below your posts/pages or almost anywhere on your blog using short codes.
 

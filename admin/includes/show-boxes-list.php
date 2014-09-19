@@ -2,7 +2,7 @@
     global $wpdb;
     $wpcb_tracking = WPCB_Tracker::get_instance();
     $wpcb_tbl_name = $this->wpcb_boxes_table;
-    $results = $wpdb->get_results("SELECT id,box_name FROM $wpcb_tbl_name ORDER BY id");
+    $results = $wpdb->get_results("SELECT id,box_name,box_type FROM $wpcb_tbl_name ORDER BY id");
     $result_count = count($results);
     if($result_count != 0){
         $count = 1;
@@ -14,7 +14,7 @@
                     <th style="text-align: center;">Unique Visitors</th>
                     <th style="text-align: center;">Pageviews</th>
                     <th style="text-align: center;">Box Views</th>
-                    <th style="text-align: center;">Conversion</th>
+                    <th style="text-align: center;">Conversions</th>
                     <th style="text-align: center;">Conversion Rate</th>
                 </tr>
             </thead>
@@ -25,7 +25,7 @@
                     <th style="text-align: center;">Unique Visitors</th>
                     <th style="text-align: center;">Pageviews</th>
                     <th style="text-align: center;">Box Views</th>
-                    <th style="text-align: center;">Conversion</th>
+                    <th style="text-align: center;">Conversions</th>
                     <th style="text-align: center;">Conversion Rate</th>
                 </tr>
             </tfoot>
@@ -35,6 +35,8 @@
             foreach ($results as $result){
                 $id = $result->id;
                 $name = stripcslashes($result->box_name);
+                $box_type = $result->box_type;
+                $conversion_type = ($box_type == 1 || $box_type == 2) ? "<span class='wpcb_conversion_type'>Optins</span>" : "<span class='wpcb_conversion_type'>Clicks</span>";
                 $pageviews = $wpcb_tracking->page_views($id);
                 $uniquevisitors = $wpcb_tracking->unique_visitors($id);
                 $uniqueboxviews = $wpcb_tracking->box_views($id);
@@ -56,7 +58,7 @@
                 $wpcb_list .= "<td id='wpcb_unique_visitors'>".$uniquevisitors."</td>";
                 $wpcb_list .= "<td id='wpcb_pageviews'>".$pageviews."</td>";
                 $wpcb_list .= "<td id='wpcb_box_views'>".$uniqueboxviews."</td>";
-                $wpcb_list .= "<td id='wpcb_ctr_optins'>".$conversions."</td>";
+                $wpcb_list .= "<td id='wpcb_ctr_optins'>".$conversions.$conversion_type."</td>";
                 $wpcb_list .= "<td id='wpcb_ctr_optins_percent'>".$conversion_rate."%</td>";
                 $wpcb_list .= "</tr>";
                 echo $wpcb_list;

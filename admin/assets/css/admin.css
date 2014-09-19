@@ -869,3 +869,57 @@ wpcb_button_flat:hover {
 .dd-options li{
     margin-bottom: 0px;
 }
+
+.wpcb_conversion_type{
+    font-size: 12px; 
+    display: block; 
+    line-height: 13px;
+}
+
+.wpcb_after_finish{
+    width: 700px;
+    height: 500px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    display: none;
+}
+
+#wpcb_after_finish_head{
+    padding: 10px 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#wpcb_after_finish_body{
+    height: 345px;
+    padding: 10px 30px;
+    overflow: auto;
+}
+    
+#wpcb_after_finish_foot{
+    text-align: right;
+    padding: 15px 30px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.wpcb_cat_checklist{
+    min-height: 42px;
+    max-height: 200px;
+    overflow: auto;
+    padding: 10px 15px;
+    border: solid 1px #dfdfdf;
+    background-color: #fdfdfd;
+}
+
+.wpcb_cat_checklist li{
+    list-style: none;
+}
+.wpcb_cat_checklist .children{
+    padding-left: 20px;
+    margin: 10px 0px;
+}

@@ -72,6 +72,7 @@ class WPCB_Admin {
                 add_action( 'wp_ajax_update_box_settings', array( $this, 'update_box_settings') );
                 add_action( 'wp_ajax_update_global_settings', array( $this, 'update_global_settings') );
                 add_action( 'wp_ajax_delete_it', array( $this, 'delete_it') );
+                add_action( 'wp_ajax_publish_the_box', array( $this, 'publish_the_box') );
                 
 	}
 
@@ -130,6 +131,7 @@ class WPCB_Admin {
                         wp_enqueue_script( $this->wpcb_main_slug . "-flot-selection-js",  ADMIN_ASSETS_URL.'/js/jquery.flot.selection.min.js');
                         wp_enqueue_script( $this->wpcb_main_slug . "-flot-timer-js",  ADMIN_ASSETS_URL.'/js/jquery.flot.time.min.js');
                         wp_enqueue_script( $this->wpcb_main_slug . "-dd-slick",  ADMIN_ASSETS_URL.'js/jquery.ddslick.min.js');
+                        wp_enqueue_script( $this->wpcb_main_slug . "-lightbox",  ADMIN_ASSETS_URL.'js/lightbox.js');
 		}
 
 	}
@@ -376,6 +378,60 @@ class WPCB_Admin {
                 echo 1;
             else
                 echo 1;
+        }
+        
+        /***************************************
+         * Publish Box
+         ***************************************/
+        
+        public function publish_the_box(){
+            
+            $global_placement = $_POST['global_placement'];
+            $box_id = (isset($_POST['box_id'])) ? $_POST['box_id'] : '';
+            
+            $wpcb_default_box = get_option('wpcb_default_box');
+            $wpcb_all_posts = get_option('wpcb_all_posts');
+            $wpcb_all_pages = get_option('wpcb_all_pages');
+            
+            switch($global_placement){
+                case 1: update_option('wpcb_default_box', $box_id);
+                        if($wpcb_all_posts == $box_id){
+                            update_option('wpcb_all_posts', 0);
+                        }
+                        if($wpcb_all_pages == $box_id){
+                            update_option('wpcb_all_pages', 0);
+                        }
+                        break;
+                case 2: if($wpcb_default_box == $box_id){
+                            update_option('wpcb_default_box', 0);
+                        }
+                        update_option('wpcb_all_posts', $box_id);
+                        if($wpcb_all_pages == $box_id){
+                            update_option('wpcb_all_pages', 0);
+                        }
+                        break;                    
+                case 3: if($wpcb_default_box == $box_id){
+                            update_option('wpcb_default_box', 0);
+                        }
+                        if($wpcb_all_posts == $box_id){
+                            update_option('wpcb_all_posts', 0);
+                        }
+                        update_option('wpcb_all_pages', $box_id);
+                        break;                    
+                default:if($wpcb_default_box == $box_id){
+                            update_option('wpcb_default_box', 0);
+                        }
+                        if($wpcb_all_posts == $box_id){
+                            update_option('wpcb_all_posts', 0);
+                        }
+                        if($wpcb_all_pages == $box_id){
+                            update_option('wpcb_all_pages', 0);
+                        }
+                        break;
+            }
+            
+            echo 1;
+            die();
         }
 
         /***************************************
@@ -646,8 +702,7 @@ class WPCB_Admin {
             else{
                 echo "<p>No campaigns/lists found. Please integrate your email service provider first to select a campaign/list for this conversion box. <a href='".admin_url( 'admin.php?page=' . $this->wpcb_settings_slug )."&step=2'>Click here to integrate now.</a></p>";
             }
-    }
-
+        }
 
         /***************************************
          * Upgrade To WP Conversion Boxes Pro
@@ -657,4 +712,20 @@ class WPCB_Admin {
             include_once('includes/upgrade-message.php');
             return $upgrade_message;
         }
+        
+        
+        /****************************************
+         * Checklist of categories
+         ****************************************/
+        
+        public function checklist_of_categories() {
+            $selected_cats = array();
+            $categories = get_categories();
+            if ( $categories ){
+                echo "<div class='wpcb_cat_checklist'>";
+                wp_category_checklist( 0, 0, $selected_cats, false, null, false );
+                echo "</div>";
+            }
+        }
+        
 }

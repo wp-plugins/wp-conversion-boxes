@@ -4,11 +4,11 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 2.1.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Same Traffic. More Conversions. Replace your CTAs and Email Optin boxes with WPCB & follow our conversion strategy to skyrocket your conversions.
+Same Traffic. More Conversions. Replace your CTAs and email optin boxes with WPCB & follow our conversion strategy to skyrocket your conversions.
 
 == Description ==
 
@@ -167,6 +167,14 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 2.2 =
+* Released 20th September, 2014
+* Images were not getting saved in boxes with image. Now fixed.
+* Added labels "Optins" and "Clicks" under the Conversions in the list of boxes table for better understanding.
+* Box Container Settings were not updating earlier in Box Customizer. Now fixed.
+* Box creation process now seemless. Added an easy step-by-step process to create the box.
+* Popup on the Box Settings page to give option to publish the box.
+
 = 2.1.1 =
 * Released on 12th September, 2014
 * VERY IMPORTANT BUG FIX - Update now if Call-to-Action Boxes are not getting saved and shows an alert.
@@ -259,6 +267,14 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 2.2 =
+* Released 20th September, 2014
+* Images were not getting saved in boxes with image. Now fixed.
+* Added labels "Optins" and "Clicks" under the Conversions in the list of boxes table for better understanding.
+* Box Container Settings were not updating earlier in Box Customizer. Now fixed.
+* Box creation process now seemless. Added an easy step-by-step process to create the box.
+* Popup on the Box Settings page to give option to publish the box.
 
 = 2.1.1 =
 * VERY IMPORTANT BUG FIX - Update now if Call-to-Action Boxes are not getting saved and shows an alert.

@@ -32,10 +32,10 @@ function getValues(){
     
     templateFields['box_container_width'] = jQuery('#box_container_width').val();
     templateFields['box_container_height'] = jQuery('#box_container_height').val();
-    templateFields['box_container_top'] = jQuery('#box_container_top').val();
-    templateFields['box_container_bottom'] = jQuery('#box_container_bottom').val();
-    templateFields['box_container_left'] = jQuery('#box_container_left').val();
-    templateFields['box_container_right'] = jQuery('#box_container_right').val();
+    templateFields['box_container_margin_top'] = jQuery('#box_container_top').val();
+    templateFields['box_container_margin_bottom'] = jQuery('#box_container_bottom').val();
+    templateFields['box_container_margin_left'] = jQuery('#box_container_left').val();
+    templateFields['box_container_margin_right'] = jQuery('#box_container_right').val();
     templateFields['box_container_border_width'] = jQuery('#box_container_border_width').val();
     templateFields['box_container_bg_color'] = jQuery('#box_container_bg_color').val();
     templateFields['box_container_border_color'] = jQuery('#box_container_border_color').val();
@@ -128,10 +128,10 @@ function applyChanges(){
     jQuery('.wpcb_template_main').css('width',templateFields['box_container_width']);
     jQuery('.wpcb_template_main').css('height',templateFields['box_container_height']);
     jQuery('.wpcb_template_main').css('background-color',templateFields['box_container_bg_color']);    
-    jQuery('.wpcb_template_main').css('margin-top',templateFields['box_container_top']);
-    jQuery('.wpcb_template_main').css('margin-bottom',templateFields['box_container_bottom']);
-    jQuery('.wpcb_template_main').css('margin-left',templateFields['box_container_left']);
-    jQuery('.wpcb_template_main').css('margin-right',templateFields['box_container_right']);
+    jQuery('.wpcb_template_main').css('margin-top',templateFields['box_container_margin_top']);
+    jQuery('.wpcb_template_main').css('margin-bottom',templateFields['box_container_margin_bottom']);
+    jQuery('.wpcb_template_main').css('margin-left',templateFields['box_container_margin_left']);
+    jQuery('.wpcb_template_main').css('margin-right',templateFields['box_container_margin_right']);
     jQuery('.wpcb_template_main').css('border-width',templateFields['box_container_border_width']); 
     jQuery('.wpcb_template_main').css('border-color',templateFields['box_container_border_color']);
     
@@ -429,6 +429,8 @@ function wpcbValidateForm(){
             
             $(document).on('click','#update-box-customizations', function(){
                 
+                getValues(); // Get all values again before saving
+                
                 if(wpcbValidateForm()){
                 
                     $(this).attr('disabled','disabled').val('Updating... Please wait!');
@@ -444,12 +446,15 @@ function wpcbValidateForm(){
                     $.post(ajaxurl, data, function(response) {
 
                         if(response > 0){
-                            $('#update-box-customizations').removeAttr('disabled').val('Update');
-                            $("<div class='updated'><p>Updated successfully.</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
+                            $('#update-box-customizations').removeAttr('disabled').val('Saved! Redirecting...');
+                            var redirect_to = window.location.href;
+                            redirect_to = redirect_to.replace("&success=1", "");
+                            redirect_to = redirect_to.replace("step=2", "step=3&success=1");
+                            window.location.href = redirect_to;
                         }
                         else
                         {
-                            $('#update-box-customizations').removeAttr('disabled').val('Update');
+                            $('#update-box-customizations').removeAttr('disabled').val('Save and Next');
                             $("<div class='error'><p>There was an error updating the database. Please try again later or contact support if problem persists.</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
                         }
 

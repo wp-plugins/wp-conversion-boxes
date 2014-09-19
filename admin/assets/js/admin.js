@@ -142,7 +142,7 @@ function validateFieldsOnDocumentReady(){
                         }
                         else
                         {
-                            $('#update-box-template').removeAttr('disabled').val('Create Box and Proceed');
+                            $('#wpcb_create_box').removeAttr('disabled').val('Create Box and Proceed');
                             $('#wpcb_error').remove();
                             $('.wpcb_loading').remove();
                             $("<div id='wpcb_error'>There was an error saving to database. Please try again later.</div>").insertAfter("#wpcb_create_box");
@@ -173,8 +173,10 @@ function validateFieldsOnDocumentReady(){
 
                 $.post(ajaxurl, data, function(response) {
                     if(response > 0){
-                        $('#update-box-template').removeAttr('disabled').val('Update');
-                        $("<div class='updated'><p>Updated successfully. You may now customize the box from Customize Box tab.</p></div>").insertAfter(".wpcb_nav_buttons_step_1").fadeOut(7000, function(){$(this).remove();});
+                        $('#update-box-template').removeAttr('disabled').val('Saved! Redirecting...');
+                        var redirect_to = window.location.href;
+                        redirect_to = redirect_to.replace("step=1", "step=2&success=1");
+                        window.location.href = redirect_to;
                     }
                     else
                     {
@@ -229,11 +231,14 @@ function validateFieldsOnDocumentReady(){
                 $.post(ajaxurl, settingsData, function(response) {
                     if(response > 0){
                         $('#update-box-settings').removeAttr('disabled').val('Update');
-                        $("<div class='updated'><p>Updated successfully.</p></div>").insertAfter(".wpcb_nav_buttons_step_3").fadeOut(5000, function(){$(this).remove();});
+                        $('.wpcb_after_finish').lightbox_me({
+                            centered: true
+                        });
+                        $("<div class='updated'><p>Settings saved successfully.</p></div>").insertAfter(".wpcb_nav_buttons_step_3").fadeOut(5000, function(){$(this).remove();});
                     }
                     else
                     {
-                        $('#update-box-settings').removeAttr('disabled').val('Update');
+                        $('#update-box-settings').removeAttr('disabled').val('Save and Publish!');
                         $("<div class='error'></p>There was an error updating the database. Please try again later.</p></div>").insertAfter(".wpcb_nav_buttons_step_3").fadeOut(5000, function(){$(this).remove();});
                     }
                 });
@@ -378,6 +383,48 @@ function validateFieldsOnDocumentReady(){
                     if(confirm('A/B tests feature is not available in free version.\n\n Please upgrade to Pro to get this feature.')){
                         window.open('http://wpconversionboxes.com', '_blank');
                     }
+                });
+                
+                // Publish popup in box settings page
+                
+                $(document).on('click','.wpcb_publish_now', function(){
+                    
+                    var boxId = parseInt($(this).data('boxid'));
+                    var global_placement = $('#wpcb_gloabal_placement:checked').val();
+                    
+                    $('#wpcb_after_finish_body').html("<div class='wpcb_loading' style='margin: 150px 0px 0px 315px;'></div>");
+                    
+                    var data = {
+                        action: 'publish_the_box',
+                        global_placement: global_placement,
+                        box_id: boxId
+                    };
+
+                    $.post(ajaxurl, data, function(response) {
+                        if(response > 0){
+                            $('.wpcb_publish_now').hide();
+                            $('#wpcb_after_finish_body').html('<h1 style="margin-top: 150px; text-align: center;"><span class="fa fa-check" style="color: #1fa67a;"></span> Box Published Successfully!</h1>');
+                            $('.wpcb_publish_close').each(function(){
+                                if($(this).text() != 'Later'){
+                                    $(this).attr('onclick',"jQuery(this).parent().trigger('close');location.reload();");
+                                }
+                                else{
+                                    $(this).text('Done');
+                                }
+                            });
+                        }
+                        else{
+                            $('.wpcb_publish_now').hide();
+                            $('#wpcb_after_finish_body').html('<h1 style="margin-top: 140px; text-align: center;"><span class="fa fa-close" style="color: red;"></span> Error Publishing The Box!<br /><br />Reload this page and try again.</h1>');
+                            $('.wpcb_publish_close').each(function(){
+                                if($(this).text() == 'Later'){
+                                    $(this).text('Reload');
+                                    $(this).attr('onclick',"jQuery(this).parent().trigger('close');location.reload();")
+                                }
+                            });
+                        }
+
+                    });
                 });
 
 

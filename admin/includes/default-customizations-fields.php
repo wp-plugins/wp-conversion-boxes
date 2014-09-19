@@ -570,10 +570,10 @@ if(isset($wpcb_default_fields['video_align'])){
 				</label>
 			</th>
 			<td>
-				<label for="box_container_top"><input type="text" name="box_container_top" id="box_container_top" value="" class="wpcb_width50px"> Top (in px)</label>
-				<label for="box_container_bottom"><input type="text" name="box_container_bottom" id="box_container_bottom" value="" class="wpcb_width50px"> Bottom (in px)</label><br />
-				<label for="box_container_left"><input type="text" name="box_container_left" id="box_container_left" value="" class="wpcb_width50px"> Left (in px)</label>
-				<label for="box_container_right"><input type="text" name="box_container_right" id="box_container_right" value="" class="wpcb_width50px"> Right (in px)</label>
+				<label for="box_container_top"><input type="text" name="box_container_top" id="box_container_top" value="<?= $wpcb_default_fields['box_container_margin_top'] ?>" class="wpcb_width50px"> Top (in px)</label>
+				<label for="box_container_bottom"><input type="text" name="box_container_bottom" id="box_container_bottom" value="<?= $wpcb_default_fields['box_container_margin_bottom'] ?>" class="wpcb_width50px"> Bottom (in px)</label><br />
+				<label for="box_container_left"><input type="text" name="box_container_left" id="box_container_left" value="<?= $wpcb_default_fields['box_container_margin_left'] ?>" class="wpcb_width50px"> Left (in px)</label>
+				<label for="box_container_right"><input type="text" name="box_container_right" id="box_container_right" value="<?= $wpcb_default_fields['box_container_margin_right'] ?>" class="wpcb_width50px"> Right (in px)</label>
 			</td>
 		</tr>
 		<tr>
@@ -582,8 +582,8 @@ if(isset($wpcb_default_fields['video_align'])){
 				</label>
 			</th>
 			<td>
-                            <input type="text" name="box_container_border_color" id="box_container_border_color" value="" class="wpcb_width50px"><label for="box_container_border_color">Border Color</label><br />
-				<label for="box_container_border_width"><input type="text" name="box_container_border_width" id="box_container_border_width" value="" class="wpcb_width50px"> Border Size (in px)</label>
+                                <input type="text" name="box_container_border_color" id="box_container_border_color" data-default-color="<?= $wpcb_default_fields['box_container_border_color'] ?>" value="<?= $wpcb_default_fields['box_container_border_color'] ?>" class="wpcb_width50px"><label for="box_container_border_color">Border Color</label><br />
+				<label for="box_container_border_width"><input type="text" name="box_container_border_width" id="box_container_border_width" value="<?= $wpcb_default_fields['box_container_border_width'] ?>" class="wpcb_width50px"> Border Size (in px)</label>
 			</td>
 		</tr>
 	</tbody>

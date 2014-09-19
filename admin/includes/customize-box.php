@@ -23,11 +23,11 @@ $wpcb_public = WPCB_Public::get_instance();
     <?php 
             // Will show two meta boxes : Template design and customizations
             $this->include_the_template_and_settings($box_type, $box_template, $box_customizations, $id); 
-        
+            echo (isset($_GET['success']) && $_GET['success'] == 1) ? "<div class='updated'><p>Box selected successfully! Use the options given below to customize and craft the box according to your needs.<a href='' style='float:right;' onclick='jQuery(this).parent().parent().fadeOut(300).hide();return false;'>Close</a></p></div>" : "";
     ?>
     
     <div class="wpcb_nav_buttons_step_2">
-        <input type="submit" box_id="<?php echo $id; ?>" value="Update" class="button button-primary" name="update-box-customizations" id="update-box-customizations"/>
+        <input type="submit" box_id="<?php echo $id; ?>" value="Save and Next" class="button button-primary" name="update-box-customizations" id="update-box-customizations"/>
         <button box_id="<?php echo $id; ?>" class="button button-primary" id="restore-to-default">Reset</button>
     </div>
 <?php

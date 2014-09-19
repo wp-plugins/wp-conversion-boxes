@@ -702,18 +702,18 @@ wpcb_button_flat:hover {
     background-color: #F7F7F7;
 }
 
-.wpcb_more_less{
-
+.wpcb_launch_popup{
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
 }
 
-.wpcb_more_block{
-    height: 100px;
-    overflow: hidden;    
-}
-
-.wpcb_more_block ul{
-    list-style: square;
-    padding-left: 30px;
+.wpcb_launch_popup:hover{
+    background-color: #F7F7F7;
 }
 
 .cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
@@ -922,4 +922,40 @@ wpcb_button_flat:hover {
 .wpcb_cat_checklist .children{
     padding-left: 20px;
     margin: 10px 0px;
+}
+
+.wpcb_promo_popup{
+    width: 700px;
+    height: 500px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    display: none;
+}
+
+#wpcb_promo_popup_head{
+    padding: 10px 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#wpcb_promo_popup_body{
+    height: 345px;
+    padding: 10px 30px;
+    overflow: auto;
+}
+    
+#wpcb_promo_popup_foot{
+    text-align: right;
+    padding: 15px 30px;
+    border-top: 1px solid #e5e5e5;
+}
+
+#wpcb_promo_popup_body ul{
+    list-style: square;
+    padding-left: 30px;
 }

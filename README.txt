@@ -174,6 +174,7 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Box Container Settings were not updating earlier in Box Customizer. Now fixed.
 * Box creation process now seemless. Added an easy step-by-step process to create the box.
 * Popup on the Box Settings page to give option to publish the box.
+* Popup promo box.
 
 = 2.1.1 =
 * Released on 12th September, 2014
@@ -275,6 +276,7 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Box Container Settings were not updating earlier in Box Customizer. Now fixed.
 * Box creation process now seemless. Added an easy step-by-step process to create the box.
 * Popup on the Box Settings page to give option to publish the box.
+* Popup promo box.
 
 = 2.1.1 =
 * VERY IMPORTANT BUG FIX - Update now if Call-to-Action Boxes are not getting saved and shows an alert.

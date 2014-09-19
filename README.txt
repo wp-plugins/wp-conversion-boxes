@@ -157,13 +157,14 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 == Screenshots ==
 
 1. Add new conversion box.
-2. List of all conversion boxes.
+2. Advances dashboard showing all boxes, options and stats.
 3. Select a box type and then select a template from our collection of templates.
-4. Customize your selected template. Here you see only tip of iceberg, more customisation options when you scroll down. The box preview gets updated real time.
+4. Customize your selected template. The box preview gets updated real time.
 5. Box settings page.
-6. Statistics of all the boxes.
+6. Box publishing settings.
 7. List of top performing posts and pages on detailed stats page.
-8. Global settings page.
+8. Global settings page for placing box sitewide.
+9. Email integration with major email marketing providers.
 
 == Changelog ==
 

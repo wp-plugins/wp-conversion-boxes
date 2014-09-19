@@ -61,23 +61,6 @@ function validateFieldsOnDocumentReady(){
                 
                 ///////////////////////////////////////////////////////////////
                 
-                // Load more sidebar
-
-                // The section added to the bottom of the "wpcb_more_less" div
-                $(".wpcb_more_less").append('<span class="wpcb_continued">…</span>');
-
-                $(".wpcb_adjust").toggle(function() {
-                        $(this).parents("div:first").find(".wpcb_more_block").css('height', 'auto').css('overflow', 'visible');
-                        $(this).parents("div:first").find("span.wpcb_continued").css('display', 'none');
-                        $(this).text('Less ^');
-                        }, function() {
-                            $(this).parents("div:first").find(".wpcb_more_block").css('height', '100px').css('overflow', 'hidden');
-                            $(this).parents("div:first").find("span.wpcb_continued").css('display', 'block');
-                            $(this).text('More...');
-                        });
-                
-                ///////////////////////////////////////////////////////////////
-                
                 // Image uploader for uploading images
                 
                 var custom_uploader;

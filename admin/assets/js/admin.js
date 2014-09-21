@@ -304,12 +304,21 @@ function validateFieldsOnDocumentReady(){
                     var wpcb_boxes_list_default = $('#wpcb_boxes_list_default').find(':selected').val();
                     var wpcb_boxes_list_posts = $('#wpcb_boxes_list_posts').find(':selected').val();
                     var wpcb_boxes_list_pages = $('#wpcb_boxes_list_pages').find(':selected').val();
-
+                    
+                    
+                    if($('#enable_credit_link').is(':checked')){
+                        var enable_credit_link = 1;
+                    }
+                    else{
+                        var enable_credit_link = 0;
+                    }
+                    
                     var data = {
                         action: 'update_global_settings',
                         wpcb_boxes_list_default: wpcb_boxes_list_default,
                         wpcb_boxes_list_posts: wpcb_boxes_list_posts,
-                        wpcb_boxes_list_pages: wpcb_boxes_list_pages
+                        wpcb_boxes_list_pages: wpcb_boxes_list_pages,
+                        enable_credit_link: enable_credit_link
                     };
 
                     $.post(ajaxurl, data, function(response) {

@@ -374,7 +374,9 @@ class WPCB_Admin {
             $wpcb_boxes_list_default = $_POST['wpcb_boxes_list_default'];
             $wpcb_boxes_list_posts = $_POST['wpcb_boxes_list_posts'];
             $wpcb_boxes_list_pages = $_POST['wpcb_boxes_list_pages'];
-            if(update_option('wpcb_default_box', $wpcb_boxes_list_default) || update_option('wpcb_all_posts', $wpcb_boxes_list_posts) || update_option('wpcb_all_pages', $wpcb_boxes_list_pages))
+            $enable_credit_link = $_POST['enable_credit_link'];
+            
+        if(update_option('wpcb_default_box', $wpcb_boxes_list_default) || update_option('wpcb_all_posts', $wpcb_boxes_list_posts) || update_option('wpcb_all_pages', $wpcb_boxes_list_pages) || update_option('wpcb_enable_credit_link', $enable_credit_link))
                 echo 1;
             else
                 echo 1;

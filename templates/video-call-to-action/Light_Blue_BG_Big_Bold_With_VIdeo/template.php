@@ -177,7 +177,7 @@ switch ($wpcb_default_fields['video_site']) {
                 <iframe class="wpcb_box_video" src="<?= $video_url; ?>" ></iframe>
             </div>
             <div class="wpcb_box_button_div">
-                <a href="<?= $wpcb_default_fields['button_link']; ?>" target="<?php echo ($wpcb_default_fields['button_target_blank'] != 'false') ? '_blank' : ''; ?>" id="wpcb_box_button_<?= $box_id; ?>" class="wpcb_box_button <?= $wpcb_default_fields['button_type']; ?>"><?= $wpcb_default_fields['button_text']; ?></a>
+                <a href="<?= $wpcb_default_fields['button_link']; ?>" target="<?php echo ($wpcb_default_fields['button_target_blank'] == 'true') ? '_blank' : ''; ?>" id="wpcb_box_button_<?= $box_id; ?>" class="wpcb_box_button <?= $wpcb_default_fields['button_type']; ?>"><?= $wpcb_default_fields['button_text']; ?></a>
             </div>
         </div>    
         <div style="clear: both;"></div>

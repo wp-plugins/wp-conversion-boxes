@@ -166,3 +166,11 @@
     background-image: url('../imgs/loading.gif');
     background-repeat: no-repeat;
 }
+
+.wpcb_credit_link{
+    text-align: right;
+    display: block;
+    font-size: 12px;
+    color: #7C7C7C;
+    margin-bottom: 10px;
+}

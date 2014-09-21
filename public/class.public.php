@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.2';
+	const VERSION = '2.2.1';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         const WPCB_WEBSITE_URL = 'http://wpconversionboxes.com';
         
@@ -264,6 +264,7 @@ class WPCB_Public {
                 add_option('wpcb_default_box', 0 , '', 'yes' );
                 add_option('wpcb_all_posts', 0 , '', 'yes' );
                 add_option('wpcb_all_pages', 0 , '', 'yes' );
+                add_option('wpcb_enable_credit_link', 0 , '', 'yes' );
 	}
 
         
@@ -365,6 +366,10 @@ class WPCB_Public {
                 case 4 :    include(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->get_template_directory(4).'/'.$box_template.'/template.php');
                             break;                                     
             }
+            if(get_option('wpcb_enable_credit_link') == 1){
+                echo "<span class='wpcb_credit_link'>Made using <a href='http://wpconversionboxes.com'>WP Conversion Boxes</a></span>";
+            }
+            
             if (isset($wpcb_the_row)) {
                 $wpcb_tracking->log_new_visit($box_id);
             }

@@ -173,6 +173,23 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                 </div>
             </div>
             
+            <div class="postbox">
+                <h3>Help Us Spread The Word</h3>
+                <div class='inside'>
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="">Show Link to WP Conversion Boxes Under Conversion Boxes</label></th>
+                                    <td>
+                                        <p><label><input type='checkbox' value='1' id='enable_credit_link' name='enable_credit_link' <?= (get_option('wpcb_enable_credit_link') == 1) ? 'checked' : '' ?>/> Enable Credit Link</label></p>
+                                        <p class="wpcb_help_block">Place a small link to WP Conversion Boxes below your conversion boxes. This will help us spread the word out about the plugin and along with that, give you the fuzzy feeling of helping us out.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+			</table>
+                </div>
+            </div>
+            
             <input type="submit" value="Update" class="button button-primary" name="update-global-settings" id="update-global-settings"/>
             
         </div>

@@ -275,11 +275,9 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 == Upgrade Notice ==
 
 = 2.2.1 =
-* Released 21th September, 2014
 * Added credit link.
 
 = 2.2 =
-* Released 20th September, 2014
 * Images were not getting saved in boxes with image. Now fixed.
 * Added labels "Optins" and "Clicks" under the Conversions in the list of boxes table for better understanding.
 * Box Container Settings were not updating earlier in Box Customizer. Now fixed.

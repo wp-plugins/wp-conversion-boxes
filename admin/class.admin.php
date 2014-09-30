@@ -29,7 +29,7 @@ class WPCB_Admin {
 		 * Call variables from public plugin class.
 		 **************************************/
 		$wpcb_public = WPCB_Public::get_instance();
-                $this->wpcb_website_url = $wpcb_public::WPCB_WEBSITE_URL;
+                $this->wpcb_website_url = $wpcb_public->get_website_url();
 		$this->wpcb_main_slug = $wpcb_public->get_wpcb_main_slug();
                 $this->wpcb_edit_slug = $wpcb_public->get_wpcb_edit_slug();
                 $this->wpcb_settings_slug = $wpcb_public->get_wpcb_settings_slug();

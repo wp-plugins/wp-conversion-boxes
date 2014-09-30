@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.2.1';
+	const VERSION = '2.2.2';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         const WPCB_WEBSITE_URL = 'http://wpconversionboxes.com';
         
@@ -67,7 +67,7 @@ class WPCB_Public {
 	 * Return the variable values
 	 ***************************************/
         public function get_website_url() {
-                return $this->WPCB_WEBSITE_URL;
+                return self::WPCB_WEBSITE_URL;
         }
         
 	public function get_wpcb_main_slug() {

@@ -305,7 +305,6 @@ function validateFieldsOnDocumentReady(){
                     var wpcb_boxes_list_posts = $('#wpcb_boxes_list_posts').find(':selected').val();
                     var wpcb_boxes_list_pages = $('#wpcb_boxes_list_pages').find(':selected').val();
                     
-                    
                     if($('#enable_credit_link').is(':checked')){
                         var enable_credit_link = 1;
                     }

@@ -46,8 +46,8 @@ if(isset($_POST['mailer']) and isset($_POST['apikey']) and isset($_POST['connect
         case 2: include_once(plugin_dir_path(dirname(__FILE__)).'mailers/mailchimp-api.php');
                 $mailchimp = new MCAPI($api_key);       
                 $allmclists = $mailchimp->lists();
-                if($allmclists == ''){
-                    $showresponse_2 = "<div id='wpcb_error' style='margin: 0px 10px 10px 10px;'><p>Invalid API Key. Please try again.<a href='' style='float:right;' onclick='jQuery(this).parent().parent().fadeOut(300).hide();'>Close</a></p></div>";
+                if($allmclists['total'] == 0){
+                    $showresponse_2 = "<div id='wpcb_error' style='margin: 0px 10px 10px 10px;'><p>No lists found. Please create a list and try again later. <a href='' style='float:right;' onclick='jQuery(this).parent().parent().fadeOut(300).hide();'>Close</a></p></div>";
                 } 
                 else{
                     foreach($allmclists['data'] as $mclist){
@@ -361,3 +361,8 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
     </div>
     
 </div>    
+
+
+
+<?= get_option('wpcb_mailchimp_api_key')."<br />";  ?>
+<?= get_option('wpcb_mailchimp_lists'); ?>

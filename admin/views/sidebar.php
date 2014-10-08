@@ -1,20 +1,7 @@
 <?php
 
 // Sidebar
-if((isset($_GET['step']) && $_GET['step'] == 2) && (isset($_GET['step']) &&  $_GET['page'] == 'wp-conversion-boxes/edit')){
-
-}
-else{?>
-
-<div class="postbox" style="display: block;">
-    <h3 style="cursor: pointer;"><span>Got 30 Seconds?</span></h3>
-    <div class="inside">
-        If you like the plugin, please leave your valuable rating on WordPress.org!
-        <a href="https://wordpress.org/support/view/plugin-reviews/wp-conversion-boxes?rate=5#postform" target="_blank"><img src="<?php echo plugins_url('assets/imgs/rating.png', dirname(__FILE__ )); ?>" /></a>
-        <br /><a href="https://wordpress.org/support/view/plugin-reviews/wp-conversion-boxes?rate=5#postform" target="_blank">Leave rating now</a>
-    </div>
-</div>
-<?php } ?>
+?>
 <div class="postbox" style="display: block;">
     <h3 style="cursor: pointer;"><span>Upgrade to Pro</span></h3>
     <div class="inside">
@@ -23,6 +10,27 @@ else{?>
         <a class="wpcb_launch_popup" onclick="jQuery('.wpcb_promo_popup').lightbox_me({centered: true});">More...</a>
     </div>
 </div>
+
+<?php
+if((isset($_GET['step']) && $_GET['step'] == 2) && (isset($_GET['step']) &&  $_GET['page'] == 'wp-conversion-boxes/edit')){
+
+}
+else{?>
+
+<div class="postbox" style="display: block;">
+    <h3 style="cursor: pointer;"><span>External Links</span></h3>
+    <div class="inside">
+        <b>Need Help?</b>
+        <p>If you face any issue using the plugin, let us know on the Support Forum and we'll get it fixed asap.</p>
+        <p><a class="button button-primary" href="https://wordpress.org/support/plugin/wp-conversion-boxes#postform" target="_blank">Open Thread</a></p>
+        <hr />
+        <b>Like The Plugin?</b>
+        <p>If you like the plugin, please leave your valuable rating on WordPress.org!</p>
+        <a href="https://wordpress.org/support/view/plugin-reviews/wp-conversion-boxes?rate=5#postform" target="_blank"><img src="<?php echo plugins_url('assets/imgs/rating.png', dirname(__FILE__ )); ?>" /></a>
+        <br /><a href="https://wordpress.org/support/view/plugin-reviews/wp-conversion-boxes?rate=5#postform" target="_blank">Leave rating now</a>
+    </div>
+</div>
+<?php } ?>
 
 <div class="wpcb_promo_popup">
     <div id="wpcb_promo_popup_head">
@@ -111,7 +119,7 @@ else{?>
                 <li>Free 1 year email priority support (with selected plans).</li>
                 <li>Free 1 year upgrades to every new version of the plugin.</li>
         </ul>
-        <p>And a lot more... <a href='<?= $this->wpcb_website_url ?>' target="_blank">Visit site for more info &gt;&gt;</a></p>
+        <p>And a lot more... <a href='<?php echo $this->wpcb_website_url ?>' target="_blank">Visit site for more info &gt;&gt;</a></p>
         
     </div>
     <div id="wpcb_promo_popup_foot">

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Conversion Boxes\n"
-"POT-Creation-Date: 2014-10-08 12:20+0530\n"
-"PO-Revision-Date: 2014-10-08 13:02+0530\n"
+"POT-Creation-Date: 2014-10-08 15:29+0530\n"
+"PO-Revision-Date: 2014-10-08 15:30+0530\n"
 "Last-Translator: Ram Shengale <admin@wpconversionboxes.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -81,7 +81,7 @@ msgstr ""
 #: admin/class.admin.php:146
 msgid ""
 "Free version of WP Conversion Boxes shows only 7 top performing posts and "
-"pages.\\n\\n Upgrade to Pro to view stats for all links."
+"pages. Upgrade to Pro to view stats for all links."
 msgstr ""
 
 #: admin/class.admin.php:147
@@ -94,8 +94,8 @@ msgstr ""
 
 #: admin/class.admin.php:149
 msgid ""
-"A/B tests feature is not available in free version.\\n\\n Please upgrade to "
-"Pro to get this feature."
+"A/B tests feature is not available in free version. Please upgrade to Pro to "
+"get this feature."
 msgstr ""
 
 #: admin/class.admin.php:150
@@ -120,8 +120,8 @@ msgstr ""
 
 #: admin/class.admin.php:161
 msgid ""
-"Are you sure you want to reset the customizations to default? \\n\\n All "
-"design elements and content will be reset to defaults."
+"Are you sure you want to reset the customizations to default? All design "
+"elements and content will be reset to defaults."
 msgstr ""
 
 #: admin/class.admin.php:162

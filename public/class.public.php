@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.2.2';
+	const VERSION = '2.3';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         const WPCB_WEBSITE_URL = 'http://wpconversionboxes.com';
         
@@ -45,7 +45,6 @@ class WPCB_Public {
                  * is added
                  *********************************/
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
-
                 
 		/*********************************
                  * Load public-facing style sheet,
@@ -188,8 +187,7 @@ class WPCB_Public {
 
 	}
 
-        
-	/***************************************
+        /***************************************
 	 * Fired when a new site is activated with 
          * a WPMU environment.
 	 ****************************************/
@@ -205,7 +203,6 @@ class WPCB_Public {
 
 	}
 
-        
 	/***************************************
 	 * Get all blog ids of blogs in the current 
          * network that are:
@@ -226,8 +223,7 @@ class WPCB_Public {
 
 	}
 
-        
-	/***************************************
+        /***************************************
 	 * Fired for each blog when the plugin 
          * is activated.
 	 ***************************************/
@@ -267,8 +263,7 @@ class WPCB_Public {
                 add_option('wpcb_enable_credit_link', 0 , '', 'yes' );
 	}
 
-        
-	/***************************************
+        /***************************************
 	 * Fired for each blog when the plugin 
          * is deactivated.
 	 ***************************************/
@@ -276,8 +271,7 @@ class WPCB_Public {
 		// Noting so far.
 	}
 
-
-    /***************************************
+        /***************************************
 	 * Register and enqueue public-facing 
          * style sheet.
 	 ***************************************/
@@ -285,19 +279,18 @@ class WPCB_Public {
 		wp_enqueue_style( $this->wpcb_main_slug . '-plugin-styles', PUBLIC_ASSETS_URL .'css/public.css', array(), self::VERSION );
 	}
 
-        
-	/***************************************
+        /***************************************
 	 * Register and enqueues public-facing 
          * JavaScript files.
 	 ***************************************/
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->wpcb_main_slug . '-plugin-script', PUBLIC_ASSETS_URL .'js/public.js', array( 'jquery' ), self::VERSION );
+		// wp_enqueue_script( $this->wpcb_main_slug . '-plugin-script', PUBLIC_ASSETS_URL .'js/public.js', array( 'jquery' ), self::VERSION );
 	}
         
         
         /***************************************
-         * 
-         */
+         * Show the box
+         ***************************************/
         
         public function show_the_box($id){
             
@@ -366,8 +359,9 @@ class WPCB_Public {
                 case 4 :    include(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->get_template_directory(4).'/'.$box_template.'/template.php');
                             break;                                     
             }
+            
             if(get_option('wpcb_enable_credit_link') == 1){
-                echo "<span class='wpcb_credit_link'>Made using <a href='http://wpconversionboxes.com'>WP Conversion Boxes</a></span>";
+                echo "<span class='wpcb_credit_link'>". __("Made using <a target='_blank' href='http://wpconversionboxes.com'>WP Conversion Boxes</a>",'wp-conversion-boxes') ."</span>";
             }
             
             if (isset($wpcb_the_row)) {

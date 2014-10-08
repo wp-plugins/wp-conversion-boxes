@@ -122,7 +122,7 @@ function wpcbUpdatedVisitType(newvisittype){
                                 var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                                 if(regex.test(wpcbEmail)){
                                     var divHeight = $wpcbTemplateMain.height();
-                                    $wpcbTemplateMain.html('<script>setTimeout("jQuery(\'.wpcb-processing-body\').show()", 7000);</script><div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Processing... Please Wait!</div><div class="wpcb-loading"></div><div class="wpcb-processing-body" style="display: none;">It\'s taking longer than usual. Please hang on for a few moments...</div></div>');
+                                    $wpcbTemplateMain.html('<script>setTimeout("jQuery(\'.wpcb-processing-body\').show()", 7000);</script><div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+trackerDefaultData.processingHead+'</div><div class="wpcb-loading"></div><div class="wpcb-processing-body" style="display: none;">'+trackerDefaultData.processingBody+'</div></div>');
                                     var data1 = {
                                         action: 'add_new_contact',
                                         name: wpcbName,
@@ -134,10 +134,10 @@ function wpcbUpdatedVisitType(newvisittype){
                                     jQuery.post(trackerDefaultData.ajaxurl, data1, function(response) {
                                         response = response.charAt(response.length - 1);
                                         if(response == 1){
-                                            $wpcbTemplateMain.html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Success!</div><div class="wpcb-processing-body">Thanks for subscribing!</div></div>');
+                                            $wpcbTemplateMain.html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+trackerDefaultData.successHead+'</div><div class="wpcb-processing-body">'+trackerDefaultData.successBody+'</div></div>');
                                         }
                                         else{
-                                            $wpcbTemplateMain.html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">Error!</div><div class="wpcb-processing-body">There was an error submitting your info.</div></div>');
+                                            $wpcbTemplateMain.html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+trackerDefaultData.errorHead+'</div><div class="wpcb-processing-body">'+trackerDefaultData.errorBody+'</div></div>');
                                         }
                                     });                                    
                                 }

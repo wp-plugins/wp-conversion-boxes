@@ -21,16 +21,16 @@ if(isset($_GET['step'])){
 ?>    
 <div class="wrap wpcb_main">
     
-    <h2><?php if(isset($id)) echo "Customize : <em>".$wpcb->get_box_name($id)."</em> <input type='text' value='[wpcb id=\"".$id."\"]' disabled />"; else echo "Add New WP Conversion Box"; ?></h2>
+    <h2><?php if(isset($id)) { echo __('Customize' , 'wp-conversion-boxes') . " : <em>".$wpcb->get_box_name($id)."</em> <input type='text' value='[wpcb id=\"".$id."\"]' disabled />";} else{ _e('Add New WP Conversion Box' , 'wp-conversion-boxes') ; } ?></h2>
     
     <?php 
     if(isset($id)){
     ?>
     
         <h2 class="nav-tab-wrapper">
-            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=1&id=".$id; ?>" class="nav-tab <?php if((isset($step) && $step == 1) || !isset($step)) echo "nav-tab-active"; ?>">Step 1: Select Box Template</a>
-            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=2&id=".$id; ?>" class="nav-tab <?php if(isset($step) && $step == 2) echo "nav-tab-active"; ?>">Step 2: Customize Box</a>
-            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=3&id=".$id; ?>" class="nav-tab <?php if(isset($step) && $step == 3) echo "nav-tab-active"; ?>">Step 3: Box Settings</a>
+            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=1&id=".$id; ?>" class="nav-tab <?php if((isset($step) && $step == 1) || !isset($step)) echo "nav-tab-active"; ?>"><?php _e('Step 1: Select Box Template' , 'wp-conversion-boxes'); ?></a>
+            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=2&id=".$id; ?>" class="nav-tab <?php if(isset($step) && $step == 2) echo "nav-tab-active"; ?>"><?php _e('Step 2: Customize Box' , 'wp-conversion-boxes'); ?></a>
+            <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_edit_slug )."&step=3&id=".$id; ?>" class="nav-tab <?php if(isset($step) && $step == 3) echo "nav-tab-active"; ?>"><?php _e('Step 3: Box Settings' , 'wp-conversion-boxes'); ?></a>
         </h2>
     
     <?php    

@@ -9,10 +9,11 @@
  * Plugin Name:       WP Conversion Boxes
  * Plugin URI:        http://wpconversionboxes.com
  * Description:       Same Traffic. More Conversions. Replace your CTAs and email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
- * Version:           2.2.2
+ * Version:           2.3
  * Author:            Ram Shengale
  * Author URI:        http://ramshengale.in
  * Text Domain:       wp-conversion-boxes
+ * Domain Path:       /lang/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -20,6 +21,12 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+
+// Localization
+function wpcb_init(){
+    load_plugin_textdomain('wp-conversion-boxes', false, dirname(plugin_basename(__FILE__)) . "lang/");
+}
+add_action('init', 'wpcb_init');
 
 /**********************************************
 * Define most used URLS and Paths

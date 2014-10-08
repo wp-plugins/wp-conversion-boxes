@@ -402,9 +402,9 @@ function wpcbValidateForm(){
 
             $(document).on('click','#restore-to-default', function(){
                 
-                if(confirm('Are you sure you want to reset the customizations to default?\n\nAll design elements and content will be reset to defaults.')){
+                if(confirm(wpcbRTBC.resetDataConfirmation)){
                     
-                    $(this).text('Reseting... Please wait!').attr('disabled','disabled');
+                    $(this).text(wpcbRTBC.resttingBtn).attr('disabled','disabled');
                     
                     var data = {
                         action: 'restore_to_default',
@@ -418,7 +418,7 @@ function wpcbValidateForm(){
                         }
                         else
                         {
-                            $("<div class='error'><p>There was an error. Please try again later or contact support if problem persists.</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
+                            $("<div class='error'><p>"+wpcbRTBC.resetError+"</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
                         }
 
                     });
@@ -433,7 +433,7 @@ function wpcbValidateForm(){
                 
                 if(wpcbValidateForm()){
                 
-                    $(this).attr('disabled','disabled').val('Updating... Please wait!');
+                    $(this).attr('disabled','disabled').val(wpcbRTBC.updatingBtn);
 
                     var all_customizations = templateFields;
 
@@ -446,7 +446,7 @@ function wpcbValidateForm(){
                     $.post(ajaxurl, data, function(response) {
 
                         if(response > 0){
-                            $('#update-box-customizations').removeAttr('disabled').val('Saved! Redirecting...');
+                            $('#update-box-customizations').removeAttr('disabled').val(wpcbRTBC.updateSaved);
                             var redirect_to = window.location.href;
                             redirect_to = redirect_to.replace("&success=1", "");
                             redirect_to = redirect_to.replace("step=2", "step=3&success=1");
@@ -454,8 +454,8 @@ function wpcbValidateForm(){
                         }
                         else
                         {
-                            $('#update-box-customizations').removeAttr('disabled').val('Save and Next');
-                            $("<div class='error'><p>There was an error updating the database. Please try again later or contact support if problem persists.</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
+                            $('#update-box-customizations').removeAttr('disabled').val(wpcbRTBC.saveAndNext);
+                            $("<div class='error'><p>"+wpcbRTBC.updateError+"</p></div>").insertAfter(".wpcb_nav_buttons_step_2").fadeOut(5000, function(){$(this).remove();});
                         }
 
                     });
@@ -468,27 +468,24 @@ function wpcbValidateForm(){
             
             window.boxwidth = $('.wpcb_stick_this').width();
             var $wpcbStickThis = $('.wpcb_stick_this');
-                $(window).scroll(function(){
-                    if($('.wpcb_box_preview_stick').is(':checked')){
-                        var window_top = $(window).scrollTop();
-                        var $wpcbStickThisOffset = $('.wpcb_stick_this_offset');
-                        if($wpcbStickThisOffset.length){
-                            var div_top = $wpcbStickThisOffset.offset().top;
-                        }
-                        if (window_top > div_top) {
-                            $wpcbStickThis.css('width',window.boxwidth);
-                            $wpcbStickThis.addClass('wpcb_stick');
-                        } else {
-                            $wpcbStickThis.removeClass('wpcb_stick');
-                        }
+            $(window).scroll(function(){
+                if($('.wpcb_box_preview_stick').is(':checked')){
+                    var window_top = $(window).scrollTop();
+                    var $wpcbStickThisOffset = $('.wpcb_stick_this_offset');
+                    if($wpcbStickThisOffset.length){
+                        var div_top = $wpcbStickThisOffset.offset().top;
                     }
-                    else{
+                    if (window_top > div_top) {
+                        $wpcbStickThis.css('width',window.boxwidth);
+                        $wpcbStickThis.addClass('wpcb_stick');
+                    } else {
                         $wpcbStickThis.removeClass('wpcb_stick');
                     }
-                });
-            
-
-
+                }
+                else{
+                    $wpcbStickThis.removeClass('wpcb_stick');
+                }
+            });
         });
 
 

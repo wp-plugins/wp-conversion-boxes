@@ -11,17 +11,17 @@ if(isset($_GET['duplicate'])){
     $dupli_box_id = $_GET['duplicate'];
     $wpcb_duplicate_created = $wpcb->wpcb_duplicate_box($dupli_box_id);
     if($wpcb_duplicate_created == true){
-        echo "<div class='updated'><p>Successfully Duplicated!</p></div>";
+        echo "<div class='updated'><p>". __('Successfully Duplicated!', 'wp-conversion-boxes') ."</p></div>";
     }
     else{
-        echo "<div class='error'><p>Box has not been duplicated. There was some error.</p></div>";
+        echo "<div class='error'><p>". __('Box has not been duplicated. There was some error.', 'wp-conversion-boxes') ."</p></div>";
     }
 }
 
 ?>
 
 <div class="wrap">
-    <h2><?php echo esc_html( get_admin_page_title() ); ?> <a href='<?php echo admin_url( 'admin.php?page=' . $this->wpcb_edit_slug ); ?>' class="add-new-h2">Add New</a></h2>
+    <h2><?php echo esc_html( get_admin_page_title() ); ?> <a href='<?php echo admin_url( 'admin.php?page=' . $this->wpcb_edit_slug ); ?>' class="add-new-h2"><?php _e('Add New', 'wp-conversion-boxes'); ?></a></h2>
     
     <div id="poststuff" class="metabox-holder has-right-sidebar">
     
@@ -43,45 +43,45 @@ if(isset($_GET['duplicate'])){
             ?>
                     <i></i>
                     <div class='postbox'>
-                        <h3><?= $box_name; ?> : Top Performing Posts/Pages</h3>
+                        <h3><?= $box_name; ?> : <?php _e('Top Performing Posts/Pages', 'wp-conversion-boxes'); ?></h3>
                         <div class='inside'>
-                            <p>Top performing posts and pages on your site.</p>
+                            <p><?php _e('Top performing posts and pages on your site.', 'wp-conversion-boxes'); ?></p>
                             <?php $wpcb_tracking->visit_details($box_id); ?>
-                            <a class="wpcb_load_more_stats">Load More Data...</a>
+                            <a class="wpcb_load_more_stats"><?php _e('Load More Data...', 'wp-conversion-boxes'); ?></a>
                         </div>
                     </div>
 
                     <div class='postbox opaque6'>
-                        <h3><?= $box_name; ?> : Traffic and Conversion Graph<?php echo $wpcb->upgrade_to_pro(); ?></h3>
+                        <h3><?= $box_name; ?> : <?php _e('Traffic and Conversion Graph', 'wp-conversion-boxes'); echo $wpcb->upgrade_to_pro(); ?></h3>
                         <div class='inside' style="height: 500px;">
                             <div class='wpcb_stats_filters'>
                                 <form method="POST" action="" style="display: inline-block;">
-                                    <label><i class="fa fa-calendar"></i> Date Range: <input disabled type="text" style="width: 200px" name="wpcb_date_range" id="wpcb_date_range" class="form-control" value="03/18/2013 - 03/23/2013" /></label>
+                                    <label><i class="fa fa-calendar"></i> <?php _e('Date Range:', 'wp-conversion-boxes'); ?> <input disabled type="text" style="width: 200px" name="wpcb_date_range" id="wpcb_date_range" class="form-control" value="03/18/2013 - 03/23/2013" /></label>
                                 </form>
                             </div>
                             <div id="placeholder" class="demo-placeholder" style="width: 90%; height: 270px; margin: 30px; padding: 0px; position: relative;"></div>
                             <p id="choices" style="line-height:30px; padding-bottom:6px; text-align: center;"></p>
                             <div id="overview" style="margin: 0 auto; width: 60%; height: 50px; padding: 0px; position: relative;"></div>
-                            <p class="wpcb_help_block" style="text-align: center;">Overview (Zoom in/out of the graph)</p>
+                            <p class="wpcb_help_block" style="text-align: center;"><?php _e('Overview (Zoom in/out of the graph)', 'wp-conversion-boxes'); ?></p>
                             <script>
                                 var d = {
                                     data: [[1405468800000,10],[1405555200000,2],[1405641600000,15],[1405728000000,11],[1405814400000,32],[1405900800000,25],[1405987200000,45],[1406073600000,35],], 
-                                    label: "Unique Visitors", 
+                                    label: "<?php _e('Unique Visitors', 'wp-conversion-boxes'); ?>", 
                                     color: "#FFC200"
                                 };
                                 var d2 = {
                                     data: [[1405468800000,23],[1405555200000,6],[1405641600000,19],[1405728000000,16],[1405814400000,35],[1405900800000,31],[1405987200000,56],[1406073600000,43],], 
-                                    label: "Pageviews",
+                                    label: "<?php _e('Pageviews', 'wp-conversion-boxes'); ?>",
                                     color: "#FF6820"
                                 };
                                 var d3 = {
                                     data: [[1405468800000,8],[1405555200000,1],[1405641600000,6],[1405728000000,6],[1405814400000,15],[1405900800000,19],[1405987200000,26],[1406073600000,20],],
-                                    label: "Box Views",
+                                    label: "<?php _e('Box Views', 'wp-conversion-boxes'); ?>",
                                     color: "#1180A7"
                                 };
                                 var d4 = {
                                     data: [[1405468800000,2],[1405555200000,1],[1405641600000,2],[1405728000000,1],[1405814400000,3],[1405900800000,0],[1405987200000,2],[1406073600000,5],],
-                                    label: "Conversions",
+                                    label: "<?php _e('Conversions', 'wp-conversion-boxes'); ?>",
                                     color: "#0bc"
                                 };
                                 var datasets = [d, d2, d3, d4];

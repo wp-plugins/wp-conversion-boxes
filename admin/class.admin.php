@@ -113,7 +113,6 @@ class WPCB_Admin {
 	/***************************************
 	 * Register and enqueue admin-specific 
          * JavaScript.
-         * TODO
 	 ***************************************/
         public function enqueue_admin_scripts() {
 
@@ -125,8 +124,50 @@ class WPCB_Admin {
 		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
                         wp_enqueue_script('wp-color-picker');
                         wp_enqueue_media();
+                        
+                        // Admin JS
                         wp_enqueue_script( $this->wpcb_main_slug . '-admin-script', ADMIN_ASSETS_URL.'/js/admin.js', array( 'jquery' , 'wp-color-picker'), WPCB_Public::VERSION );
+                        $admin_data = array(
+                            'choseImage' => __('Choose Image','wp-conversion-boxes'),
+                            'creatingBox' => __( 'Creating new box... Please wait!' , 'wp-conversion-boxes' ),
+                            'boxCreated' => __( 'Box Created Successfully. Redirecting...' , 'wp-conversion-boxes' ),
+                            'createBox' => __( 'Create Box and Proceed' , 'wp-conversion-boxes' ),
+                            'errorSavingToDB' => __( 'There was an error saving to database. Please try again later.' , 'wp-conversion-boxes' ),
+                            'errorUpdatingDB' => __( 'There was an error updating the database. Please try again later.' , 'wp-conversion-boxes' ),
+                            'updatingWait' => __( 'Updating... Please wait!' , 'wp-conversion-boxes' ),
+                            'savedRedirecting' => __( 'Saved! Redirecting...' , 'wp-conversion-boxes' ),
+                            'saveAndNext' => __( 'Save and Next' , 'wp-conversion-boxes' ),
+                            'settingsSaved' => __( 'Settings saved successfully.' , 'wp-conversion-boxes' ),
+                            'saveAndPublish' => __( 'Save and Publish!' , 'wp-conversion-boxes' ),
+                            'sureDelete' => __( 'Are you sure you want to delete this conversion box?' , 'wp-conversion-boxes' ),
+                            'errorDelete' => __( 'ERROR: Unable to delete the conversion box. Please try again later.' , 'wp-conversion-boxes' ),
+                            'flushStats' => __( 'Are you sure you want to flush all the stats for this conversion box?' , 'wp-conversion-boxes' ),
+                            'errorFlush' => __( 'ERROR: Unable to flush the stats. Please try again later.' , 'wp-conversion-boxes' ),
+                            'moreDataPopup' => __( 'Free version of WP Conversion Boxes shows only 7 top performing posts and pages.\n\n Upgrade to Pro to view stats for all links.' , 'wp-conversion-boxes' ),
+                            'updatedSuccessfully' => __( 'Updated successfully.' , 'wp-conversion-boxes' ),
+                            'update' => __( 'Update' , 'wp-conversion-boxes' ),
+                            'abTestConfirm' => __( 'A/B tests feature is not available in free version.\n\n Please upgrade to Pro to get this feature.' , 'wp-conversion-boxes' ),
+                            'boxPublished' => __( 'Box Published Successfully!' , 'wp-conversion-boxes' ),
+                            'later' => __( 'Later' , 'wp-conversion-boxes' ),
+                            'errorPublishing' => __( 'Error Publishing The Box!<br /><br />Reload this page and try again.' , 'wp-conversion-boxes' ),
+                            'done' => __( 'Done' , 'wp-conversion-boxes' ),
+                            'reload' => __( 'Reload' , 'wp-conversion-boxes' )
+                        );
+                        wp_localize_script( $this->wpcb_main_slug . '-admin-script', 'wpcbAdmin', $admin_data);
+                        
+                        // Real Time Box Customizer JS
                         wp_enqueue_script( $this->wpcb_main_slug . "-real-time-box-customizer-js",  ADMIN_ASSETS_URL.'/js/realtimeboxcustomizer.js');
+                        $rtbc_data = array(
+                            'resetDataConfirmation' => __('Are you sure you want to reset the customizations to default? \n\n All design elements and content will be reset to defaults.', 'wp-conversion-boxes'),
+                            'resttingBtn' => __('Reseting... Please wait!','wp-conversion-boxes'),
+                            'resetError' => __('There was an error. Please try again later or contact support if problem persists.','wp-conversion-boxes'),
+                            'updatingBtn' => __('Updating... Please wait!','wp-conversion-boxes'),
+                            'updateSaved' => __('Saved! Redirecting...','wp-conversion-boxes'),
+                            'saveAndNext' => __('Save and Next','wp-conversion-boxes'),
+                            'updateError' => __('There was an error updating the database. Please try again later or contact support if problem persists.','wp-conversion-boxes')
+                        );
+                        wp_localize_script( $this->wpcb_main_slug . "-real-time-box-customizer-js", 'wpcbRTBC', $rtbc_data);
+                        
                         wp_enqueue_script( $this->wpcb_main_slug . "-flot-js",  ADMIN_ASSETS_URL.'/js/jquery.flot.min.js');
                         wp_enqueue_script( $this->wpcb_main_slug . "-flot-selection-js",  ADMIN_ASSETS_URL.'/js/jquery.flot.selection.min.js');
                         wp_enqueue_script( $this->wpcb_main_slug . "-flot-timer-js",  ADMIN_ASSETS_URL.'/js/jquery.flot.time.min.js');
@@ -143,8 +184,8 @@ class WPCB_Admin {
 	public function wpcb_add_admin_menu() {
 
 		$this->wpcb_main_screen_hook_suffix = add_menu_page(
-			__( 'WP Conversion Boxes', $this->wpcb_main_slug ),
-			__( 'WP Conversion Boxes', $this->wpcb_main_slug ),
+			__( 'WP Conversion Boxes', 'wp-conversion-boxes' ),
+			__( 'WP Conversion Boxes', 'wp-conversion-boxes' ),
 			'manage_options',
 			$this->wpcb_main_slug,
 			array( $this, 'wpcb_display_main_page' ),
@@ -154,23 +195,23 @@ class WPCB_Admin {
 		);
                 add_submenu_page(
                         $this->wpcb_main_slug, 
-                        __( 'WP Conversion Boxes', $this->wpcb_main_slug ), 
-                        __( 'WP Conversion Boxes', $this->wpcb_main_slug ),
+                        __( 'WP Conversion Boxes', 'wp-conversion-boxes' ), 
+                        __( 'WP Conversion Boxes', 'wp-conversion-boxes' ),
                         'manage_options',
                         $this->wpcb_main_slug
                 );
                 $this->wpcb_edit_screen_hook_suffix = add_submenu_page(
                         $this->wpcb_main_slug, 
-                        __( 'Add New Box', $this->wpcb_main_slug ), 
-                        __( 'Add New Box', $this->wpcb_main_slug ),
+                        __( 'Add New Box', 'wp-conversion-boxes' ), 
+                        __( 'Add New Box', 'wp-conversion-boxes' ),
                         'manage_options',
                         $this->wpcb_edit_slug,
                         array( $this, 'wpcb_display_edit_page' )
                 );
                 $this->wpcb_settings_screen_hook_suffix = add_submenu_page(
                         $this->wpcb_main_slug, 
-                        __( 'Global Settings', $this->wpcb_main_slug ), 
-                        __( 'Global Settings', $this->wpcb_main_slug ),
+                        __( 'Global Settings', 'wp-conversion-boxes' ), 
+                        __( 'Global Settings', 'wp-conversion-boxes' ),
                         'manage_options',
                         $this->wpcb_settings_slug,
                         array( $this, 'wpcb_display_settings_page' )
@@ -200,7 +241,7 @@ class WPCB_Admin {
 
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'admin.php?page=' . $this->wpcb_edit_slug ) . '">' . __( 'Add New Box', $this->wpcb_main_slug ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'admin.php?page=' . $this->wpcb_edit_slug ) . '">' . __( 'Add New Box', 'wp-conversion-boxes' ) . '</a>'
 			),
 			$links
 		);
@@ -223,9 +264,9 @@ class WPCB_Admin {
         public function wpcb_edit_page_content($step, $id){
             
             if(!isset($step)){
-                echo "<p>Enter a name for your new Coversion Box:</p>"
+                echo "<p>". __('Enter a name for your new Coversion Box:','wp-conversion-boxes') . "</p>"
                              . "<input type='text' name='wpcb_box_name' id='wpcb_box_name' class='regular-text'><br /><br />"
-                             . "<input type='submit' name='wpcb_create_box' id='wpcb_create_box' value='Create Box and Proceed' class='button button-primary'>";
+                             . "<input type='submit' name='wpcb_create_box' id='wpcb_create_box' value='". __('Create Box and Proceed','wp-conversion-boxes') . "' class='button button-primary'>";
             }
             else{
                 global $wpdb;
@@ -259,9 +300,8 @@ class WPCB_Admin {
                 
                 if($wpdb->insert_id)
                     echo $wpdb->insert_id;
-                
-                // All the code that'll save the box data to db
-                die(); // this is required to return a proper result
+
+                die();
         } 
         
         // Handle AJAX call to update box using ID  
@@ -278,9 +318,7 @@ class WPCB_Admin {
                     echo 0;
                 else
                     echo 1;
-                
-                // All the code that'll save the box data to db
-                die(); // this is required to return a proper result
+                die();
         } 
         
         //Update box design customizations
@@ -300,8 +338,7 @@ class WPCB_Admin {
                 else
                     echo 1;
                 
-                // All the code that'll save the box data to db
-                die(); // this is required to return a proper result
+                die();
                 
         }
         
@@ -320,8 +357,7 @@ class WPCB_Admin {
                 else
                     echo 1;
                 
-                // All the code that'll save the box data to db
-                die(); // this is required to return a proper result
+                die();
         }
 
 
@@ -348,8 +384,7 @@ class WPCB_Admin {
                 else
                     echo 1;
                 
-                // All the code that'll save the box data to db
-                die(); // this is required to return a proper result
+                die();
         }
         
         // Handles AJAX call to delete a particular box.
@@ -457,7 +492,7 @@ class WPCB_Admin {
             
             $wpdb->insert($this->wpcb_boxes_table, 
                 array(
-                    'box_name' => $box_data['box_name']." (Duplicate)", 
+                    'box_name' => $box_data['box_name']." (". __( 'Duplicate' , 'wp-conversion-boxes' ) . ")",
                     'box_type' => $box_data['box_type'], 
                     'box_template' => $box_data['box_template'],
                     'box_customizations' => $box_data['box_customizations'],
@@ -487,8 +522,8 @@ class WPCB_Admin {
             $wpcb_tbl_name = $this->wpcb_boxes_table;
             $boxes_list = $wpdb->get_results("SELECT id,box_name FROM $wpcb_tbl_name ORDER BY id ASC","ARRAY_A");
             
-            if($list_type == 'default') $first_option = 'None';
-            else $first_option = 'Use Default';
+            if($list_type == 'default') $first_option = __('None','wp-conversion-boxes');
+            else $first_option = __('Use Default','wp-conversion-boxes');
             
             echo "<select name='".$list_id."' id='".$list_id."'>";
             echo "<option value='0'>".$first_option."</option>";
@@ -513,12 +548,12 @@ class WPCB_Admin {
         public function wpcb_category_wise_box_list(){
 
             $categories = get_terms('category','orderby=count&hide_empty=0');
-            echo "<table class='widefat'><thead><tr><th>Category Name</th><th>Conversion Box</th></thead><tbody>";
+            echo "<table class='widefat'><thead><tr><th>". __('Category Name','wp-conversion-boxes') ."</th><th>". __('Conversion Box','wp-conversion-boxes') ."</th></thead><tbody>";
             foreach ($categories as $cat){
                 //$list_id = "wpcb_boxes_list_cat_".$cat->id;
                 echo "<tr>";
                 echo "<th>".$cat->name."</th>";
-                echo "<td><select disabled><option>Use Default</option></select>";
+                echo "<td><select disabled><option>". __('Use Default','wp-conversion-boxes') ."</option></select>";
                 echo "</td></tr>";
             }
             echo "</tbody></table>";
@@ -548,7 +583,7 @@ class WPCB_Admin {
                 
                 $cnt = 0;
                 
-                echo "<div class='wpcb_template_selector'><select class='wpcb_template_dropdown' name='wpcb_template_dropdown_".$template_type."' id='wpcb_template_dropdown_".$template_type."'><option value='0'>Select template</option>";
+                echo "<div class='wpcb_template_selector'><select class='wpcb_template_dropdown' name='wpcb_template_dropdown_".$template_type."' id='wpcb_template_dropdown_".$template_type."'><option value='0'>". __('Select template','wp-conversion-boxes') ."</option>";
                 
                 foreach ($wpcb_templates as $wpcb_template_dir) {
                     
@@ -589,7 +624,7 @@ class WPCB_Admin {
          ***************************************/        
         
         public function include_the_template_and_settings($box_type, $box_template, $box_customizations, $box_id){
-            echo "<div class='wpcb_stick_this_offset'></div><div class='postbox wpcb_stick_this'><h3>Box Preview<span style='float: right;'><label><input type='checkbox' class='wpcb_box_preview_stick' name='wpcb_box_preview_stick' />Stick preview to top</label></span></h3><div class='inside minheight150'>";
+            echo "<div class='wpcb_stick_this_offset'></div><div class='postbox wpcb_stick_this'><h3>". __('Box Preview','wp-conversion-boxes') ."<span style='float: right;'><label><input type='checkbox' class='wpcb_box_preview_stick' name='wpcb_box_preview_stick' />". __('Stick preview to top','wp-conversion-boxes') ."</label></span></h3><div class='inside minheight150'>";
             
             $wpcb_default_fields = $box_customizations;
             $wpcb_upgrade_message = $this->upgrade_to_pro();
@@ -605,7 +640,7 @@ class WPCB_Admin {
             }
             
             echo "</div></div>";
-            echo "<div class='postbox'><h3>Default Customizations</h3><div class='inside minheight150'>";
+            echo "<div class='postbox'><h3>". __('Default Customizations','wp-conversion-boxes') ."</h3><div class='inside minheight150'>";
             include_once('includes/default-customizations-fields.php');
             echo "</div></div>";
         }
@@ -702,7 +737,7 @@ class WPCB_Admin {
                 
             }
             else{
-                echo "<p>No campaigns/lists found. Please integrate your email service provider first to select a campaign/list for this conversion box. <a href='".admin_url( 'admin.php?page=' . $this->wpcb_settings_slug )."&step=2'>Click here to integrate now.</a></p>";
+                echo "<p>". __('No campaigns/lists found. Please integrate your email service provider first to select a campaign/list for this conversion box.','wp-conversion-boxes') ." <a href='".admin_url( 'admin.php?page=' . $this->wpcb_settings_slug )."&step=2'>". __('Click here to integrate now.' , 'wp-conversion-boxes' ) ."</a></p>";
             }
         }
 

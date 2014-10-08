@@ -76,9 +76,9 @@ function validateFieldsOnDocumentReady(){
                     
                     //Extend the wp.media object
                     custom_uploader = wp.media.frames.file_frame = wp.media({
-                        title: 'Choose Image',
+                        title: wpcbAdmin.choseImage,
                         button: {
-                            text: 'Choose Image'
+                            text: wpcbAdmin.choseImage
                         },
                         multiple: false
                     });
@@ -108,7 +108,7 @@ function validateFieldsOnDocumentReady(){
             
             $(document).on('click','#wpcb_create_box', function(){
                     
-                    $(this).attr('disabled','disabled').val('Creating new box... Please wait!');
+                    $(this).attr('disabled','disabled').val(wpcbAdmin.creatingBox);
                     
                     $('#wpcb_error').remove();
                     $("<div class='wpcb_loading'></div>").insertAfter("#wpcb_create_box");
@@ -120,15 +120,15 @@ function validateFieldsOnDocumentReady(){
 
                     $.post(ajaxurl, data, function(response) {
                         if(response){                            
-                            $("#wpcb_create_box").val("Box Created Successfully. Redirecting...");
+                            $("#wpcb_create_box").val(wpcbAdmin.boxCreated);
                             setTimeout(function(){ window.location = window.location.href+'&step=1&id='+response },2000);
                         }
                         else
                         {
-                            $('#wpcb_create_box').removeAttr('disabled').val('Create Box and Proceed');
+                            $('#wpcb_create_box').removeAttr('disabled').val(wpcbAdmin.createBox);
                             $('#wpcb_error').remove();
                             $('.wpcb_loading').remove();
-                            $("<div id='wpcb_error'>There was an error saving to database. Please try again later.</div>").insertAfter("#wpcb_create_box");
+                            $("<div id='wpcb_error'>"+wpcbAdmin.errorSavingToDB+"</div>").insertAfter("#wpcb_create_box");
                         }
 
                     });
@@ -143,7 +143,7 @@ function validateFieldsOnDocumentReady(){
             
             $(document).on('click','#update-box-template', function(){
                 
-                $(this).attr('disabled','disabled').val('Updating... Please wait!');
+                $(this).attr('disabled','disabled').val(wpcbAdmin.updatingWait);
                 
                 var dropdown_id = $(".wpcb_box_type_radio:checked").val();
                 
@@ -156,15 +156,15 @@ function validateFieldsOnDocumentReady(){
 
                 $.post(ajaxurl, data, function(response) {
                     if(response > 0){
-                        $('#update-box-template').removeAttr('disabled').val('Saved! Redirecting...');
+                        $('#update-box-template').removeAttr('disabled').val(wpcbAdmin.savedRedirecting);
                         var redirect_to = window.location.href;
                         redirect_to = redirect_to.replace("step=1", "step=2&success=1");
                         window.location.href = redirect_to;
                     }
                     else
                     {
-                        $('#update-box-template').removeAttr('disabled').val('Update');
-                        $("<div class='error'><p>There was an error updating the database. Please try again later.</p></div>").insertAfter(".wpcb_nav_buttons_step_1").fadeOut(5000, function(){$(this).remove();});
+                        $('#update-box-template').removeAttr('disabled').val(wpcbAdmin.saveAndNext);
+                        $("<div class='error'><p>"+wpcbAdmin.errorUpdatingDB+"</p></div>").insertAfter(".wpcb_nav_buttons_step_1").fadeOut(5000, function(){$(this).remove();});
                     }
 
                 });
@@ -176,7 +176,7 @@ function validateFieldsOnDocumentReady(){
             
             $(document).on('click','#update-box-settings', function(){
                 
-                $(this).attr('disabled','disabled').val('Updating... Please wait!');
+                $(this).attr('disabled','disabled').val(wpcbAdmin.updatingWait);
                 
                 // Box name @since 1.0.3
                 
@@ -213,16 +213,16 @@ function validateFieldsOnDocumentReady(){
 
                 $.post(ajaxurl, settingsData, function(response) {
                     if(response > 0){
-                        $('#update-box-settings').removeAttr('disabled').val('Update');
+                        $('#update-box-settings').removeAttr('disabled').val(wpcbAdmin.update);
                         $('.wpcb_after_finish').lightbox_me({
                             centered: true
                         });
-                        $("<div class='updated'><p>Settings saved successfully.</p></div>").insertAfter(".wpcb_nav_buttons_step_3").fadeOut(5000, function(){$(this).remove();});
+                        $("<div class='updated'><p>"+wpcbAdmin.settingsSaved+"</p></div>").insertAfter(".wpcb_nav_buttons_step_3").fadeOut(5000, function(){$(this).remove();});
                     }
                     else
                     {
-                        $('#update-box-settings').removeAttr('disabled').val('Save and Publish!');
-                        $("<div class='error'></p>There was an error updating the database. Please try again later.</p></div>").insertAfter(".wpcb_nav_buttons_step_3").fadeOut(5000, function(){$(this).remove();});
+                        $('#update-box-settings').removeAttr('disabled').val(wpcbAdmin.saveAndPublish);
+                        $("<div class='error'></p>"+wpcbAdmin.errorUpdatingDB+"</p></div>").insertAfter(".wpcb_nav_buttons_step_3").fadeOut(5000, function(){$(this).remove();});
                     }
                 });
                 
@@ -242,7 +242,7 @@ function validateFieldsOnDocumentReady(){
             
             $(document).on('click','.wpcb_delete', function(e){
                 $('.wpcb-list-item-'+$(this).attr('wpcb_id')).css("opacity",0.5);
-                if(confirm('Are you sure you want to delete this conversion box?')){
+                if(confirm(wpcbAdmin.sureDelete)){
                     var data_del = {
                         action: 'delete_it',
                         wpcb_id: $(this).attr('wpcb_id')
@@ -252,7 +252,7 @@ function validateFieldsOnDocumentReady(){
                             $('.wpcb-list-item-'+response).fadeOut(300, function() { $(this).remove(); });
                         }
                         else{
-                            alert('ERROR: Unable to delete the conversion box. Please try again later.');
+                            alert(wpcbAdmin.errorDelete);
                         }
                     
                     });
@@ -266,7 +266,7 @@ function validateFieldsOnDocumentReady(){
             
             $(document).on('click','.wpcb_flush', function(e){
                 $('.wpcb-list-item-'+$(this).attr('wpcb_id')).css("opacity",0.5);
-                if(confirm('Are you sure you want to flush all the stats for this conversion box?')){
+                if(confirm(wpcbAdmin.flushStats)){
                     var data_flush = {
                         action: 'flush_stats',
                         wpcb_id: $(this).attr('wpcb_id')
@@ -276,7 +276,7 @@ function validateFieldsOnDocumentReady(){
                             location.reload();
                         }
                         else{
-                            alert('ERROR: Unable to flush the stats. Please try again later.');
+                            alert(wpcbAdmin.errorFlush);
                             $('.wpcb-list-item-'+response).css("opacity",1);
                         }
                     
@@ -288,7 +288,7 @@ function validateFieldsOnDocumentReady(){
             });
             
             $(document).on('click','.wpcb_load_more_stats', function(){
-                if(confirm('Free version of WP Conversion Boxes shows only 7 top performing posts and pages.\n\n Upgrade to Pro to view stats for all links.')){
+                if(confirm(wpcbAdmin.moreDataPopup)){
                     window.open('http://wpconversionboxes.com', '_blank');
                 }
             });
@@ -299,7 +299,7 @@ function validateFieldsOnDocumentReady(){
             
                 $(document).on('click','#update-global-settings', function(){
 
-                    $(this).attr('disabled','disabled').val('Updating... Please wait!');
+                    $(this).attr('disabled','disabled').val(wpcbAdmin.updatingWait);
 
                     var wpcb_boxes_list_default = $('#wpcb_boxes_list_default').find(':selected').val();
                     var wpcb_boxes_list_posts = $('#wpcb_boxes_list_posts').find(':selected').val();
@@ -322,13 +322,13 @@ function validateFieldsOnDocumentReady(){
 
                     $.post(ajaxurl, data, function(response) {
                         if(response > 0){
-                            $('#update-global-settings').removeAttr('disabled').val('Update');
-                            $("<div class='updated'><p>Updated successfully.</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
+                            $('#update-global-settings').removeAttr('disabled').val(wpcbAdmin.update);
+                            $("<div class='updated'><p>"+wpcbAdmin.updatedSuccesfully+"</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
                         }
                         else
                         {
-                            $('#update-global-settings').removeAttr('disabled').val('Update');
-                            $("<div class='error'><p>There was an error updating the database. Please try again later.</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
+                            $('#update-global-settings').removeAttr('disabled').val(wpcbAdmin.update);
+                            $("<div class='error'><p>"+wpcbAdmin.errorUpdatingDB+"</p></div>").insertAfter("#update-global-settings").fadeOut(5000, function(){$(this).remove();});
                         }
 
                     });
@@ -371,7 +371,7 @@ function validateFieldsOnDocumentReady(){
                 // Oops no A/B test available
                 
                 $(document).on('click','.wpcb_no_ab_test', function(){
-                    if(confirm('A/B tests feature is not available in free version.\n\n Please upgrade to Pro to get this feature.')){
+                    if(confirm(wpcbAdmin.abTestConfirm)){
                         window.open('http://wpconversionboxes.com', '_blank');
                     }
                 });
@@ -394,22 +394,22 @@ function validateFieldsOnDocumentReady(){
                     $.post(ajaxurl, data, function(response) {
                         if(response > 0){
                             $('.wpcb_publish_now').hide();
-                            $('#wpcb_after_finish_body').html('<h1 style="margin-top: 150px; text-align: center;"><span class="fa fa-check" style="color: #1fa67a;"></span> Box Published Successfully!</h1>');
+                            $('#wpcb_after_finish_body').html('<h1 style="margin-top: 150px; text-align: center;"><span class="fa fa-check" style="color: #1fa67a;"></span> '+wpcbAdmin.boxPublished+'</h1>');
                             $('.wpcb_publish_close').each(function(){
-                                if($(this).text() != 'Later'){
+                                if($(this).text() != wpcbAdmin.later){
                                     $(this).attr('onclick',"jQuery(this).parent().trigger('close');location.reload();");
                                 }
                                 else{
-                                    $(this).text('Done');
+                                    $(this).text(wpcbAdmin.done);
                                 }
                             });
                         }
                         else{
                             $('.wpcb_publish_now').hide();
-                            $('#wpcb_after_finish_body').html('<h1 style="margin-top: 140px; text-align: center;"><span class="fa fa-close" style="color: red;"></span> Error Publishing The Box!<br /><br />Reload this page and try again.</h1>');
+                            $('#wpcb_after_finish_body').html('<h1 style="margin-top: 140px; text-align: center;"><span class="fa fa-close" style="color: red;"></span> '+wpcbAdmin.errorPublishing+'</h1>');
                             $('.wpcb_publish_close').each(function(){
-                                if($(this).text() == 'Later'){
-                                    $(this).text('Reload');
+                                if($(this).text() == wpcbAdmin.later){
+                                    $(this).text(wpcbAdmin.reload);
                                     $(this).attr('onclick',"jQuery(this).parent().trigger('close');location.reload();")
                                 }
                             });

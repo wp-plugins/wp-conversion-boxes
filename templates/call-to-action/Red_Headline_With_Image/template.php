@@ -83,11 +83,11 @@ $wpcb_default_fields['use_image'] = true;
         
     }
     
-    .wpcb_box_heading{
+    .wpcb_template_main .wpcb_box_heading{
         background-color: <?php echo $wpcb_default_fields['heading_bg_color']; ?>;
     }
     
-    .wpcb_box_heading_text{
+    .wpcb_template_main .wpcb_box_heading_text{
         font-family:    '<?php echo $wpcb_default_fields['heading_font_familiy']; ?>', serif;
         font-size:      <?php echo $wpcb_default_fields['heading_font_size']; ?>;
         line-height:    <?php echo $wpcb_default_fields['heading_line_height']; ?>;
@@ -98,38 +98,38 @@ $wpcb_default_fields['use_image'] = true;
         margin: 0;
     }
     
-    .wpcb_box_media_container{
+    .wpcb_template_main .wpcb_box_media_container{
         display: inline-block;
         width: <?php echo $wpcb_default_fields['image_width']; ?>;
         height: <?php echo $wpcb_default_fields['image_height']; ?>;
     }
     
-    .wpcb_box_content_container{
+    .wpcb_template_main .wpcb_box_content_container{
         
     }    
     
-    .wpcb_box_image{
+    .wpcb_template_main .wpcb_box_image{
         width: 100%;
         height: 100%;
     }
     
-    .wpcb_box_media_center{
+    .wpcb_template_main .wpcb_box_media_center{
         display: block;
         margin: 0 auto;
         padding: 10px;
     }
     
-    .wpcb_box_media_right{
+    .wpcb_template_main .wpcb_box_media_right{
         float: right;
         padding: 10px 0px 10px 20px;
     }
     
-    .wpcb_box_media_left{
+    .wpcb_template_main .wpcb_box_media_left{
         float: left;
         padding: 10px 20px 10px 0px;
     }
     
-    .wpcb_box_content{
+    .wpcb_template_main .wpcb_box_content{
         font-family:    <?php echo $wpcb_default_fields['content_font_familiy']; ?>;
         font-size:      <?php echo $wpcb_default_fields['content_font_size']; ?>;
         line-height:    <?php echo $wpcb_default_fields['content_line_height']; ?>;
@@ -138,12 +138,12 @@ $wpcb_default_fields['use_image'] = true;
         padding: 1em;
     }
     
-    .wpcb_box_button_div{
+    .wpcb_template_main .wpcb_box_button_div{
         text-align: <?php echo $wpcb_default_fields['button_align']; ?>;
         padding: 0em 1em 1em 1em;
     }
     
-    .wpcb_template_main .wpcb_box_button_div .wpcb_box_button{
+    .wpcb_template_main .wpcb_box_button_div a.wpcb_box_button, .wpcb_template_main .wpcb_box_button_div button.wpcb_box_button{
         font-family:    <?php echo $wpcb_default_fields['button_text_font_familiy']; ?>;
         font-size:      <?php echo $wpcb_default_fields['button_text_font_size']; ?>;
         color:          <?php echo $wpcb_default_fields['button_text_color']; ?>;

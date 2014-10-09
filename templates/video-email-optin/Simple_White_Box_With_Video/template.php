@@ -92,12 +92,12 @@ switch ($wpcb_default_fields['video_site']) {
         padding: 20px;    
     }
     
-    .wpcb_box_heading{
+    .wpcb_template_main .wpcb_box_heading{
         background-color: <?php echo $wpcb_default_fields['heading_bg_color']; ?>;
         padding-top: 0px;
     }
     
-    .wpcb_box_heading_text{
+    .wpcb_template_main .wpcb_box_heading_text{
         font-family:    '<?php echo $wpcb_default_fields['heading_font_familiy']; ?>', serif;
         font-size:      <?php echo $wpcb_default_fields['heading_font_size']; ?>;
         line-height:    <?php echo $wpcb_default_fields['heading_line_height']; ?>;
@@ -107,13 +107,13 @@ switch ($wpcb_default_fields['video_site']) {
         margin: 0;
     }
     
-    .wpcb_box_media_container{
+    .wpcb_template_main .wpcb_box_media_container{
         display: inline-block;
         width: <?php echo $wpcb_default_fields['video_width']; ?>;
         height: <?php echo $wpcb_default_fields['video_height']; ?>;
     }
     
-    .wpcb_box_content_container{
+    .wpcb_template_main .wpcb_box_content_container{
         
     }
     
@@ -128,7 +128,7 @@ switch ($wpcb_default_fields['video_site']) {
         font-size:  <?php echo $wpcb_default_fields['input_font_family']; ?>;
     }    
     
-    .wpcb_box_video{
+    .wpcb_template_main .wpcb_box_video{
         border: 10px solid #fff;
         width: 100%;
         height: 100%;
@@ -138,25 +138,25 @@ switch ($wpcb_default_fields['video_site']) {
             
     }
     
-    .wpcb_box_media_center{
+    .wpcb_template_main .wpcb_box_media_center{
         display: block;
         margin: 0 auto;
         padding: 0px 0px 20px 0px;
     }
     
-    .wpcb_box_media_right{
+    .wpcb_template_main .wpcb_box_media_right{
         float: right;
         padding: 0px 0px 20px 30px;
 
     }
     
-    .wpcb_box_media_left{
+    .wpcb_template_main .wpcb_box_media_left{
         float: left;
         padding: 0px 30px 20px 0px;
 
     }
     
-    .wpcb_box_content{
+    .wpcb_template_main .wpcb_box_content{
         font-family:    <?php echo $wpcb_default_fields['content_font_familiy']; ?>;
         font-size:      <?php echo $wpcb_default_fields['content_font_size']; ?>;
         line-height:    <?php echo $wpcb_default_fields['content_line_height']; ?>;
@@ -165,11 +165,11 @@ switch ($wpcb_default_fields['video_site']) {
         padding: 20px 0px;
     }
     
-    .wpcb_box_button_div{
+    .wpcb_template_main .wpcb_box_button_div{
         text-align: <?php echo $wpcb_default_fields['button_align']; ?>;
     }
     
-    .wpcb_template_main .wpcb_box_button_div .wpcb_box_button{
+    .wpcb_template_main .wpcb_box_button_div a.wpcb_box_button, .wpcb_template_main .wpcb_box_button_div button.wpcb_box_button{
         font-family:    <?php echo $wpcb_default_fields['button_text_font_familiy']; ?>;
         font-size:      <?php echo $wpcb_default_fields['button_text_font_size']; ?>;
         color:          <?php echo $wpcb_default_fields['button_text_color']; ?>;

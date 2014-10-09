@@ -307,7 +307,7 @@ class WPCB_Public {
                 $box_customizations = $wpcb_the_row->box_customizations;
                 $box_settings = $wpcb_the_row->box_settings;
             } else {
-
+                return;
             }
             
             $box_id = $id;

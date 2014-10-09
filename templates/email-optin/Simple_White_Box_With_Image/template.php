@@ -154,7 +154,7 @@ $wpcb_default_fields['use_input'] = true;
         padding: 20px 0px;
     }
     
-    .wpcb_input_fields{
+    .wpcb_template_main input.wpcb_input_fields{
         width: <?php echo $wpcb_default_fields['input_width']; ?>;
         line-height: 36px;
         margin: 0px;

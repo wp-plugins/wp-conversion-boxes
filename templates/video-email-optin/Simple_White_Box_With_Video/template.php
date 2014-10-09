@@ -117,7 +117,7 @@ switch ($wpcb_default_fields['video_site']) {
         
     }
     
-    .wpcb_input_fields{
+    .wpcb_template_main input.wpcb_input_fields{
         width: <?php echo $wpcb_default_fields['input_width']; ?>;
         line-height: 30px;
         border: 1px #ddd solid;

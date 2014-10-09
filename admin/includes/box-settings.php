@@ -24,22 +24,22 @@
                     <tr>
                         <th scope="row"><label for=""><?php _e('Box Name','wp-conversion-boxes'); ?></label></th>
                         <td>
-                            <input type="text" name="box_name" id="box_name" value="<?= $box_name; ?>"/>
+                            <input type="text" name="box_name" id="box_name" value="<?php echo $box_name; ?>"/>
                             <p class="wpcb_help_block"><?php _e('Change the name of this conversion box.','wp-conversion-boxes'); ?></p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label for=""><?php _e('Box Fade In/Out Effect','wp-conversion-boxes'); ?></label></th>
                         <td>
-                            <label for="box_fade_in"><input type="checkbox" name="box_fade_in" id="box_fade_in" <?= $box_fade_in; ?>/> <?php _e('Enable Flash Effect. ','wp-conversion-boxes'); ?></label>
-                            <label for="box_fade_in_time"> <?php _e('Fade In/Out duration:','wp-conversion-boxes'); ?> <input type="text" name="box_fade_in_time" id="box_fade_in_time" value="<?= $box_fade_in_time; ?>" /> <?php _e('seconds.','wp-conversion-boxes'); ?></label>
+                            <label for="box_fade_in"><input type="checkbox" name="box_fade_in" id="box_fade_in" <?php echo $box_fade_in; ?>/> <?php _e('Enable Flash Effect. ','wp-conversion-boxes'); ?></label>
+                            <label for="box_fade_in_time"> <?php _e('Fade In/Out duration:','wp-conversion-boxes'); ?> <input type="text" name="box_fade_in_time" id="box_fade_in_time" value="<?php echo $box_fade_in_time; ?>" /> <?php _e('seconds.','wp-conversion-boxes'); ?></label>
                             <p class="wpcb_help_block"><?php _e("Give a cool fade in/out (flash) effect to the box so that it grabs user's attention.",'wp-conversion-boxes'); ?></p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label for=""><?php _e('Make Box Sticky','wp-conversion-boxes'); ?></label></th>
                         <td>
-                            <label for="make_sticky"><input type="checkbox" name="make_sticky" id="make_sticky"  <?= $box_make_sticky; ?> /><?php _e('Make Sticky','wp-conversion-boxes'); ?></label>
+                            <label for="make_sticky"><input type="checkbox" name="make_sticky" id="make_sticky"  <?php echo $box_make_sticky; ?> /><?php _e('Make Sticky','wp-conversion-boxes'); ?></label>
                             <p class="wpcb_help_block"><?php _e('Make the box stick to top when user scrolls past the box.','wp-conversion-boxes'); ?></p>
                         </td>
                     </tr>                        
@@ -120,10 +120,10 @@
                         <th scope="row" style="width: 200px;"><label for=""><?php _e('Global Placement :','wp-conversion-boxes'); ?></label></th>
                         <td>
                             <ul>
-                                <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="1" <?= $checked_1 ?>><?php _e('Place this box under all Posts and Pages (Sitewide).','wp-conversion-boxes'); ?></label></li>
-                                <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="2" <?= $checked_2 ?>><?php _e('Place this box under all Posts.','wp-conversion-boxes'); ?></label></li>
-                                <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="3" <?= $checked_3 ?>><?php _e('Place this box under all Pages.','wp-conversion-boxes'); ?></label></li>
-                                <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="0" <?= $checked_0 ?>><?php _e('Custom. (Keep this selected this you want to do custom placement using options below.)','wp-conversion-boxes'); ?></label></li>
+                                <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="1" <?php echo $checked_1 ?>><?php _e('Place this box under all Posts and Pages (Sitewide).','wp-conversion-boxes'); ?></label></li>
+                                <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="2" <?php echo $checked_2 ?>><?php _e('Place this box under all Posts.','wp-conversion-boxes'); ?></label></li>
+                                <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="3" <?php echo $checked_3 ?>><?php _e('Place this box under all Pages.','wp-conversion-boxes'); ?></label></li>
+                                <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="0" <?php echo $checked_0 ?>><?php _e('Custom. (Keep this selected this you want to do custom placement using options below.)','wp-conversion-boxes'); ?></label></li>
                             </ul>
                             <p class="description"><?php echo sprintf( __("Place this box globally under all posts and pages. You can change this anytime in future by coming back to this page or using the <b>Sitewide Settings</b> on the <a target='_blank' href='%s'>Global Settings</a> page.",'wp-conversion-boxes') , admin_url( 'admin.php?page=' . $this->wpcb_settings_slug )); ?></p>
                         </td>    
@@ -131,7 +131,7 @@
                     <tr>
                         <th scope="row" style="width: 200px;"><label for=""><?php _e('Shortcode :','wp-conversion-boxes'); ?></label></th>
                         <td>
-                            <p><input type='text' value='[wpcb id="<?= $id; ?>"]' /></p>
+                            <p><input type='text' value='[wpcb id="<?php echo $id; ?>"]' /></p>
                             <p class="description"><?php echo sprintf( __("You can place this box almost anywhere on your blog using this shortcode. If you want to use this box inside your theme you can do so by pasting the following code there: <code>&lt;?php echo do_shortcode('[wpcb id=\"%d\"]'); ?&gt;</code>",'wp-conversion-boxes') , $id); ?></p>
                         </td>    
                     </tr>                    
@@ -162,7 +162,7 @@
         </div>
         <div id="wpcb_after_finish_foot">
             <a class="button button-primary" style="float: left;" href="<?php echo admin_url( 'admin.php?page=' . $this->wpcb_edit_slug ); ?>"><?php _e('Create Another Box','wp-conversion-boxes'); ?></a>
-            <button class="button button-primary wpcb_publish_now" data-boxid="<?= $id ?>"><?php _e('Publish Now!','wp-conversion-boxes'); ?></button>
+            <button class="button button-primary wpcb_publish_now" data-boxid="<?php echo $id ?>"><?php _e('Publish Now!','wp-conversion-boxes'); ?></button>
             <button class="button button-primary wpcb_publish_close" onclick="jQuery(this).parent().trigger('close');window.location.href='<?php echo admin_url( 'admin.php?page=' . $this->wpcb_main_slug ); ?>'"><?php _e('Later','wp-conversion-boxes'); ?></button>
         </div>
     </div>

@@ -143,10 +143,10 @@ class WPCB_Admin {
                             'errorDelete' => __( 'ERROR: Unable to delete the conversion box. Please try again later.' , 'wp-conversion-boxes' ),
                             'flushStats' => __( 'Are you sure you want to flush all the stats for this conversion box?' , 'wp-conversion-boxes' ),
                             'errorFlush' => __( 'ERROR: Unable to flush the stats. Please try again later.' , 'wp-conversion-boxes' ),
-                            'moreDataPopup' => __( 'Free version of WP Conversion Boxes shows only 7 top performing posts and pages.\n\n Upgrade to Pro to view stats for all links.' , 'wp-conversion-boxes' ),
+                            'moreDataPopup' => __( 'Free version of WP Conversion Boxes shows only 7 top performing posts and pages. Upgrade to Pro to view stats for all links.' , 'wp-conversion-boxes' ),
                             'updatedSuccessfully' => __( 'Updated successfully.' , 'wp-conversion-boxes' ),
                             'update' => __( 'Update' , 'wp-conversion-boxes' ),
-                            'abTestConfirm' => __( 'A/B tests feature is not available in free version.\n\n Please upgrade to Pro to get this feature.' , 'wp-conversion-boxes' ),
+                            'abTestConfirm' => __( 'A/B tests feature is not available in free version. Please upgrade to Pro to get this feature.' , 'wp-conversion-boxes' ),
                             'boxPublished' => __( 'Box Published Successfully!' , 'wp-conversion-boxes' ),
                             'later' => __( 'Later' , 'wp-conversion-boxes' ),
                             'errorPublishing' => __( 'Error Publishing The Box!<br /><br />Reload this page and try again.' , 'wp-conversion-boxes' ),
@@ -158,7 +158,7 @@ class WPCB_Admin {
                         // Real Time Box Customizer JS
                         wp_enqueue_script( $this->wpcb_main_slug . "-real-time-box-customizer-js",  ADMIN_ASSETS_URL.'/js/realtimeboxcustomizer.js');
                         $rtbc_data = array(
-                            'resetDataConfirmation' => __('Are you sure you want to reset the customizations to default? \n\n All design elements and content will be reset to defaults.', 'wp-conversion-boxes'),
+                            'resetDataConfirmation' => __('Are you sure you want to reset the customizations to default? All design elements and content will be reset to defaults.', 'wp-conversion-boxes'),
                             'resttingBtn' => __('Reseting... Please wait!','wp-conversion-boxes'),
                             'resetError' => __('There was an error. Please try again later or contact support if problem persists.','wp-conversion-boxes'),
                             'updatingBtn' => __('Updating... Please wait!','wp-conversion-boxes'),

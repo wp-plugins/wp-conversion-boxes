@@ -43,7 +43,7 @@ if(isset($_GET['duplicate'])){
             ?>
                     <i></i>
                     <div class='postbox'>
-                        <h3><?= $box_name; ?> : <?php _e('Top Performing Posts/Pages', 'wp-conversion-boxes'); ?></h3>
+                        <h3><?php echo $box_name; ?> : <?php _e('Top Performing Posts/Pages', 'wp-conversion-boxes'); ?></h3>
                         <div class='inside'>
                             <p><?php _e('Top performing posts and pages on your site.', 'wp-conversion-boxes'); ?></p>
                             <?php $wpcb_tracking->visit_details($box_id); ?>
@@ -52,7 +52,7 @@ if(isset($_GET['duplicate'])){
                     </div>
 
                     <div class='postbox opaque6'>
-                        <h3><?= $box_name; ?> : <?php _e('Traffic and Conversion Graph', 'wp-conversion-boxes'); echo $wpcb->upgrade_to_pro(); ?></h3>
+                        <h3><?php echo $box_name; ?> : <?php _e('Traffic and Conversion Graph', 'wp-conversion-boxes'); echo $wpcb->upgrade_to_pro(); ?></h3>
                         <div class='inside' style="height: 500px;">
                             <div class='wpcb_stats_filters'>
                                 <form method="POST" action="" style="display: inline-block;">

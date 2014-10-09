@@ -181,7 +181,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                 <tr>
                                     <th scope="row"><label for=""><?php _e('Show Link to WP Conversion Boxes Under Conversion Boxes', 'wp-conversion-boxes'); ?></label></th>
                                     <td>
-                                        <p><label><input type='checkbox' value='1' id='enable_credit_link' name='enable_credit_link' <?= (get_option('wpcb_enable_credit_link') == 1) ? 'checked' : '' ?>/> <?php _e('Enable Credit Link', 'wp-conversion-boxes'); ?></label></p>
+                                        <p><label><input type='checkbox' value='1' id='enable_credit_link' name='enable_credit_link' <?php echo (get_option('wpcb_enable_credit_link') == 1) ? 'checked' : '' ?>/> <?php _e('Enable Credit Link', 'wp-conversion-boxes'); ?></label></p>
                                         <p class="wpcb_help_block"><?php _e("Place a small link to WP Conversion Boxes below your conversion boxes. This will help us spread the word out about the plugin and along with that, give you the fuzzy feeling of helping us out.", 'wp-conversion-boxes'); ?></p>
                                     </td>
                                 </tr>
@@ -228,7 +228,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
-                                            <?= (isset($showresponse_1)) ? $showresponse_1 : ''; ?>
+                                            <?php echo (isset($showresponse_1)) ? $showresponse_1 : ''; ?>
 
                                                 <div id="wpcb_mailer_1" class="wpcb_mailers_option">
                                                     <p><?php _e('GetResponse API Key:', 'wp-conversion-boxes'); ?></p>
@@ -266,7 +266,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
-                                            <?= (isset($showresponse_2)) ? $showresponse_2 : ''; ?>
+                                            <?php echo (isset($showresponse_2)) ? $showresponse_2 : ''; ?>
                                             <div id="wpcb_mailer_2" class="wpcb_mailers_option">
                                                 <p><?php _e('MailChimp API Key:', 'wp-conversion-boxes'); ?></p>
                                                 <form method="post" action="">
@@ -300,7 +300,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                     <?php endif; ?>
                                                 </tr>
                                             </table>
-                                            <?= (isset($showresponse_3)) ? $showresponse_3 : ''; ?>
+                                            <?php echo (isset($showresponse_3)) ? $showresponse_3 : ''; ?>
                                                 <div id="wpcb_mailer_3" class="wpcb_mailers_option">
                                                     <p><?php _e('Aweber Authorization Code:', 'wp-conversion-boxes'); ?></p>
                                                     <form method="post" action="">

@@ -71,28 +71,28 @@ $wpcb_default_fields['use_image'] = true;
 <style>
 
     .wpcb_template_main{
-        background-color: <?= $wpcb_default_fields['box_container_bg_color']; ?>;
-        width: <?= $wpcb_default_fields['box_container_width']; ?>;
-        height: <?= $wpcb_default_fields['box_container_height']; ?>;
-        border-width: <?= $wpcb_default_fields['box_container_border_width']; ?>;
-        border-color: <?= $wpcb_default_fields['box_container_border_color']; ?>;
-        margin-top: <?= $wpcb_default_fields['box_container_margin_top']; ?>;
-        margin-bottom: <?= $wpcb_default_fields['box_container_margin_bottom']; ?>;
-        margin-left: <?= $wpcb_default_fields['box_container_margin_left']; ?>;
-        margin-right: <?= $wpcb_default_fields['box_container_margin_right']; ?>;
+        background-color: <?php echo $wpcb_default_fields['box_container_bg_color']; ?>;
+        width: <?php echo $wpcb_default_fields['box_container_width']; ?>;
+        height: <?php echo $wpcb_default_fields['box_container_height']; ?>;
+        border-width: <?php echo $wpcb_default_fields['box_container_border_width']; ?>;
+        border-color: <?php echo $wpcb_default_fields['box_container_border_color']; ?>;
+        margin-top: <?php echo $wpcb_default_fields['box_container_margin_top']; ?>;
+        margin-bottom: <?php echo $wpcb_default_fields['box_container_margin_bottom']; ?>;
+        margin-left: <?php echo $wpcb_default_fields['box_container_margin_left']; ?>;
+        margin-right: <?php echo $wpcb_default_fields['box_container_margin_right']; ?>;
         
     }
     
     .wpcb_box_heading{
-        background-color: <?= $wpcb_default_fields['heading_bg_color']; ?>;
+        background-color: <?php echo $wpcb_default_fields['heading_bg_color']; ?>;
     }
     
     .wpcb_box_heading_text{
-        font-family:    '<?= $wpcb_default_fields['heading_font_familiy']; ?>', serif;
-        font-size:      <?= $wpcb_default_fields['heading_font_size']; ?>;
-        line-height:    <?= $wpcb_default_fields['heading_line_height']; ?>;
-        color:          <?= $wpcb_default_fields['heading_color']; ?>;
-        text-align:     <?= $wpcb_default_fields['heading_align']; ?>;
+        font-family:    '<?php echo $wpcb_default_fields['heading_font_familiy']; ?>', serif;
+        font-size:      <?php echo $wpcb_default_fields['heading_font_size']; ?>;
+        line-height:    <?php echo $wpcb_default_fields['heading_line_height']; ?>;
+        color:          <?php echo $wpcb_default_fields['heading_color']; ?>;
+        text-align:     <?php echo $wpcb_default_fields['heading_align']; ?>;
         text-transform: uppercase;
         font-weight: 900;
         margin: 0;
@@ -100,8 +100,8 @@ $wpcb_default_fields['use_image'] = true;
     
     .wpcb_box_media_container{
         display: inline-block;
-        width: <?= $wpcb_default_fields['image_width']; ?>;
-        height: <?= $wpcb_default_fields['image_height']; ?>;
+        width: <?php echo $wpcb_default_fields['image_width']; ?>;
+        height: <?php echo $wpcb_default_fields['image_height']; ?>;
     }
     
     .wpcb_box_content_container{
@@ -130,47 +130,47 @@ $wpcb_default_fields['use_image'] = true;
     }
     
     .wpcb_box_content{
-        font-family:    <?= $wpcb_default_fields['content_font_familiy']; ?>;
-        font-size:      <?= $wpcb_default_fields['content_font_size']; ?>;
-        line-height:    <?= $wpcb_default_fields['content_line_height']; ?>;
-        color:          <?= $wpcb_default_fields['content_color']; ?>;
-        text-align:     <?= $wpcb_default_fields['content_align']; ?>;
+        font-family:    <?php echo $wpcb_default_fields['content_font_familiy']; ?>;
+        font-size:      <?php echo $wpcb_default_fields['content_font_size']; ?>;
+        line-height:    <?php echo $wpcb_default_fields['content_line_height']; ?>;
+        color:          <?php echo $wpcb_default_fields['content_color']; ?>;
+        text-align:     <?php echo $wpcb_default_fields['content_align']; ?>;
         padding: 1em;
     }
     
     .wpcb_box_button_div{
-        text-align: <?= $wpcb_default_fields['button_align']; ?>;
+        text-align: <?php echo $wpcb_default_fields['button_align']; ?>;
         padding: 0em 1em 1em 1em;
     }
     
-    .wpcb_box_button{
-        font-family:    <?= $wpcb_default_fields['button_text_font_familiy']; ?>;
-        font-size:      <?= $wpcb_default_fields['button_text_font_size']; ?>;
-        color:          <?= $wpcb_default_fields['button_text_color']; ?>;
-        background-color: <?= $wpcb_default_fields['button_bg_color']; ?>;
-        border-radius: <?= $wpcb_default_fields['button_border_radius']; ?>;
+    .wpcb_template_main .wpcb_box_button_div .wpcb_box_button{
+        font-family:    <?php echo $wpcb_default_fields['button_text_font_familiy']; ?>;
+        font-size:      <?php echo $wpcb_default_fields['button_text_font_size']; ?>;
+        color:          <?php echo $wpcb_default_fields['button_text_color']; ?>;
+        background-color: <?php echo $wpcb_default_fields['button_bg_color']; ?>;
+        border-radius: <?php echo $wpcb_default_fields['button_border_radius']; ?>;
         padding: 10px 15px;
     }
     
-    <?= $wpcb_default_fields['button_type_css']; ?>
+    <?php echo $wpcb_default_fields['button_type_css']; ?>
     
 </style>
 
-<div class="<?= $wpcb_settings_data['box_make_sticky']; ?>_offset"></div>
-<div class="wpcb_template_main <?= $wpcb_settings_data['box_fade_in']." ".$wpcb_settings_data['box_make_sticky']; ?>" data-fadetime="<?= $wpcb_settings_data['box_fade_in_time']; ?>">
+<div class="<?php echo $wpcb_settings_data['box_make_sticky']; ?>_offset"></div>
+<div class="wpcb_template_main <?php echo $wpcb_settings_data['box_fade_in']." ".$wpcb_settings_data['box_make_sticky']; ?>" data-fadetime="<?php echo $wpcb_settings_data['box_fade_in_time']; ?>">
     <div class="wpcb_box_heading">
-        <div class="wpcb_box_heading_text"><?= $wpcb_default_fields['heading_text']; ?></div>
+        <div class="wpcb_box_heading_text"><?php echo $wpcb_default_fields['heading_text']; ?></div>
     </div>
     <div class="wpcb_box_all_content_container">
-        <div class="wpcb_box_media_container wpcb_box_media_<?= $wpcb_default_fields['image_align']; ?>">    
-            <img class="wpcb_box_image" src="<?= $wpcb_default_fields['image_url']; ?>" />
+        <div class="wpcb_box_media_container wpcb_box_media_<?php echo $wpcb_default_fields['image_align']; ?>">    
+            <img class="wpcb_box_image" src="<?php echo $wpcb_default_fields['image_url']; ?>" />
         </div>
         <div class="wpcb_box_content_container">    
             <div class="wpcb_box_content">
-                <?= $wpcb_default_fields['content_text']; ?>
+                <?php echo $wpcb_default_fields['content_text']; ?>
             </div>    
             <div class="wpcb_box_button_div">
-                <a href="<?= $wpcb_default_fields['button_link']; ?>" target="<?php echo ($wpcb_default_fields['button_target_blank'] == 'true') ? '_blank' : ''; ?>" id="wpcb_box_button_<?= $box_id; ?>" class="wpcb_box_button <?= $wpcb_default_fields['button_type']; ?>"><?= $wpcb_default_fields['button_text']; ?></a>
+                <a href="<?php echo $wpcb_default_fields['button_link']; ?>" target="<?php echo ($wpcb_default_fields['button_target_blank'] == 'true') ? '_blank' : ''; ?>" id="wpcb_box_button_<?php echo $box_id; ?>" class="wpcb_box_button <?php echo $wpcb_default_fields['button_type']; ?>"><?php echo $wpcb_default_fields['button_text']; ?></a>
             </div>
         </div>    
         <div style="clear: both;"></div>

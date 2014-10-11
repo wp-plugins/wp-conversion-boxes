@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Conversion Boxes\n"
-"POT-Creation-Date: 2014-10-08 15:29+0530\n"
-"PO-Revision-Date: 2014-10-08 15:30+0530\n"
+"POT-Creation-Date: 2014-10-11 15:17+0530\n"
+"PO-Revision-Date: 2014-10-11 15:17+0530\n"
 "Last-Translator: Ram Shengale <admin@wpconversionboxes.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -158,49 +158,49 @@ msgstr ""
 msgid "Enter a name for your new Coversion Box:"
 msgstr ""
 
-#: admin/class.admin.php:495
+#: admin/class.admin.php:499
 msgid "Duplicate"
 msgstr ""
 
-#: admin/class.admin.php:525
+#: admin/class.admin.php:529
 msgid "None"
 msgstr ""
 
-#: admin/class.admin.php:526 admin/class.admin.php:556
+#: admin/class.admin.php:530 admin/class.admin.php:560
 msgid "Use Default"
 msgstr ""
 
-#: admin/class.admin.php:551
+#: admin/class.admin.php:555
 msgid "Category Name"
 msgstr ""
 
-#: admin/class.admin.php:551
+#: admin/class.admin.php:555
 msgid "Conversion Box"
 msgstr ""
 
-#: admin/class.admin.php:586
+#: admin/class.admin.php:590
 msgid "Select template"
 msgstr ""
 
-#: admin/class.admin.php:627
+#: admin/class.admin.php:631
 msgid "Box Preview"
 msgstr ""
 
-#: admin/class.admin.php:627
+#: admin/class.admin.php:631
 msgid "Stick preview to top"
 msgstr ""
 
-#: admin/class.admin.php:643
+#: admin/class.admin.php:647
 msgid "Default Customizations"
 msgstr ""
 
-#: admin/class.admin.php:740
+#: admin/class.admin.php:744
 msgid ""
 "No campaigns/lists found. Please integrate your email service provider first "
 "to select a campaign/list for this conversion box."
 msgstr ""
 
-#: admin/class.admin.php:740
+#: admin/class.admin.php:744
 msgid "Click here to integrate now."
 msgstr ""
 
@@ -210,7 +210,7 @@ msgid ""
 "and you'll have the box ready to use."
 msgstr ""
 
-#: admin/includes/box-settings.php:16 admin/includes/customize-box.php:26
+#: admin/includes/box-settings.php:16 admin/includes/customize-box.php:24
 msgid "Close"
 msgstr ""
 
@@ -413,7 +413,7 @@ msgstr ""
 msgid "Publish Now!"
 msgstr ""
 
-#: admin/includes/customize-box.php:26
+#: admin/includes/customize-box.php:24
 msgid ""
 "Box selected successfully! Use the options given below to customize and "
 "craft the box according to your needs."
@@ -477,27 +477,27 @@ msgstr ""
 #: admin/includes/default-customizations-fields.php:132
 #: admin/includes/default-customizations-fields.php:187
 #: admin/includes/default-customizations-fields.php:269
-#: admin/includes/default-customizations-fields.php:360
-#: admin/includes/default-customizations-fields.php:402
-#: admin/includes/default-customizations-fields.php:454
+#: admin/includes/default-customizations-fields.php:367
+#: admin/includes/default-customizations-fields.php:409
+#: admin/includes/default-customizations-fields.php:461
 msgid "Left"
 msgstr ""
 
 #: admin/includes/default-customizations-fields.php:133
 #: admin/includes/default-customizations-fields.php:188
 #: admin/includes/default-customizations-fields.php:270
-#: admin/includes/default-customizations-fields.php:361
-#: admin/includes/default-customizations-fields.php:403
-#: admin/includes/default-customizations-fields.php:455
+#: admin/includes/default-customizations-fields.php:368
+#: admin/includes/default-customizations-fields.php:410
+#: admin/includes/default-customizations-fields.php:462
 msgid "Center"
 msgstr ""
 
 #: admin/includes/default-customizations-fields.php:134
 #: admin/includes/default-customizations-fields.php:189
 #: admin/includes/default-customizations-fields.php:271
-#: admin/includes/default-customizations-fields.php:362
-#: admin/includes/default-customizations-fields.php:404
-#: admin/includes/default-customizations-fields.php:456
+#: admin/includes/default-customizations-fields.php:369
+#: admin/includes/default-customizations-fields.php:411
+#: admin/includes/default-customizations-fields.php:463
 msgid "Right"
 msgstr ""
 
@@ -558,8 +558,8 @@ msgid "Email Field Width"
 msgstr ""
 
 #: admin/includes/default-customizations-fields.php:261
-#: admin/includes/default-customizations-fields.php:388
-#: admin/includes/default-customizations-fields.php:440
+#: admin/includes/default-customizations-fields.php:395
+#: admin/includes/default-customizations-fields.php:447
 msgid "(Eg. 200px or 80%)"
 msgstr ""
 
@@ -596,148 +596,164 @@ msgid "Button Font Size"
 msgstr ""
 
 #: admin/includes/default-customizations-fields.php:323
-msgid "Button Text Color"
+msgid "Button Width"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:326
+msgid "(Eg. 150px or 100%)"
 msgstr ""
 
 #: admin/includes/default-customizations-fields.php:330
-msgid "Button Background Color"
+msgid "Button Text Color"
 msgstr ""
 
 #: admin/includes/default-customizations-fields.php:337
+msgid "Button Background Color"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:344
 msgid "Button Type"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:340
+#: admin/includes/default-customizations-fields.php:347
 msgid "Gradient"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:341
+#: admin/includes/default-customizations-fields.php:348
 msgid "3D"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:342
+#: admin/includes/default-customizations-fields.php:349
 msgid "Flat"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:346
+#: admin/includes/default-customizations-fields.php:353
 msgid "Button Border Radius"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:357
+#: admin/includes/default-customizations-fields.php:364
 msgid "Button Align"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:371
+#: admin/includes/default-customizations-fields.php:378
 msgid "Image Settings"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:377
+#: admin/includes/default-customizations-fields.php:384
 msgid "Image URL"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:381
+#: admin/includes/default-customizations-fields.php:388
 msgid "Upload Image"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:385
+#: admin/includes/default-customizations-fields.php:392
 msgid "Image Width"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:392
+#: admin/includes/default-customizations-fields.php:399
 msgid "Image Height"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:395
-#: admin/includes/default-customizations-fields.php:447
+#: admin/includes/default-customizations-fields.php:402
+#: admin/includes/default-customizations-fields.php:454
 msgid "(Eg. 200px)"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:399
+#: admin/includes/default-customizations-fields.php:406
 msgid "Image Position"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:415
+#: admin/includes/default-customizations-fields.php:422
 msgid "Video Settings"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:421
+#: admin/includes/default-customizations-fields.php:428
 msgid "Video Hosted At"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:424
+#: admin/includes/default-customizations-fields.php:431
 msgid "Youtube"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:425
+#: admin/includes/default-customizations-fields.php:432
 msgid "Vimeo"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:430
+#: admin/includes/default-customizations-fields.php:437
 msgid "Video URL"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:437
+#: admin/includes/default-customizations-fields.php:444
 msgid "Video Width"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:444
+#: admin/includes/default-customizations-fields.php:451
 msgid "Video Height"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:451
+#: admin/includes/default-customizations-fields.php:458
 msgid "Video Position"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:465
+#: admin/includes/default-customizations-fields.php:472
 msgid "Box Container Settings"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:470
+#: admin/includes/default-customizations-fields.php:477
 msgid "Box Size"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:473
+#: admin/includes/default-customizations-fields.php:480
 msgid "Width (Eg. 200px or 80%)"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:474
+#: admin/includes/default-customizations-fields.php:481
 msgid "Height (only in px)"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:478
+#: admin/includes/default-customizations-fields.php:485
 msgid "Box Background Color"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:485
+#: admin/includes/default-customizations-fields.php:492
 msgid "Spacing around the box container"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:488
+#: admin/includes/default-customizations-fields.php:495
 msgid "Top (Eg. 20px)"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:489
+#: admin/includes/default-customizations-fields.php:496
 msgid "Bottom (Eg. 20px)"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:490
+#: admin/includes/default-customizations-fields.php:497
 msgid "Left (Eg. 20px)"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:491
+#: admin/includes/default-customizations-fields.php:498
 msgid "Right (Eg. 20px)"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:495
+#: admin/includes/default-customizations-fields.php:502
 msgid "Box container border"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:498
+#: admin/includes/default-customizations-fields.php:505
 msgid "Border Color"
 msgstr ""
 
-#: admin/includes/default-customizations-fields.php:499
+#: admin/includes/default-customizations-fields.php:506
 msgid "Border Size (Eg. 2px)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:514
+msgid "Custom CSS"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:519
+msgid "Add Your Custom CSS"
 msgstr ""
 
 #: admin/includes/select-box-template.php:11

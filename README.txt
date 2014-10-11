@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -164,6 +164,13 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 2.3.2 =
+* Released 11th October, 2014
+* **VERY USEFUL UPDATE**
+* Added: Option to change box width in Box Customizer.
+* Added: Now you have total control over box design. Now add your own custom CSS to each box on Customize Box page.
+* Some small bug fixes.
+
 = 2.3.1 =
 * Released 9th October, 2014
 * CSS specificity for buttons.
@@ -283,6 +290,12 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 2.3.2 =
+* **VERY USEFUL UPDATE**
+* Added: Option to change box width in Box Customizer.
+* Added: Now you have total control over box design. Now add your own custom CSS to each box on Customize Box page.
+* Some small bug fixes.
 
 = 2.3.1 =
 * CSS specificity for buttons.

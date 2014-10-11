@@ -27,6 +27,7 @@ function getValues(){
     templateFields['button_text_font_size'] = jQuery('#button_text_font_size').val();
     templateFields['button_border_radius'] = jQuery('#button_border_radius').val();
     templateFields['button_align'] = jQuery('.button_align:checked').val();
+    templateFields['button_width'] = jQuery('#button_width').val();
     templateFields['button_bg_color'] = jQuery('#button_bg_color').val();
     templateFields['button_text_color'] = jQuery('#button_text_color').val();
     
@@ -39,6 +40,8 @@ function getValues(){
     templateFields['box_container_border_width'] = jQuery('#box_container_border_width').val();
     templateFields['box_container_bg_color'] = jQuery('#box_container_bg_color').val();
     templateFields['box_container_border_color'] = jQuery('#box_container_border_color').val();
+    
+    templateFields['custom_css'] = jQuery('#custom_css').val();
     
     if(jQuery('#font_families_input').val()){
         templateFields['input_text_size'] = jQuery('#input_text_size').val();
@@ -95,7 +98,8 @@ function applyChanges(){
     jQuery('.wpcb_box_button').css('font-size',templateFields['button_text_font_size']);
     jQuery('.wpcb_box_button').css('color',templateFields['button_text_color']);
     jQuery('.wpcb_box_button_div').css('text-align',templateFields['button_align']);
-    jQuery('.wpcb_box_button').css('border-radius',templateFields['button_border_radius']); 
+    jQuery('.wpcb_box_button').css('border-radius',templateFields['button_border_radius']);
+    jQuery('.wpcb_box_button').css('width',templateFields['button_width']); 
     
     if(jQuery('#font_families_input').val()){
         jQuery('.wpcb_input_fields').css('font-size',templateFields['input_text_size']);
@@ -138,7 +142,7 @@ function applyChanges(){
     otherCSS = 'font-family:'+templateFields['button_text_font_familiy']+';font-size:'+templateFields['button_text_font_size']+
                 ';color:'+templateFields['button_text_color']+';text-align:'+templateFields['button_align']+';border-radius:'+templateFields['button_border_radius'];
     
-    
+    jQuery('.wpcb_template_main').prev('style').html(templateFields['custom_css']);
 }
 
 function ltrim(str,c){
@@ -299,6 +303,9 @@ function wpcbValidateForm(){
     $(function () {
 
         $(document).ready(function(){
+            
+            //Adds style tags for Custom CSS
+            jQuery('.wpcb_template_main').before('<style></style>');
             
             $('#input_campaign_name').ddslick({
                 width: 300,

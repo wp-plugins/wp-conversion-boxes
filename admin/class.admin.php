@@ -329,6 +329,10 @@ class WPCB_Admin {
 
                 $all_customizations = $_POST['all_customizations'];
                 
+                if(isset($all_customizations['custom_css'])){
+                    $all_customizations['custom_css'] = strip_tags($all_customizations['custom_css']);
+                }
+                
                 $box_customizations = serialize($all_customizations);
 
                 $wpcb_if_done = $wpdb->update($this->wpcb_boxes_table, array('box_customizations' => $box_customizations), array('id' => $_POST['box_id']), array('%s'), array('%d'));

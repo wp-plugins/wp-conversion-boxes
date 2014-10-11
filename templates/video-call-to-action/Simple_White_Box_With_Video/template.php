@@ -41,6 +41,7 @@ if($wpcb_default_fields == '' or $wpcb_default_fields['defaults'] == 'defaults')
             'button_border_radius' => '0px',
             'button_align' => 'left',
             'button_link' => '',
+            'button_width' => '',
             'button_target_blank' => true,
 
             'video_site' => 'youtube',
@@ -154,10 +155,13 @@ switch ($wpcb_default_fields['video_site']) {
         color:          <?php echo $wpcb_default_fields['button_text_color']; ?>;
         background-color: <?php echo $wpcb_default_fields['button_bg_color']; ?>;
         border-radius: <?php echo $wpcb_default_fields['button_border_radius']; ?>;
+        width: <?php echo $wpcb_default_fields['button_width']; ?>;
         padding: 10px 15px;
     }
     
     <?php echo $wpcb_default_fields['button_type_css']; ?>
+    
+    <?php echo (isset($wpcb_default_fields['custom_css'])) ? $wpcb_default_fields['custom_css'] : ""; ?>
     
 </style>
 

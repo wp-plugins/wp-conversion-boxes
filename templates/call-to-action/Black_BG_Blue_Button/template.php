@@ -16,7 +16,6 @@ if($wpcb_default_fields == '' or $wpcb_default_fields['defaults'] == 'defaults')
             'box_container_margin_left' => '',
             'box_container_margin_right' => '',
 
-
             'heading_text'  => 'Start Measuring What Matters!',
             'heading_font_familiy'  => 'Arial',
             'heading_font_size' => '22px',
@@ -41,6 +40,7 @@ if($wpcb_default_fields == '' or $wpcb_default_fields['defaults'] == 'defaults')
             'button_border_radius' => '5px',
             'button_align' => 'center',
             'button_link' => '',
+            'button_width' => '',
             'button_target_blank' => true,
 
     );
@@ -50,15 +50,7 @@ $wpcb_default_fields['use_heading'] = true;
 $wpcb_default_fields['use_content'] = true;
 $wpcb_default_fields['use_image'] = false;
 
-
-/* 
- * Code it in the premium version
- * Possible custom field types : text, textarea, color, upload
- * $wpcb_custom_fields = array(
- *      'name_of_field' => array('default_value','custom_field_type')
- * );
- * 
- */     
+     
 ?>
 
 
@@ -122,10 +114,13 @@ $wpcb_default_fields['use_image'] = false;
         color:          <?php echo $wpcb_default_fields['button_text_color']; ?>;
         background-color: <?php echo $wpcb_default_fields['button_bg_color']; ?>;
         border-radius: <?php echo $wpcb_default_fields['button_border_radius']; ?>;
+        width: <?php echo $wpcb_default_fields['button_width']; ?>;
         padding: 10px 15px;
     }
     
     <?php echo $wpcb_default_fields['button_type_css']; ?>
+    
+    <?php echo (isset($wpcb_default_fields['custom_css'])) ? $wpcb_default_fields['custom_css'] : ""; ?>
     
 </style>
 

@@ -8,7 +8,7 @@
 }
 
 
-.wpcb_button_gradient, .wpcb_button_gradient:link{
+.wpcb_template_main .wpcb_button_gradient, .wpcb_template_main a.wpcb_button_gradient, .wpcb_template_main button.wpcb_button_gradient{
 
     display:inline-block;
     vertical-align:middle; 
@@ -53,16 +53,13 @@
 
 }
 
-.wpcb_button_gradient:hover {
-
+.wpcb_template_main .wpcb_button_gradient:hover, .wpcb_template_main a.wpcb_button_gradient:hover, .wpcb_template_main button.wpcb_button_gradient:hover{
     opacity:0.9;
     filter:Alpha(opacity=90);
     cursor:pointer;
-    color: initial;
-
 }
 
-.wpcb_button_3d {
+.wpcb_template_main .wpcb_button_3d, .wpcb_template_main a.wpcb_button_3d, .wpcb_template_main button.wpcb_button_3d{
 
   display:inline-block;
   vertical-align:middle;
@@ -85,7 +82,7 @@
 
 }			
 
-.wpcb_button_3d:active {
+.wpcb_template_main .wpcb_button_3d:active {
 
   top: 1px;
   outline: none;
@@ -95,17 +92,14 @@
 
 }
 			
-.wpcb_button_3d:hover {
-
+.wpcb_template_main .wpcb_button_3d:hover, .wpcb_template_main a.wpcb_button_3d:hover, .wpcb_template_main button.wpcb_button_3d:hover{
     opacity:0.9;
     filter:Alpha(opacity=90);
     cursor:pointer;
-    color: initial;
-
 }
 
 
-.wpcb_button_flat {
+.wpcb_template_main .wpcb_button_flat, .wpcb_template_main a.wpcb_button_flat, .wpcb_template_main button.wpcb_button_flat{
 
   display:inline-block;
   vertical-align:middle;
@@ -124,13 +118,10 @@
 
 }	
 			
-.wpcb_button_flat:hover {
-
+.wpcb_template_main .wpcb_button_flat:hover, .wpcb_template_main a.wpcb_button_flat:hover, .wpcb_template_main button.wpcb_button_flat:hover{
     opacity:0.9;
     filter:Alpha(opacity=90);
     cursor:pointer;
-    color: initial;
-
 }
 
 .wpcb_stick{
@@ -173,4 +164,34 @@
     font-size: 12px;
     color: #7C7C7C;
     margin-bottom: 10px;
+}
+
+.wpcb_template_main input.wpcb_input_fields{
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-color: #fff;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.75);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: -webkit-box-shadow 0.45s,border-color 0.45s ease-in-out;
+    -moz-transition: -moz-box-shadow 0.45s,border-color 0.45s ease-in-out;
+    transition: box-shadow 0.45s,border-color 0.45s ease-in-out;
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear;
+    -o-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+}
+
+.wpcb_template_main input.wpcb_input_fields:focus{
+    border-color: #999;
+    outline: none;
+    -webkit-box-shadow: 0 0 5px #999;
+    -moz-box-shadow: 0 0 5px #999;
+    box-shadow: 0 0 5px #999;
 }

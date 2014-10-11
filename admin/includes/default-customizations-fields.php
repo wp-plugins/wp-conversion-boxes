@@ -320,6 +320,13 @@ if(isset($wpcb_default_fields['video_align'])){
 			</td>
 		</tr>
 		<tr>
+			<th scope="row"><label for=""><?php _e('Button Width','wp-conversion-boxes-pro'); ?></label>
+			</th>
+			<td>
+                                <label><input type="text" name="button_width" id="button_width" value="<?php echo $wpcb_default_fields['button_width'] ?>" class="wpcb_width50px"> <?php _e('(Eg. 150px or 100%)','wp-conversion-boxes-pro'); ?></label>
+			</td>
+		</tr>
+		<tr>
 			<th scope="row"><label for=""><?php _e('Button Text Color','wp-conversion-boxes'); ?></label>
 			</th>
 			<td>
@@ -497,6 +504,23 @@ if(isset($wpcb_default_fields['video_align'])){
 			<td>
                                 <input type="text" name="box_container_border_color" id="box_container_border_color" data-default-color="<?php echo $wpcb_default_fields['box_container_border_color'] ?>" value="<?php echo $wpcb_default_fields['box_container_border_color'] ?>" class="wpcb_width50px"><label for="box_container_border_color"><?php _e('Border Color','wp-conversion-boxes'); ?></label><br />
 				<label for="box_container_border_width"><input type="text" name="box_container_border_width" id="box_container_border_width" value="<?php echo $wpcb_default_fields['box_container_border_width'] ?>" class="wpcb_width50px"> <?php _e('Border Size (Eg. 2px)','wp-conversion-boxes'); ?></label>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<hr />
+
+<h2><?php _e('Custom CSS','wp-conversion-boxes-pro'); ?></h2>    
+
+<table class="form-table">
+	<tbody>
+		<tr>
+			<th scope="row"><label for=""><?php _e('Add Your Custom CSS','wp-conversion-boxes-pro'); ?></label>
+			</th>
+			<td>
+                            <textarea class="wpcb_fullwidth" name="custom_css" id="custom_css"><?php echo (isset($wpcb_default_fields['custom_css'])) ? esc_textarea ( $wpcb_default_fields['custom_css'] ) : ''; ?></textarea>
+                            <p class="wpcb_help_block">Can't find options to customize some elements above? Use this area to add your custom CSS for any box element. Now you have total control over box design! <b>NOTE:</b> Do not include <code>&lt;style&gt;...&lt;/style&gt;</code> tags.</p>
 			</td>
 		</tr>
 	</tbody>

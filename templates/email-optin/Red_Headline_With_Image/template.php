@@ -41,6 +41,7 @@ if($wpcb_default_fields == '' or $wpcb_default_fields['defaults'] == 'defaults')
             'button_border_radius' => '5px',
             'button_align' => 'center',
             'button_link' => '',
+            'button_width' => '',
             'button_target_blank' => true,
 
             'image_url' => plugins_url( 'imgs/social-media.png' , __FILE__ ),
@@ -159,10 +160,13 @@ $wpcb_default_fields['use_input'] = true;
         color:          <?php echo $wpcb_default_fields['button_text_color']; ?>;
         background-color: <?php echo $wpcb_default_fields['button_bg_color']; ?>;
         border-radius: <?php echo $wpcb_default_fields['button_border_radius']; ?>;
+        width: <?php echo $wpcb_default_fields['button_width']; ?>;
         padding: 10px 15px;
     }
     
     <?php echo $wpcb_default_fields['button_type_css']; ?>
+    
+    <?php echo (isset($wpcb_default_fields['custom_css'])) ? $wpcb_default_fields['custom_css'] : ""; ?>
     
 </style>
 

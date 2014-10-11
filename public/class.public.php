@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.3.1';
+	const VERSION = '2.3.2';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         const WPCB_WEBSITE_URL = 'http://wpconversionboxes.com';
         
@@ -432,7 +432,7 @@ class WPCB_Public {
                             $data[$k] = esc_attr(stripslashes(trim($v)));
                     }
                     if (is_array($v)) {
-                            $data[$k] = purica_array($v);
+                            $data[$k] = sanitise_array($v);
                     }
             }
 

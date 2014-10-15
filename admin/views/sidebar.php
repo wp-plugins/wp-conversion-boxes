@@ -119,7 +119,7 @@ else{?>
                 <li>Free 1 year email priority support (with selected plans).</li>
                 <li>Free 1 year upgrades to every new version of the plugin.</li>
         </ul>
-        <p>And a lot more... <a href='<?php echo $this->wpcb_website_url ?>' target="_blank">Visit site for more info &gt;&gt;</a></p>
+        <p>And a lot more... <a href='<?php echo WPCB_WEBSITE_URL; ?>' target="_blank">Visit site for more info &gt;&gt;</a></p>
         
     </div>
     <div id="wpcb_promo_popup_foot">

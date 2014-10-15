@@ -170,7 +170,7 @@ $wpcb_default_fields['use_input'] = true;
     
 </style>
 
-<div class="<?php echo $wpcb_settings_data['box_make_sticky']; ?>_offset"></div>
+
 <div class="wpcb_template_main <?php echo $wpcb_settings_data['box_fade_in']." ".$wpcb_settings_data['box_make_sticky']; ?>" data-fadetime="<?php echo $wpcb_settings_data['box_fade_in_time']; ?>">
     <div class="wpcb_box_heading">
         <div class="wpcb_box_heading_text"><?php echo $wpcb_default_fields['heading_text']; ?></div>

@@ -194,7 +194,7 @@ switch ($wpcb_default_fields['video_site']) {
     
 </style>
 
-<div class="<?php echo $wpcb_settings_data['box_make_sticky']; ?>_offset"></div>
+
 <div class="wpcb_template_main <?php echo $wpcb_settings_data['box_fade_in']." ".$wpcb_settings_data['box_make_sticky']; ?>" data-fadetime="<?php echo $wpcb_settings_data['box_fade_in_time']; ?>">
     <div class="wpcb_box_all_content_container">
         <div class="wpcb_box_content_container">    

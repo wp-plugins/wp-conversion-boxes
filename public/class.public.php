@@ -6,9 +6,8 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.3.2';
+	const VERSION = '2.3.3';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
-        const WPCB_WEBSITE_URL = 'http://wpconversionboxes.com';
         
 	/*********************************
 	 * Default slugs
@@ -65,9 +64,6 @@ class WPCB_Public {
 	/***************************************
 	 * Return the variable values
 	 ***************************************/
-        public function get_website_url() {
-                return self::WPCB_WEBSITE_URL;
-        }
         
 	public function get_wpcb_main_slug() {
 		return $this->wpcb_main_slug;
@@ -348,7 +344,7 @@ class WPCB_Public {
                 $wpcb_settings_data['box_make_sticky'] = "wpcb_nothing";
             }
             ob_start();
-            
+            echo '<div class="'. $wpcb_settings_data['box_make_sticky'].'_offset"></div>';
             switch($box_type){
                 case 1 :    include(plugin_dir_path(dirname(__FILE__)).'templates/'.$this->get_template_directory(1).'/'.$box_template.'/template.php');
                             break;

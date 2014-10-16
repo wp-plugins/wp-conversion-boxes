@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.3.3';
+	const VERSION = '2.3.4';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         
 	/*********************************
@@ -227,7 +227,7 @@ class WPCB_Public {
                 global $wpdb;
                 
                 $wpcb_tbl_1 = $wpdb->prefix.'wp_conversion_boxes';
-                $wpcb_tbl_query_1 = $wpdb->prepare("CREATE TABLE IF NOT EXISTS $wpcb_tbl_1 (
+                $wpdb->query("CREATE TABLE IF NOT EXISTS $wpcb_tbl_1 (
                     id INT(9) NOT NULL AUTO_INCREMENT,
                     box_name VARCHAR(80) NOT NULL,
                     box_type int(9),
@@ -239,7 +239,7 @@ class WPCB_Public {
                 
                 
                 $wpcb_tbl_2 = $wpdb->prefix.'wpcb_tracking';
-                $wpcb_tbl_query_2 = $wpdb->prepare("CREATE TABLE IF NOT EXISTS $wpcb_tbl_2 (
+                $wpdb->query("CREATE TABLE IF NOT EXISTS $wpcb_tbl_2 (
                     id INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
                     ip VARCHAR( 16 ) NOT NULL ,
                     host VARCHAR( 100 ) NOT NULL ,
@@ -249,9 +249,6 @@ class WPCB_Public {
                     visittype ENUM('visit', 'boxview', 'click', 'optin'),
                     box_id INT(9) NOT NULL DEFAULT 0 
                 ) DEFAULT CHARSET=utf8;","%s");
-                
-                $wpdb->query($wpcb_tbl_query_1);
-                $wpdb->query($wpcb_tbl_query_2);
                 
                 add_option('wpcb_default_box', 0 , '', 'yes' );
                 add_option('wpcb_all_posts', 0 , '', 'yes' );

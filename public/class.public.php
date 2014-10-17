@@ -6,7 +6,7 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.3.4';
+	const VERSION = '2.3.5';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         
 	/*********************************

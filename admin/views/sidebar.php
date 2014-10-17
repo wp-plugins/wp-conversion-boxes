@@ -71,12 +71,15 @@ else{?>
         </li>
                 <li>View the stats on an easy to understand graph with advance filtering options.</li>
                 <li>Also view all the top performing posts and pages for each box.</li>
+                <li><h3>Track Stats With Google Analytics Event Tracking</h3>
+        <p>Super charge your conversion tracking by enabling Google Analytics' Event Tracking for your conversion boxes. Enabling this feature disables the plugin's in-built conversion tracking system and uses Google Analytics’ code to track the conversions as events. Best for high traffic volume blogs.</p></li>
         </ul>
         <h3>Settings and Box Placement</h3>
         <p class="p1"><i>Box Settings:</i></p>
 
         <ul class="ol1">
                 <li class="li1">Everything included in free version, plus...</li>
+                <li class="li1">Box Slide-in : Option to slide in the box from either right, left, top or bottom direction according to your settings grabbing the user's attention.</li>
                 <li class="li1">Complete control over optin form messages. Write your own personalised Processing, Success and Error messages that'll show up after user opts in.</li>
         </ul>
         <p class="p1"><i>Box Placement:</i></p>
@@ -115,9 +118,8 @@ else{?>
         </ul>
         <h3>Support and Upgrades</h3>
         <ul>
-                <li>Free 1 year access to our support forum.</li>
-                <li>Free 1 year email priority support (with selected plans).</li>
-                <li>Free 1 year upgrades to every new version of the plugin.</li>
+                <li>Free 1 year access to our support ticketing system.</li>
+                <li>Free 1 year automatic upgrades to every new version of the plugin.</li>
         </ul>
         <p>And a lot more... <a href='<?php echo WPCB_WEBSITE_URL; ?>' target="_blank">Visit site for more info &gt;&gt;</a></p>
         

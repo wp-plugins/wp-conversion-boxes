@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: call to action, Calls to Action, optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 2.3.4
+Stable tag: 2.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -164,6 +164,10 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 
 == Changelog ==
 
+= 2.3.5 =
+* Released 17th October, 2014
+* Made changes to sidebar popup.
+
 = 2.3.4 =
 * Released 15th October, 2014
 * Error Fixed **The plugin generated xx characters of unexpected output during activation.**
@@ -298,6 +302,9 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 * Released on 9th August, 2014
 
 == Upgrade Notice ==
+
+= 2.3.5 =
+* Made changes to sidebar popup.
 
 = 2.3.4 =
 * Error Fixed **The plugin generated xx characters of unexpected output during activation.**

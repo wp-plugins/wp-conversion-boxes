@@ -189,8 +189,7 @@ class WPCB_Admin {
 			'manage_options',
 			$this->wpcb_main_slug,
 			array( $this, 'wpcb_display_main_page' ),
-                        //ADMIN_ASSETS_URL.'/imgs/icon.png',
-                        '',
+                        ADMIN_ASSETS_URL.'/imgs/icon.ico',
                         85
 		);
                 add_submenu_page(

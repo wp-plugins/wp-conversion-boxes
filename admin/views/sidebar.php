@@ -5,7 +5,7 @@
 <div class="postbox" style="display: block;">
     <h3 style="cursor: pointer;"><span>Upgrade to Pro</span></h3>
     <div class="inside">
-        <p>Upgrade to WP Conversion Boxes Pro to use the full potential of your conversion boxes.</p>
+        <p>Upgrade to WP Conversion Boxes Pro for higher converting email optin and call-to-action boxes.</p>
         <p>With the pro version of the plugin, you get all the following features:</p>
         <a class="wpcb_launch_popup" onclick="jQuery('.wpcb_promo_popup').lightbox_me({centered: true});">More...</a>
     </div>
@@ -38,13 +38,7 @@ else{?>
         <span class="fa fa-close wpcb_publish_close" style="position: absolute; top: 20px; right: 20px; cursor: pointer;" onclick="jQuery(this).parent().trigger('close');"></span>
     </div>
     <div id="wpcb_promo_popup_body">
-        <p>Upgrade to WP Conversion Boxes Pro today to use the full potential of your conversion boxes. With the pro version of the plugin, you get all the following features:</p>
-        
-        <h3>WP Conversion Boxes Pro Training Material</h3>
-        <ul>
-            <li>Training videos where we'll walk you through our stupidly simple Conversion Optimization Strategies to help you boost your conversion rate, all while having the same traffic. Same Traffic. More Conversions!</li>
-            <li>Training guide containing useful tips on boosting your conversion rate on your blog using CTAs/Email Optin boxes.</li>
-        </ul>
+        <p>Upgrade to WP Conversion Boxes Pro to get higher converting email optin and call-to-action boxes. With the pro version of the plugin, you get all the following features:</p>
         
         <h3>More Template Designs</h3>
         <ul>
@@ -112,10 +106,17 @@ else{?>
         <h3>Other Salient Features</h3>
         <ul>
                 <li>Full documentation to help you create your own templates.</li>
-                <li>Full documentation to help you integrate your email provider hassle free.</li>
                 <li>Template uploader to upload your custom templates.</li>
                 <li>Option to add redirect link after successful email optin.</li>
         </ul>
+        
+        <h3>WP Conversion Boxes Pro Training Material</h3>
+        <ul>
+            <li>Training material where we'll walk you through our stupidly simple Conversion Booster Strategies to help you boost your conversion rate, all while having the same traffic. Same Traffic. More Conversions!</li>
+            <li>Training material also includes useful tips on boosting your conversion rate on your blog using CTAs/Email Optin boxes. All written by experts in Conversion Optimization.</li>
+        </ul>
+        
+        
         <h3>Support and Upgrades</h3>
         <ul>
                 <li>Free 1 year access to our support ticketing system.</li>

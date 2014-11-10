@@ -72,6 +72,7 @@ class WPCB_Admin {
                 add_action( 'wp_ajax_update_global_settings', array( $this, 'update_global_settings') );
                 add_action( 'wp_ajax_delete_it', array( $this, 'delete_it') );
                 add_action( 'wp_ajax_publish_the_box', array( $this, 'publish_the_box') );
+                add_action( 'wp_ajax_disable_box', array( $this, 'disable_box') );
                 
 	}
 
@@ -101,7 +102,7 @@ class WPCB_Admin {
 
 		$wpcb_screen = get_current_screen();
 		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
-			wp_enqueue_style( $this->wpcb_main_slug .'-admin-styles', ADMIN_ASSETS_URL.'/css/admin.css', array(), WPCB_Public::VERSION );
+			wp_enqueue_style( $this->wpcb_main_slug .'-admin-styles', ADMIN_ASSETS_URL.'/css/admin.css', array() );
                         wp_enqueue_style( 'wp-color-picker');
                         wp_enqueue_style( $this->wpcb_main_slug .'-font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
                 }       
@@ -125,7 +126,7 @@ class WPCB_Admin {
                         wp_enqueue_media();
                         
                         // Admin JS
-                        wp_enqueue_script( $this->wpcb_main_slug . '-admin-script', ADMIN_ASSETS_URL.'/js/admin.js', array( 'jquery' , 'wp-color-picker'), WPCB_Public::VERSION );
+                        wp_enqueue_script( $this->wpcb_main_slug . '-admin-script', ADMIN_ASSETS_URL.'/js/admin.js', array( 'jquery' , 'wp-color-picker'));
                         $admin_data = array(
                             'choseImage' => __('Choose Image','wp-conversion-boxes'),
                             'creatingBox' => __( 'Creating new box... Please wait!' , 'wp-conversion-boxes' ),
@@ -643,7 +644,7 @@ class WPCB_Admin {
             }
             
             echo "</div></div>";
-            echo "<div class='postbox'><h3>". __('Default Customizations','wp-conversion-boxes') ."</h3><div class='inside minheight150'>";
+            echo "<div class='postbox'><h3>". __('Box Customizations','wp-conversion-boxes') ."</h3><div class='inside minheight150'>";
             include_once('includes/default-customizations-fields.php');
             echo "</div></div>";
         }
@@ -766,6 +767,25 @@ class WPCB_Admin {
                 wp_category_checklist( 0, 0, $selected_cats, false, null, false );
                 echo "</div>";
             }
+        }
+        
+        /***************************************
+         * Delete custom template
+         ***************************************/
+        
+        public function disable_box(){
+            $box_id = (isset($_POST['box_id'])) ? $_POST['box_id'] : 0;
+            $box_status = (isset($_POST['box_status'])) ? $_POST['box_status'] : '';
+            
+            global $wpdb;
+            $wpcb_if_done = $wpdb->update($this->wpcb_boxes_table, array('box_status' => $box_status), array('id' => $box_id), array('%d'), array('%d'));
+            
+            if($wpcb_if_done === FALSE)
+                echo 0;
+            else
+                echo 1;
+            
+            die();
         }
         
 }

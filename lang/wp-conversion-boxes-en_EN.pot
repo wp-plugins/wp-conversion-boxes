@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Conversion Boxes\n"
-"POT-Creation-Date: 2014-10-11 15:17+0530\n"
-"PO-Revision-Date: 2014-10-11 15:17+0530\n"
+"POT-Creation-Date: 2014-11-10 10:33+0530\n"
+"PO-Revision-Date: 2014-11-10 10:33+0530\n"
 "Last-Translator: Ram Shengale <admin@wpconversionboxes.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -191,7 +191,7 @@ msgid "Stick preview to top"
 msgstr ""
 
 #: admin/class.admin.php:647
-msgid "Default Customizations"
+msgid "Box Customizations"
 msgstr ""
 
 #: admin/class.admin.php:744
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: admin/includes/box-settings.php:20 admin/includes/show-boxes-list.php:49
+#: admin/includes/box-settings.php:20 admin/includes/show-boxes-list.php:60
 msgid "Box Settings"
 msgstr ""
 
@@ -415,8 +415,8 @@ msgstr ""
 
 #: admin/includes/customize-box.php:24
 msgid ""
-"Box selected successfully! Use the options given below to customize and "
-"craft the box according to your needs."
+"Box template selected successfully! Use the options given below to customize "
+"and craft the box according to your needs."
 msgstr ""
 
 #: admin/includes/customize-box.php:31
@@ -839,59 +839,71 @@ msgstr ""
 msgid "Conversion Rate"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:39
+#: admin/includes/show-boxes-list.php:40
 msgid "Optins"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:39
+#: admin/includes/show-boxes-list.php:40
 msgid "Clicks"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:46
+#: admin/includes/show-boxes-list.php:57
 msgid "Options"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:46
+#: admin/includes/show-boxes-list.php:57
 msgid "Customizations"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:47
+#: admin/includes/show-boxes-list.php:58
 msgid "Change Box Template"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:48
+#: admin/includes/show-boxes-list.php:59
 msgid "Customize Box Design"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:50
+#: admin/includes/show-boxes-list.php:61
 msgid "Duplicate This Box"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:51
+#: admin/includes/show-boxes-list.php:62
+msgid "Box Status"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:62
+msgid "Enabled"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:62
+msgid "Disabled"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:63
 msgid "Delete Box"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:53
+#: admin/includes/show-boxes-list.php:65
 msgid "A/B Test This Box (Pro)"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:54
+#: admin/includes/show-boxes-list.php:66
 msgid "Statistics"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:54
+#: admin/includes/show-boxes-list.php:66
 msgid "Detailed Stats"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:55
+#: admin/includes/show-boxes-list.php:67
 msgid "Reset Box Stats"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:56
+#: admin/includes/show-boxes-list.php:68
 msgid "Shortcode"
 msgstr ""
 
-#: admin/includes/show-boxes-list.php:72
+#: admin/includes/show-boxes-list.php:84
 #, php-format
 msgid ""
 "No boxes found. Please <a href=\"%s\">click here</a> to create a new WP "
@@ -906,23 +918,23 @@ msgstr ""
 msgid "to be able to use this feature."
 msgstr ""
 
-#: admin/views/edit.php:24
+#: admin/views/edit.php:22
 msgid "Customize"
 msgstr ""
 
-#: admin/views/edit.php:24
+#: admin/views/edit.php:22
 msgid "Add New WP Conversion Box"
 msgstr ""
 
-#: admin/views/edit.php:31
+#: admin/views/edit.php:29
 msgid "Step 1: Select Box Template"
 msgstr ""
 
-#: admin/views/edit.php:32
+#: admin/views/edit.php:30
 msgid "Step 2: Customize Box"
 msgstr ""
 
-#: admin/views/edit.php:33
+#: admin/views/edit.php:31
 msgid "Step 3: Box Settings"
 msgstr ""
 
@@ -1168,7 +1180,7 @@ msgid ""
 "templates, <a target='_blank'>click here</a>"
 msgstr ""
 
-#: public/class.public.php:364
+#: public/class.public.php:390
 msgid ""
 "Made using <a target='_blank' href='http://wpconversionboxes.com'>WP "
 "Conversion Boxes</a>"

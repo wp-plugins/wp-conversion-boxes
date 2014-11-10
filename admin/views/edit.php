@@ -4,8 +4,6 @@
 * Add/Edit page in admin area.
 *************************************/
 
-
-$version = WPCB_Public::VERSION;  
 $wpcb_public = WPCB_Public::get_instance();
 $wpcb = WPCB_Admin::get_instance();
 

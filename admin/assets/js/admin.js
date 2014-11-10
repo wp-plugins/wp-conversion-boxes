@@ -53,6 +53,40 @@ function validateFieldsOnDocumentReady(){
             
             $(document).ready(function(){
                 
+                
+        	// Switch toggle
+                $('.wpcb_disable_switch').click(function() {
+                    
+                    var this_switch = $(this);
+                    
+                    var box_id = this_switch.attr('wpcb_id');
+                    var change_status_to = this_switch.attr('change_status_to');
+                    
+                    this_switch.hide();
+                    this_switch.siblings('.wpcb-disable-loading').css('display','inline-block');
+                    
+                    var data = {
+                        action: 'disable_box',
+                        box_status: change_status_to,
+                        box_id: box_id
+                    };
+
+                    $.post(ajaxurl, data, function(response) {
+                        var response = response.substr(response.length - 1);
+                        if(response == 1){
+                            this_switch.show();
+                            this_switch.siblings('.wpcb-disable-loading').hide();
+                            this_switch.toggleClass('switch_on').toggleClass('switch_off');
+                        }
+                        else{
+                            alert('ERROR: Reload and try again.');
+                        }
+
+                    });
+                    
+                });
+                
+                
                 // Show the selected box type div
                 
                 wpcbShowHideBoxTypes($('.wpcb_box_type_radio:checked').val());
@@ -351,14 +385,19 @@ function validateFieldsOnDocumentReady(){
                 });
             
                 // Dropdown Menu
-            
-                $(document).click(function(){
-                    if($(this).attr('id') !== 'wpcb-shortcode-select')
+                
+                $(document).click(function(e){
+                    if($(e.target).hasClass('wpcb_disable_switch') || $(e.target).parents('.wpcb_disable_switch').length){   
+                        return false;
+                    }
+                    else{
                         $(".wpcb-boxes-menu").hide().removeClass('open');
+                    }   
                 });                
                 
                 $(document).on('click','.wpcb-boxes-menu-toggle', function(e){
                     e.stopPropagation();
+                    
                     $('.wpcb-boxes-menu').hide();
                     if($(this).next().hasClass('open'))
                         $(this).next().hide().removeClass('open');

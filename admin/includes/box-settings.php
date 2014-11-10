@@ -13,7 +13,7 @@
     $box_fade_in_time = (isset($box_settings['box_fade_in_time']) ? $box_settings['box_fade_in_time'] : '');
     $box_make_sticky = ((isset($box_settings['box_make_sticky']) && $box_settings['box_make_sticky'] == 1) ? 'checked' : '');
     
-    echo (isset($_GET['success']) && $_GET['success'] == 1) ? "<div class='updated'><p>".__("Box customizations updated successfully! Save the final box settings below and you'll have the box ready to use.",'wp-conversion-boxes') ."<a href='' style='float:right;' onclick='jQuery(this).parent().parent().fadeOut(300).hide();return false;'>". __('Close','wp-conversion-boxes') ."</a>','wp-conversion-boxes'); ?></p></div>" : "";
+    echo (isset($_GET['success']) && $_GET['success'] == 1) ? "<div class='updated'><p>".__("Box customizations updated successfully! Save the final box settings below and you'll have the box ready to use.","wp-conversion-boxes") ."<a href='' style='float:right;' onclick='jQuery(this).parent().parent().fadeOut(300).hide();return false;'>". __('Close','wp-conversion-boxes') ."</a></p></div>" : "";
     
 ?>
     <div class="postbox">

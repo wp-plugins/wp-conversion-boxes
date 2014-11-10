@@ -21,7 +21,7 @@ $wpcb_public = WPCB_Public::get_instance();
 ?>
 
     <?php 
-            echo (isset($_GET['success']) && $_GET['success'] == 1) ? "<div class='updated'><p>". __('Box selected successfully! Use the options given below to customize and craft the box according to your needs.','wp-conversion-boxes'). "<a href='' style='float:right;' onclick='jQuery(this).parent().parent().fadeOut(300).hide();return false;'>". __('Close','wp-conversion-boxes'). "</a></p></div>" : "";
+            echo (isset($_GET['success']) && $_GET['success'] == 1) ? "<div class='updated'><p>". __('Box template selected successfully! Use the options given below to customize and craft the box according to your needs.','wp-conversion-boxes'). "<a href='' style='float:right;' onclick='jQuery(this).parent().parent().fadeOut(300).hide();return false;'>". __('Close','wp-conversion-boxes'). "</a></p></div>" : "";
             // Will show two meta boxes : Template design and customizations
             $this->include_the_template_and_settings($box_type, $box_template, $box_customizations, $id); 
     ?>

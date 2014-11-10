@@ -6,7 +6,6 @@
 
 class WPCB_Public {
 
-	const VERSION = '2.3.5';
         const WPCB_AUTHOR_NAME = 'Ram Shengale';
         
 	/*********************************
@@ -58,6 +57,12 @@ class WPCB_Public {
         
                 add_action( 'wp_ajax_add_new_contact', array( $this, 'add_new_contact') );
                 add_action( 'wp_ajax_nopriv_add_new_contact', array( $this, 'add_new_contact') );
+                
+                /***************************************
+		 * Init functions
+		 ***************************************/
+                add_action( 'init' , array ($this, 'update_table_structure') );
+
 
 	}
         
@@ -229,6 +234,7 @@ class WPCB_Public {
                 $wpcb_tbl_1 = $wpdb->prefix.'wp_conversion_boxes';
                 $wpdb->query("CREATE TABLE IF NOT EXISTS $wpcb_tbl_1 (
                     id INT(9) NOT NULL AUTO_INCREMENT,
+                    box_status int(1) DEFAULT 0,
                     box_name VARCHAR(80) NOT NULL,
                     box_type int(9),
                     box_template VARCHAR(40),
@@ -255,6 +261,27 @@ class WPCB_Public {
                 add_option('wpcb_all_pages', 0 , '', 'yes' );
                 add_option('wpcb_enable_credit_link', 0 , '', 'yes' );
 	}
+        
+        /***************************************
+	 * Update Table Structure After Update
+         * 
+         * Current Version : 1
+	 ***************************************/
+        
+        public function update_table_structure() {
+            if(get_option('wpcb_updated_table_structure') != 1){
+                global $wpdb;
+                $wpcb_tbl = $wpdb->prefix.'wp_conversion_boxes';
+                $all_columns = $wpdb->get_row("SELECT * FROM $wpcb_tbl");
+                
+                if(!isset($all_columns->box_status)){
+                    $wpdb->query("ALTER TABLE $wpcb_tbl ADD box_status INT(1) NOT NULL DEFAULT 1");
+                }
+                
+                update_option('wpcb_updated_table_structure',1);
+                
+            }
+        }
 
         /***************************************
 	 * Fired for each blog when the plugin 
@@ -269,7 +296,7 @@ class WPCB_Public {
          * style sheet.
 	 ***************************************/
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->wpcb_main_slug . '-plugin-styles', PUBLIC_ASSETS_URL .'css/public.css', array(), self::VERSION );
+		wp_enqueue_style( $this->wpcb_main_slug . '-plugin-styles', PUBLIC_ASSETS_URL .'css/public.css', array() );
 	}
 
         /***************************************
@@ -277,7 +304,7 @@ class WPCB_Public {
          * JavaScript files.
 	 ***************************************/
 	public function enqueue_scripts() {
-		// wp_enqueue_script( $this->wpcb_main_slug . '-plugin-script', PUBLIC_ASSETS_URL .'js/public.js', array( 'jquery' ), self::VERSION );
+		// wp_enqueue_script( $this->wpcb_main_slug . '-plugin-script', PUBLIC_ASSETS_URL .'js/public.js', array( 'jquery' ) );
 	}
         
         
@@ -295,6 +322,7 @@ class WPCB_Public {
             $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT * from $wpcb_tbl_name WHERE id = %d", array($id)));
 
             if (isset($wpcb_the_row)) {
+                $box_status = $wpcb_the_row->box_status;
                 $box_type = $wpcb_the_row->box_type;
                 $box_template = $wpcb_the_row->box_template;
                 $box_customizations = $wpcb_the_row->box_customizations;
@@ -304,6 +332,11 @@ class WPCB_Public {
             }
             
             $box_id = $id;
+            
+            if($box_status != 1){
+                ob_start();
+                return;
+            }
             
             if($box_customizations != null AND $box_customizations != 'defaults'){
                 $wpcb_default_fields = unserialize($box_customizations);

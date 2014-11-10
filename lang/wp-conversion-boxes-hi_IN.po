@@ -1,0 +1,1201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Conversion Boxes\n"
+"POT-Creation-Date: 2014-10-08 12:20+0530\n"
+"PO-Revision-Date: 2014-10-08 13:58+0530\n"
+"Last-Translator: Ram Shengale <admin@wpconversionboxes.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: /Applications/MAMP/htdocs/test-plugin/wp-content/plugins/"
+"wp-conversion-boxes/\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Language: hi_IN\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class.admin.php:131
+msgid "Choose Image"
+msgstr "चित्र चुनें"
+
+#: admin/class.admin.php:132
+msgid "Creating new box... Please wait!"
+msgstr "नया बॉक्स बनाया जा रहा है ... कृपया प्रतीक्षा करें !"
+
+#: admin/class.admin.php:133
+msgid "Box Created Successfully. Redirecting..."
+msgstr "बॉक्स सफलतापूर्वक बन गया . पुनर्निर्देशित ..."
+
+#: admin/class.admin.php:134 admin/class.admin.php:269
+msgid "Create Box and Proceed"
+msgstr "बॉक्स बनाने और आगे बढ़ें"
+
+#: admin/class.admin.php:135
+msgid "There was an error saving to database. Please try again later."
+msgstr "डेटाबेस में बचत करने में त्रुटि हुई. बाद में पुन: प्रयास करें."
+
+#: admin/class.admin.php:136
+msgid "There was an error updating the database. Please try again later."
+msgstr "डाटाबेस को अद्यतन करने में कोई त्रुटि थी. बाद में पुन: प्रयास करें."
+
+#: admin/class.admin.php:137 admin/class.admin.php:164
+msgid "Updating... Please wait!"
+msgstr "प्रगति में अद्यतन ... कृपया प्रतीक्षा करें!"
+
+#: admin/class.admin.php:138 admin/class.admin.php:165
+msgid "Saved! Redirecting..."
+msgstr "सेव हो गया! पुनर्निर्देशित..."
+
+#: admin/class.admin.php:139 admin/class.admin.php:166
+#: admin/includes/customize-box.php:30
+#: admin/includes/select-box-template.php:101
+msgid "Save and Next"
+msgstr "सेव और अगला"
+
+#: admin/class.admin.php:140
+msgid "Settings saved successfully."
+msgstr "सेटिंग्स सफलतापूर्वक सेव किया गया."
+
+#: admin/class.admin.php:141 admin/includes/box-settings.php:91
+msgid "Save and Publish!"
+msgstr "सेव करे और प्रकाशित करें!"
+
+#: admin/class.admin.php:142
+msgid "Are you sure you want to delete this conversion box?"
+msgstr "आप इस कनवरज़न बॉक्स को डिलीट करना चाहते हैं?"
+
+#: admin/class.admin.php:143
+msgid "ERROR: Unable to delete the conversion box. Please try again later."
+msgstr "त्रुटि: कनवरज़न बॉक्स हटाने में असमर्थ. बाद में पुन: प्रयास करें."
+
+#: admin/class.admin.php:144
+msgid "Are you sure you want to flush all the stats for this conversion box?"
+msgstr "आप इस कनवरज़न बॉक्स के सभी आँकड़ो को फ्लश करना चाहते हैं?"
+
+#: admin/class.admin.php:145
+msgid "ERROR: Unable to flush the stats. Please try again later."
+msgstr "त्रुटि: आँकड़े फ्लश करने में असमर्थ. बाद में पुन: प्रयास करें."
+
+#: admin/class.admin.php:146
+msgid ""
+"Free version of WP Conversion Boxes shows only 7 top performing posts and "
+"pages.\\n\\n Upgrade to Pro to view stats for all links."
+msgstr ""
+"डबल्यु.पि. कनवरज़न बाक्सेज़ का मुफ्त संस्करण केवल 7 पोस्ट और पृष्ठ दिखाता है.\\n\\n सभी लिंक "
+"के लिए आँकड़े देखने के लिए प्रो में अपग्रेड करें."
+
+#: admin/class.admin.php:147
+msgid "Updated successfully."
+msgstr "सफलतापूर्वक अपडेट किया गया."
+
+#: admin/class.admin.php:148 admin/views/settings.php:193
+msgid "Update"
+msgstr "अपडेट"
+
+#: admin/class.admin.php:149
+msgid ""
+"A/B tests feature is not available in free version.\\n\\n Please upgrade to "
+"Pro to get this feature."
+msgstr ""
+
+#: admin/class.admin.php:150
+msgid "Box Published Successfully!"
+msgstr ""
+
+#: admin/class.admin.php:151 admin/includes/box-settings.php:166
+msgid "Later"
+msgstr ""
+
+#: admin/class.admin.php:152
+msgid "Error Publishing The Box!<br /><br />Reload this page and try again."
+msgstr ""
+
+#: admin/class.admin.php:153
+msgid "Done"
+msgstr ""
+
+#: admin/class.admin.php:154
+msgid "Reload"
+msgstr ""
+
+#: admin/class.admin.php:161
+msgid ""
+"Are you sure you want to reset the customizations to default? \\n\\n All "
+"design elements and content will be reset to defaults."
+msgstr ""
+
+#: admin/class.admin.php:162
+msgid "Reseting... Please wait!"
+msgstr ""
+
+#: admin/class.admin.php:163
+msgid ""
+"There was an error. Please try again later or contact support if problem "
+"persists."
+msgstr ""
+
+#: admin/class.admin.php:167
+msgid ""
+"There was an error updating the database. Please try again later or contact "
+"support if problem persists."
+msgstr ""
+
+#: admin/class.admin.php:187 admin/class.admin.php:188
+#: admin/class.admin.php:198 admin/class.admin.php:199
+msgid "WP Conversion Boxes"
+msgstr ""
+
+#: admin/class.admin.php:205 admin/class.admin.php:206
+#: admin/class.admin.php:244
+msgid "Add New Box"
+msgstr ""
+
+#: admin/class.admin.php:213 admin/class.admin.php:214
+msgid "Global Settings"
+msgstr ""
+
+#: admin/class.admin.php:267
+msgid "Enter a name for your new Coversion Box:"
+msgstr ""
+
+#: admin/class.admin.php:495
+msgid "Duplicate"
+msgstr ""
+
+#: admin/class.admin.php:525
+msgid "None"
+msgstr ""
+
+#: admin/class.admin.php:526 admin/class.admin.php:556
+msgid "Use Default"
+msgstr ""
+
+#: admin/class.admin.php:551
+msgid "Category Name"
+msgstr ""
+
+#: admin/class.admin.php:551
+msgid "Conversion Box"
+msgstr ""
+
+#: admin/class.admin.php:586
+msgid "Select template"
+msgstr ""
+
+#: admin/class.admin.php:627
+msgid "Box Preview"
+msgstr ""
+
+#: admin/class.admin.php:627
+msgid "Stick preview to top"
+msgstr ""
+
+#: admin/class.admin.php:643
+msgid "Default Customizations"
+msgstr ""
+
+#: admin/class.admin.php:740
+msgid ""
+"No campaigns/lists found. Please integrate your email service provider first "
+"to select a campaign/list for this conversion box."
+msgstr ""
+
+#: admin/class.admin.php:740
+msgid "Click here to integrate now."
+msgstr ""
+
+#: admin/includes/box-settings.php:16
+msgid ""
+"Box customizations updated successfully! Save the final box settings below "
+"and you'll have the box ready to use."
+msgstr ""
+
+#: admin/includes/box-settings.php:16 admin/includes/customize-box.php:26
+msgid "Close"
+msgstr ""
+
+#: admin/includes/box-settings.php:20 admin/includes/show-boxes-list.php:49
+msgid "Box Settings"
+msgstr ""
+
+#: admin/includes/box-settings.php:25
+msgid "Box Name"
+msgstr ""
+
+#: admin/includes/box-settings.php:28
+msgid "Change the name of this conversion box."
+msgstr ""
+
+#: admin/includes/box-settings.php:32
+msgid "Box Fade In/Out Effect"
+msgstr ""
+
+#: admin/includes/box-settings.php:34
+msgid "Enable Flash Effect. "
+msgstr ""
+
+#: admin/includes/box-settings.php:35
+msgid "Fade In/Out duration:"
+msgstr ""
+
+#: admin/includes/box-settings.php:35
+msgid "seconds."
+msgstr ""
+
+#: admin/includes/box-settings.php:36
+msgid ""
+"Give a cool fade in/out (flash) effect to the box so that it grabs user's "
+"attention."
+msgstr ""
+
+#: admin/includes/box-settings.php:40
+msgid "Make Box Sticky"
+msgstr ""
+
+#: admin/includes/box-settings.php:42
+msgid "Make Sticky"
+msgstr ""
+
+#: admin/includes/box-settings.php:43
+msgid "Make the box stick to top when user scrolls past the box."
+msgstr ""
+
+#: admin/includes/box-settings.php:56
+#: admin/includes/default-customizations-fields.php:199
+msgid "Optin Form Settings"
+msgstr ""
+
+#: admin/includes/box-settings.php:58
+msgid ""
+"Following are the messages that the visitor sees after submitting the optin "
+"form."
+msgstr ""
+
+#: admin/includes/box-settings.php:62
+msgid "Processing Texts"
+msgstr ""
+
+#: admin/includes/box-settings.php:64
+msgid "Processing Headline:"
+msgstr ""
+
+#: admin/includes/box-settings.php:65
+msgid "When taking too long:"
+msgstr ""
+
+#: admin/includes/box-settings.php:69
+msgid "Success Texts"
+msgstr ""
+
+#: admin/includes/box-settings.php:71
+msgid "Success Headline:"
+msgstr ""
+
+#: admin/includes/box-settings.php:72
+msgid "Success Description:"
+msgstr ""
+
+#: admin/includes/box-settings.php:76
+msgid "Error Texts"
+msgstr ""
+
+#: admin/includes/box-settings.php:78
+msgid "Error Headline:"
+msgstr ""
+
+#: admin/includes/box-settings.php:79
+msgid "Error Description:"
+msgstr ""
+
+#: admin/includes/box-settings.php:112
+msgid "Conversion Box Created Successfully!"
+msgstr ""
+
+#: admin/includes/box-settings.php:116
+msgid ""
+"Now you can place this box on your blog using the following placement "
+"options:"
+msgstr ""
+
+#: admin/includes/box-settings.php:120
+msgid "Global Placement :"
+msgstr ""
+
+#: admin/includes/box-settings.php:123
+msgid "Place this box under all Posts and Pages (Sitewide)."
+msgstr ""
+
+#: admin/includes/box-settings.php:124
+msgid "Place this box under all Posts."
+msgstr ""
+
+#: admin/includes/box-settings.php:125
+msgid "Place this box under all Pages."
+msgstr ""
+
+#: admin/includes/box-settings.php:126
+msgid ""
+"Custom. (Keep this selected this you want to do custom placement using "
+"options below.)"
+msgstr ""
+
+#: admin/includes/box-settings.php:128
+#, php-format
+msgid ""
+"Place this box globally under all posts and pages. You can change this "
+"anytime in future by coming back to this page or using the <b>Sitewide "
+"Settings</b> on the <a target='_blank' href='%s'>Global Settings</a> page."
+msgstr ""
+
+#: admin/includes/box-settings.php:132
+msgid "Shortcode :"
+msgstr ""
+
+#: admin/includes/box-settings.php:135
+#, php-format
+msgid ""
+"You can place this box almost anywhere on your blog using this shortcode. If "
+"you want to use this box inside your theme you can do so by pasting the "
+"following code there: <code>&lt;?php echo do_shortcode('[wpcb id=\"%d\"]'); ?"
+"&gt;</code>"
+msgstr ""
+
+#: admin/includes/box-settings.php:139
+msgid "Category Wise Placement :"
+msgstr ""
+
+#: admin/includes/box-settings.php:142
+msgid ""
+"Place this box globally under the posts of above selected categories. You "
+"can also change this anytime using <b>Conversion Boxes For Categories</b> "
+"section on the <b>Global Settings</b> page."
+msgstr ""
+
+#: admin/includes/box-settings.php:143
+msgid ""
+"<b>NOTE:</b> Selecting categories above will override Global Placement "
+"settings for the selected categories."
+msgstr ""
+
+#: admin/includes/box-settings.php:147
+msgid "Post/Page Specific Placement :"
+msgstr ""
+
+#: admin/includes/box-settings.php:150
+msgid ""
+"Place this box under above entered comma-separated list of post ID's (e.g. "
+"42,122,221). You can also change this anytime directly from any post's edit "
+"page using the <b>WP Conversion Boxes Pro</b> meta box. From the dropdown "
+"list of conversion boxes select this box and hit the Save/Update button."
+msgstr ""
+
+#: admin/includes/box-settings.php:151
+msgid ""
+"<b>NOTE:</b> Entering post ID's above will override Global and Category "
+"Specific Placement settings for those post ID's."
+msgstr ""
+
+#: admin/includes/box-settings.php:155
+msgid "Sidebar Placement :"
+msgstr ""
+
+#: admin/includes/box-settings.php:157
+msgid ""
+"You can also place this box in your sidebars using our widget on the "
+"<b>Widgets</b> page."
+msgstr ""
+
+#: admin/includes/box-settings.php:164
+msgid "Create Another Box"
+msgstr ""
+
+#: admin/includes/box-settings.php:165
+msgid "Publish Now!"
+msgstr ""
+
+#: admin/includes/customize-box.php:26
+msgid ""
+"Box selected successfully! Use the options given below to customize and "
+"craft the box according to your needs."
+msgstr ""
+
+#: admin/includes/customize-box.php:31
+msgid "Reset"
+msgstr ""
+
+#: admin/includes/customize-box.php:37
+msgid ""
+"No box template selected yet. Please select a box template first to "
+"customize it."
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:80
+msgid "Heading Settings"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:86
+msgid "Heading text"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:94
+#: admin/includes/default-customizations-fields.php:156
+msgid "Font family"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:101
+#: admin/includes/default-customizations-fields.php:163
+msgid "Font size"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:104
+#: admin/includes/default-customizations-fields.php:111
+#: admin/includes/default-customizations-fields.php:166
+#: admin/includes/default-customizations-fields.php:173
+#: admin/includes/default-customizations-fields.php:319
+msgid "(Eg. 16px or 1em)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:108
+#: admin/includes/default-customizations-fields.php:170
+msgid "Line Height"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:115
+#: admin/includes/default-customizations-fields.php:177
+msgid "Text Color"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:122
+msgid "Background Color"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:129
+#: admin/includes/default-customizations-fields.php:184
+msgid "Text Align"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:132
+#: admin/includes/default-customizations-fields.php:187
+#: admin/includes/default-customizations-fields.php:269
+#: admin/includes/default-customizations-fields.php:360
+#: admin/includes/default-customizations-fields.php:402
+#: admin/includes/default-customizations-fields.php:454
+msgid "Left"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:133
+#: admin/includes/default-customizations-fields.php:188
+#: admin/includes/default-customizations-fields.php:270
+#: admin/includes/default-customizations-fields.php:361
+#: admin/includes/default-customizations-fields.php:403
+#: admin/includes/default-customizations-fields.php:455
+msgid "Center"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:134
+#: admin/includes/default-customizations-fields.php:189
+#: admin/includes/default-customizations-fields.php:271
+#: admin/includes/default-customizations-fields.php:362
+#: admin/includes/default-customizations-fields.php:404
+#: admin/includes/default-customizations-fields.php:456
+msgid "Right"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:144
+msgid "Content Settings"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:149
+msgid "Content"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:205
+msgid "Select a List/Campaign"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:209
+msgid ""
+"Select a campaign/list to which you want to add the leads generated by this "
+"box."
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:214
+msgid "After Optin Redirect To "
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:218
+msgid ""
+"Enter a link where you want to redirect users after successful optin. Leave "
+"empty if you want users to stay on same page."
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:223
+msgid "Input Text Size"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:226
+msgid "(Eg. 150px)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:230
+msgid "Input Text Color"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:237
+msgid "Input font family"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:244
+msgid "Name Field Placeholder"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:251
+msgid "Email Field Placeholder"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:258
+msgid "Email Field Width"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:261
+#: admin/includes/default-customizations-fields.php:388
+#: admin/includes/default-customizations-fields.php:440
+msgid "(Eg. 200px or 80%)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:266
+msgid "Optin Form Align"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:281
+msgid "Button Settings"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:286
+msgid "Button text"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:294
+msgid "Button link (http://)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:301
+msgid "Open link in new tab"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:304
+msgid "Open in new tab"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:309
+msgid "Button Font Family"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:316
+msgid "Button Font Size"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:323
+msgid "Button Text Color"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:330
+msgid "Button Background Color"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:337
+msgid "Button Type"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:340
+msgid "Gradient"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:341
+msgid "3D"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:342
+msgid "Flat"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:346
+msgid "Button Border Radius"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:357
+msgid "Button Align"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:371
+msgid "Image Settings"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:377
+msgid "Image URL"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:381
+msgid "Upload Image"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:385
+msgid "Image Width"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:392
+msgid "Image Height"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:395
+#: admin/includes/default-customizations-fields.php:447
+msgid "(Eg. 200px)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:399
+msgid "Image Position"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:415
+msgid "Video Settings"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:421
+msgid "Video Hosted At"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:424
+msgid "Youtube"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:425
+msgid "Vimeo"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:430
+msgid "Video URL"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:437
+msgid "Video Width"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:444
+msgid "Video Height"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:451
+msgid "Video Position"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:465
+msgid "Box Container Settings"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:470
+msgid "Box Size"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:473
+msgid "Width (Eg. 200px or 80%)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:474
+msgid "Height (only in px)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:478
+msgid "Box Background Color"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:485
+msgid "Spacing around the box container"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:488
+msgid "Top (Eg. 20px)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:489
+msgid "Bottom (Eg. 20px)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:490
+msgid "Left (Eg. 20px)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:491
+msgid "Right (Eg. 20px)"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:495
+msgid "Box container border"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:498
+msgid "Border Color"
+msgstr ""
+
+#: admin/includes/default-customizations-fields.php:499
+msgid "Border Size (Eg. 2px)"
+msgstr ""
+
+#: admin/includes/select-box-template.php:11
+msgid "Select the type of WP Conversion Box that you want to make:"
+msgstr ""
+
+#: admin/includes/select-box-template.php:15
+#: admin/includes/select-box-template.php:26
+msgid "Email Optin Box"
+msgstr ""
+
+#: admin/includes/select-box-template.php:17
+#: admin/includes/select-box-template.php:45
+msgid "Video Email Optin Box"
+msgstr ""
+
+#: admin/includes/select-box-template.php:19
+#: admin/includes/select-box-template.php:64
+msgid "Call-to-action Box"
+msgstr ""
+
+#: admin/includes/select-box-template.php:21
+#: admin/includes/select-box-template.php:83
+msgid "Video Call-to-action Box"
+msgstr ""
+
+#: admin/includes/select-box-template.php:31
+#: admin/includes/select-box-template.php:50
+#: admin/includes/select-box-template.php:69
+#: admin/includes/select-box-template.php:88
+msgid "Select a template"
+msgstr ""
+
+#: admin/includes/select-box-template.php:34
+#: admin/includes/select-box-template.php:53
+#: admin/includes/select-box-template.php:72
+#: admin/includes/select-box-template.php:91
+msgid "Select a template from above and hit Update."
+msgstr ""
+
+#: admin/includes/select-box-template.php:103
+msgid ""
+"<b>NOTE: </b>If you come back later and change the selected template for "
+"this box, don't forget to Reset the box customizations by clicking the Reset "
+"button at the bottom of Customize Box page or else your design will look "
+"<del>screwed</del> broken."
+msgstr ""
+
+#: admin/includes/select-box-template.php:104
+msgid ""
+"<strong>NOTE 2: Need a custom box template?</strong> Send me your custom box "
+"template design and I'll make a template out of it for just $49. <a "
+"target='_blank' href='http://wpconversionboxes.com/order-custom-"
+"template/'>Hire me now</a>"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:13 admin/includes/show-boxes-list.php:24
+msgid "WP Conversion Boxes Name"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:14 admin/includes/show-boxes-list.php:25
+#: admin/views/main.php:69
+msgid "Unique Visitors"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:15 admin/includes/show-boxes-list.php:26
+#: admin/views/main.php:74 public/class.tracker.php:300
+msgid "Pageviews"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:16 admin/includes/show-boxes-list.php:27
+#: admin/views/main.php:79 public/class.tracker.php:301
+msgid "Box Views"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:17 admin/includes/show-boxes-list.php:28
+#: admin/views/main.php:84 public/class.tracker.php:302
+msgid "Conversions"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:18 admin/includes/show-boxes-list.php:29
+#: public/class.tracker.php:303
+msgid "Conversion Rate"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:39
+msgid "Optins"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:39
+msgid "Clicks"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:46
+msgid "Options"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:46
+msgid "Customizations"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:47
+msgid "Change Box Template"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:48
+msgid "Customize Box Design"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:50
+msgid "Duplicate This Box"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:51
+msgid "Delete Box"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:53
+msgid "A/B Test This Box (Pro)"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:54
+msgid "Statistics"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:54
+msgid "Detailed Stats"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:55
+msgid "Reset Box Stats"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:56
+msgid "Shortcode"
+msgstr ""
+
+#: admin/includes/show-boxes-list.php:72
+#, php-format
+msgid ""
+"No boxes found. Please <a href=\"%s\">click here</a> to create a new WP "
+"Conversion Box."
+msgstr ""
+
+#: admin/includes/upgrade-message.php:3
+msgid "Upgrade To Pro"
+msgstr ""
+
+#: admin/includes/upgrade-message.php:3
+msgid "to be able to use this feature."
+msgstr ""
+
+#: admin/views/edit.php:24
+msgid "Customize"
+msgstr ""
+
+#: admin/views/edit.php:24
+msgid "Add New WP Conversion Box"
+msgstr ""
+
+#: admin/views/edit.php:31
+msgid "Step 1: Select Box Template"
+msgstr ""
+
+#: admin/views/edit.php:32
+msgid "Step 2: Customize Box"
+msgstr ""
+
+#: admin/views/edit.php:33
+msgid "Step 3: Box Settings"
+msgstr ""
+
+#: admin/views/main.php:14
+msgid "Successfully Duplicated!"
+msgstr ""
+
+#: admin/views/main.php:17
+msgid "Box has not been duplicated. There was some error."
+msgstr ""
+
+#: admin/views/main.php:24
+msgid "Add New"
+msgstr ""
+
+#: admin/views/main.php:46
+msgid "Top Performing Posts/Pages"
+msgstr ""
+
+#: admin/views/main.php:48
+msgid "Top performing posts and pages on your site."
+msgstr ""
+
+#: admin/views/main.php:50
+msgid "Load More Data..."
+msgstr ""
+
+#: admin/views/main.php:55
+msgid "Traffic and Conversion Graph"
+msgstr ""
+
+#: admin/views/main.php:59
+msgid "Date Range:"
+msgstr ""
+
+#: admin/views/main.php:65
+msgid "Overview (Zoom in/out of the graph)"
+msgstr ""
+
+#: admin/views/settings.php:36 admin/views/settings.php:59
+msgid "Connected to API successfully."
+msgstr ""
+
+#: admin/views/settings.php:40
+msgid "Invalid API Key. Please try again."
+msgstr ""
+
+#: admin/views/settings.php:50
+msgid "No lists found. Please create a list and try again later."
+msgstr ""
+
+#: admin/views/settings.php:77
+msgid "Connected to Aweber successfully."
+msgstr ""
+
+#: admin/views/settings.php:80
+msgid "Invalid authorization Key. Please try again."
+msgstr ""
+
+#: admin/views/settings.php:111
+msgid "General Settings"
+msgstr ""
+
+#: admin/views/settings.php:112
+msgid "Email Service Integration"
+msgstr ""
+
+#: admin/views/settings.php:113 admin/views/settings.php:331
+#: admin/views/settings.php:336
+msgid "Upload Custom Template"
+msgstr ""
+
+#: admin/views/settings.php:126
+msgid "Sitewide Settings"
+msgstr ""
+
+#: admin/views/settings.php:131
+msgid "Default Conversion Box"
+msgstr ""
+
+#: admin/views/settings.php:134
+msgid ""
+"Assign a default conversion box to all pages and posts. This box will be "
+"used when no other box has been set for any post/page."
+msgstr ""
+
+#: admin/views/settings.php:138
+msgid "Conversion Box for All Posts"
+msgstr ""
+
+#: admin/views/settings.php:141
+msgid ""
+"Select a conversion box that'll be shown under all Blog Posts. This will "
+"override the default conversion box."
+msgstr ""
+
+#: admin/views/settings.php:145
+msgid "Conversion Box for All Pages"
+msgstr ""
+
+#: admin/views/settings.php:148
+msgid ""
+"Select a conversion box that'll be shown under all Pages of your site. This "
+"will override the default conversion box."
+msgstr ""
+
+#: admin/views/settings.php:158
+msgid "Conversion Boxes for Categories"
+msgstr ""
+
+#: admin/views/settings.php:163
+msgid "Select Conversion Box"
+msgstr ""
+
+#: admin/views/settings.php:165
+msgid ""
+"Select a conversion box for the posts of specific categories. This will "
+"override the Default Conversion Box and also Conversion Box for All Posts."
+msgstr ""
+
+#: admin/views/settings.php:177
+msgid "Help Us Spread The Word"
+msgstr ""
+
+#: admin/views/settings.php:182
+msgid "Show Link to WP Conversion Boxes Under Conversion Boxes"
+msgstr ""
+
+#: admin/views/settings.php:184
+msgid "Enable Credit Link"
+msgstr ""
+
+#: admin/views/settings.php:185
+msgid ""
+"Place a small link to WP Conversion Boxes below your conversion boxes. This "
+"will help us spread the word out about the plugin and along with that, give "
+"you the fuzzy feeling of helping us out."
+msgstr ""
+
+#: admin/views/settings.php:201
+msgid "Integrate Your Email Service"
+msgstr ""
+
+#: admin/views/settings.php:206
+msgid "Select Your Email Service Provider"
+msgstr ""
+
+#: admin/views/settings.php:219 admin/views/settings.php:257
+#: admin/views/settings.php:291
+msgid "Integrate"
+msgstr ""
+
+#: admin/views/settings.php:220 admin/views/settings.php:258
+msgid "Create Account For Free"
+msgstr ""
+
+#: admin/views/settings.php:224 admin/views/settings.php:262
+#: admin/views/settings.php:296
+msgid "Disconnect"
+msgstr ""
+
+#: admin/views/settings.php:234
+msgid "GetResponse API Key:"
+msgstr ""
+
+#: admin/views/settings.php:238
+msgid "Connect to GetResponse"
+msgstr ""
+
+#: admin/views/settings.php:239 admin/views/settings.php:276
+#: admin/views/settings.php:310
+msgid "Cancel"
+msgstr ""
+
+#: admin/views/settings.php:243
+msgid ""
+"This API key is used to add email leads to your GetResponse campaigns. You "
+"can find your API key from <a target='_blank' href='https://app.getresponse."
+"com/account.html#api'>this page</a>."
+msgstr ""
+
+#: admin/views/settings.php:271
+msgid "MailChimp API Key:"
+msgstr ""
+
+#: admin/views/settings.php:275
+msgid "Connect to MailChimp"
+msgstr ""
+
+#: admin/views/settings.php:280
+msgid ""
+"This API key is used to add email leads to your MailChimp lists. You can "
+"find your API key from <a target='_blank' href='https://admin.mailchimp.com/"
+"account/api/'>this page</a>. Go to the given link and just click on Create a "
+"Key to generate new API key."
+msgstr ""
+
+#: admin/views/settings.php:292
+msgid "Create Account For $1"
+msgstr ""
+
+#: admin/views/settings.php:305
+msgid "Aweber Authorization Code:"
+msgstr ""
+
+#: admin/views/settings.php:309
+msgid "Connect to Aweber"
+msgstr ""
+
+#: admin/views/settings.php:314
+msgid ""
+"You need to authorize this plugin to be able to add leads to your Aweber "
+"lists. To get the authorization code, log into <a target='_blank' "
+"href='https://auth.aweber.com/1.0/oauth/authorize_app/459aa11b'>this page</"
+"a> with your Aweber acoount."
+msgstr ""
+
+#: admin/views/settings.php:318
+msgid ""
+"Click on <b>Integrate</b> button to integrate your email service provider. "
+"If you don't have an account, click on <b>Create Account</b> button to "
+"create a new account. If at any point you want to disconnect your email "
+"service provider click on <b>Disconnect</b> button to do so."
+msgstr ""
+
+#: admin/views/settings.php:339
+msgid "Email Optin"
+msgstr ""
+
+#: admin/views/settings.php:340
+msgid "Please select template type of the zip file."
+msgstr ""
+
+#: admin/views/settings.php:341
+msgid "Select zip file:"
+msgstr ""
+
+#: admin/views/settings.php:342
+msgid ""
+"Upload your custom .zip template file here. This .zip file will be extracted "
+"to the <code>/templates/</code> directory of the plugin. Your template will "
+"be available to use on Select Box Template page. To know how make custom box "
+"templates, <a target='_blank'>click here</a>"
+msgstr ""
+
+#: public/class.public.php:364
+msgid ""
+"Made using <a target='_blank' href='http://wpconversionboxes.com'>WP "
+"Conversion Boxes</a>"
+msgstr ""
+
+#: public/class.tracker.php:52
+msgid "Processing... Please Wait!"
+msgstr ""
+
+#: public/class.tracker.php:53
+msgid "It's taking longer than usual. Please hang on for a few moments..."
+msgstr ""
+
+#: public/class.tracker.php:54
+msgid "Success!"
+msgstr ""
+
+#: public/class.tracker.php:55
+msgid "Thank you for subscribing."
+msgstr ""
+
+#: public/class.tracker.php:56
+msgid "Error!"
+msgstr ""
+
+#: public/class.tracker.php:57
+msgid "There was an error submitting your info."
+msgstr ""
+
+#: public/class.tracker.php:298
+msgid "Page Url"
+msgstr ""
+
+#: public/class.tracker.php:299
+msgid "Unique Visits"
+msgstr ""
+
+#: public/class.tracker.php:328
+msgid "Total"
+msgstr ""
+
+#: public/class.tracker.php:339
+msgid "No data to show!"
+msgstr ""

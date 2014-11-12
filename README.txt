@@ -20,7 +20,7 @@ Easily boost your conversion rates using our advanced attention grabbing box set
 
 And that's not all, the plugin comes with loads of other features that help you boost your conversion rates!
 
-**Read on to know more...**
+*Read on to learn more...*
 
 = How is WP Conversion Boxes Different From Other Similar Plugins? =
 

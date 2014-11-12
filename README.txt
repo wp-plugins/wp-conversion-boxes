@@ -8,17 +8,19 @@ Stable tag: 2.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Same Traffic. More Conversions. Replace your CTAs and email optin boxes with WPCB & follow our conversion strategy to skyrocket your conversions.
+Easily create high converting Email Optin and Call to Action boxes using conversion optimized templates and track conversions with inbuilt tracking system.
 
 == Description ==
 
 = Same Traffic. More Conversions. =
 
-WP Conversion Boxes helps you to boost the conversion rate of the call-to-actions and email subscriber boxes that you already have on your blog. Replace the CTAs, optin/email subscriber boxes with WP Conversion Boxes and follow our proven conversion booster strategy to increase your click through rates (for CTAs) and subscription rates (for email optins) with no change in traffic.
+WP Conversion Boxes helps you to easily create high converting email optin and call-to-action boxes (using conversion optimized box templates) that you can put below your posts/pages or almost anywhere on your blog using shortcodes.
 
-WP Conversion Boxes helps you to easily create a call-to-action or an email subscriber box that you can put below your posts/pages or almost anywhere on your blog using short codes.
+WP Conversion Boxes also helps you to boost your conversion rates from the email optin and call-to-action boxes that you put on your blog. It comes with advanced attention grabbing settings to grab user attention for more conversions and is powered by an inbuilt conversion tracking system that lets you track every important stats of your email optin and call to action boxes.
 
-= What’s different in WP Conversion Boxes? =
+So, with these features, you get more conversions all while having no change to your traffic. *Same Traffic. More Conversions.*
+
+= How is WP Conversion Boxes Different From Other Similar Plugins? =
 
 There are a lot features that set WP Conversion Boxes apart from competition:
 

@@ -8,15 +8,15 @@ Stable tag: 2.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily create high converting Email Optin and Call to Action boxes using conversion optimized templates and track conversions with inbuilt tracking system.
+Easily Create High Converting Email Optin and Call-to-Action Boxes With Attention Grabbing Box Settings & Advance Conversion Tracking System.
 
 == Description ==
 
 = Same Traffic. More Conversions. =
 
-WP Conversion Boxes helps you to easily create high converting email optin and call-to-action boxes (using conversion optimized box templates) that you can put below your posts/pages or almost anywhere on your blog using shortcodes.
+WP Conversion Boxes helps you to easily create high converting email optin and call-to-action boxes (using our conversion optimized box templates) that you can put below your posts/pages or almost anywhere on your blog.
 
-WP Conversion Boxes also helps you to boost your conversion rates from the email optin and call-to-action boxes that you put on your blog. It comes with advanced attention grabbing settings to grab user attention for more conversions and is powered by an inbuilt conversion tracking system that lets you track every important stats of your email optin and call to action boxes.
+Easily boost your conversion rates using our advanced attention grabbing box settings to grab user attention for more conversions use the inbuilt conversion tracking system to track every important stats of your email optin and call to action boxes.
 
 So, with these features, you get more conversions all while having no change to your traffic. *Same Traffic. More Conversions.*
 

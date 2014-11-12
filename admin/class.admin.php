@@ -74,6 +74,8 @@ class WPCB_Admin {
                 add_action( 'wp_ajax_publish_the_box', array( $this, 'publish_the_box') );
                 add_action( 'wp_ajax_disable_box', array( $this, 'disable_box') );
                 
+                add_action( 'admin_init' , array( $this , 'export_boxes_to_xml' ) );
+                
 	}
 
         
@@ -785,6 +787,98 @@ class WPCB_Admin {
                 echo 1;
             
             die();
+        }
+        
+        /***************************************
+         * Export boxes to XML if asked for
+         ***************************************/
+        
+        public function export_boxes_to_xml(){
+            
+            if(isset($_POST['export-boxes'])){
+
+                global $wpdb;
+                $wpcb_tbl_name = $this->wpcb_boxes_table;
+                $boxes_list = $wpdb->get_results("SELECT * FROM $wpcb_tbl_name ORDER BY id ASC","ARRAY_A");
+                
+                /* Create a file name */
+                $sitename = sanitize_key( get_bloginfo( 'name' ) );
+                $filename = $sitename . '-wpcb-' . date( 'Y-m-d' ) . '.xml';
+
+                
+                /* Print header */
+                header( 'Content-Description: File Transfer' );
+                header( 'Content-Disposition: attachment; filename=' . $filename );
+                header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true );
+
+                /* Print comments */
+                echo "<!-- WP Conversion Boxes Export Data -->\n";
+                echo '<boxes>';
+                foreach ( $boxes_list as $box ) { ?>
+                    <item>
+                        <box_name><?php echo esc_attr($box['box_name']); ?></box_name>
+                        <box_status><?php echo absint($box['box_status']); ?></box_status>
+                        <box_type><?php echo absint($box['box_type']); ?></box_type>
+                        <box_template><?php echo esc_attr($box['box_template']); ?></box_template>
+                        <box_customizations><?php echo $box['box_customizations']; ?></box_customizations>
+                        <box_settings><?php echo $box['box_settings']; ?></box_settings>
+                    </item>
+                <?php }
+                echo '</boxes>';
+                exit();
+            }
+            
+        }
+        
+        /***************************************
+         * Import boxes from XML
+         ***************************************/
+        
+        public function import_boxes_from_xml(){
+            if(isset($_POST['import-boxes'])){
+                if(isset($_FILES['wpcb_import_xml']['error']) && $_FILES['wpcb_import_xml']['size'] != 0){
+                    $imported_xml = $_FILES['wpcb_import_xml'];
+                    $imported_xml_name = $_FILES['wpcb_import_xml']['name'];
+                    $ext = pathinfo($imported_xml_name, PATHINFO_EXTENSION);
+                    if($ext != 'xml'){
+                        echo "<div class='error'><p>". __('Invalid file format. Please upload an XML file.', 'wp-conversion-boxes-pro') ."</p></div>";
+                    }
+                    else{
+                        $boxes = simplexml_load_file($imported_xml['tmp_name']) or die("Error: There was an error parsing your export file.");
+                        foreach($boxes as $box){
+                            global $wpdb;
+                            $wpdb->insert($this->wpcb_boxes_table, 
+                                array(
+                                    'box_name' => $box->box_name,
+                                    'box_status' => $box->box_status,
+                                    'box_type' => $box->box_type, 
+                                    'box_template' => $box->box_template,
+                                    'box_customizations' => $box->box_customizations,
+                                    'box_settings' => $box->box_settings
+                                ), 
+                                array(
+                                    '%s',
+                                    '%d',
+                                    '%d',
+                                    '%s',
+                                    '%s',
+                                    '%s'
+                                )
+                            );
+                        }
+                        if($wpdb->insert_id){
+                            echo "<div class='updated'><p>".__('Boxes imported successfully!','wp-conversion-boxes')."</p></div>";
+                        }
+                        else{
+                            echo "<div class='error'><p>".__('There was an error importing','wp-conversion-boxes')."</p></div>";
+                        }
+                    }
+                }
+                else{
+                    echo "<div class='error'><p>". __('No file selected. Please select an XML file before clicking on Import.', 'wp-conversion-boxes-pro') ."</p></div>";
+                }
+                
+            }
         }
         
 }

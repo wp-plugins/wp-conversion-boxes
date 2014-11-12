@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Conversion Boxes\n"
-"POT-Creation-Date: 2014-11-10 10:33+0530\n"
-"PO-Revision-Date: 2014-11-10 10:33+0530\n"
+"POT-Creation-Date: 2014-11-12 11:59+0530\n"
+"PO-Revision-Date: 2014-11-12 11:59+0530\n"
 "Last-Translator: Ram Shengale <admin@wpconversionboxes.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -16,192 +16,208 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class.admin.php:131
+#: admin/class.admin.php:133
 msgid "Choose Image"
 msgstr ""
 
-#: admin/class.admin.php:132
+#: admin/class.admin.php:134
 msgid "Creating new box... Please wait!"
 msgstr ""
 
-#: admin/class.admin.php:133
+#: admin/class.admin.php:135
 msgid "Box Created Successfully. Redirecting..."
 msgstr ""
 
-#: admin/class.admin.php:134 admin/class.admin.php:269
+#: admin/class.admin.php:136 admin/class.admin.php:270
 msgid "Create Box and Proceed"
 msgstr ""
 
-#: admin/class.admin.php:135
+#: admin/class.admin.php:137
 msgid "There was an error saving to database. Please try again later."
 msgstr ""
 
-#: admin/class.admin.php:136
+#: admin/class.admin.php:138
 msgid "There was an error updating the database. Please try again later."
 msgstr ""
 
-#: admin/class.admin.php:137 admin/class.admin.php:164
+#: admin/class.admin.php:139 admin/class.admin.php:166
 msgid "Updating... Please wait!"
 msgstr ""
 
-#: admin/class.admin.php:138 admin/class.admin.php:165
+#: admin/class.admin.php:140 admin/class.admin.php:167
 msgid "Saved! Redirecting..."
 msgstr ""
 
-#: admin/class.admin.php:139 admin/class.admin.php:166
+#: admin/class.admin.php:141 admin/class.admin.php:168
 #: admin/includes/customize-box.php:30
 #: admin/includes/select-box-template.php:101
 msgid "Save and Next"
 msgstr ""
 
-#: admin/class.admin.php:140
+#: admin/class.admin.php:142
 msgid "Settings saved successfully."
 msgstr ""
 
-#: admin/class.admin.php:141 admin/includes/box-settings.php:91
+#: admin/class.admin.php:143 admin/includes/box-settings.php:91
 msgid "Save and Publish!"
 msgstr ""
 
-#: admin/class.admin.php:142
+#: admin/class.admin.php:144
 msgid "Are you sure you want to delete this conversion box?"
 msgstr ""
 
-#: admin/class.admin.php:143
+#: admin/class.admin.php:145
 msgid "ERROR: Unable to delete the conversion box. Please try again later."
 msgstr ""
 
-#: admin/class.admin.php:144
+#: admin/class.admin.php:146
 msgid "Are you sure you want to flush all the stats for this conversion box?"
 msgstr ""
 
-#: admin/class.admin.php:145
+#: admin/class.admin.php:147
 msgid "ERROR: Unable to flush the stats. Please try again later."
 msgstr ""
 
-#: admin/class.admin.php:146
+#: admin/class.admin.php:148
 msgid ""
 "Free version of WP Conversion Boxes shows only 7 top performing posts and "
 "pages. Upgrade to Pro to view stats for all links."
 msgstr ""
 
-#: admin/class.admin.php:147
+#: admin/class.admin.php:149
 msgid "Updated successfully."
 msgstr ""
 
-#: admin/class.admin.php:148 admin/views/settings.php:193
+#: admin/class.admin.php:150 admin/views/settings.php:193
 msgid "Update"
 msgstr ""
 
-#: admin/class.admin.php:149
+#: admin/class.admin.php:151
 msgid ""
 "A/B tests feature is not available in free version. Please upgrade to Pro to "
 "get this feature."
 msgstr ""
 
-#: admin/class.admin.php:150
+#: admin/class.admin.php:152
 msgid "Box Published Successfully!"
 msgstr ""
 
-#: admin/class.admin.php:151 admin/includes/box-settings.php:166
+#: admin/class.admin.php:153 admin/includes/box-settings.php:166
 msgid "Later"
 msgstr ""
 
-#: admin/class.admin.php:152
+#: admin/class.admin.php:154
 msgid "Error Publishing The Box!<br /><br />Reload this page and try again."
 msgstr ""
 
-#: admin/class.admin.php:153
+#: admin/class.admin.php:155
 msgid "Done"
 msgstr ""
 
-#: admin/class.admin.php:154
+#: admin/class.admin.php:156
 msgid "Reload"
 msgstr ""
 
-#: admin/class.admin.php:161
+#: admin/class.admin.php:163
 msgid ""
 "Are you sure you want to reset the customizations to default? All design "
 "elements and content will be reset to defaults."
 msgstr ""
 
-#: admin/class.admin.php:162
+#: admin/class.admin.php:164
 msgid "Reseting... Please wait!"
 msgstr ""
 
-#: admin/class.admin.php:163
+#: admin/class.admin.php:165
 msgid ""
 "There was an error. Please try again later or contact support if problem "
 "persists."
 msgstr ""
 
-#: admin/class.admin.php:167
+#: admin/class.admin.php:169
 msgid ""
 "There was an error updating the database. Please try again later or contact "
 "support if problem persists."
 msgstr ""
 
-#: admin/class.admin.php:187 admin/class.admin.php:188
-#: admin/class.admin.php:198 admin/class.admin.php:199
+#: admin/class.admin.php:189 admin/class.admin.php:190
+#: admin/class.admin.php:199 admin/class.admin.php:200
 msgid "WP Conversion Boxes"
 msgstr ""
 
-#: admin/class.admin.php:205 admin/class.admin.php:206
-#: admin/class.admin.php:244
+#: admin/class.admin.php:206 admin/class.admin.php:207
+#: admin/class.admin.php:245
 msgid "Add New Box"
 msgstr ""
 
-#: admin/class.admin.php:213 admin/class.admin.php:214
+#: admin/class.admin.php:214 admin/class.admin.php:215
 msgid "Global Settings"
 msgstr ""
 
-#: admin/class.admin.php:267
+#: admin/class.admin.php:268
 msgid "Enter a name for your new Coversion Box:"
 msgstr ""
 
-#: admin/class.admin.php:499
+#: admin/class.admin.php:500
 msgid "Duplicate"
 msgstr ""
 
-#: admin/class.admin.php:529
+#: admin/class.admin.php:530
 msgid "None"
 msgstr ""
 
-#: admin/class.admin.php:530 admin/class.admin.php:560
+#: admin/class.admin.php:531 admin/class.admin.php:561
 msgid "Use Default"
 msgstr ""
 
-#: admin/class.admin.php:555
+#: admin/class.admin.php:556
 msgid "Category Name"
 msgstr ""
 
-#: admin/class.admin.php:555
+#: admin/class.admin.php:556
 msgid "Conversion Box"
 msgstr ""
 
-#: admin/class.admin.php:590
+#: admin/class.admin.php:591
 msgid "Select template"
 msgstr ""
 
-#: admin/class.admin.php:631
+#: admin/class.admin.php:632
 msgid "Box Preview"
 msgstr ""
 
-#: admin/class.admin.php:631
+#: admin/class.admin.php:632
 msgid "Stick preview to top"
 msgstr ""
 
-#: admin/class.admin.php:647
+#: admin/class.admin.php:648
 msgid "Box Customizations"
 msgstr ""
 
-#: admin/class.admin.php:744
+#: admin/class.admin.php:745
 msgid ""
 "No campaigns/lists found. Please integrate your email service provider first "
 "to select a campaign/list for this conversion box."
 msgstr ""
 
-#: admin/class.admin.php:744
+#: admin/class.admin.php:745
 msgid "Click here to integrate now."
+msgstr ""
+
+#: admin/class.admin.php:844
+msgid "Invalid file format. Please upload an XML file."
+msgstr ""
+
+#: admin/class.admin.php:870
+msgid "Boxes imported successfully!"
+msgstr ""
+
+#: admin/class.admin.php:873
+msgid "There was an error importing"
+msgstr ""
+
+#: admin/class.admin.php:878
+msgid "No file selected. Please select an XML file before clicking on Import."
 msgstr ""
 
 #: admin/includes/box-settings.php:16
@@ -994,17 +1010,21 @@ msgstr ""
 msgid "Invalid authorization Key. Please try again."
 msgstr ""
 
-#: admin/views/settings.php:111
+#: admin/views/settings.php:110
 msgid "General Settings"
 msgstr ""
 
-#: admin/views/settings.php:112
+#: admin/views/settings.php:111
 msgid "Email Service Integration"
 msgstr ""
 
-#: admin/views/settings.php:113 admin/views/settings.php:331
+#: admin/views/settings.php:112 admin/views/settings.php:331
 #: admin/views/settings.php:336
 msgid "Upload Custom Template"
+msgstr ""
+
+#: admin/views/settings.php:113
+msgid "Export/Import"
 msgstr ""
 
 #: admin/views/settings.php:126
@@ -1178,6 +1198,37 @@ msgid ""
 "to the <code>/templates/</code> directory of the plugin. Your template will "
 "be available to use on Select Box Template page. To know how make custom box "
 "templates, <a target='_blank'>click here</a>"
+msgstr ""
+
+#: admin/views/settings.php:359
+msgid "Export/Import Boxes"
+msgstr ""
+
+#: admin/views/settings.php:364
+msgid "Export All Boxes"
+msgstr ""
+
+#: admin/views/settings.php:369
+msgid ""
+"Click on the <b>Export Boxes</b> button to export all your conversion boxes "
+"to an XML file. This XML file will contain all your boxes and their "
+"customizations. You can then import the boxes on other sites using FREE or "
+"Pro version of the plugin. Please note that only box customizations and "
+"settings get exported and not templates."
+msgstr ""
+
+#: admin/views/settings.php:373
+msgid "Import Boxes"
+msgstr ""
+
+#: admin/views/settings.php:376
+msgid "Select XML file:"
+msgstr ""
+
+#: admin/views/settings.php:377
+msgid ""
+"Select your previously exported XML file and click on Import button to "
+"import your boxes and their customiztons."
 msgstr ""
 
 #: public/class.public.php:390

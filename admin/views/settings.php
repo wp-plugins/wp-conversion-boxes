@@ -99,7 +99,6 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                 break;
     }
 }
-        
                 
 ?>
 
@@ -111,6 +110,7 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
         <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=1"; ?>" class="nav-tab <?php if($step == 1 || !isset($step)) echo "nav-tab-active"; ?>"><?php _e('General Settings', 'wp-conversion-boxes'); ?></a>
         <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=2"; ?>" class="nav-tab <?php if($step == 2) echo "nav-tab-active"; ?>"><?php _e('Email Service Integration', 'wp-conversion-boxes'); ?></a>
         <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=3"; ?>" class="nav-tab <?php if($step == 3) echo "nav-tab-active"; ?>"><?php _e('Upload Custom Template', 'wp-conversion-boxes'); ?></a>
+        <a href="<?php echo admin_url( 'admin.php?page=' . $wpcb->wpcb_settings_slug )."&step=4"; ?>" class="nav-tab <?php if($step == 4) echo "nav-tab-active"; ?>"><?php _e('Export/Import', 'wp-conversion-boxes'); ?></a>
     </h2>
     
     <div id="poststuff" class="metabox-holder has-right-sidebar">    
@@ -341,6 +341,41 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                         <p><label><?php _e('Select zip file:', 'wp-conversion-boxes'); ?> <input type="file" name="wpcb_template_zip" id="wpcb_template_zip" disabled></label></p>
                                         <p class="wpcb_help_block"><?php _e("Upload your custom .zip template file here. This .zip file will be extracted to the <code>/templates/</code> directory of the plugin. Your template will be available to use on Select Box Template page. To know how make custom box templates, <a target='_blank'>click here</a>", 'wp-conversion-boxes'); ?></p><br />
                                         <p><input type="submit" name="submit" value="Upload" class="button button-primary" disabled /></p>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+        
+        <?php elseif($step == 4) : 
+            $wpcb->import_boxes_from_xml();    
+        ?>
+        
+        <div id="post-body-content">
+                <div class='postbox'>
+                    <h3><?php _e('Export/Import Boxes', 'wp-conversion-boxes'); ?></h3>
+                    <div class='inside'>
+                        <table class="form-table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for=""><?php _e('Export All Boxes', 'wp-conversion-boxes'); ?></label></th>
+                                    <td>
+                                        <form action="" method="post" enctype="multipart/form-data">
+                                            <p><input type="submit" name="export-boxes" value="Export Boxes" class="button button-primary" /></p>
+                                        </form>
+                                        <p class="wpcb_help_block"><?php _e("Click on the <b>Export Boxes</b> button to export all your conversion boxes to an XML file. This XML file will contain all your boxes and their customizations. You can then import the boxes on other sites using FREE or Pro version of the plugin. Please note that only box customizations and settings get exported and not templates.", 'wp-conversion-boxes'); ?></p><br />    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for=""><?php _e('Import Boxes', 'wp-conversion-boxes'); ?></label></th>
+                                    <td>
+                                        <form action="" method="post" enctype="multipart/form-data">
+                                            <p><label><?php _e('Select XML file:', 'wp-conversion-boxes'); ?> <input type="file" name="wpcb_import_xml" id="wpcb_import_xml"></label></p>
+                                            <p class="wpcb_help_block"><?php _e("Select your previously exported XML file and click on Import button to import your boxes and their customiztons.", 'wp-conversion-boxes'); ?></p><br />
+                                            <p><input type="submit" name="import-boxes" value="Import" class="button button-primary" /></p>
                                         </form>
                                     </td>
                                 </tr>

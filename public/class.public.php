@@ -234,7 +234,7 @@ class WPCB_Public {
                 $wpcb_tbl_1 = $wpdb->prefix.'wp_conversion_boxes';
                 $wpdb->query("CREATE TABLE IF NOT EXISTS $wpcb_tbl_1 (
                     id INT(9) NOT NULL AUTO_INCREMENT,
-                    box_status int(1) DEFAULT 0,
+                    box_status int(1) DEFAULT 1,
                     box_name VARCHAR(80) NOT NULL,
                     box_type int(9),
                     box_template VARCHAR(40),
@@ -269,7 +269,6 @@ class WPCB_Public {
 	 ***************************************/
         
         public function update_table_structure() {
-            if(get_option('wpcb_updated_table_structure') != 1){
                 global $wpdb;
                 $wpcb_tbl = $wpdb->prefix.'wp_conversion_boxes';
                 $all_columns = $wpdb->get_row("SELECT * FROM $wpcb_tbl");
@@ -277,10 +276,6 @@ class WPCB_Public {
                 if(!isset($all_columns->box_status)){
                     $wpdb->query("ALTER TABLE $wpcb_tbl ADD box_status INT(1) NOT NULL DEFAULT 1");
                 }
-                
-                update_option('wpcb_updated_table_structure',1);
-                
-            }
         }
 
         /***************************************

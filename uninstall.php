@@ -18,9 +18,7 @@ if (is_multisite()) {
 			switch_to_blog($blog['blog_id']);
 			$GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."wp_conversion_boxes");
                         $GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."wpcb_tracking");
-                        delete_option('wpcb_default_box');
-                        delete_option('wpcb_all_posts');
-                        delete_option('wpcb_all_pages');                        
+                        $GLOBALS['wpdb']->query("DELETE FROM {$GLOBALS['wpdb']->options} WHERE option_name LIKE 'wpcb_%'");
 			restore_current_blog();
 		}
 	}
@@ -29,7 +27,5 @@ else
 {
 	$GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."wp_conversion_boxes");
         $GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."wpcb_tracking");
-        delete_option('wpcb_default_box');
-        delete_option('wpcb_all_posts');
-        delete_option('wpcb_all_pages');  
+        $GLOBALS['wpdb']->query("DELETE FROM {$GLOBALS['wpdb']->options} WHERE option_name LIKE 'wpcb_%'");
 }

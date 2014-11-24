@@ -450,7 +450,12 @@ class WPCB_Public {
 
             foreach ($data as $k => $v) {
                     if (!is_array($v) && !is_object($v)) {
-                            $data[$k] = esc_attr(stripslashes(trim($v)));
+                            if($k != 'content_text'){
+                                $data[$k] = esc_attr(stripslashes(trim($v)));
+                            }
+                            else{
+                                $data[$k] = stripslashes(trim($v));
+                            }
                     }
                     if (is_array($v)) {
                             $data[$k] = sanitise_array($v);

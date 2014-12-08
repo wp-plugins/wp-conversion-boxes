@@ -3,21 +3,7 @@
 
 var templateFields = {};
 
-function get_tinymce_content(id) {
-    var content;
-    var inputid = id;
-    var editor = tinyMCE.get(inputid);
-    var textArea = jQuery('textarea#' + inputid);    
-    if (textArea.length>0 && textArea.is(':visible')) {
-        content = textArea.val();        
-    } else {
-        content = editor.getContent();
-    }    
-    return content;
-}
-
 function getValues(){
-    
     templateFields['heading_text'] = jQuery('#heading_text').val();
     templateFields['heading_font_familiy'] = jQuery('#font_families_heading').val();
     templateFields['heading_font_size'] = jQuery('#heading_font_size').val();
@@ -26,7 +12,6 @@ function getValues(){
     templateFields['heading_align'] = jQuery('.heading_align:checked').val();
     templateFields['heading_bg_color'] = jQuery('#heading_bg_color').val();
 
-    //templateFields['content_text'] = get_tinymce_content('content_text');
     templateFields['content_text'] = jQuery('#content_text').val();
     templateFields['content_font_familiy'] = jQuery('#font_families_content').val();
     templateFields['content_font_size'] = jQuery('#content_font_size').val();
@@ -59,7 +44,6 @@ function getValues(){
     templateFields['custom_css'] = jQuery('#custom_css').val();
     
     if(jQuery('#font_families_input').val()){
-        templateFields['input_redirect_url'] = jQuery('#input_redirect_url').val();
         templateFields['input_text_size'] = jQuery('#input_text_size').val();
         templateFields['input_text_color'] = jQuery('#input_text_color').val();
         templateFields['input_font_family'] = jQuery('#font_families_input').val();
@@ -114,7 +98,7 @@ function applyChanges(){
     jQuery('.wpcb_box_button').css('font-size',templateFields['button_text_font_size']);
     jQuery('.wpcb_box_button').css('color',templateFields['button_text_color']);
     jQuery('.wpcb_box_button_div').css('text-align',templateFields['button_align']);
-    jQuery('.wpcb_box_button').css('border-radius',templateFields['button_border_radius']); 
+    jQuery('.wpcb_box_button').css('border-radius',templateFields['button_border_radius']);
     jQuery('.wpcb_box_button').css('width',templateFields['button_width']); 
     
     if(jQuery('#font_families_input').val()){
@@ -159,7 +143,6 @@ function applyChanges(){
                 ';color:'+templateFields['button_text_color']+';text-align:'+templateFields['button_align']+';border-radius:'+templateFields['button_border_radius'];
     
     jQuery('.wpcb_template_main').prev('style').html(templateFields['custom_css']);
-    
 }
 
 function ltrim(str,c){
@@ -287,29 +270,12 @@ function wpcbValidateForm(){
         var inputCampaignMailer = inputCampaignObject.selectedData.description;
         
         switch(inputCampaignMailer){
-            case 'GetResponse' :var mailerId = 1;
-                                break;
+            case 'GetResponse' :    var mailerId = 1;
+                                    break;
             case 'MailChimp' :  var mailerId = 2;
                                 break;
-            case 'Aweber' :     var mailerId = 3;
-                                break;
-            case 'Mad Mimi' :   var mailerId = 4;
-                                break;
-            case 'Constant Contact' :   var mailerId = 5;
-                                break;
-            case 'Campaign Monitor' :   var mailerId = 6;
-                                break;
-            case 'Infusionsoft' :   var mailerId = 7;
-                                break;
-            case 'iContact' :   var mailerId = 8;
-                                break;
-            case 'MailPoet' :   var mailerId = 9;
-                                break;
-            case 'Pardot' :     var mailerId = 10;
-                                break;
-            case 'Custom List': var mailerId = 99;
-                                break;
-                            
+            case 'Aweber' : var mailerId = 3;
+                            break;                                
         }
         
         if(inputCampaignName === undefined){
@@ -341,7 +307,7 @@ function wpcbValidateForm(){
             //Adds style tags for Custom CSS
             jQuery('.wpcb_template_main').before('<style></style>');
             
-             $('#input_campaign_name').ddslick({
+            $('#input_campaign_name').ddslick({
                 width: 300,
                 selectText: "Select a campaing/list."
             });
@@ -475,9 +441,9 @@ function wpcbValidateForm(){
                 if(wpcbValidateForm()){
                 
                     $(this).attr('disabled','disabled').val(wpcbRTBC.updatingBtn);
-                    
+
                     var all_customizations = templateFields;
-                    
+
                     var data = {
                         action: 'update_box_customizations',
                         all_customizations: all_customizations,
@@ -509,27 +475,24 @@ function wpcbValidateForm(){
             
             window.boxwidth = $('.wpcb_stick_this').width();
             var $wpcbStickThis = $('.wpcb_stick_this');
-                $(window).scroll(function(){
-                    if($('.wpcb_box_preview_stick').is(':checked')){
-                        var window_top = $(window).scrollTop();
-                        var $wpcbStickThisOffset = $('.wpcb_stick_this_offset');
-                        if($wpcbStickThisOffset.length){
-                            var div_top = $wpcbStickThisOffset.offset().top;
-                        }
-                        if (window_top > div_top) {
-                            $wpcbStickThis.css('width',window.boxwidth);
-                            $wpcbStickThis.addClass('wpcb_stick');
-                        } else {
-                            $wpcbStickThis.removeClass('wpcb_stick');
-                        }
+            $(window).scroll(function(){
+                if($('.wpcb_box_preview_stick').is(':checked')){
+                    var window_top = $(window).scrollTop();
+                    var $wpcbStickThisOffset = $('.wpcb_stick_this_offset');
+                    if($wpcbStickThisOffset.length){
+                        var div_top = $wpcbStickThisOffset.offset().top;
                     }
-                    else{
+                    if (window_top > div_top) {
+                        $wpcbStickThis.css('width',window.boxwidth);
+                        $wpcbStickThis.addClass('wpcb_stick');
+                    } else {
                         $wpcbStickThis.removeClass('wpcb_stick');
                     }
-                });
-            
-
-
+                }
+                else{
+                    $wpcbStickThis.removeClass('wpcb_stick');
+                }
+            });
         });
 
 

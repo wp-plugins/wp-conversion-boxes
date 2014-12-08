@@ -1,6 +1,6 @@
 <?php
 
-static $wpcb_template_type = 'email-optin';
+static $wpcb_template_type = 'call-to-action';
 
 // Defaults
 
@@ -64,13 +64,14 @@ $wpcb_default_fields['use_heading'] = true;
 $wpcb_default_fields['use_content'] = true;
 $wpcb_default_fields['use_image'] = true;
 $wpcb_default_fields['use_input'] = true;
-  
+
+     
 ?>
 
 
 <style>
     
-    .wpcb_template_main_<?php echo $box_id; ?>{
+    .wpcb_template_main{
         
         background-color: <?php echo $wpcb_default_fields['box_container_bg_color']; ?>;
         width: <?php echo $wpcb_default_fields['box_container_width']; ?>;
@@ -88,12 +89,12 @@ $wpcb_default_fields['use_input'] = true;
         
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_heading{
+    .wpcb_template_main .wpcb_box_heading{
         background-color: <?php echo $wpcb_default_fields['heading_bg_color']; ?>;
         padding-top: 0px;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_heading_text{
+    .wpcb_template_main .wpcb_box_heading_text{
         font-family:    '<?php echo $wpcb_default_fields['heading_font_familiy']; ?>', serif;
         font-size:      <?php echo $wpcb_default_fields['heading_font_size']; ?>;
         line-height:    <?php echo $wpcb_default_fields['heading_line_height']; ?>;
@@ -104,17 +105,17 @@ $wpcb_default_fields['use_input'] = true;
         margin: 0;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_media_container{
+    .wpcb_template_main .wpcb_box_media_container{
         display: inline-block;
         width: <?php echo $wpcb_default_fields['image_width']; ?>;
         height: <?php echo $wpcb_default_fields['image_height']; ?>;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_content_container{
+    .wpcb_template_main .wpcb_box_content_container{
         
     }    
     
-    .wpcb_template_main_<?php echo $box_id; ?> input.wpcb_input_fields{
+    .wpcb_template_main input.wpcb_input_fields{
         width: <?php echo $wpcb_default_fields['input_width']; ?>;
         line-height: 36px;
         margin-bottom: 5px;
@@ -125,7 +126,7 @@ $wpcb_default_fields['use_input'] = true;
         font-size:  <?php echo $wpcb_default_fields['input_font_family']; ?>;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_image{
+    .wpcb_template_main .wpcb_box_image{
         width: 100%;
         height: 100%;
         padding: 0px;
@@ -135,23 +136,23 @@ $wpcb_default_fields['use_input'] = true;
             
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_media_center{
+    .wpcb_template_main .wpcb_box_media_center{
         display: block;
         margin: 0 auto;
         padding: 20px 0 0px 0;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_media_right{
+    .wpcb_template_main .wpcb_box_media_right{
         float: right;
         padding: 20px 0px 0px 30px;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_media_left{
+    .wpcb_template_main .wpcb_box_media_left{
         float: left;
         padding: 20px 30px 0px 0px;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_content{
+    .wpcb_template_main .wpcb_box_content{
         font-family:    <?php echo $wpcb_default_fields['content_font_familiy']; ?>;
         font-size:      <?php echo $wpcb_default_fields['content_font_size']; ?>;
         line-height:    <?php echo $wpcb_default_fields['content_line_height']; ?>;
@@ -160,11 +161,11 @@ $wpcb_default_fields['use_input'] = true;
         padding: 20px 0px;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_button_div{
+    .wpcb_template_main .wpcb_box_button_div{
         text-align: <?php echo $wpcb_default_fields['button_align']; ?>;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?>.wpcb_template_main .wpcb_box_button_div .wpcb_box_button{
+    .wpcb_template_main .wpcb_box_button_div a.wpcb_box_button, .wpcb_template_main .wpcb_box_button_div button.wpcb_box_button{
         font-family:    <?php echo $wpcb_default_fields['button_text_font_familiy']; ?>;
         font-size:      <?php echo $wpcb_default_fields['button_text_font_size']; ?>;
         color:          <?php echo $wpcb_default_fields['button_text_color']; ?>;
@@ -174,14 +175,14 @@ $wpcb_default_fields['use_input'] = true;
         padding: 10px 15px;
     }
     
-    .wpcb_template_main_<?php echo $box_id; ?> <?php echo $wpcb_default_fields['button_type_css']; ?>
+    <?php echo $wpcb_default_fields['button_type_css']; ?>
     
     <?php echo (isset($wpcb_default_fields['custom_css'])) ? $wpcb_default_fields['custom_css'] : ""; ?>
     
 </style>
 
 
-<div class="wpcb_template_main wpcb_template_main_<?php echo $box_id; ?> <?php echo $wpcb_settings_data['box_fade_in']." ".$wpcb_settings_data['box_make_sticky']; ?>" data-fadetime="<?php echo $wpcb_settings_data['box_fade_in_time']; ?>" data-boxid="<?php echo $box_id; ?>" data-boxname="<?php echo $box_name; ?>">
+<div class="wpcb_template_main <?php echo $wpcb_settings_data['box_fade_in']." ".$wpcb_settings_data['box_make_sticky']; ?>" data-fadetime="<?php echo $wpcb_settings_data['box_fade_in_time']; ?>">
     <div class="wpcb_box_all_content_container">
         <div class="wpcb_box_content_container">    
             <div class="wpcb_box_heading">
@@ -197,7 +198,7 @@ $wpcb_default_fields['use_input'] = true;
                 <input class="wpcb_input_fields" id="wpcb_name" value="" placeholder="<?php echo $wpcb_default_fields['input_name_placeholder']; ?>" />
                 <input class="wpcb_input_fields" id="wpcb_email" value="" placeholder="<?php echo $wpcb_default_fields['input_email_placeholder']; ?>" />
                 <button id="wpcb_box_button_<?php echo $box_id; ?>" class="wpcb_box_button <?php echo $wpcb_default_fields['button_type']; ?>"><?php echo $wpcb_default_fields['button_text']; ?></button>
-                <div class="wpcb_mailer_data" data-mailer-id="<?php echo $wpcb_default_fields['input_mailer_id']; ?>" data-campaign-name="<?php echo $wpcb_default_fields['input_campaign_name']; ?>" data-redirect-url="<?php echo $wpcb_default_fields['input_redirect_url']; ?>"></div>
+                <div class="wpcb_mailer_data" data-mailer-id="<?php echo $wpcb_default_fields['input_mailer_id']; ?>" data-campaign-name="<?php echo $wpcb_default_fields['input_campaign_name']; ?>"></div>
             </div>
         </div>    
         <div style="clear: both;"></div>

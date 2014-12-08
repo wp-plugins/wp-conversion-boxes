@@ -21,7 +21,6 @@ class WPCB_Tracker {
                 $this->wpcb_tracking_table = $wpcb_public->get_tracking_table_name();
                 
                 add_action( 'wp_ajax_flush_stats', array( $this, 'flush_stats') );
-                add_action( 'wp_ajax_fetch_graph_data', array( $this, 'fetch_graph_data') );
                 
                 add_action( 'wp_ajax_update_visit_type', array( $this, 'update_visit_type') );
                 add_action( 'wp_ajax_nopriv_update_visit_type', array( $this, 'update_visit_type') );
@@ -47,15 +46,21 @@ class WPCB_Tracker {
          * JavaScript files.
 	 ***************************************/
 	public function enqueue_scripts() {
-                wp_enqueue_script('jquery-ui-datepicker');
-                wp_enqueue_script( 'tracker-js', PUBLIC_ASSETS_URL.'js/tracker.js' , '', '', true);
-                wp_localize_script( 'tracker-js', 'wpcbLocalizedData', array(
+                $tracker_data = array(
 		    'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		    'nonce' => wp_create_nonce( 'ajax-example-nonce' ),
-                    'gaTracking' => get_option('wpcb_ga_tracking')
-		) );
-                wp_enqueue_script( 'jQuery-visible', PUBLIC_ASSETS_URL.'js/jquery.visible.min.js');
-	}   
+                    'processingHead' => __('Processing... Please Wait!' , 'wp-conversion-boxes'),
+                    'processingBody' => __('It\'s taking longer than usual. Please hang on for a few moments...' , 'wp-conversion-boxes'),
+                    'successHead' => __('Success!' , 'wp-conversion-boxes'),
+                    'successBody' => __('Thank you for subscribing.' , 'wp-conversion-boxes'),
+                    'errorHead' => __('Error!' , 'wp-conversion-boxes'),
+                    'errorBody' => __('There was an error submitting your info.' , 'wp-conversion-boxes')
+		);
+                wp_enqueue_script('jquery-ui-datepicker');
+                wp_enqueue_script( 'tracker-js', PUBLIC_ASSETS_URL.'/js/tracker.js');
+                wp_localize_script( 'tracker-js', 'trackerDefaultData', $tracker_data);
+                wp_enqueue_script( 'jQuery-visible', PUBLIC_ASSETS_URL.'/js/jquery.visible.min.js');
+	}     
         
 	/***************************************
 	 * Flush stats of a particular box
@@ -93,7 +98,8 @@ class WPCB_Tracker {
                 die();
         }
         
-        /***************************************
+        
+	/***************************************
 	 * Log new visit to DB
 	 ***************************************/        
         
@@ -115,7 +121,7 @@ class WPCB_Tracker {
                 
                 $host = gethostbyaddr($_SERVER['REMOTE_ADDR']);
                 
-                //get visited page
+                //get fisited page
                 
                 $visitedpage = 'http';
                 if( isset($_SERVER["HTTPS"]) ) {
@@ -143,6 +149,7 @@ class WPCB_Tracker {
                     $wpdb->insert($wpcb_tbl_name , array('ip' => $ip, 'host' => $host, 'visitdate' => $visitdate, 'visitedpage' => $visitedpage, 'referring' => $referring, 'visittype' => $visittype, 'box_id' => $box_id));
                     echo '<div class="wpcb-tracker" data-id="'.$wpdb->insert_id.'" data-boxid="'.$box_id.'" data-visitedpage="'.$visitedpage.'" data-visittype="'.$visittype.'"></div>';
                 }
+
 
         }
 
@@ -184,106 +191,6 @@ class WPCB_Tracker {
                 $wpdb->get_results("SELECT ip FROM $wpcb_tbl_name WHERE box_id = ' $box_id ' AND (visittype = 'click' OR visittype = 'optin')");
                 $uniqueboxviews = $wpdb->num_rows;
                 return $uniqueboxviews;
-        }
-        
-        // Get Stats for Graph
-        
-        function get_stats_for_graph($box_id, $startdate, $enddate){
-            
-            $startingdate = DateTime::createFromFormat('m/d/Y H:i:s', $startdate.' 00:00:00');
-            $startdate = date_format($startingdate, 'Y-m-d H:i:s');
-            
-            $endingdate = DateTime::createFromFormat('m/d/Y H:i:s', $enddate.' 23:59:59');
-            $enddate = date_format($endingdate, 'Y-m-d H:i:s');
-            
-            global $wpdb;
-            $wpcb_tbl_name = $this->wpcb_tracking_table;
-            
-            $uniquevisitors = $wpdb->get_results("SELECT visitdate, COUNT(DISTINCT ip) as uniquevisitors FROM $wpcb_tbl_name WHERE box_id = ' $box_id ' AND visitdate BETWEEN ' $startdate ' AND ' $enddate ' GROUP BY DATE(visitdate)","ARRAY_A");
-            $pageviews = $wpdb->get_results("SELECT visitdate, COUNT(*) as pageviews FROM $wpcb_tbl_name WHERE box_id = ' $box_id ' AND visitdate BETWEEN ' $startdate ' AND ' $enddate ' GROUP BY DATE(visitdate)","ARRAY_A");
-            $boxviews = $wpdb->get_results("SELECT visitdate, COUNT(*) as boxviews FROM $wpcb_tbl_name WHERE box_id = ' $box_id ' AND visittype != 'visit' AND visitdate BETWEEN ' $startdate ' AND ' $enddate ' GROUP BY DATE(visitdate)","ARRAY_A");
-            $conversions = $wpdb->get_results("SELECT visitdate, COUNT(*) as conversions FROM $wpcb_tbl_name WHERE box_id = ' $box_id ' AND (visittype = 'click' OR visittype = 'optin') AND visitdate BETWEEN ' $startdate ' AND ' $enddate ' GROUP BY DATE(visitdate)","ARRAY_A");
-
-            $finaluniquevisitors = "";
-            $finalpageviews = "";
-            $finalboxviews = "";
-            $finalconversions = "";
-
-            while($startdate <= $enddate){
-                
-                $uniquevisitors = ($uniquevisitors) ? $uniquevisitors : array(array( 'visitdate' => '', 'uniquevisitors' => 0 ));
-                $pageviews = ($pageviews) ? $pageviews : array(array( 'visitdate' => '', 'pageviews' => 0 ));
-                $boxviews = ($boxviews) ? $boxviews : array(array( 'visitdate' => '', 'boxviews' => 0 ));
-                $conversions = ($conversions) ? $conversions : array(array( 'visitdate' => '', 'conversions' => 0 ));
-                
-                foreach($uniquevisitors as $uniquevisitor){
-                    $uniquevisitor['visitdate'] = date("Y-m-d 00:00:00",strtotime($uniquevisitor['visitdate']));
-
-                    if(in_array($startdate,$uniquevisitor)){
-                        $visitdate = strtotime($uniquevisitor['visitdate'])*1000;
-                        $newuniquevisitor = "[".$visitdate.",".$uniquevisitor['uniquevisitors']."],";
-                        break;
-                    }
-                    else{
-                        $newtime = strtotime($startdate)*1000;
-                        $newuniquevisitor = "[".$newtime.",0],";
-                    }
-                }
-                foreach($pageviews as $pageview){
-                    $pageview['visitdate'] = date("Y-m-d 00:00:00",strtotime($pageview['visitdate']));
-                    if(in_array($startdate,$pageview)){
-                        $visitdate = strtotime($pageview['visitdate'])*1000;
-                        $newpageview = "[".$visitdate.",". $pageview['pageviews']."],";
-                        break;
-                    }
-                    else{
-                        $newtime = strtotime($startdate)*1000;
-                        $newpageview = "[".$newtime.",0],";
-                    }
-                }
-                foreach($boxviews as $boxview){
-                    $boxview['visitdate'] = date("Y-m-d 00:00:00",strtotime($boxview['visitdate']));
-
-                    if(in_array($startdate,$boxview)){
-                        $visitdate = strtotime($boxview['visitdate'])*1000;
-                        $newboxview = "[".$visitdate .",". $boxview['boxviews']."],";
-                        break;
-                    }
-                    else{
-                        $newtime = strtotime($startdate)*1000;
-                        $newboxview = "[".$newtime.",0],";
-                    }
-
-                }
-                foreach($conversions as $conversion){
-                    $conversion['visitdate'] = date("Y-m-d 00:00:00",strtotime($conversion['visitdate']));
-
-                    if(in_array($startdate,$conversion)){
-                        $visitdate = strtotime($conversion['visitdate'])*1000;
-                        $newconversion = "[".$visitdate.",". $conversion['conversions']."],";
-                        break;
-                    }
-                    else{
-                        $newtime = strtotime($startdate)*1000;
-                        $newconversion = "[".$newtime.",0],";
-                    }
-                }
-
-                $finalpageviews = $finalpageviews.$newpageview;
-                $finaluniquevisitors = $finaluniquevisitors.$newuniquevisitor;
-                $finalboxviews = $finalboxviews.$newboxview;
-                $finalconversions = $finalconversions.$newconversion;
-
-                $startdate = date("Y-m-d H:i:s", strtotime("{$startdate} + 1 day"));
-            }
-
-            $graphdata['pageviews'] = $finalpageviews;
-            $graphdata['uniquevisitors'] = $finaluniquevisitors;
-            $graphdata['boxviews'] = $finalboxviews;
-            $graphdata['conversions'] = $finalconversions;
-            
-            
-            return $graphdata;
         }
         
         //show total uniqe visitors to date(parameter: (int) number of months). For example: 3 will start counting from 3 monhts before today.
@@ -374,32 +281,26 @@ class WPCB_Tracker {
         //display visit details (parameter (int) number 
         //of last visits to display of a particular box_id
         
-        function visit_details($box_id, $startdate, $enddate) {
-            
-                $startingdate = DateTime::createFromFormat('m/d/Y H:i:s', $startdate.' 00:00:00');
-                $startdate = date_format($startingdate, 'Y-m-d H:i:s');
-
-                $endingdate = DateTime::createFromFormat('m/d/Y H:i:s', $enddate.' 23:59:59');
-                $enddate = date_format($endingdate, 'Y-m-d H:i:s');
+        function visit_details($box_id) {
 
                 global $wpdb;
                 $wpcb_tbl_name = $this->wpcb_tracking_table;                        
                 $results = $wpdb->get_results("SELECT visitedpage, count(DISTINCT ip) AS uniques, "
                         . "COUNT(*) AS pageviews, SUM(CASE WHEN visittype != 'visit' THEN 1 ELSE 0 END) AS boxviews, "
                         . "SUM(CASE WHEN visittype = 'click' or visittype = 'optin' THEN 1 ELSE 0 END) AS conversions "
-                        . "FROM $wpcb_tbl_name WHERE visitdate BETWEEN ' $startdate ' AND ' $enddate ' AND box_id = ' $box_id '"
-                        . "GROUP BY visitedpage ORDER BY pageviews DESC LIMIT 0,100 ");
+                        . "FROM $wpcb_tbl_name WHERE visitdate!='' AND box_id = ' $box_id ' "
+                        . "GROUP BY visitedpage ORDER BY pageviews DESC LIMIT 0, 7");
 
                 if ($wpdb->num_rows != 0) {
-                    echo '<table id="wpcb_stats_list_table" class="wp-list-table widefat fixed posts wpcb_stats_table">
+                    echo '<table class="wp-list-table widefat fixed posts wpcb_stats_table">
                             <thead>
                                 <tr>
-                                    <th style="text-align:left;" width="35%">Page Url</th>
-                                    <th>Unique Visits</th>                                    
-                                    <th>Pageviews</th>
-                                    <th>Box Views</th>
-                                    <th>Conversions</th>
-                                    <th>Conversion Rate</th>
+                                    <th style="text-align:left;" width="35%">'. __('Page Url','wp-conversion-boxes') .'</th>
+                                    <th>'. __('Unique Visits','wp-conversion-boxes') .'</th>                                    
+                                    <th>'. __('Pageviews','wp-conversion-boxes') .'</th>
+                                    <th>'. __('Box Views','wp-conversion-boxes') .'</th>
+                                    <th>'. __('Conversions','wp-conversion-boxes') .'</th>
+                                    <th>'. __('Conversion Rate','wp-conversion-boxes') .'</th>
                                 </tr>
                             </thead>';
                     echo '<tbody>';
@@ -424,7 +325,7 @@ class WPCB_Tracker {
                     echo    '</tbody>
                             <tfoot>
                                 <tr>
-                                    <th style="text-align:left;" width="35%">Total</th>
+                                    <th style="text-align:left;" width="35%">'. __('Total','wp-conversion-boxes') .'</th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -435,25 +336,8 @@ class WPCB_Tracker {
                          </table>';
                 }
                 else{
-                    echo "<h3>No data to show!</h3>";
+                    echo "<h3>". __('No data to show!','wp-conversion-boxes') ."</h3>";
                 }
-                
-        }
-        
-        
-        // Fetch data for AJAX call
-        
-        public function fetch_graph_data(){
-            $box_id = $_POST['box_id'];
-            $startdate = $_POST['startdate'];
-            $enddate = $_POST['enddate'];
-            $fetcheddata = $this->get_stats_for_graph($box_id, $startdate, $enddate);
-            ob_start();
-                $this->visit_details($box_id, $startdate, $enddate);
-                $fetcheddata['listdata'] = ob_get_contents();  // get buffer content
-            ob_end_clean();
-            print json_encode($fetcheddata);
-            die();
         }
 
 }

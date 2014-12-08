@@ -72,6 +72,7 @@
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   //background: #0088cc !important;
+  border-bottom: 2px solid #005e8e;
   cursor: pointer;
   //-webkit-box-shadow: inset 0 -5px #005e8e !important;
   //box-shadow: inset 0 -5px #005e8e !important;
@@ -196,3 +197,10 @@
     box-shadow: 0 0 5px #999;
 }
 
+
+#wpadminbar .ab-top-menu > li.menupop#wp-admin-bar-upgrade_to_wpcb_pro > .ab-item{
+    background-image: url('../imgs/icon.ico');
+    background-repeat: no-repeat;
+    background-position: 0.15em 50%;
+    padding-left: 22px;
+}

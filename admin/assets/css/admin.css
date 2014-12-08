@@ -577,6 +577,21 @@ wpcb_button_flat:hover {
     margin-left: 10px;
     display: inline-block;
 }
+.categories_selector{
+    display: inline-block;
+    max-width: 200px;
+    min-height: 42px;
+    max-height: 150px;
+    margin: 10px 0px 10px 30px;
+    overflow: auto;
+    padding: 0 .9em;
+    border: solid 1px #dfdfdf;
+    background-color: #fdfdfd;
+}
+
+.categories_selector{
+    display: none;
+}
 
 .posts_pages_input{
     display: none;
@@ -687,18 +702,18 @@ wpcb_button_flat:hover {
     background-color: #F7F7F7;
 }
 
-.wpcb_more_less{
-
+.wpcb_launch_popup{
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
 }
 
-.wpcb_more_block{
-    height: 100px;
-    overflow: hidden;    
-}
-
-.wpcb_more_block ul{
-    list-style: square;
-    padding-left: 30px;
+.wpcb_launch_popup:hover{
+    background-color: #F7F7F7;
 }
 
 .cancel-on-png, .cancel-off-png, .star-on-png, .star-off-png, .star-half-png {
@@ -750,6 +765,7 @@ wpcb_button_flat:hover {
 
 .wpcb_mailers_list{
     margin: 0px 5px 0px 0px;
+    padding: 0px;
 }
 
 .wpcb_mailer_li{
@@ -828,7 +844,8 @@ wpcb_button_flat:hover {
 
 .wpcb-menu-ul{
     margin: 0px;
-    width: 250px;
+    padding: 0px;
+    width: 260px;
 }
 
 .wpcb-menu-left{
@@ -840,41 +857,8 @@ wpcb_button_flat:hover {
     margin-left: 10px;
 }
 
-.wpcb_stats_loading{
-    background-color: #F7F7F7;
-    height: 430px;
-    display: none;
-}
-
-.wpcb_stats_loading img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 212px;
-    height: 14px;
-    margin-left: -106px;
-    margin-top: -7px;
-}
-
-.wpcb_stats_list_loading{
-    background-color: #F7F7F7;
-    height: 200px;
-    display: none;
-}
-
-.wpcb_stats_list_loading img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 212px;
-    height: 14px;
-    margin-left: -106px;
-    margin-top: -7px;
-}
-
-.postbox h3{
+.wpcb_no_ab_test{
     cursor: pointer;
-    border-bottom: 1px solid #eee;
 }
 
 .dd-options{
@@ -884,6 +868,12 @@ wpcb_button_flat:hover {
 
 .dd-options li{
     margin-bottom: 0px;
+}
+
+.wpcb_conversion_type{
+    font-size: 12px; 
+    display: block; 
+    line-height: 13px;
 }
 
 .wpcb_after_finish{
@@ -934,14 +924,40 @@ wpcb_button_flat:hover {
     margin: 10px 0px;
 }
 
-.wpcb_conversion_type{
-    font-size: 12px; 
-    display: block; 
-    line-height: 13px;
+.wpcb_promo_popup{
+    width: 700px;
+    height: 500px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    display: none;
 }
 
-textarea.wpcb_fullwidth{
-    height: 100px;
+#wpcb_promo_popup_head{
+    padding: 10px 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#wpcb_promo_popup_body{
+    height: 345px;
+    padding: 10px 30px;
+    overflow: auto;
+}
+    
+#wpcb_promo_popup_foot{
+    text-align: right;
+    padding: 15px 30px;
+    border-top: 1px solid #e5e5e5;
+}
+
+#wpcb_promo_popup_body ul{
+    list-style: square;
+    padding-left: 30px;
 }
 
 .wpcb_template_main input.wpcb_input_fields{
@@ -972,39 +988,6 @@ textarea.wpcb_fullwidth{
     -webkit-box-shadow: 0 0 5px #999;
     -moz-box-shadow: 0 0 5px #999;
     box-shadow: 0 0 5px #999;
-}
-
-.wpcb_active_label{
-    color: green;
-}
-
-#wpcb_deactivate_license{
-    color: #a00;
-    cursor: pointer;
-}
-
-#wpcb_deactivate_license:hover{
-    color: red;
-    text-decoration: none;
-    border: none;
-}
-
-.wpcb_dont_show_renew{
-    float: right;
-}
-
-.wpcb_custom_template{
-    display: inline-block;
-    margin: 0 15px 15px 0;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    width: 45%;
-    padding: 8px;
-}
-
-.wpcb_custom_template img{
-    width: 100%;
-    height: 160px;
 }
 
 /*------------------------------------------------*/
@@ -1070,4 +1053,11 @@ z-index: 999;
     width: 100px;
     text-align: center;
     display: none;
+}
+
+#wpadminbar .ab-top-menu > li.menupop#wp-admin-bar-upgrade_to_wpcb_pro > .ab-item{
+    background-image: url('../imgs/icon.ico');
+    background-repeat: no-repeat;
+    background-position: 0.15em 50%;
+    padding-left: 22px;
 }

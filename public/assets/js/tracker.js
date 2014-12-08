@@ -1,3 +1,26 @@
+// All tracking related JS
+
+function wpcbCreateCookie(name,value,hours) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(hours*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function wpcbReadCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
 // Updated 1.2.2.1
 
 function sticky_relocate() {
@@ -15,129 +38,91 @@ function sticky_relocate() {
     }
 }
 
-function wpcbUpdatedVisitType(newvisittype, wpcbBoxId){
+function wpcbUpdatedVisitType(newvisittype){
         
         var $wpcbTracker = jQuery('.wpcb-tracker');
         
-        $wpcbTracker.each(function(){
-            if(jQuery(this).data('boxid') == wpcbBoxId){
-                var trackerId = jQuery(this).data('id');
-                var data = {
-                    action: 'update_visit_type',
-                    id: trackerId,
-                    newvisittype: newvisittype
-                };
-                jQuery.post(wpcbLocalizedData.ajaxurl, data, function(response) {
-                    if(response){
-                        $wpcbTracker.data('visittype', newvisittype);
-                    }
-                });
-                return false;
+        var data = {
+            action: 'update_visit_type',
+            id: $wpcbTracker.data('id'),
+            newvisittype: newvisittype
+        };
+        
+        jQuery.post(trackerDefaultData.ajaxurl, data, function(response) {
+            if(response){
+                $wpcbTracker.data('visittype', newvisittype);
             }
         });
-        
+
 }
 
 (function ( $ ) {
 	"use strict";
 
 	$(function () {
+                
+                //$(document).ready(function(){
                 // Updated 1.2.5.1
                     
-                window.boxLoadDone = new Array();
-                window.boxwidth = jQuery('.box_make_sticky').outerWidth();
-
-                // Check if the box isvisible directly
-
-                var $wpcbTemplateMain = $('.wpcb_template_main');
+                    window.boxLoadDone = '';
+                    window.boxwidth = jQuery('.box_make_sticky').outerWidth();
+                    
+                    // Check if the box isvisible directly
+                            
+                    var $wpcbTemplateMain = $('.wpcb_template_main');
         
                 if($wpcbTemplateMain.length > 0){
+        
+                    if($wpcbTemplateMain.visible() && window.boxLoadDone != 'done'){
+                        wpcbUpdatedVisitType('boxview');
+                        var fadeTime = $('.wpcb_fade_in').data('fadetime');
+                        $('.wpcb_fade_in').fadeOut(fadeTime * 500).fadeIn(fadeTime * 500);
+                        window.boxLoadDone = 'done';
+                    }
                     
-                    $wpcbTemplateMain.each(function(){
-                        var wpcbBoxId = $(this).data('boxid')
-                        if($(this).visible() && jQuery.inArray(wpcbBoxId, boxLoadDone) == -1){
-                            if($(this).siblings('.wpcb_box_slide_in').length > 0){
-                                $(this).hide();
-                                $(this).show('slide', {direction: $(this).siblings('.wpcb_box_slide_in').data('from')}, $(this).siblings('.wpcb_box_slide_in').data('speed'));
-                            }
-                            var fadeTime = $(this).data('fadetime');
-                            $(this).fadeOut(fadeTime * 500).fadeIn(fadeTime * 500);
-                            if(wpcbLocalizedData.gaTracking == 0){
-                                wpcbUpdatedVisitType('boxview',wpcbBoxId);
-                            }
-                            else{
-                                var wpcbBoxName = $(this).data('boxname');
-                                ga('send', 'event', wpcbBoxName, 'Boxviews', window.location.pathname );
-                            }
-                            boxLoadDone.push(wpcbBoxId);
-                        }
-                    });
-
                     // When box is shown
-
+                    
                     $(window).scroll(function(){
-
-                        $wpcbTemplateMain.each(function(){
-                            var wpcbBoxId = $(this).data('boxid')
-                            if($(this).visible() && jQuery.inArray(wpcbBoxId, boxLoadDone) == -1){
-                                if($(this).siblings('.wpcb_box_slide_in').length > 0){
-                                    $(this).hide();
-                                    $(this).show('slide', {direction: $(this).siblings('.wpcb_box_slide_in').data('from')}, $(this).siblings('.wpcb_box_slide_in').data('speed'));
-                                }
-                                var fadeTime = $(this).data('fadetime');
-                                $(this).fadeOut(fadeTime * 500).fadeIn(fadeTime * 500);
-                                if(wpcbLocalizedData.gaTracking == 0){
-                                    wpcbUpdatedVisitType('boxview',wpcbBoxId);
-                                }
-                                else{
-                                    var wpcbBoxName = $(this).data('boxname');
-                                    ga('send', 'event', wpcbBoxName, 'Boxviews', window.location.pathname );
-                                }
-                                boxLoadDone.push(wpcbBoxId);
-                            }
-                        });
-
+                        
+                        if($wpcbTemplateMain.visible() && window.boxLoadDone != 'done'){
+                            wpcbUpdatedVisitType('boxview');
+                            var fadeTime = $('.wpcb_fade_in').data('fadetime');
+                            $('.wpcb_fade_in').fadeOut(fadeTime * 500).fadeIn(fadeTime * 500);
+                            window.boxLoadDone = 'done';
+                        }
+                        
                         sticky_relocate();
-
+                        
                     });
-
+                    
                     $(document).on('click','.wpcb_box_button', function(){
-                        var wpcbBoxId = this.id.match(/\d+/);
-                        var wpcbBoxName = $(this).closest('.wpcb_template_main').data('boxname');
                         var href = $(this).attr("href");
                         if(href === undefined){
-                            var wpcbName = $(this).closest('.wpcb_template_main').find('#wpcb_name').val();
-                            var wpcbEmail = $(this).closest('.wpcb_template_main').find('#wpcb_email').val();
-                            var redirect_url = $(this).closest('.wpcb_template_main').find('.wpcb_mailer_data').data('redirect-url');
-                            var wpcbMailerID = $(this).closest('.wpcb_template_main').find('.wpcb_mailer_data').data('mailer-id');
-                            var wpcbCampaignID = $(this).closest('.wpcb_template_main').find('.wpcb_mailer_data').data('campaign-name');
-                            var wpcbTrakcerID = $(this).closest('.wpcb_template_main').siblings('.wpcb-tracker').data('id');
-                            var boxProcessingHead = $(this).closest('.wpcb_template_main').siblings('.wpcb-after-optin-messages').data('box-processing-head');
-                            var boxTakingTooLong = $(this).closest('.wpcb_template_main').siblings('.wpcb-after-optin-messages').data('box-taking-too-long');
-                            var boxSuccessHead = $(this).closest('.wpcb_template_main').siblings('.wpcb-after-optin-messages').data('box-success-head');
-                            var boxSuccessDesc = $(this).closest('.wpcb_template_main').siblings('.wpcb-after-optin-messages').data('box-success-desc');
-                            var boxErrorHead = $(this).closest('.wpcb_template_main').siblings('.wpcb-after-optin-messages').data('box-error-head');
-                            var boxErrorDesc = $(this).closest('.wpcb_template_main').siblings('.wpcb-after-optin-messages').data('box-error-desc');
-
+                            var wpcbName = $('#wpcb_name').val();
+                            var wpcbEmail = $('#wpcb_email').val();
+                            var wpcbMailerID = $('.wpcb_mailer_data').data('mailer-id');
+                            var wpcbCampaignID = $('.wpcb_mailer_data').data('campaign-name');
+                            var wpcbTrakcerID = $('.wpcb-tracker').data('id');
+                            
                             if(wpcbName === '' && wpcbEmail === ''){
-                                $(this).closest('.wpcb_template_main').find('#wpcb_name').css('border','2px red solid');
-                                $(this).closest('.wpcb_template_main').find('#wpcb_email').css('border','2px red solid');
+                                $('#wpcb_name').css('border','2px red solid');
+                                $('#wpcb_email').css('border','2px red solid');
                             }
                             else if(wpcbName === ''){
-                                $(this).closest('.wpcb_template_main').find('#wpcb_name').css('border','2px red solid');
-                                $(this).closest('.wpcb_template_main').find('#wpcb_email').attr('style','');
+                                $('#wpcb_name').css('border','2px red solid');
+                                $('#wpcb_email').attr('style','');
                             }
                             else if(wpcbEmail === ''){
-                                $(this).closest('.wpcb_template_main').find('#wpcb_email').css('border','2px red solid');
-                                $(this).closest('.wpcb_template_main').find('#wpcb_name').attr('style','');
+                                $('#wpcb_email').css('border','2px red solid');
+                                $('#wpcb_name').attr('style','');
                             }
                             else{
-                                $(this).closest('.wpcb_template_main').find('#wpcb_name').attr('style','');
-                                $(this).closest('.wpcb_template_main').find('#wpcb_email').attr('style','');
+                                $('#wpcb_name').attr('style','');
+                                $('#wpcb_email').attr('style','');
                                 var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                                 if(regex.test(wpcbEmail)){
-                                    var divHeight = $('.wpcb_template_main_'+wpcbBoxId).height();
-                                    $('.wpcb_template_main_'+wpcbBoxId).html('<script>setTimeout("jQuery(\'.wpcb-processing-body\').show()", 7000);</script><div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+boxProcessingHead+'</div><div class="wpcb-loading"></div><div class="wpcb-processing-body" style="display: none;"><p>'+boxTakingTooLong+'</p></div></div>');
+                                    var divHeight = $wpcbTemplateMain.height();
+                                    $wpcbTemplateMain.html('<script>setTimeout("jQuery(\'.wpcb-processing-body\').show()", 7000);</script><div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+trackerDefaultData.processingHead+'</div><div class="wpcb-loading"></div><div class="wpcb-processing-body" style="display: none;">'+trackerDefaultData.processingBody+'</div></div>');
                                     var data1 = {
                                         action: 'add_new_contact',
                                         name: wpcbName,
@@ -146,37 +131,29 @@ function wpcbUpdatedVisitType(newvisittype, wpcbBoxId){
                                         campaign_id: wpcbCampaignID,
                                         tracker_id : wpcbTrakcerID
                                     };
-                                    jQuery.post(wpcbLocalizedData.ajaxurl, data1, function(theresponse) {
-                                        var response = theresponse.substr(theresponse.length - 1);
+                                    jQuery.post(trackerDefaultData.ajaxurl, data1, function(response) {
+                                        response = response.charAt(response.length - 1);
                                         if(response == 1){
-                                            $('.wpcb_template_main_'+wpcbBoxId).html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+boxSuccessHead+'</div><div class="wpcb-processing-body">'+boxSuccessDesc+'</div></div>');
-                                            if(wpcbLocalizedData.gaTracking != 0){
-                                                ga('send', 'event', wpcbBoxName, 'Optins', window.location.pathname );
-                                            }
-                                            if(redirect_url)
-                                                window.location.href = redirect_url;
+                                            $wpcbTemplateMain.html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+trackerDefaultData.successHead+'</div><div class="wpcb-processing-body">'+trackerDefaultData.successBody+'</div></div>');
                                         }
                                         else{
-                                            $('.wpcb_template_main_'+wpcbBoxId).html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+boxErrorHead+'</div><div class="wpcb-processing-body">'+boxErrorDesc+'</div></div>');
+                                            $wpcbTemplateMain.html('<div class="wpcb-processing" style="height: '+divHeight+'px;"><div class="wpcb-processing-head">'+trackerDefaultData.errorHead+'</div><div class="wpcb-processing-body">'+trackerDefaultData.errorBody+'</div></div>');
                                         }
                                     });                                    
                                 }
                                 else{
-                                    $(this).closest('.wpcb_template_main').find('#wpcb_email').css('border','2px red solid');
+                                    $('#wpcb_email').css('border','2px red solid');
                                 }
                             }
                         }
                         else{
-                            if(wpcbLocalizedData.gaTracking == 0){
-                                wpcbUpdatedVisitType('click',wpcbBoxId);
-                            }
-                            else{
-                                ga('send', 'event', wpcbBoxName, 'Clicks', window.location.pathname );
-                            }
+                            wpcbUpdatedVisitType('click');
                         }
-
+                        
                     });
                 }
+                    
+                //});
                 
 	});
 

@@ -50,6 +50,10 @@ function getValues(){
         templateFields['input_width'] = jQuery('#input_width').val();
         templateFields['input_name_placeholder'] = jQuery('#input_name_placeholder').val();
         templateFields['input_email_placeholder'] = jQuery('#input_email_placeholder').val();
+        if(jQuery('#input_remove_name_field').is(':checked'))
+            templateFields['input_remove_name_field'] = 1;
+        else
+            templateFields['input_remove_name_field'] = 0;
     }
     
     if(jQuery('#image_url').val()){
@@ -108,6 +112,14 @@ function applyChanges(){
         jQuery('.wpcb_input_fields').css('width',templateFields['input_width']);
         jQuery('#wpcb_name').attr('placeholder',templateFields['input_name_placeholder']);
         jQuery('#wpcb_email').attr('placeholder',templateFields['input_email_placeholder']);
+        
+        if(jQuery('#input_remove_name_field').is(':checked')){
+            jQuery('.wpcb_input_fields#wpcb_name').hide();
+        }
+        else{
+            jQuery('.wpcb_input_fields#wpcb_name').show();
+        }
+            
     }
     
     if(jQuery('#image_url').val()){
@@ -324,8 +336,13 @@ function wpcbValidateForm(){
             });
 
             $(document).on('change',"#button_target_blank", function(){
-                getValues();    
-                applyChanges();                
+                getValues();
+                applyChanges();
+            });
+            
+            $('#input_remove_name_field').change(function(){
+                getValues();
+                applyChanges();
             });
             
             $("input[type='radio']").change(function(){

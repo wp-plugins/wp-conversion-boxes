@@ -261,6 +261,7 @@ class WPCB_Public {
                 add_option('wpcb_all_posts', 0 , '', 'yes' );
                 add_option('wpcb_all_pages', 0 , '', 'yes' );
                 add_option('wpcb_enable_credit_link', 0 , '', 'yes' );
+                add_option('wpcb_database_version', 1 );
 	}
         
         /***************************************
@@ -272,10 +273,14 @@ class WPCB_Public {
         public function update_table_structure() {
                 global $wpdb;
                 $wpcb_tbl = $wpdb->prefix.'wp_conversion_boxes';
-                $all_columns = $wpdb->get_row("SELECT * FROM $wpcb_tbl");
                 
-                if(!isset($all_columns->box_status)){
-                    $wpdb->query("ALTER TABLE $wpcb_tbl ADD box_status INT(1) NOT NULL DEFAULT 1");
+                if(get_option('wpcb_database_version') != 1){
+                    $all_columns = $wpdb->get_row("SELECT * FROM $wpcb_tbl");
+                    if(!isset($all_columns->box_status)){
+                        $wpdb->query("ALTER TABLE $wpcb_tbl ADD box_status INT(1) NOT NULL DEFAULT 1");
+                        if($done != false)
+                            update_option('wpcb_database_version', 1); // From original 0;
+                    }
                 }
         }
 

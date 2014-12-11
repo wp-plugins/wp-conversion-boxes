@@ -73,6 +73,13 @@ if(isset($wpcb_default_fields['video_align'])){
     }
 }
 
+if(isset($wpcb_default_fields['input_remove_name_field']) && $wpcb_default_fields['input_remove_name_field'] == 1){
+    $input_remove_name_field = "checked";
+}
+else{
+    $input_remove_name_field = "";
+}
+
 ?>
 
 <?php if(isset($wpcb_default_fields['use_heading']) && $wpcb_default_fields['use_heading'] == true){ ?>
@@ -238,6 +245,14 @@ if(isset($wpcb_default_fields['video_align'])){
                             </th>
                             <td>
                                     <?php $this->font_families_dropdown_list($wpcb_default_fields['input_font_family'], 'input'); ?>
+                            </td>
+                    </tr>
+                    <tr>
+                            <th scope="row"><label for=""><?php _e('Remove Name Field','wp-conversion-boxes'); ?></label>
+                            </th>
+                            <td>
+                                    <label><input type="checkbox" name="input_remove_name_field" id="input_remove_name_field" <?php echo $input_remove_name_field; ?>> Remove Name Field</label>
+                                    <p class="wpcb_help_block"><?php _e("This will remove the Name field from the box and only Email field will be shown.",'wp-conversion-boxes'); ?></p>
                             </td>
                     </tr>
                     <tr>

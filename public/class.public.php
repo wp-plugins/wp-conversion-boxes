@@ -63,8 +63,6 @@ class WPCB_Public {
 		 * Init functions
 		 ***************************************/
                 add_action( 'init' , array ($this, 'update_table_structure') );
-                
-                add_action( 'admin_bar_menu', array( $this , 'toolbar_link_to_upgrade' ) , 999 );
 
 	}
         
@@ -524,7 +522,7 @@ class WPCB_Public {
                         include_once(plugin_dir_path(dirname(__FILE__)).'admin/mailers/mailchimp-api.php');
                         $mailchimp = new MCAPI($mailchimp_api_key);
                         $merge_vars = array('FNAME' => $name, 'LNAME' => '');
-                        $retval = $mailchimp->listSubscribe($campaign_id, $email, $merge_vars);
+                        $retval = $mailchimp->listSubscribe($campaign_id, $email, $merge_vars, 'html', true, true);
                         if($mailchimp->errorCode){
                             echo 0;
                         }
@@ -590,12 +588,4 @@ class WPCB_Public {
             die();
         }
 
-        function toolbar_link_to_upgrade( $wp_admin_bar ) {
-                $args = array(
-                        'id'    => 'upgrade_to_wpcb_pro',
-                        'title' => 'Upgrade To WP Conversion Boxes Pro',
-                        'href'  => 'http://wpconversionboxes.com/'
-                );
-                $wp_admin_bar->add_node( $args );
-        }
 }

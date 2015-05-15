@@ -7,7 +7,7 @@
     <div class="inside">
         <p>Upgrade to WP Conversion Boxes Pro for higher converting email optin and call-to-action boxes.</p>
         <p>With the pro version of the plugin, you get all the following features:</p>
-        <a class="wpcb_launch_popup" onclick="jQuery('.wpcb_promo_popup').lightbox_me({centered: true});">More...</a>
+        <a class="wpcb_launch_popup" onclick="jQuery('.wpcb_promo_popup').lightbox_me({centered: true});">Read More...</a>
     </div>
 </div>
 
@@ -42,7 +42,7 @@ else{?>
         
         <h3>More Template Designs</h3>
         <ul>
-                <li>30+ extra template designs. New templates being added regularly.</li>
+                <li>45+ extra template designs. New templates being added regularly.</li>
                 <li>Design your own templates with our template engine. Complete documentation provided.</li>
                 <li>Or, ask us to design a template for you for, starting just $49!</li>
         </ul>
@@ -99,7 +99,7 @@ else{?>
         <p class="p1"><i>Email Integration:</i></p>
 
         <ul class="ol1">
-                <li class="li1">Integration with all major email service providers - GetResponse, Aweber, MailChimp, Constant Contact, Campaign Monitor, Mad Mimi, Pardot (Salesforce), Infusionsoft and iContact. New mailers added regularly.</li>
+                <li class="li1">Integration with all major email service providers - <b>Feedburner GetResponse, Aweber, MailChimp, Constant Contact, Campaign Monitor, Mad Mimi, Pardot (Salesforce), Infusionsoft and iContact</b>. New mailers added regularly.</li>
                 <li class="li1">Integration with all major email marketing WordPress Plugins - MailPoet. New email marketing plugins added regularly.</li>
                 <li class="li1">Can't find your email service provider above? No worries. The plugin also comes with Custom HTML Forms for your Lists. If your email service provider provides a HTML sign-up form for your lists, the plugin will automagically extract important information from it and create a Custom List for you which you can use with your boxes!</li>
         </ul>
@@ -122,11 +122,11 @@ else{?>
                 <li>Free 1 year access to our support ticketing system.</li>
                 <li>Free 1 year automatic upgrades to every new version of the plugin.</li>
         </ul>
-        <p>And a lot more... <a href='<?php echo WPCB_WEBSITE_URL; ?>' target="_blank">Visit site for more info &gt;&gt;</a></p>
+        <p>And a lot more... <a href='http://wpconversionboxes.com/?utm_source=sidebar&utm_medium=link&utm_campaign=WPCB' target="_blank">Visit site for more info &gt;&gt;</a></p>
         
     </div>
     <div id="wpcb_promo_popup_foot">
-        <a class="button button-primary" target="_blank" href="http://wpconversionboxes.com">Upgrade Now!</a>
+        <a class="button button-primary" target="_blank" href="http://wpconversionboxes.com/?utm_source=sidebar&utm_medium=link&utm_campaign=WPCB">Upgrade Now!</a>
         <button class="button button-primary" onclick="jQuery(this).parent().trigger('close');">Later</button>
     </div>
 </div>

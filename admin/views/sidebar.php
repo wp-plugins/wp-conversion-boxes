@@ -6,7 +6,7 @@
     <h3 style="cursor: pointer;"><span>Upgrade to Pro</span></h3>
     <div class="inside">
         <p>Upgrade to WP Conversion Boxes Pro for higher converting email optin and call-to-action boxes.</p>
-        <p>With the pro version of the plugin, you get all the following features:</p>
+        <p> Watch the demo video below to take a look inside...</p>
         <a class="wpcb_launch_popup" onclick="jQuery('.wpcb_promo_popup').lightbox_me({centered: true});">Read More...</a>
     </div>
 </div>
@@ -38,7 +38,11 @@ else{?>
         <span class="fa fa-close wpcb_publish_close" style="position: absolute; top: 20px; right: 20px; cursor: pointer;" onclick="jQuery(this).parent().trigger('close');"></span>
     </div>
     <div id="wpcb_promo_popup_body">
-        <p>Upgrade to WP Conversion Boxes Pro for more power over the design, tracking and testing of your email optin and call-to-action boxes. With the pro version of the plugin, you get:</p>
+        <p>Upgrade to WP Conversion Boxes Pro for more power over the design, tracking and testing of your email optin and call-to-action boxes.</p><p>Watch the demo video below to take a look inside the WP Conversion Boxes Pro:</p>
+        
+        <center><iframe style="border: 5px solid #ddd;" width="320" height="180" src="https://www.youtube.com/embed/y45eY2BwFYI" frameborder="0" allowfullscreen></iframe></center>
+        
+        <p>Here's all the great features you get with WP Conversion Boxes Pro:</p>
         
         <h3>More Template Designs</h3>
         <ul>
@@ -99,7 +103,7 @@ else{?>
         <p class="p1"><i>Email Integration:</i></p>
 
         <ul class="ol1">
-                <li class="li1">Integration with all major email service providers - <b>Feedburner GetResponse, Aweber, MailChimp, Constant Contact, Campaign Monitor, Mad Mimi, Pardot (Salesforce), Infusionsoft and iContact</b>. New mailers added regularly.</li>
+                <li class="li1">Integration with all major email service providers - <b>Feedburner, GetResponse, Aweber, MailChimp, Constant Contact, Campaign Monitor, Mad Mimi, Pardot (Salesforce), Infusionsoft and iContact</b>. New mailers added regularly.</li>
                 <li class="li1">Integration with all major email marketing WordPress Plugins - MailPoet. New email marketing plugins added regularly.</li>
                 <li class="li1">Can't find your email service provider above? No worries. The plugin also comes with Custom HTML Forms for your Lists. If your email service provider provides a HTML sign-up form for your lists, the plugin will automagically extract important information from it and create a Custom List for you which you can use with your boxes!</li>
         </ul>

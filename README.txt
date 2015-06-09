@@ -1,10 +1,10 @@
 === WP Conversion Boxes ===
 Contributors: ramshengale
 Donate link: http://wpconversionboxes.com/donate/
-Tags: call to action, Calls to Action, optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, email list, list building, wp conversion boxes
+Tags: optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, call to action, Calls to Action, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
-Tested up to: 4.2
-Stable tag: 2.5.1
+Tested up to: 4.2.2
+Stable tag: 2.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,16 +12,9 @@ Easily Create High Converting Email Optin and Call-to-Action Boxes With Attentio
 
 == Description ==
 
-= New Updates =
+= WP Conversion Boxes - Same Traffic. More Conversions. =
 
-* Added new box type : 2-Step Optin Link (Link-to-Lightbox Email Optin Box) + 7 More Free Templates!
-* Added 2 New Email Integration Options - MailPoet Newsletter WordPress plugin and Feedburner.
-* Fixed broken CSS of some templates.
-* Other Important bug fixes.
-
-= Same Traffic. More Conversions. =
-
-WP Conversion Boxes helps you to easily create high converting email optin and call-to-action boxes (using our conversion optimized box templates) that you can put almost anywhere on your blog.
+WP Conversion Boxes (aka WPCB) helps you to easily create high converting email optin and call-to-action boxes (using our conversion optimized box templates) that you can put almost anywhere on your blog.
 
 Easily boost your conversion rates using our advanced attention grabbing box settings to grab user attention for more conversions and use the inbuilt conversion tracking system to track every important stats of your email optin and call to action boxes.
 
@@ -49,17 +42,17 @@ There are a lot features that set WP Conversion Boxes apart from competition:
 
     Cool, isn't it? We're not shoving an email optin box directly in the visitor's face, but hiding it behind a beautiful looking link. Research have shown that 2-step optin links can drastically boost your conversion by upto 600%!
 
-*   **Advanced Template System** - If you already have a designed conversion box on your blog, you don’t have to change it’s design to use WP Conversion Boxes! With our advanced templating system, you can easily create custom templates for WP Conversion Boxes. So now, you get to keep your initial design but with a more advance managing and conversion tracking system.
-
-    You may design the template on your own or you may get the template made for WP Conversion Boxes for just $49 by contacting us.
-
-    The plugin also includes advanced real-time template customiser which can be used to edit almost every aspect of your template without the need to ever touch the code!
-
 *   **High Impact Box Settings** - Grab the visitor’s attention with flashing conversion box. WP Conversion Boxes comes with an option to flash the box when user scrolls down and reaches the box. This flashing of the box grabs the visitor’s attention, increasing the chances of conversion.
 
     The plugin also comes with an option to make the conversion box sticky. This causes the box to stick to the top of the window when the visitor scrolls past the box, again helping you to grab the attention of the visitors.
 
 *   **Video Enabled Conversion Boxes** - Create call to action and email subscription boxes with embedded video for more impact. Having a short video in your conversion boxes can help you boost your conversions many folds.
+
+*   **Advanced Template System** - If you already have a designed conversion box on your blog, you don’t have to change it’s design to use WP Conversion Boxes! With our advanced templating system, you can easily create custom templates for WP Conversion Boxes. So now, you get to keep your initial design but with a more advance managing and conversion tracking system.
+
+    You may design the template on your own or you may get the template made for WP Conversion Boxes for just $49 by contacting us.
+
+    The plugin also includes advanced real-time template customiser which can be used to edit almost every aspect of your template without the need to ever touch the code!
 
 = WP Conversion Boxes Features List =
 
@@ -156,6 +149,10 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 10. You can now Export/Import boxes from one blog to another. Or from FREE version to Pro version.
 
 == Changelog ==
+
+= 2.5.2 =
+* Released 9th June, 2015
+* Fixed email service provider conflicts.
 
 = 2.5.1 =
 * Released 12th May, 2015

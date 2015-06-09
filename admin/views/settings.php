@@ -18,7 +18,9 @@ if(isset($_POST['mailer']) and isset($_POST['apikey']) and isset($_POST['connect
     switch($mailer_id){
 
         //GetResponse
-        case 1: include_once(plugin_dir_path(dirname(__FILE__)).'mailers/getresponse-api.php');
+        case 1: if (!class_exists('jsonRPCClient')) {
+                    include_once(plugin_dir_path(dirname(__FILE__)).'mailers/getresponse-api.php');
+                }
                     $getresponse = new jsonRPCClient('http://api2.getresponse.com');
                     try{
                         $name = array();
@@ -43,7 +45,9 @@ if(isset($_POST['mailer']) and isset($_POST['apikey']) and isset($_POST['connect
                 break;
         
         // MailChimp
-        case 2: include_once(plugin_dir_path(dirname(__FILE__)).'mailers/mailchimp-api.php');
+        case 2: if (!class_exists('MCAPI')) {
+                    include_once(plugin_dir_path(dirname(__FILE__)).'mailers/mailchimp-api.php');
+                }
                 $mailchimp = new MCAPI($api_key);       
                 $allmclists = $mailchimp->lists();
                 if($allmclists['total'] == 0){
@@ -61,7 +65,9 @@ if(isset($_POST['mailer']) and isset($_POST['apikey']) and isset($_POST['connect
                 break;
                 
         // Aweber                
-        case 3: include_once(plugin_dir_path(dirname(__FILE__)).'mailers/aweber_api/aweber_api.php');
+        case 3: if (!class_exists('AWeberAPI')) {
+                    include_once(plugin_dir_path(dirname(__FILE__)).'mailers/aweber_api/aweber_api.php');
+                }
                 try {
                         $aweber_data = AWeberAPI::getDataFromAweberID($api_key);
                         $aweber = new AWeberAPI($aweber_data[0], $aweber_data[1]);

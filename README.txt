@@ -1,4 +1,4 @@
-=== WP Conversion Boxes ===
+=== WPCB - Email Optin & CTA Boxes ===
 Contributors: ramshengale
 Donate link: http://wpconversionboxes.com/donate/
 Tags: optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, call to action, Calls to Action, email list, list building, wp conversion boxes

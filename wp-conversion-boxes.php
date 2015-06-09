@@ -6,7 +6,7 @@
  * @copyright 2014 Ram Shengale
  *
  * @wordpress-plugin
- * Plugin Name:       WPCB - Email Optin & CTA Boxes
+ * Plugin Name:       WP Conversion Boxes - Email Optin & CTA Boxes
  * Plugin URI:        http://wpconversionboxes.com
  * Description:       Same Traffic. More Conversions. Replace your CTAs and email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
  * Version:           2.5.2

@@ -306,7 +306,7 @@ class WPCB_Admin {
 
                 die();
         } 
-        
+    
         // Handle AJAX call to update box using ID  
         
         public function update_box_template() {
@@ -315,8 +315,15 @@ class WPCB_Admin {
                     'box_type' => $_POST['box_type'],
                     'box_template' => $_POST['box_template']
                 );
-                $wpcb_if_done = $wpdb->update($this->wpcb_boxes_table, $wpcb_data, array('id' => $_POST['box_id']), array('%d','%s'), array('%d'));
                 
+                if($_POST['delete_customizations'] == '1'){
+                    $wpcb_data['box_customizations'] = 'defaults';
+                    $wpcb_if_done = $wpdb->update($this->wpcb_boxes_table, $wpcb_data, array('id' => $_POST['box_id']), array('%d','%s','%s'), array('%d'));
+                }
+                else{
+                    $wpcb_if_done = $wpdb->update($this->wpcb_boxes_table, $wpcb_data, array('id' => $_POST['box_id']), array('%d','%s'), array('%d'));    
+                }
+            
                 if($wpcb_if_done === FALSE)
                     echo 0;
                 else
@@ -527,7 +534,7 @@ class WPCB_Admin {
         public function wpcb_box_list($selected_box,$list_type,$list_id){
             global $wpdb;
             $wpcb_tbl_name = $this->wpcb_boxes_table;
-            $boxes_list = $wpdb->get_results("SELECT id,box_name FROM $wpcb_tbl_name ORDER BY id ASC","ARRAY_A");
+            $boxes_list = $wpdb->get_results("SELECT id,box_name,box_type FROM $wpcb_tbl_name ORDER BY id ASC","ARRAY_A");
             
             if($list_type == 'default') $first_option = __('None','wp-conversion-boxes');
             else $first_option = __('Use Default','wp-conversion-boxes');
@@ -535,14 +542,16 @@ class WPCB_Admin {
             echo "<select name='".$list_id."' id='".$list_id."'>";
             echo "<option value='0'>".$first_option."</option>";
             foreach($boxes_list as $box){
-                if($selected_box == $box['id']){
-                    $is_selected = "selected";
-                }
+                if($box['box_type'] != '5'){
+                    if($selected_box == $box['id']){
+                        $is_selected = "selected";
+                    }
 
-                else{
-                    $is_selected = "";
+                    else{
+                        $is_selected = "";
+                    }
+                    echo "<option value='".$box['id']."' ".$is_selected.">".stripcslashes($box['box_name'])."</option>";   
                 }
-                echo "<option value='".$box['id']."' ".$is_selected.">".stripcslashes($box['box_name'])."</option>";
             }
             echo "</select>";
         }

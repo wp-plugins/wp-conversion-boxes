@@ -390,6 +390,9 @@ class WPCB_Public {
                             break;
                 case 5 :    if($attributes['style'] != 'image'){
                                 $anchor = $attributes['text'];
+                                if($attributes['style'] == 'none'){
+                                    $attributes['style'] = 'none_none';
+                                }
                                 $style = explode('_', $attributes['style']);
                             }
                             else{
@@ -418,13 +421,13 @@ class WPCB_Public {
          ******************************/
 
         public function run_shortcode($atts) {
-            extract(shortcode_atts(array(
+            $attributes = shortcode_atts(array(
                 'id' => 0,
                 'text' => 'Click Here',
-                'style' => 'None',
+                'style' => 'none',
                 'image_url' => 'http://'
-            ), $atts));
-            $this->show_the_box($id, $atts);
+            ), $atts);
+            $this->show_the_box($attributes['id'], $attributes);
             return ob_get_clean();
         }
 

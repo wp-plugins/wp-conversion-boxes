@@ -216,7 +216,10 @@
                         <tr>
                             <th scope="row" style="width: 200px;"><label for=""><?php _e('Generated Shortcode :','wp-conversion-boxes'); ?></label></th>
                             <td>
-                                <p><code class="wpcb_shortcode_code">[wpcb id="<?php echo $id; ?>"<span id="wpcb_shortcode_text"> text="Click Here"</span><span id="wpcb_shortcode_style"> style="none"</span><span id="wpcb_shortcode_img_url"></span>]</code></p>
+                                <p>
+                                    <code class="wpcb_shortcode_code">[wpcb id="<?php echo $id; ?>"<span id="wpcb_shortcode_text"> text="Click Here"</span><span id="wpcb_shortcode_style"> style="none"</span><span id="wpcb_shortcode_img_url"></span>]</code>
+                                    <input id="wpcb_shortcode_input" style="width: 100%;" />
+                                </p>
                                 <p class="description"><?php echo sprintf( __("You can place this 2-Step Optin Link almost anywhere on your blog using this shortcode.",'wp-conversion-boxes') , $id); ?></p>
                             </td>    
                         </tr>

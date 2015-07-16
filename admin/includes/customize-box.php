@@ -14,8 +14,8 @@ $wpcb_public = WPCB_Public::get_instance();
     }    
     else{
         $box_customizations['defaults'] = 'defaults';
-    }
-    
+    } 
+
     if($id and $box_type != null and $box_template != null){
         // Editing is on
 ?>

@@ -517,7 +517,7 @@ else{
 			<th scope="row"><label for=""><?php _e('Box container border','wp-conversion-boxes'); ?></label>
 			</th>
 			<td>
-                                <input type="text" name="box_container_border_color" id="box_container_border_color" data-default-color="<?php echo $wpcb_default_fields['box_container_border_color'] ?>" value="<?php echo $wpcb_default_fields['box_container_border_color'] ?>" class="wpcb_width50px"><label for="box_container_border_color"><?php _e('Border Color','wp-conversion-boxes'); ?></label><br />
+                <input type="text" name="box_container_border_color" id="box_container_border_color" data-default-color="<?php echo $wpcb_default_fields['box_container_border_color'] ?>" value="<?php echo $wpcb_default_fields['box_container_border_color'] ?>" class="wpcb_width50px"><label for="box_container_border_color"><?php _e('Border Color','wp-conversion-boxes'); ?></label><br />
 				<label for="box_container_border_width"><input type="text" name="box_container_border_width" id="box_container_border_width" value="<?php echo $wpcb_default_fields['box_container_border_width'] ?>" class="wpcb_width50px"> <?php _e('Border Size (Eg. 2px)','wp-conversion-boxes'); ?></label>
 			</td>
 		</tr>

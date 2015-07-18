@@ -10,7 +10,7 @@ if($wpcb_default_fields == '' or $wpcb_default_fields['defaults'] == 'defaults')
             'box_container_width' => '600px',
             'box_container_height' => '',
             'box_container_border_width' => '',
-            'box_container_border_size' => '',
+            'box_container_border_color' => '',
             'box_container_margin_top' => '',
             'box_container_margin_bottom' => '',
             'box_container_margin_left' => '',

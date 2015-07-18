@@ -9,8 +9,8 @@ if($wpcb_default_fields == '' or $wpcb_default_fields['defaults'] == 'defaults')
             'box_container_bg_color' => '#4B4B4B',
             'box_container_width' => '700px',
             'box_container_height' => '200px',
-            'box_container_border_width' => '',
-            'box_container_border_size' => '',
+            'box_container_border_width' => '7px',
+            'box_container_border_color' => '#fff',
             'box_container_margin_top' => '',
             'box_container_margin_bottom' => '',
             'box_container_margin_left' => '',
@@ -64,8 +64,6 @@ $wpcb_default_fields['use_heading'] = true;
 $wpcb_default_fields['use_content'] = true;
 $wpcb_default_fields['use_image'] = true;
 $wpcb_default_fields['use_input'] = true;
-
-     
 ?>
 
 
@@ -112,7 +110,7 @@ $wpcb_default_fields['use_input'] = true;
     }
     
     .wpcb_template_main_<?php echo $box_id; ?> .wpcb_box_content_container{
-        
+          display: table-cell;
     }    
     
     .wpcb_template_main_<?php echo $box_id; ?> input.wpcb_input_fields{

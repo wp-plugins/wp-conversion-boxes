@@ -1137,3 +1137,7 @@ a#wpcb_two_step_optin_link.wpcb_two_step_optin_link_orange{
     color: #fff;
     padding: 10px 20px;
 }
+
+#wpcb_shortcode_input{
+    display: none;
+}

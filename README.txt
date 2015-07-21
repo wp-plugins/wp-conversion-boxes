@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, call to action, Calls to Action, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 4.2.2
-Stable tag: 2.5.2
+Stable tag: 2.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -149,6 +149,18 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 10. You can now Export/Import boxes from one blog to another. Or from FREE version to Pro version.
 
 == Changelog ==
+
+= 2.6.1 =
+* Released 18th July, 2015
+* Added borders to all 2-Step Optin Link templates.
+* Fixed the issue of box border customization not saving.
+
+= 2.6 =
+* Released 16th July, 2015
+* Darkenned background color of popup in 2-Step Optin Links.
+* Fixed issue of changing template breaks the box design.
+* Fixed the 2-Step Optin Links shortode breaking html issue and showing notices.
+* Removed 2-Step Optin Links from Global Stettings options to make it manual only.
 
 = 2.5.2 =
 * Released 9th June, 2015

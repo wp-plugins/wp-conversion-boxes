@@ -217,15 +217,32 @@ function validateFieldsOnDocumentReady(){
             
             $(document).on('click','#update-box-template', function(){
                 
-                $(this).attr('disabled','disabled').val(wpcbAdmin.updatingWait);
-                
                 var dropdown_id = $(".wpcb_box_type_radio:checked").val();
+                var box_template = $("#wpcb_template_dropdown_"+dropdown_id+" option:selected").val();
+                var delete_customizations = '0';
+                
+                if(box_template == 0){
+                    alert('Please select a template first!');
+                    return false;
+                }
+                
+                if($(this).attr('wpcb_has_template') != '' && $(this).attr('wpcb_has_template') != box_template){
+                    if(!confirm('WARNING!\n\nChanging the template will delete all your previous box customization and text data for this box. We recommend creating a new box if you want to use a new template.\n\nPlease OK to proceed or Cancel to stop this action.')){
+                        return false;
+                    }
+                    else{
+                        var delete_customizations = '1';
+                    }
+                }
+                
+                $(this).attr('disabled','disabled').val(wpcbAdmin.updatingWait);
                 
                 var data = {
                     action: 'update_box_template',
                     box_type: $(".wpcb_box_type_radio:checked").val(),
-                    box_template: $("#wpcb_template_dropdown_"+dropdown_id+" option:selected").val(),
-                    box_id: parseInt($(this).attr('box_id'))
+                    box_template: box_template,
+                    box_id: parseInt($(this).attr('box_id')),
+                    delete_customizations: delete_customizations
                 };
 
                 $.post(ajaxurl, data, function(response) {
@@ -504,6 +521,10 @@ function validateFieldsOnDocumentReady(){
                 });
                 
                 $(document).on('input','#two_step_toptin_link_text', function(){
+                    
+                    $('.wpcb_shortcode_code').show();
+                    $('#wpcb_shortcode_input').hide();
+                    
                     if(this.value != ''){
                         $('#wpcb_two_step_optin_link').text(this.value);
                         $("#wpcb_shortcode_text").text(' text="'+this.value+'"');
@@ -515,6 +536,10 @@ function validateFieldsOnDocumentReady(){
                 });
                 
                 $(document).on('change','#two-step-optin-link-style', function(){
+                    
+                    $('.wpcb_shortcode_code').show();
+                    $('#wpcb_shortcode_input').hide();
+                    
                     if(this.value == 'image'){
                         $('#two_step_img').show();
                         $('#wpcb_two_step_optin_link').removeClass();
@@ -553,6 +578,14 @@ function validateFieldsOnDocumentReady(){
                             $("#wpcb_shortcode_text").text('');
                         }
                     }
+                });
+        
+                $(document).on('click','.wpcb_shortcode_code', function(){
+                    var shortcode = $(this).text();
+                    var shortcode_html = $(this).html();
+                    $(this).hide();
+                    $('#wpcb_shortcode_input').val(shortcode);
+                    $('#wpcb_shortcode_input').show();
                 });
 
         });

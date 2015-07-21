@@ -5,9 +5,8 @@
     $wpcb_the_row = $wpdb->get_row($wpdb->prepare("SELECT `box_type`,`box_template` from $wpcb_tbl_name WHERE id = %d",array($id)));
     $box_type = $wpcb_the_row->box_type;
     $box_template = $wpcb_the_row->box_template;
-
 ?>
-
+    
     <p><?php _e('Select the type of WP Conversion Box that you want to make:','wp-conversion-boxes'); ?></p>
     
     <div class='wpcb_box_type'>
@@ -130,7 +129,6 @@
         </div>
     </div>
 <div class="wpcb_nav_buttons_step_1">
-    <p><input type="submit" box_id="<?php echo $id; ?>" value="<?php _e('Save and Next','wp-conversion-boxes'); ?>" class="button button-primary" name="update-box-template" id="update-box-template"/></p>
+    <p><input type="submit" wpcb_has_template="<?php echo isset($box_template) ? $box_template : '';  ?>" box_id="<?php echo $id; ?>" value="<?php _e('Save and Next','wp-conversion-boxes'); ?>" class="button button-primary" name="update-box-template" id="update-box-template"/></p>
 </div>
-<p class="description"><?php _e("<b>NOTE: </b>If you come back later and change the selected template for this box, don't forget to Reset the box customizations by clicking the Reset button at the bottom of Customize Box page or else your design will look <del>screwed</del> broken.",'wp-conversion-boxes'); ?></p>
-<p class="description"><?php _e("<strong>NOTE 2: Need a custom box template?</strong> Send me your custom box template design and I'll make a template out of it for just $49. <a target='_blank' href='http://wpconversionboxes.com/order-custom-template/'>Hire me now</a>",'wp-conversion-boxes'); ?></p>
+<p class="description"><?php _e("<strong>NOTE: Need a custom box template?</strong> Send me your custom box template design and I'll make a template out of it for just $49. <a target='_blank' href='http://wpconversionboxes.com/order-custom-template/'>Hire me now</a>",'wp-conversion-boxes'); ?></p>

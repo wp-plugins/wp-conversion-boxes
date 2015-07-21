@@ -37,7 +37,7 @@
                 $name = stripcslashes($result->box_name);
                 $box_status = $result->box_status;
                 $box_type = $result->box_type;
-                $conversion_type = ($box_type == 1 || $box_type == 2 || $box_type == 5) ? "<span class='wpcb_conversion_type'>". __('Optins','wp-conversion-boxes') . "</span>" : "<span class='wpcb_conversion_type'>". __('Clicks','wp-conversion-boxes') . "</span>";
+                $conversion_type = ($box_type == 1 || $box_type == 2 || $box_type == 5 || $box_type == 6) ? "<span class='wpcb_conversion_type'>". __('Optins','wp-conversion-boxes') . "</span>" : "<span class='wpcb_conversion_type'>". __('Clicks','wp-conversion-boxes') . "</span>";
                 $pageviews = $wpcb_tracking->page_views($id);
                 $uniquevisitors = $wpcb_tracking->unique_visitors($id);
                 $uniqueboxviews = $wpcb_tracking->box_views($id);

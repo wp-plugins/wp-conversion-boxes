@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, call to action, Calls to Action, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 4.2.2
-Stable tag: 2.6.1
+Stable tag: 2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,17 @@ Easily Create High Converting Email Optin and Call-to-Action Boxes With Attentio
 = WP Conversion Boxes - Same Traffic. More Conversions. =
 
 WP Conversion Boxes (aka WPCB) helps you to easily create high converting email optin and call-to-action boxes (using our conversion optimized box templates) that you can put almost anywhere on your blog.
+
+With WP Converion Boxes, you can create:
+
+1. Email Optin Boxes
+2. Video Email Optin Boxes
+3. Call-to-Action Boxes
+4. Video Call-to-Action Boxes
+5. Timed Smart Popups
+6. Exit Smart Popups (Show optin box in a popup to abandonning users!)
+7. Scroll Triggered Smart Popups (Trigger's a popup when user scrolls past certain point on the page!)
+8. 2-Step Optin Links (You'll not find this feature in any FREE plugin in market!)
 
 Easily boost your conversion rates using our advanced attention grabbing box settings to grab user attention for more conversions and use the inbuilt conversion tracking system to track every important stats of your email optin and call to action boxes.
 
@@ -32,15 +43,23 @@ There are a lot features that set WP Conversion Boxes apart from competition:
 
     But with WP Conversion Boxes you can create as may variation of the boxes you want, specific to content of the posts/page where you put it. You can also have different boxes for different categories for targeting people with specific interests with specific box copies.
 
-*   **Track Your Conversions** - Know how many people visited the page containing your conversion box, the number of people who actually scrolled the page down and saw the box! and the number of people who actually clicked on your call to action or filled in their email address.
+*   **Smart Popups (New)** - Mostly available with Paid/Premium plugins, you can now create 3 different types of smart popups with WP Conversion Boxes:
 
-    Know specifically the boxes and posts/pages that are bringing you the most conversions and then use that data to optimise your call to action copy or use the same copy across your site or whatever you want to do with that useful data.
+    **Timed Popup** - Trigger the popup after a certain time period.
+        
+    **Scroll-triggered Popup** - Trigger the popup after a user scrolls past a certain point on the page.
+    
+    **Exit Popup** - Convert the users abandoning your site by triggering the popup when a visitor tries to leave your site.
 
 *   **2-Step Optin Link (New)** - Mostly available with Paid/Premium plugins, you can now create 2-Step Optin Links with WP Conversion Boxes for FREE!
 
     Create a 2-Step Optin Link conversion box as usual and paste the shortcode in your content or landing page. The shortcode will display a link with your desired call-to-action. When a user clicks this link, it'll open the email optin box you created, in a lightbox popup!
 
     Cool, isn't it? We're not shoving an email optin box directly in the visitor's face, but hiding it behind a beautiful looking link. Research have shown that 2-step optin links can drastically boost your conversion by upto 600%!
+
+*   **Track Your Conversions** - Know how many people visited the page containing your conversion box, the number of people who actually scrolled the page down and saw the box! and the number of people who actually clicked on your call to action or filled in their email address.
+
+    Know specifically the boxes and posts/pages that are bringing you the most conversions and then use that data to optimise your call to action copy or use the same copy across your site or whatever you want to do with that useful data.
 
 *   **High Impact Box Settings** - Grab the visitor’s attention with flashing conversion box. WP Conversion Boxes comes with an option to flash the box when user scrolls down and reaches the box. This flashing of the box grabs the visitor’s attention, increasing the chances of conversion.
 
@@ -149,6 +168,14 @@ Currently you can have only 1 conversion box on a page/post for it to work. You 
 10. You can now Export/Import boxes from one blog to another. Or from FREE version to Pro version.
 
 == Changelog ==
+
+= 2.7 =
+
+* Released 21th July, 2015
+* Added Close button in popups.
+* Added a brand new box type - Smart Popup Boxes!
+* Added 7 new templates for the new box type.
+* Lots of bug fixes.
 
 = 2.6.1 =
 * Released 18th July, 2015

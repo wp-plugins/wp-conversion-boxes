@@ -13,6 +13,22 @@
     $box_fade_in_time = (isset($box_settings['box_fade_in_time']) ? $box_settings['box_fade_in_time'] : '');
     $box_make_sticky = ((isset($box_settings['box_make_sticky']) && $box_settings['box_make_sticky'] == 1) ? 'checked' : '');
     
+    $wpcb_popup_type_radio = (isset($box_settings['wpcb_popup_type_radio'])) ? $box_settings['wpcb_popup_type_radio'] : 0;
+    $wpcb_popup_option_val = (isset($box_settings['wpcb_popup_option_val'])) ? $box_settings['wpcb_popup_option_val'] : 0;
+    $wpcb_popup_frequency = (isset($box_settings['wpcb_popup_frequency'])) ? $box_settings['wpcb_popup_frequency'] : 10;
+    
+    switch($wpcb_popup_type_radio){
+        case '1' :  $wpcb_popup_duration = $wpcb_popup_option_val;
+                    $wpcb_popup_scroll_percentage = 0;
+                    break;
+        case '3' :  $wpcb_popup_duration = 0;
+                    $wpcb_popup_scroll_percentage = $wpcb_popup_option_val;
+                    break;
+        default :   $wpcb_popup_duration = 0;
+                    $wpcb_popup_scroll_percentage = 0;
+                    break;
+    }
+    
     echo (isset($_GET['success']) && $_GET['success'] == 1) ? "<div class='updated'><p>".__("Box customizations updated successfully! Save the final box settings below and you'll have the box ready to use.","wp-conversion-boxes") ."<a href='' style='float:right;' onclick='jQuery(this).parent().parent().fadeOut(300).hide();return false;'>". __('Close','wp-conversion-boxes') ."</a></p></div>" : "";
     
 ?>
@@ -28,7 +44,7 @@
                             <p class="wpcb_help_block"><?php _e('Change the name of this conversion box.','wp-conversion-boxes'); ?></p>
                         </td>
                     </tr>
-                    <?php if($box_type != 5) : ?>
+                    <?php if($box_type != 5 && $box_type != 6) : ?>
                     <tr>
                         <th scope="row"><label for=""><?php _e('Box Fade In/Out Effect','wp-conversion-boxes'); ?></label></th>
                         <td>
@@ -45,13 +61,48 @@
                         </td>
                     </tr>
                     <?php endif; ?>
+                    
+                    <?php if($box_type == 6) : ?>
+                    <tr>
+                        <th scope="row"><label for=""><?php _e('How to Show this Smart Popup?','wp-conversion-boxes'); ?></label></th>
+                        <td>
+                            <div class='wpcb_popup_type'>
+                                <input type="radio" class="wpcb_popup_type_radio" id="wpcb_popup_1" name="wpcb_popup_type" value="1" <?php echo "checked"; ?>>
+                                    <label for="wpcb_popup_1" id="wpcb_popup_1_label"><?php _e('Timed Popup','wp-conversion-boxes'); ?></label>
+                                 <input type="radio" class="wpcb_popup_type_radio" id="wpcb_popup_2" name="wpcb_popup_type" value="2" <?php if($wpcb_popup_type_radio == '2') echo "checked"; ?>>
+                                    <label for="wpcb_popup_2" id="wpcb_popup_2_label"><?php _e('Exit Popup','wp-conversion-boxes'); ?></label>  
+                                 <input type="radio" class="wpcb_popup_type_radio" id="wpcb_popup_3" name="wpcb_popup_type" value="3" <?php if($wpcb_popup_type_radio == '3') echo "checked";?>>
+                                    <label for="wpcb_popup_3" id="wpcb_popup_3_label"><?php _e('Scroll-triggered Popup','wp-conversion-boxes'); ?></label>
+                            </div>    
+                                
+                            <div class="wpcb_popup_div wpcb_popup_type_1">
+                                <label for="wpcb_popup_duration"> <?php _e('Trigger popup after ','wp-conversion-boxes'); ?> <input style="width: 50px;" type="number" name="wpcb_popup_duration" id="wpcb_popup_duration" value="<?php echo $wpcb_popup_duration; ?>" /> <?php _e('seconds of the user visit.','wp-conversion-boxes'); ?></label>
+                                <p class="wpcb_help_block"><?php _e("Enter duration in seconds (eg. <b>10</b> seconds) after which the popup should be triggered and shown to the visitor.",'wp-conversion-boxes'); ?></p>
+                            </div>
+                            <div class="wpcb_popup_div wpcb_popup_type_2">
+                                <p class="wpcb_help_block"><?php _e("Popup will be triggered when someone tries to leave the website.",'wp-conversion-boxes'); ?></p>
+                            </div>
+                            <div class="wpcb_popup_div wpcb_popup_type_3">
+                                <label for="wpcb_popup_scroll_percentage"> <?php _e('Trigger popup after user scrolls ','wp-conversion-boxes'); ?> <input style="width: 50px;" type="number" name="wpcb_popup_scroll_percentage" id="wpcb_popup_scroll_percentage" value="<?php echo $wpcb_popup_scroll_percentage; ?>" /> <?php _e('% of the web page.','wp-conversion-boxes'); ?></label>
+                                <p class="wpcb_help_block"><?php _e("Enter value in percentage (0-100).",'wp-conversion-boxes'); ?></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for=""><?php _e('Smart Popup Frequency','wp-conversion-boxes'); ?></label></th>
+                        <td>
+                            <label for="wpcb_popup_frequency"><input style="width: 50px;" type="number" name="wpcb_popup_frequency" id="wpcb_popup_frequency" value="<?php echo $wpcb_popup_frequency; ?>" /> <?php _e('days.','wp-conversion-boxes'); ?></label>
+                            <p class="wpcb_help_block"><?php _e("Enter number of days (0-100) after which the popup will be shown again to the user after the first visit. Keep value 0 to show popup on every page view. Default value : 10 days.",'wp-conversion-boxes'); ?></p>
+                        </td>    
+                    </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>            
         </div>
     </div>
 
     
-    <?php if(isset($box_type) && ($box_type == 1 || $box_type == 2 || $box_type == 5)){ ?>
+    <?php if(isset($box_type) && ($box_type == 1 || $box_type == 2 || $box_type == 5 || $box_type == 6)){ ?>
         
         <div id="postbox" class="opaque5">
             <div class='postbox'>
@@ -111,7 +162,7 @@
 
     <div class="wpcb_after_finish">
         <div id="wpcb_after_finish_head">
-            <h1><?php _e('Conversion Box Created Successfully!','wp-conversion-boxes'); ?></h1>
+            <h1><?php ($box_type != 6) ? _e('Conversion Box Created Successfully!','wp-conversion-boxes') : _e('Smart Popup Created Successfully!','wp-conversion-boxes'); ?></h1>
             <span class="fa fa-close wpcb_publish_close" style="position: absolute; top: 20px; right: 20px; cursor: pointer;" onclick="jQuery(this).parent().trigger('close');"></span>
         </div>
         <div id="wpcb_after_finish_body">
@@ -125,19 +176,22 @@
                             <th scope="row" style="width: 200px;"><label for=""><?php _e('Global Placement :','wp-conversion-boxes'); ?></label></th>
                             <td>
                                 <ul>
-                                    <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="1" <?php echo $checked_1 ?>><?php _e('Place this box under all Posts and Pages (Sitewide).','wp-conversion-boxes'); ?></label></li>
-                                    <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="2" <?php echo $checked_2 ?>><?php _e('Place this box under all Posts.','wp-conversion-boxes'); ?></label></li>
-                                    <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="3" <?php echo $checked_3 ?>><?php _e('Place this box under all Pages.','wp-conversion-boxes'); ?></label></li>
+                                    <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="1" <?php echo $checked_1 ?>><?php ($box_type != 6) ? _e('Place this box under all Posts and Pages (Sitewide).','wp-conversion-boxes') : _e('Show this Smart Popup on all Posts and Pages (Sitewide).','wp-conversion-boxes'); ?></label></li>
+                                    <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="2" <?php echo $checked_2 ?>><?php ($box_type != 6) ? _e('Place this box under all Posts.','wp-conversion-boxes') : _e('Show this Smart Popup on all Posts.','wp-conversion-boxes'); ?></label></li>
+                                    <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="3" <?php echo $checked_3 ?>><?php ($box_type != 6) ? _e('Place this box under all Pages.','wp-conversion-boxes') : _e('Show this Smart Popup on all Pages.','wp-conversion-boxes'); ?></label></li>
                                     <li><label><input type="radio" name="wpcb_gloabal_placement" id="wpcb_gloabal_placement" value="0" <?php echo $checked_0 ?>><?php _e('Custom. (Keep this selected if you want to do custom placement using options below.)','wp-conversion-boxes'); ?></label></li>
                                 </ul>
-                                <p class="description"><?php echo sprintf( __("Place this box globally under all posts and pages. You can change this anytime in future by coming back to this page or using the <b>Sitewide Settings</b> on the <a target='_blank' href='%s'>Global Settings</a> page.",'wp-conversion-boxes') , admin_url( 'admin.php?page=' . $this->wpcb_settings_slug )); ?></p>
+                                <p class="description">
+                                    <?php echo ($box_type != 6) ? sprintf( __("Place this box globally under all posts and pages. You can change this anytime in future by coming back to this page or using the <b>Sitewide Settings</b> on the <a target='_blank' href='%s'>Global Settings</a> page.",'wp-conversion-boxes') , admin_url( 'admin.php?page=' . $this->wpcb_settings_slug ))
+                                            : sprintf( __("Show this Smart Popup globally on all posts and pages. You can change this anytime in future by coming back to this page or using the <b>Sitewide Settings</b> on the <a target='_blank' href='%s'>Global Settings</a> page.",'wp-conversion-boxes') , admin_url( 'admin.php?page=' . $this->wpcb_settings_slug ) ) ; ?>
                             </td>    
                         </tr>
                         <tr>
                             <th scope="row" style="width: 200px;"><label for=""><?php _e('Shortcode :','wp-conversion-boxes'); ?></label></th>
                             <td>
                                 <p><input type='text' value='[wpcb id="<?php echo $id; ?>"]' /></p>
-                                <p class="description"><?php echo sprintf( __("You can place this box almost anywhere on your blog using this shortcode. If you want to use this box inside your theme you can do so by pasting the following code there: <code>&lt;?php echo do_shortcode('[wpcb id=\"%d\"]'); ?&gt;</code>",'wp-conversion-boxes') , $id); ?></p>
+                                <p class="description"><?php echo ($box_type != 6) ? sprintf( __("You can place this box almost anywhere on your blog using this shortcode. If you want to use this box inside your theme you can do so by pasting the following code there: <code>&lt;?php echo do_shortcode('[wpcb id=\"%d\"]'); ?&gt;</code>",'wp-conversion-boxes') , $id)
+                                    : sprintf( __("Show this popup on any page/post by using this shortcode. To put it inside theme template use this code: <code>&lt;?php echo do_shortcode('[wpcb id=\"%d\"]'); ?&gt;</code>",'wp-conversion-boxes') , $id); ?></p>
                             </td>    
                         </tr>                    
                         <tr class="opaque5">
@@ -156,12 +210,14 @@
                                 <p class="description"><?php _e("<b>NOTE:</b> Entering post ID's above will override Global and Category Specific Placement settings for those post ID's.",'wp-conversion-boxes'); ?></p>
                             </td>    
                         </tr>
+                        <?php if($box_type != 6) : ?>
                         <tr class="opaque5">
                             <th scope="row" style="width: 200px;"><label for=""><?php _e('Sidebar Placement :','wp-conversion-boxes'); echo $upgrade_message; ?></label></th>
                             <td>
                                 <p class="description"><?php _e("You can also place this box in your sidebars using our widget on the <b>Widgets</b> page.",'wp-conversion-boxes'); ?></p>
                             </td>    
                         </tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             
@@ -203,7 +259,7 @@
                                 </p>
                                 <p id="two_step_img">
                                     <input id="two_step_image_url" type="text" name="image_url" placeholder="http://" value="" /> 
-                                    <input id="two_step_wpcb_img_upload" align="right" class="button" type="button" value="<?php _e('Upload Image','wp-conversion-boxes-pro'); ?>" />
+                                    <input id="two_step_wpcb_img_upload" align="right" class="button" type="button" value="<?php _e('Upload Image','wp-conversion-boxes'); ?>" />
                                 </p>
                             </td>    
                         </tr>

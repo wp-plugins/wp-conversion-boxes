@@ -23,6 +23,7 @@ class WPCB_Public {
         protected $template_directory_3 = 'call-to-action';
         protected $template_directory_4 = 'video-call-to-action';
         protected $template_directory_5 = '2-step-optin-link';
+        protected $template_directory_6 = 'smart-popup';
         
         protected $main_table = 'wp_conversion_boxes';
         protected $tracking_table = 'wpcb_tracking';
@@ -103,6 +104,8 @@ class WPCB_Public {
                 case 4: return $this->template_directory_4;
                         break;
                 case 5: return $this->template_directory_5;
+                        break;
+                case 6: return $this->template_directory_6;
                         break;
             }
             
@@ -239,9 +242,9 @@ class WPCB_Public {
                     box_status int(1) DEFAULT 1,
                     box_name VARCHAR(80) NOT NULL,
                     box_type int(9),
-                    box_template VARCHAR(40),
+                    box_template VARCHAR(120),
                     box_customizations longtext,
-                    box_settings VARCHAR(200),
+                    box_settings VARCHAR(350),
                     UNIQUE KEY id (id)
                 ) DEFAULT CHARSET=utf8;","%s");
                 
@@ -375,6 +378,11 @@ class WPCB_Public {
                 $wpcb_settings_data['box_fade_in_time'] = "0";
                 $wpcb_settings_data['box_make_sticky'] = "wpcb_nothing";
             }
+            
+            $wpcb_popup_type_radio = (isset($wpcb_box_settings['wpcb_popup_type_radio'])) ? $wpcb_box_settings['wpcb_popup_type_radio'] : 0;
+            $wpcb_popup_option_val = (isset($wpcb_box_settings['wpcb_popup_option_val'])) ? $wpcb_box_settings['wpcb_popup_option_val'] : 0;
+            $wpcb_popup_frequency = (isset($wpcb_box_settings['wpcb_popup_frequency'])) ? $wpcb_box_settings['wpcb_popup_frequency'] : 10;
+            
             ob_start();
             echo '<!--------------------------------------><!-- Conversion Box Made Using : -------><!-- WP Conversion Boxes - -------------><!-- http://wpconversionboxes.com --><!-------------------------------------->';
             echo '<div class="'. $wpcb_settings_data['box_make_sticky'].'_offset"></div>';
@@ -390,7 +398,7 @@ class WPCB_Public {
                             break;
                 case 5 :    if($attributes['style'] != 'image'){
                                 $anchor = $attributes['text'];
-                                if($attributes['style'] == 'none'){
+                                if($attributes['style'] == 'none' || $attributes['style'] == ''){
                                     $attributes['style'] = 'none_none';
                                 }
                                 $style = explode('_', $attributes['style']);
@@ -399,6 +407,10 @@ class WPCB_Public {
                                 $anchor = '<img src="'.$attributes['image_url'].'" />';
                             }
                             echo '<a id="wpcb_two_step_optin_link_'.$box_id.'" class="wpcb_button_'.$style[1].' wpcb_two_step_optin_link_'.$style[0].'">'.$anchor.'</a>';
+                            echo '<style>div.wpcb_template_main.wpcb_template_main_'.$box_id.'{display: none;}</style>';
+                            include(WPCB_TEMPLATE_DIR_PATH.$this->get_template_directory(5).'/'.$box_template.'/template.php');
+                            break;
+                case 6 :    echo '<div class="wpcb_popup_data" id="wpcb_popup_data_'.$box_id.'" data-popup-type="'.$wpcb_popup_type_radio.'" data-popup-val="'.$wpcb_popup_option_val.'" data-popup-frequency="'.$wpcb_popup_frequency.'"></div>';
                             echo '<style>div.wpcb_template_main.wpcb_template_main_'.$box_id.'{display: none;}</style>';
                             include(WPCB_TEMPLATE_DIR_PATH.$this->get_template_directory(5).'/'.$box_template.'/template.php');
                             break;
@@ -437,17 +449,23 @@ class WPCB_Public {
             $wpcb_default_box = get_option('wpcb_default_box');
             $wpcb_all_posts = get_option('wpcb_all_posts');
             $wpcb_all_pages = get_option('wpcb_all_pages');
+            
+            $attributes = array(
+                'text' => 'Click Here',
+                'style' => 'none',
+                'image_url' => 'http://'
+            );
 
             if($wpcb_all_posts == $wpcb_all_pages && $wpcb_all_posts != 0){
-                $this->show_the_box($wpcb_all_posts);
+                $this->show_the_box($wpcb_all_posts, $attributes);
             }else if($posttype == 'post' && $wpcb_all_posts != 0){
-                $this->show_the_box($wpcb_all_posts);
+                $this->show_the_box($wpcb_all_posts, $attributes);
             }
             else if($posttype == 'page' && $wpcb_all_pages != 0){
-                $this->show_the_box($wpcb_all_pages);
+                $this->show_the_box($wpcb_all_pages, $attributes);
             }
             else if($wpcb_default_box != 0){
-                $this->show_the_box($wpcb_default_box);
+                $this->show_the_box($wpcb_default_box, $attributes);
             }
             else {
                 ob_start();

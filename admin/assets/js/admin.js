@@ -29,6 +29,24 @@ function wpcbShowHideBoxTypes(wpcb_box_type) {
     }
 }
 
+function wpcbShowHidePopupTypes(wpcb_popup_type) {
+    switch(wpcb_popup_type){
+            case '1'  : jQuery('.wpcb_popup_div').hide();
+                        jQuery('.wpcb_popup_type_1').show();
+                        wpcbShowPreviewImageOnLoad(jQuery('.wpcb_popup_type_radio:checked').val());
+                        break;
+            case '2'  : jQuery('.wpcb_popup_div').hide();
+                        jQuery('.wpcb_popup_type_2').show();
+                        wpcbShowPreviewImageOnLoad(jQuery('.wpcb_popup_type_radio:checked').val());
+                        break;
+            case '3'  : jQuery('.wpcb_popup_div').hide();
+                        jQuery('.wpcb_popup_type_3').show();
+                        wpcbShowPreviewImageOnLoad(jQuery('.wpcb_popup_type_radio:checked').val());
+                        break;
+                        
+    }
+}
+
 function wpcbShowPreviewImageOnLoad(template_id){
     var screenshotUrl = jQuery('#wpcb_template_dropdown_'+template_id).find(':selected').attr("data-screenshot");
     if(jQuery('#wpcb_template_dropdown_'+template_id).find(':selected').val() != '0'){
@@ -98,6 +116,10 @@ function validateFieldsOnDocumentReady(){
                 // Show the selected box type div
                 
                 wpcbShowHideBoxTypes($('.wpcb_box_type_radio:checked').val());
+                
+                // Show the selected popup type div
+                
+                wpcbShowHidePopupTypes($('.wpcb_popup_type_radio:checked').val());
                 
                 validateFieldsOnDocumentReady();
                 
@@ -176,6 +198,13 @@ function validateFieldsOnDocumentReady(){
             $(document).on('click','.wpcb_box_type_radio', function(){
                     var wpcb_box_type = $(this).val();
                     wpcbShowHideBoxTypes(wpcb_box_type);
+            });
+            
+            //Popup type selector. Show/hide box types.
+            
+            $(document).on('click','.wpcb_popup_type_radio', function(){
+                    var wpcb_popup_type = $(this).val();
+                    wpcbShowHidePopupTypes(wpcb_popup_type);
             });
             
             // Create new box.
@@ -267,6 +296,8 @@ function validateFieldsOnDocumentReady(){
             
             $(document).on('click','#update-box-settings', function(){
                 
+                var box_id = parseInt(jQuery('#update-box-settings').attr('box_id'));
+                
                 $(this).attr('disabled','disabled').val(wpcbAdmin.updatingWait);
                 
                 // Box name @since 1.0.3
@@ -292,6 +323,25 @@ function validateFieldsOnDocumentReady(){
                 else{
                     var box_make_sticky = 0;
                 }
+                
+                var wpcb_popup_type_radio = $('.wpcb_popup_type_radio:checked').val();
+                
+                if(typeof wpcb_popup_type_radio !== 'undefined' && wpcb_popup_type_radio !== 0){
+                    switch(wpcb_popup_type_radio){
+                        case '1' :  var wpcb_popup_option_val = $('#wpcb_popup_duration').val();
+                                    break;
+                        case '2' :  var wpcb_popup_option_val = 0;
+                                    break;
+                        case '3' :  var wpcb_popup_option_val = $('#wpcb_popup_scroll_percentage').val();
+                                    break;
+                    }
+                }
+                else{
+                    var wpcb_popup_type_radio = 0;
+                    var wpcb_popup_option_val = 0;
+                }
+
+                var wpcb_popup_frequency = $('#wpcb_popup_frequency').val() || '10';
 
                 window.settingsData = {
                     action: 'update_box_settings',
@@ -299,7 +349,10 @@ function validateFieldsOnDocumentReady(){
                     box_fade_in: box_fade_in,
                     box_fade_in_time: box_fade_in_time,
                     box_make_sticky: box_make_sticky,
-                    box_id: parseInt(jQuery('#update-box-settings').attr('box_id'))
+                    box_id: box_id,
+                    wpcb_popup_type_radio : wpcb_popup_type_radio,
+                    wpcb_popup_option_val : wpcb_popup_option_val,
+                    wpcb_popup_frequency : wpcb_popup_frequency
                 };
 
                 $.post(ajaxurl, settingsData, function(response) {
@@ -516,6 +569,12 @@ function validateFieldsOnDocumentReady(){
 
                 $(document).on('click','#two-step-toggle', function(){
                     $('#two-step-optin-info').lightbox_me({
+                        centered: true
+                    });
+                });
+                
+                $(document).on('click','#wpcb-popup-toggle', function(){
+                    $('#wpcb-popup-info').lightbox_me({
                         centered: true
                     });
                 });

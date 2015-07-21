@@ -3,6 +3,25 @@
 * By: Ram Shengale
 */
 
+function wpcbAddEvent(obj, evt, boxID, popupFrequency, fn) {
+    if (obj.addEventListener) {
+        obj.addEventListener(evt, fn, false);
+    }
+    else if (obj.attachEvent) {
+        obj.attachEvent("on" + evt, fn);
+    }
+}
+
+function wpcbGetCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
 function wpcbCreateCookie(name,value,hours) {
 	if (days) {
 		var date = new Date();
@@ -41,8 +60,7 @@ function sticky_relocate() {
     }
 }
 
-function wpcbUpdatedVisitType(newvisittype){
-        
+function wpcbUpdatedVisitType(newvisittype){      
         var $wpcbTracker = jQuery('.wpcb-tracker');
         
         var data = {
@@ -56,7 +74,54 @@ function wpcbUpdatedVisitType(newvisittype){
                 $wpcbTracker.data('visittype', newvisittype);
             }
         });
+}
 
+function wpcbOpenPopupModal(boxID,popupFrequency){
+    if(!wpcbGetCookie("wpcb-popup-"+boxID)){
+        jQuery('.wpcb_template_main_'+boxID).lightbox_me({
+            centered: true,
+            closeSelector: '.wpcb_close_popup',
+            onLoad: function(){
+                jQuery('.wpcb_template_main_'+boxID).append("<div class='wpcb_close_popup'></div>");
+            },
+            onClose: function(){
+                jQuery('.wpcb_template_main_'+boxID + '> .wpcb_close_popup').remove();
+            }
+        });
+        var date = new Date();
+        date.setTime(date.getTime() + 1000*60*60*24*popupFrequency);
+        document.cookie="wpcb-popup-"+boxID+"=true; expires="+date.toGMTString()+";";
+    }
+}
+
+function wpcbTriggerPopup(popupType,popupVal,popupFrequency,boxID){
+    
+    switch(popupType){
+        case 1 :    setTimeout(function(){
+                        wpcbOpenPopupModal(boxID, popupFrequency);
+                    },1000 * parseInt(popupVal));
+                    break;
+        case 2 :    wpcbAddEvent(document, "mouseout", boxID, popupFrequency, function(e) {
+                        e = e ? e : window.event;
+                        var from = e.relatedTarget || e.toElement;
+                        if ((!from || from.nodeName == "HTML")) {
+                            wpcbOpenPopupModal(boxID, popupFrequency);
+                        }
+                    });
+            
+                    break;
+        case 3 :    jQuery(window).scroll(function (event) {
+                        var topPosition = jQuery(window).scrollTop();
+                        var bottomPosition = topPosition + jQuery( window ).height();
+                        var wpcbDomHeight = jQuery( document ).height();
+                        var triggerHeight = ( popupVal / 100 ) * wpcbDomHeight;
+                        if(bottomPosition > triggerHeight){
+                            wpcbOpenPopupModal(boxID, popupFrequency);
+                        }
+                    });
+                    
+                    break;
+    }
 }
 
 (function ( $ ) {
@@ -64,9 +129,17 @@ function wpcbUpdatedVisitType(newvisittype){
 
 	$(function () {
                 
-                //$(document).ready(function(){
-                // Updated 1.2.5.1
-                    
+                $(document).ready(function(){
+                    var theBoxID = $('.wpcb_popup_data').attr('id');
+                    if(typeof theBoxID !== 'undefined'){
+                        var boxID = theBoxID.replace( /^\D+/g, '');
+                        var popupType = $('.wpcb_popup_data').data('popup-type');
+                        var popupVal = $('.wpcb_popup_data').data('popup-val');
+                        var popupFrequency = $('.wpcb_popup_data').data('popup-frequency');
+                        wpcbTriggerPopup(popupType,popupVal,popupFrequency,boxID);
+                    }
+                });
+                        
                     window.boxLoadDone = '';
                     window.boxwidth = jQuery('.box_make_sticky').outerWidth();
                     
@@ -188,14 +261,19 @@ function wpcbUpdatedVisitType(newvisittype){
                 
                 $(document).on('click','a[id*="wpcb_two_step_optin_link_"]', function(){
                     var theid = $(this).attr('id');
-                    var id = theid.replace( /^\D+/g, ''); 
+                    var id = theid.replace( /^\D+/g, '');
                     $('.wpcb_template_main_'+id).lightbox_me({
-                        centered: true
+                        centered: true,
+                        closeSelector: '.wpcb_close_popup',
+                        onLoad: function(){
+                            $('.wpcb_template_main_' + id ).append("<div class='wpcb_close_popup'></div>");
+                        },
+                        onClose: function(){
+                            $('.wpcb_template_main_' + id + '> .wpcb_close_popup').remove();
+                        }
                     });
                     wpcbUpdatedVisitType('boxview');
                 });
-                    
-                //});
                 
 	});
 

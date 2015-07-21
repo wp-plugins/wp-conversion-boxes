@@ -384,7 +384,10 @@ class WPCB_Admin {
                 $box_settings = array(
                     'box_fade_in' => $_POST['box_fade_in'],
                     'box_fade_in_time' => $_POST['box_fade_in_time'],
-                    'box_make_sticky' => $_POST['box_make_sticky']    
+                    'box_make_sticky' => $_POST['box_make_sticky'],
+                    'wpcb_popup_type_radio' => $_POST['wpcb_popup_type_radio'],
+                    'wpcb_popup_option_val' => $_POST['wpcb_popup_option_val'],
+                    'wpcb_popup_frequency' => $_POST['wpcb_popup_frequency']
                 );
                 
                 $box_id = $_POST['box_id'];
@@ -396,7 +399,7 @@ class WPCB_Admin {
                 if($wpcb_if_done === FALSE)
                     echo 0;
                 else
-                    echo 1;
+                    echo $box_id;
                 
                 die();
         }

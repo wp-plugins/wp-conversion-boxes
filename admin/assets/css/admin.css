@@ -229,18 +229,22 @@
     background-image: url('../imgs/2-Step-Optin-Link.png');
 }
 
+#wpcb_box_6_label {
+    background-image: url('../imgs/Smart-Popup.png');
+}
+
 .wpcb_box_type input[type=radio] + label {
     background-color: #80807F;
-    background-size: 138px 117px;
+    background-size: 115px 100px;
     background-repeat: no-repeat;
-    height: 110px;
-    width: 110px;
+    height: 95px;
+    width: 95px;
     display: inline-block;
     margin: -2px;
-    padding: 10px 15px 0px 15px;
+    padding: 8px 10px 0px 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 13px;
     font-family: Verdana;
     line-height: 18px;
     color: white;
@@ -262,6 +266,67 @@
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
     background-color: #C5C5C5;
 }
+
+.wpcb_popup_type input[type=radio] {
+    display:none; 
+    margin:10px;
+}
+
+.wpcb_popup_type input[type=radio] + label {
+    background-color: #80807F;
+    display: inline-block;
+    margin: -2px;
+    padding: 8px 15px 8px 15px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+
+.wpcb_popup_type input[type=radio]:checked + label { 
+    outline: 0;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+    background-color: #F9F9F9;
+    color: #000;
+    border: 1px solid #ccc;
+    border-bottom: 0px;
+    border-top: 2px solid #ccc;
+}
+
+.wpcb_popup_type input[type=radio]:checked + label::before{
+    content: "\f147";
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    font: normal 16px/18px 'dashicons';
+    vertical-align: top;
+    background: #80807F;
+    -webkit-border-radius: 300px;
+    -moz-border-radius: 300px;
+    border-radius: 300px;
+    width: 18px;
+    height: 18px;
+    text-shadow: none;
+    text-indent: -1px;
+    z-index: 2;
+    margin-right: 5px;
+}
+
+.wpcb_popup_div{
+    border: 1px solid #ccc;
+    background-color: #F9F9F9;
+    margin-left: -2px;
+    margin-top: 1px;
+    padding: 15px;
+}
+
 
 .minheight150{
     min-height: 150px;
@@ -1070,6 +1135,13 @@ z-index: 999;
 }
 
 #two-step-optin-info{
+    width: 500px;
+    padding: 10px 20px;
+    background: #fff;
+    display: none;
+}
+
+#wpcb-popup-info{
     width: 500px;
     padding: 10px 20px;
     background: #fff;

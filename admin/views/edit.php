@@ -35,24 +35,39 @@ if(isset($_GET['step'])){
     }  
     ?>
     
+    <?php if($step != 2) : ?>
     
-    <div id="poststuff" class="metabox-holder has-right-sidebar">    
+        <div id="poststuff" class="metabox-holder has-right-sidebar">    
 
-        <div class="inner-sidebar" id="side-info-column">
-            <?php $wpcb->wpcb_sidebar(); ?>
-        </div>
+                <div class="inner-sidebar" id="side-info-column">
+                    <?php $wpcb->wpcb_sidebar(); ?>
+                </div>
 
-        <div id="post-body-content">
-                <?php 
-                    if(!isset($id)){
-                        $wpcb->wpcb_edit_page_content(null,null); 
-                    }  
-                    else{
-                        $wpcb->wpcb_edit_page_content($step, $id); 
-                    }
-                ?>
+                <div id="post-body-content">
+                        <?php 
+                            if(!isset($id)){
+                                $wpcb->wpcb_edit_page_content(null,null); 
+                            }  
+                            else{
+                                $wpcb->wpcb_edit_page_content($step, $id); 
+                            }
+                        ?>
+                </div>
+
         </div>
+    
+    <?php elseif($step == 2 && $id != ''): ?>
         
-    </div>
+        <div class="wpcb_customizer_wrap">    
+
+            <?php $wpcb->wpcb_edit_page_content($step, $id); ?>
+
+        </div>
+    
+    <?php 
+        else: 
+            $wpcb->wpcb_edit_page_content(null,null); 
+        endif; 
+    ?>
     
 </div>

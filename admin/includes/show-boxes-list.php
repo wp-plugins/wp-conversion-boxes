@@ -67,10 +67,10 @@
                 $wpcb_list .= ($pageviews != 0) ? "<li class='wpcb-boxes-menu-item'><a class='wpcb_flush' style='color: #a00;' href='' wpcb_id='".$id."'><i class='fa fa-undo'></i> ". __('Reset Box Stats','wp-conversion-boxes') ."</a></li>" : "";
                 $wpcb_list .= "</ul><h3>". __('Shortcode','wp-conversion-boxes') ."</h3><ul class='wpcb-menu-ul'><li class='wpcb-boxes-menu-item' style='padding: 5px 10px;'><input type='text' id='wpcb-shortcode-select' value='[wpcb id=\"".$id."\"]' ></li>";
                 $wpcb_list .= "</ul></div></div></td>";
-                $wpcb_list .= "<td id='wpcb_unique_visitors'>".$uniquevisitors."</td>";
-                $wpcb_list .= "<td id='wpcb_pageviews'>".$pageviews."</td>";
-                $wpcb_list .= "<td id='wpcb_box_views'>".$uniqueboxviews."</td>";
-                $wpcb_list .= "<td id='wpcb_ctr_optins'>".$conversions.$conversion_type."</td>";
+                $wpcb_list .= "<td id='wpcb_unique_visitors'>".number_format($uniquevisitors)."</td>";
+                $wpcb_list .= "<td id='wpcb_pageviews'>".number_format($pageviews)."</td>";
+                $wpcb_list .= "<td id='wpcb_box_views'>".number_format($uniqueboxviews)."</td>";
+                $wpcb_list .= "<td id='wpcb_ctr_optins'>".number_format($conversions).$conversion_type."</td>";
                 $wpcb_list .= "<td id='wpcb_ctr_optins_percent'>".$conversion_rate."%</td>";
                 $wpcb_list .= "</tr>";
                 echo $wpcb_list;

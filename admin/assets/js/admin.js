@@ -647,6 +647,12 @@ function validateFieldsOnDocumentReady(){
                     $('#wpcb_shortcode_input').show();
                 });
 
+                $("ul.wpcb_customizer_accordion").accordion({
+                    heightStyle: "content",
+                    collapsible: true,
+                    active: false, 
+                });
+                
         });
 
 }(jQuery));

@@ -124,7 +124,12 @@ class WPCB_Admin {
 			return;
 		}
 
-		$wpcb_screen = get_current_screen();
+                $wpcb_screen = get_current_screen();
+                
+                if($this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id){
+                    wp_enqueue_script('jquery-ui-accordion');
+                }
+                
 		if ( $this->wpcb_main_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_edit_screen_hook_suffix == $wpcb_screen->id || $this->wpcb_settings_screen_hook_suffix == $wpcb_screen->id ) {
                         wp_enqueue_script('wp-color-picker');
                         wp_enqueue_media();
@@ -285,9 +290,7 @@ class WPCB_Admin {
                            break;    
                 }   
             }
-            
         }
-        
         
         /***************************************
          * Handle AJAX call to save the new box 
@@ -649,39 +652,44 @@ class WPCB_Admin {
          ***************************************/        
         
         public function include_the_template_and_settings($box_type, $box_template, $box_customizations, $box_id){
-            if($box_type == 5){
-                echo "<div class='wpcb_stick_this_offset'></div><div class='postbox wpcb_stick_this'><h3>". __('Popup Lightbox Preview','wp-conversion-boxes') ."<span style='float: right;'><label><input type='checkbox' class='wpcb_box_preview_stick' name='wpcb_box_preview_stick' />". __('Stick preview to top','wp-conversion-boxes') ."</label></span></h3><div class='inside minheight150'>";
+            
+            if($box_type == 5 || $box_type == 6){
+                echo "<div class='wpcb_box_customizer'><h3>". __('Popup Lightbox Preview','wp-conversion-boxes')."</h3>";
             }
             else{
-                echo "<div class='wpcb_stick_this_offset'></div><div class='postbox wpcb_stick_this'><h3>". __('Box Preview','wp-conversion-boxes') ."<span style='float: right;'><label><input type='checkbox' class='wpcb_box_preview_stick' name='wpcb_box_preview_stick' />". __('Stick preview to top','wp-conversion-boxes') ."</label></span></h3><div class='inside minheight150'>";
+                echo "<div class='wpcb_box_customizer'><h3>". __('Box Preview','wp-conversion-boxes')."</h3>";
             }
             
             $wpcb_default_fields = $box_customizations;
             $wpcb_upgrade_message = $this->upgrade_to_pro();
+            
             switch($box_type){
-                    case 1 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_1.'/'.$box_template.'/template.php');
+                    case 1 :    include_once(WPCB_TEMPLATE_DIR_PATH.$this->template_directory_1.'/'.$box_template.'/template.php');
                                 break;
-                    case 2 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_2.'/'.$box_template.'/template.php');
+                    case 2 :    include_once(WPCB_TEMPLATE_DIR_PATH.$this->template_directory_2.'/'.$box_template.'/template.php');
                                 break;
-                    case 3 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_3.'/'.$box_template.'/template.php');
+                    case 3 :    include_once(WPCB_TEMPLATE_DIR_PATH.$this->template_directory_3.'/'.$box_template.'/template.php');
                                 break;
-                    case 4 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_4.'/'.$box_template.'/template.php');
+                    case 4 :    include_once(WPCB_TEMPLATE_DIR_PATH.$this->template_directory_4.'/'.$box_template.'/template.php');
                                 break;
-                    case 5 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_5.'/'.$box_template.'/template.php');
+                    case 5 :    include_once(WPCB_TEMPLATE_DIR_PATH.$this->template_directory_5.'/'.$box_template.'/template.php');
                                 break;
-                    case 6 :    include_once(TEMPLATE_DIR_PATH.$this->template_directory_6.'/'.$box_template.'/template.php');
+                    case 6 :    include_once(WPCB_TEMPLATE_DIR_PATH.$this->template_directory_6.'/'.$box_template.'/template.php');
                                 break;
             }
             
-            echo "</div></div>";
-            echo "<div class='postbox'><h3>". __('Box Customizations','wp-conversion-boxes') ."</h3><div class='inside minheight150'>";
+            echo "</div>";
+            echo "<div class='wpcb_box_customizer_options'>";
+            echo "<div class='wpcb_nav_buttons_step_2'><a href='".admin_url( 'admin.php?page=' . $this->wpcb_edit_slug )."&step=1&id=".$box_id."' class='wpcb_customizer_back_button'></a><input type='submit' box_id='". $box_id ."' value='".__('Save and Next','wp-conversion-boxes'). "' class='button button-primary' name='update-box-customizations' id='update-box-customizations'/>";
+            echo "<button box_id='". $box_id ."' class='button' id='restore-to-default'>".__('Reset','wp-conversion-boxes')."</button></div>";
+            echo "<div class='wpcb_box_customizer_options_main_wrap'><div class='wpcb_box_customizer_options_main'><h3 class='wpcb_customizer_page_title'>". __('Step 2 : Customize Box','wp-conversion-boxes') ."</h3>";
             
             if($box_type == 5){
-                echo "<p><b>Note:</b> You've selected the box type as <em>'2-Step Optin Link'</em>. This box type has two parts - optin link and email optin box (which appears as popup when you click on the optin link). This page is for customization of the email optin box. Customization of optin link is done during the last Publishing step.</p>";
+                echo "<p style='padding: 0px 15px 20px 15px; background-color: #fff; margin: 0px;'><b>Note:</b> You've selected the box type as <em>'2-Step Optin Link'</em>. This box type has two parts - optin link and email optin box (which appears as popup when you click on the optin link). This page is for customization of the email optin box. Customization of optin link is done during the last Publishing step.</p>";
             }
             
             include_once('includes/default-customizations-fields.php');
-            echo "</div></div>";
+            echo "</div></div><div class='wpcb_customizer_footer'><em>WP Conversion Boxes</em></div></div>";
         }
         
         /***************************************
@@ -905,7 +913,7 @@ class WPCB_Admin {
                     $imported_xml_name = $_FILES['wpcb_import_xml']['name'];
                     $ext = pathinfo($imported_xml_name, PATHINFO_EXTENSION);
                     if($ext != 'xml'){
-                        echo "<div class='error'><p>". __('Invalid file format. Please upload an XML file.', 'wp-conversion-boxes-pro') ."</p></div>";
+                        echo "<div class='error'><p>". __('Invalid file format. Please upload an XML file.', 'wp-conversion-boxes') ."</p></div>";
                     }
                     else{
                         $boxes = simplexml_load_file($imported_xml['tmp_name']) or die("Error: There was an error parsing your export file.");
@@ -939,7 +947,7 @@ class WPCB_Admin {
                     }
                 }
                 else{
-                    echo "<div class='error'><p>". __('No file selected. Please select an XML file before clicking on Import.', 'wp-conversion-boxes-pro') ."</p></div>";
+                    echo "<div class='error'><p>". __('No file selected. Please select an XML file before clicking on Import.', 'wp-conversion-boxes') ."</p></div>";
                 }
                 
             }

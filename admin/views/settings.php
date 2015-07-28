@@ -236,12 +236,12 @@ else if(isset($_POST['mailer']) and isset($_POST['disconnect'])){
                                                 <tr>
                                                     <td><img style="width: 200px;" src="<?php echo ADMIN_ASSETS_URL.'imgs/feedburner-logo.png'; ?>" /></td>
                                                     <?php if(get_option('wpcb_feedburner_uri') == '') : ?>
-                                                        <td><button class="button-primary wpcb_mailer" data-mailer-id="11"><?php _e('Integrate','wp-conversion-boxes-pro'); ?></button></td>
-                                                        <td><a class="button-primary" target="_blank" href="http://wpconversionboxes.com/email-services/feedburner/"><?php _e('Create Account For Free','wp-conversion-boxes-pro'); ?></a></td>
+                                                        <td><button class="button-primary wpcb_mailer" data-mailer-id="11"><?php _e('Integrate','wp-conversion-boxes'); ?></button></td>
+                                                        <td><a class="button-primary" target="_blank" href="http://wpconversionboxes.com/email-services/feedburner/"><?php _e('Create Account For Free','wp-conversion-boxes'); ?></a></td>
                                                     <?php else : ?>
                                                         <td>
                                                             <form action="" method="post">
-                                                                <input type="submit" class="button-primary" name="disconnect" value="<?php _e('Disconnect','wp-conversion-boxes-pro'); ?>">
+                                                                <input type="submit" class="button-primary" name="disconnect" value="<?php _e('Disconnect','wp-conversion-boxes'); ?>">
                                                                 <input type="hidden" name="mailer" value="11">
                                                             </form>
                                                         </td>

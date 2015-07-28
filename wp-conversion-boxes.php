@@ -3,13 +3,13 @@
  * @package   WP_Conversion_Boxes
  * @author    Ram Shengale <me@ramshengale.in>
  * @license   GPL-2.0+
- * @copyright 2014 Ram Shengale
+ * @copyright 2015 Ram Shengale
  *
  * @wordpress-plugin
  * Plugin Name:       WP Conversion Boxes - Email Optin & CTA Boxes
  * Plugin URI:        http://wpconversionboxes.com
  * Description:       Same Traffic. More Conversions. Replace your CTAs and email/optin subscriber boxes with WP Conversion Boxes and skyrocket your conversion rate.
- * Version:           2.7
+ * Version:           2.8
  * Author:            Ram Shengale
  * Author URI:        http://ramshengale.in
  * Text Domain:       wp-conversion-boxes

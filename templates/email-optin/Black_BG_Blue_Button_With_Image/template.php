@@ -7,7 +7,7 @@ static $wpcb_template_type = 'call-to-action';
 if($wpcb_default_fields == '' or $wpcb_default_fields['defaults'] == 'defaults'){
     $wpcb_default_fields = array(
             'box_container_bg_color' => '#4B4B4B',
-            'box_container_width' => '',
+            'box_container_width' => '650px',
             'box_container_height' => '',
             'box_container_border_width' => '',
             'box_container_border_color' => '',

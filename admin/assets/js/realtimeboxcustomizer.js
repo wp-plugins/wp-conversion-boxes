@@ -155,6 +155,8 @@ function applyChanges(){
                 ';color:'+templateFields['button_text_color']+';text-align:'+templateFields['button_align']+';border-radius:'+templateFields['button_border_radius'];
     
     jQuery('.wpcb_template_main').prev('style').html(templateFields['custom_css']);
+    
+    jQuery('.wpcb_template_main').css({position: 'absolute', top: jQuery('.wpcb_customizer_wrap').height()/2 - jQuery('.wpcb_template_main').height()/2 - 50 , left: jQuery('.wpcb_box_customizer').width()/2 - jQuery('.wpcb_template_main').width()/2 - 20 }) 
 }
 
 function ltrim(str,c){
@@ -324,7 +326,7 @@ function wpcbValidateForm(){
             jQuery('.wpcb_template_main').before('<style></style>');
             
             $('#input_campaign_name').ddslick({
-                width: 300,
+                width: 250,
                 selectText: "Select a campaing/list."
             });
             

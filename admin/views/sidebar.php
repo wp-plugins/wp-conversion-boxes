@@ -7,7 +7,7 @@
     <div class="inside">
         <p>Upgrade to WP Conversion Boxes Pro for higher converting email optin and call-to-action boxes.</p>
         <p> Watch the demo video below to take a look inside...</p>
-        <a class="wpcb_launch_popup" onclick="jQuery('.wpcb_promo_popup').lightbox_me({centered: true});">Read More...</a>
+        <a class="wpcb_launch_popup" onclick="jQuery('.wpcb_promo_popup').lightbox_me({centered: true});">Unlock now...</a>
     </div>
 </div>
 
@@ -130,7 +130,7 @@ else{?>
         
     </div>
     <div id="wpcb_promo_popup_foot">
-        <a class="button button-primary" target="_blank" href="http://wpconversionboxes.com/?utm_source=sidebar&utm_medium=link&utm_campaign=WPCB">Upgrade Now!</a>
-        <button class="button button-primary" onclick="jQuery(this).parent().trigger('close');">Later</button>
+        <a class="button button-primary" target="_blank" href="http://wpconversionboxes.com/?utm_source=sidebar&utm_medium=link&utm_campaign=WPCB">Unlock and Upgrade Now!</a>
+        <a class="button button-primary" target="_blank" href="http://wpconversionboxes.com/?utm_source=sidebar&utm_medium=link&utm_campaign=WPCB">Visit Site</a>
     </div>
 </div>

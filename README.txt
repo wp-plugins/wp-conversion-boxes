@@ -4,7 +4,7 @@ Donate link: http://wpconversionboxes.com/donate/
 Tags: optin, opt-in, optin box, email, email optin, email signup, email signup form, email signup box, email subscribers, email subscription form, subscription box, subscription form, signup form, signup box, email marketing, cta, call to action, Calls to Action, email list, list building, wp conversion boxes
 Requires at least: 3.5.1
 Tested up to: 4.2.2
-Stable tag: 2.8
+Stable tag: 2.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
